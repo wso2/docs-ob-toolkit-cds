@@ -9,9 +9,9 @@ template: templates/single-column.html
     </header>
     <div class="md-main .md-content" style="float:left; width: 45%;  text-align:justify; max-height:100%; ">
         <p>
-        Open Banking CDS Toolkit delivers end-to-end compliance for the Consumer Data Standards released by Data61 (Data Standards Body) for Australia. The toolkit increases the speed 
-        and reduces the complexity of adopting open banking compliance. Instead of building a solution from scratch, you 
-        can simply deploy WSO2 Open Banking CDS Toolkit to meet all legislative requirements with additional benefits 
+        Open Banking CDS Toolkit delivers end-to-end compliance for Australia’s Consumer Data Standard. It increases the speed 
+        and reduces the complexity of adopting Consumer Data Right (CDR) compliance for banks. Instead of building an open 
+        banking solution from scratch, you can simply deploy WSO2 Open Banking UK Toolkit to meet all legislative requirements with additional benefits 
         beyond compliance.       
         </p>
         <p>
@@ -67,7 +67,7 @@ template: templates/single-column.html
     			</div>
     			<div class="card-content">
     				<p class="title">Secured API Invocation</p>
-    				<p class="hint">Comprehensive support of FAPI and eIDAS certificate validation</p>
+    				<p class="hint">Comprehensive support of Financial-grade API (FAPI) compliance </p>
     			</div>
     		</div>
     		<!-- end card -->
