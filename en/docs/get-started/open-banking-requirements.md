@@ -1,5 +1,5 @@
 When you implement an open banking architecture, it is not entirely about securely exposing banking APIs to 
-TPPs. Banks need to manage and allow TPPs to provide services to their customers. There are key 
+Data Recipients. Banks need to manage and allow Data Recipients to provide services to their customers. There are key 
 requirements to consider when you implement an open banking architecture. This section explains how WSO2 Open 
 Banking addresses the open banking requirements in the solution:
 
@@ -7,39 +7,42 @@ Banking addresses the open banking requirements in the solution:
 
 ## How WSO2 Open Banking delivers open banking requirements
 
-1. **TPP Onboarding** - TPP Onboarding is the process of verifying a TPP when they register 
-with a bank to provide services to customers. It is important since the TPP has access to the customer's 
-financial information via their applications. The solution provides dynamic client registration for TPPs.
+1. **Dynamic Client Registration** - Dynamic Client Registration (DCR) is the process of verifying a Data Recipient when they register 
+with a bank to provide services to customers. It is important since the Data Recipient has access to the customer's 
+financial information via their applications. WSO2 Open Banking provides dynamic client registration for Data Recipients.
  
 2. **Consent Management** - Consent management is the process of prompting, collecting, and managing bank customer’s 
-consent before a TPP collects or shares the customer's financial information. The Solution includes a 
+consent before a Data Recipient collects or shares the customer's financial information. The Solution includes a 
 fully-featured consent management module that:
 
     - securely exposes consent data through an API
     - provides in-built consent management user interfaces for customers and bank staff
     - manages the entire consent life cycle
-   
-    A consent goes through a phased life cycle as follows:
-   ![lifecycle of a consent](../assets/img/get-started/open-banking-requirements/consent-lifecycle.png)
-   
-     - **Consent provision**: A TPP application sends a consent request to the bank containing the customer’s 
-     financial information that it wants to access.
-   
-     - **Consent grant**: The bank redirects the consent request to the customer to approve/deny.
- 
-     - **Consent verification**: The bank verifies if the customer has approved the TPP application to access 
-     the information. If the bank customer has denied the consent, the bank must detect and stop the application from 
-     invoking the banking APIs.
- 
-     - **Consent revocation**: A customer can revoke the consent via consent management applications. It can either be 
-     done by the customer themselves or by a bank representative upon the customer’s request.
- 
-     - **Consent expiration**: When the consent validity period expires, the bank sets the consent status as expired. 
-     For the TPP application to access the customer’s financial information again, the customer needs to regrant 
-     the consent.
-  
+
+!!! tip
+    CDS refers to the consumer's consent as a *Sharing Arrangement*.  It implies the consent setup with the Accredited
+    Data Recipient and the related authorization granted at the Data Holder.
+
+   <br/>  A consent goes through a phased life cycle as follows: ![lifecycle of a consent](../assets/img/get-started/open-banking-requirements/consent-lifecycle.png)
+
+ - **Consent provision**: A Data Recipient application sends a consent request to the bank containing the customer’s 
+ financial information that it wants to access.
+
+   - **Consent grant**: The bank redirects the consent request to the customer to approve/deny.
+
+   - **Consent verification**: The bank verifies if the customer has approved the Data Recipient application to access 
+   the information. If the bank customer has denied the consent, the bank must detect and stop the application from 
+   invoking the banking APIs.
+
+   - **Consent revocation**: A customer can revoke the consent via consent management applications. It can either be 
+   done by the customer themselves or by a bank representative upon the customer’s request.
+
+   - **Consent expiration**: When the consent validity period expires, the bank sets the consent status as expired. 
+   For the Data Recipient application to access the customer’s financial information again, the customer needs to regrant 
+   the consent.
+
 3. **Consumer Authentication** - Consumer authentication is an authentication mechanism with a layered defence. 
-When a user initiates a payment or accesses information via a TPP application, it authenticates the user 
+When a user initiates a payment or accesses information via a Data Recipient application, it authenticates the user 
 using the following factors one at a time:
    ![authentication factors](../assets/img/get-started/open-banking-requirements/authentication-factors.png)
   
@@ -62,26 +65,26 @@ the Micro Integrator, WSO2 Open Banking can support:
 6. **Data Analytics** - The solution to mediate between the bank’s systems and modern analytics systems. Analytics allows 
 banks to monitor user patterns and behaviours and to identify fraudulent activities.
 
-7. **API Security** - TPPs invoke APIs to access customer’s financial information. Therefore, API security plays 
+7. **API Security** - Data Recipients invoke APIs to access customer’s financial information. Therefore, API security plays 
 a vital role in open banking to mitigate data theft. The solution has built-in support for global industry-standards 
 such as OpenID Connect Financial Grade API (FAPI), OAuth 2.0, Electronic Identification and Trust Services (eIDAS).
 
      API security can be categorised into two main levels:
 
-     - Application layer security -     Validates TPPs against the certificates issued by competent authorities. 
+     - Application layer security -     Validates Data Recipients against the certificates issued by competent authorities. 
      For example: open banking directories, Qualified Trust Service Providers (QTSPs).
     
      Also, the solution supports OAuth2 security implementations such as Private key JWT authentication, 
      client-credentials grant type, and authorization code grant type.
     
-     - Transport layer security - Secures the communication between the TPP, and the bank using Mutual Transport 
+     - Transport layer security - Secures the communication between the Data Recipient, and the bank using Mutual Transport 
      Layer Security (MTLS). 
 
-8. **User Experience** - The solution provides an enhanced user experience for the banks, TPPs, and customers with 
+8. **User Experience** - The solution provides an enhanced user experience for the banks, Data Recipients, and customers with 
 self-explanatory and simple actions.
 
 9. **Premium APIs and Monetization** - Using the capabilities in WSO2 API Manager, WSO2 Open Banking allows:
-    - banks to publish highly-performant custom APIs for TPPs. 
+    - banks to publish highly-performant custom APIs for Data Recipients. 
     - banks to expose their performance and compliance data by integrating into analytics engines.
     - banks to plug in any billing engines with subscription-based freemium, tiered pricing, or per-request pricing.
 
@@ -106,5 +109,5 @@ Let’s compare the two approaches:
 
 In conclusion, both approaches address the market requirements of the respective region/country. However, reports show 
 that the regulatory-driven approach is much cleaner and standardizes open banking growth. It helps all the banks to 
-securely expose their banking APIs to TPP applications at a given time offering all their customers to make 
+securely expose their banking APIs to Data Recipient applications at a given time offering all their customers to make 
 use of it.
