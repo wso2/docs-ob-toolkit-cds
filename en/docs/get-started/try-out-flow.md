@@ -1,9 +1,6 @@
-This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
+This document provides step by step instructions to deploy, subscribe, and invoke the Consumer Data Standards API. 
 
-!!! tip
-    When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
-
-## Deploying Account and Transaction API
+## Deploying Consumer Data Standards API
 
 1. Sign in to the [API Publisher Portal](https://localhost:9443/publisher) with the credentials for `mark@gold.com`. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
@@ -11,47 +8,47 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the relevant API from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` directory.
 
 5. Click **Next**.
 
-6. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
+6. Set the **Endpoint** as follows:
+   ```
+   https://localhost:9443/api/openbanking/cds/backend/services
+   ```
+7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
-7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-9. Click **Save**.
+10. Click **Save**.
 
-10. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
+11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-12. Now, select the **Custom Policy** option.
+13. Now, select the **Custom Policy** option.
 
-13. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` insequence file. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
  
-14. Click **Select**. 
+15. Click **Select**. 
 
-15. Scroll down and click **SAVE**.
+16. Scroll down and click **SAVE**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
-
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
-
-18. Go to **Deployments** using the left menu pane. 
+19. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
     
-19. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+20. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-20. Click **Deploy**.
+21. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane. 
+22. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+23. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
 ### Summarized information for configuring APIs
 
@@ -59,177 +56,28 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 | API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
 |-----|--------------------------------|--------------|---------------------------------- |
-| Account and Transaction API v3.1.6 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/account-info-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Accounts/3.1.6/accounts-dynamic-endpoint-insequence-3.1.6.xml` |
-| Payment Initiation API v3.1.6 |`<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/payment-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/Payments/3.1.6/payments-dynamic-endpoint-insequence-3.1.6.xml` |
-| Confirmation of Funds API v3.1.6 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-swagger-3.1.6.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/FundsConfirmation/3.1.6/funds-confirmation-dynamic-endpoint-insequence-3.1.6.xml` |
-| Dynamic Client Registration API v3.3.0 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-swagger.yaml` | Dynamic Endpoint | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dcr-dynamic-endpoint-insequence-3.3.0.xml` |
+| Consumer Data Standards API v1.8 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` | HTTP/REST Endpoint <br/> `https://localhost:9443/api/openbanking/cds/backend/services` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` |
+| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` | HTTP/REST Endpoint <br/> ` https://localhost:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
 
-## Subscribing to Account and Transaction API
+## Subscribing to Consumer Data Standards API
 
 1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the **ConsumerDataStandards V1.8** API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Account and Transaction API V3.1. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Consumer Data Standards API V1.8. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 
-## Invoking Account and Transaction API
-
-### Generating application access token
-
-Once you register the application, generate an application access token.
-
-1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
-
-!!! note
-    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-    download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
-
-``` tab='Format'
-
-{
-"alg": "<The algorithm used for signing.>",
-"kid": "<The thumbprint of the certificate.>",
-"typ": "JWT"
-}
- 
-{
-"iss": "<This is the issuer of the token. For example, client ID of your application>",
-"sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
-"exp": <This is the epoch time of the token expiration date/time>,
-"iat": <This is the epoch time of the token issuance date/time>,
-"jti": "<This is an incremental unique value>",
-"aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
-}
- 
-<signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
-```
-
-``` tab='Sample'
-eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
-```
-
-2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-``` curl
-curl -X POST \
-https://localhost:9446/oauth2/token \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
-```
-
-3. Upon successful token generation, you can obtain a token as follows:
-``` json
-{
-   "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"accounts",
-   "token_type":"Bearer",
-   "expires_in":3600
-}
-```
-
-### Initiating an account consent
-
-In this step, the AISP generates a request to get the consent of the PSU to access the accounts and banking information. 
-
-1. Create an account consent using the following request format:
-```
-curl -X POST \
-https://localhost:8243/open-banking/v3.1/aisp/account-access-consents \
--H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
--H 'Content-Type: application/json' \
--H 'Accept: application/json' \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d '{
-    "Data": {
-        "Permissions": [
-            "ReadAccountsBasic",
-            "ReadAccountsDetail",
-            "ReadBalances",
-            "ReadBeneficiariesBasic",
-            "ReadBeneficiariesDetail",
-            "ReadDirectDebits",
-            "ReadProducts",
-            "ReadStandingOrdersBasic",
-            "ReadStandingOrdersDetail",
-            "ReadTransactionsBasic",
-            "ReadTransactionsCredits",
-            "ReadTransactionsDebits",
-            "ReadTransactionsDetail",
-            "ReadStatementsBasic",
-            "ReadStatementsDetail",
-            "ReadOffers",
-            "ReadParty",
-            "ReadPartyPSU",
-            "ReadScheduledPaymentsBasic",
-            "ReadScheduledPaymentsDetail",
-            "ReadPAN"
-        ],
-        "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-        "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-        "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30"
-    },
-    "Risk": {
-        
-    }
-}'
-```
-
-2. The response contains a Consent Id. A sample response is as follows:
-
-    ```
-    {
-        "Data": {
-            "ConsentId": "dc64e27c-7139-440e-8b4f-cd70c649e096",
-            "Status": "AwaitingAuthorisation",
-            "StatusUpdateDateTime": "2021-08-12T10:37:38+05:30",
-            "CreationDateTime": "2021-08-12T10:37:38+05:30",
-            "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-            "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30",
-            "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-            "Permissions": [
-                "ReadAccountsBasic",
-                "ReadAccountsDetail",
-                "ReadBalances",
-                "ReadBeneficiariesBasic",
-                "ReadBeneficiariesDetail",
-                "ReadDirectDebits",
-                "ReadProducts",
-                "ReadStandingOrdersBasic",
-                "ReadStandingOrdersDetail",
-                "ReadTransactionsBasic",
-                "ReadTransactionsCredits",
-                "ReadTransactionsDebits",
-                "ReadTransactionsDetail",
-                "ReadStatementsBasic",
-                "ReadStatementsDetail",
-                "ReadOffers",
-                "ReadParty",
-                "ReadPartyPSU",
-                "ReadScheduledPaymentsBasic",
-                "ReadScheduledPaymentsDetail",
-                "ReadPAN"
-            ]
-        },
-       "Meta": {
-            
-        },
-        "Risk": {
-            
-        },
-        "Links": {
-            "Self": "https://localhost:8243/open-banking/3.1/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
-        }
-    }
-    ```
+## Invoking Consumer Data Standards API
    
 ### Authorizing a consent
 
-The AISP application redirects the bank customer to authenticate and approve/deny application-provided consents.
+The Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
@@ -278,7 +126,7 @@ The AISP application redirects the bank customer to authenticate and approve/den
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
     ```
 
-2. The ASPSP sends the request to the customer stating the accounts and information that the API consumer wishes to access. 
+2. The Data Holder sends the request to the consumer stating the accounts and information that the application wishes to access. 
 This request is in the format of a URL as follows. 
 
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
@@ -293,7 +141,7 @@ user that has a `subscriber` role.
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
-5. At the bottom of the page, a list of bank accounts that the AISP wishes to access is displayed.
+5. At the bottom of the page, a list of bank accounts that the Data Recipient application wishes to access is displayed.
 
 6. Select one or more accounts from the list and click **Confirm**. ![confirm_consent](../assets/img/get-started/quick-start-guide/consent-page-confirm.png)
 
@@ -363,12 +211,12 @@ In this section, you will be generating an access token using the authorization 
     }
     ```
    
-### Invoking Accounts and Transaction API
+### Invoking Consumer Data Standards API
 
-Once the PSU approves the account consent, the AISP is eligible to access the account details of the PSU.
+Once the consumer approves the account consent, the Data Recipient application is eligible to access the account details of the consumer.
 
-The AISP can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
-full list of accounts that the PSU has authorised the AISP to access. The Account Ids returned are used to retrieve 
+The application can now invoke the **GET/ accounts** endpoint available in the CDS API. This retrieves a 
+full list of accounts that the consumer has authorised the application to access. The Account Ids returned are used to retrieve 
 other resources for a specific AccountId.
 
 1. A sample request looks as follows:

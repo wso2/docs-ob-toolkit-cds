@@ -17,12 +17,12 @@ Now you have started the servers, let’s create the users and define their perm
 1. Go to the Main tab on the left top corner and select **Identity** -> **Users and Roles** -> **Add**. ![add_user_roles](../assets/img/get-started/quick-start-guide/go-to-add-user-roles.png)
 2. Click **Add New Role**.
 3. Create the following user roles:   
-  
-    | Domain | Role| Permissions|
-    |--------|--------|--------|
-    |Internal|approverRole|Admin permissions|
-    |Internal|CustomerCareOfficerRole|No permissions required.|
-    
+
+    | Domain | Role| Permissions | Description |
+    |--------|--------|--------|---------------|
+    |Internal|approverRole|Admin permissions| To approve applications when you register applications using the signup workflow. |
+    |Internal|CustomerCareOfficerRole|No permissions required | To log in to the Consent Manager portal as a customer care officer. |
+
     i. Creating **approverRole**:
     
       - Select the **INTERNAL** domain and enter the role name as **approverRole**:
