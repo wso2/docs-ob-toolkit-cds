@@ -1,4 +1,27 @@
-This page explains how to onboard TPP applications using the Dynamic Client Registration API. 
+This page explains how to onboard a Data Recipient application using the Dynamic Client Registration API. 
+
+!!! tip "Before you begin..."
+
+    1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+
+    2. Configure the jwks endpoints as follows. These endpoints are used for validating the SSA signature. 
+
+        ```toml
+        [open_banking.dcr]
+        jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/sgsMuc8ACBgBzinpr8oJ8B.jwks"
+        jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/sgsMuc8ACBgBzinpr8oJ8B.jwks"
+        ```
+
+    3. If the SSA is a custom SSA, configure the following tags:
+
+        ```toml
+        [open_banking_cds.dcr]
+        enable_uri_validation=false
+        enable_hostname_validation=false
+        enable_sector_identifier_uri_validation=false
+        ```
+
+    4. Restart the Identity Server.
 
 ### Step 1: Deploy the Dynamic Client Registration(DCR) API
 
@@ -9,54 +32,53 @@ privileges. You can use the credentials for `mark@gold.com`. ![sign_in](../asset
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/
-openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-swagger.yaml` file.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 5. Click **Next**.
 
-6. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
+6. Set the **Endpoint** as follows:
+    ``` 
+    https://localhost:9446/api/openbanking/dynamic-client-registration
+    ```
+7. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
-7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-9. Click **Save**.
+10. Click **Save**.
 
-10. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**. 
+11. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**. 
 
     ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
     
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-12. Now, select the **Custom Policy** option.
+13. Now, select the **Custom Policy** option.
 
-13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.uk/DynamicClientRegistration/3.3.0/dcr-dynamic-endpoint-insequence-3.3.0.xml` file. ![dcr_insequence](../assets/img/get-started/quick-start-guide/dcr-insequence.png)
+14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` file. ![dcr_insequence](../assets/img/get-started/quick-start-guide/dcr-insequence.png)
  
-14. Click **Select**. 
+15. Click **Select**. 
 
-15. Scroll down and click **SAVE**.
+16. Scroll down and click **SAVE**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
-
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
-
-18. Go to **Deployments** using the left menu pane. 
+19. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-19. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+20. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-20. Click **Deploy**.
+21. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane. 
+22. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+23. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-23. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
+24. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
-24. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
+25. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
     to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
     `<IS_HOME>/repository/resources/security/client-truststore.jks` using the following command:
     
@@ -64,7 +86,7 @@ openbanking.org.uk/DynamicClientRegistration/3.3.0/dynamic-client-registration-s
     keytool -import -alias <alias> -file <certificate_location> -storetype JKS -keystore <truststore_location> -storepass wso2carbon
     ```
                 
-25. Restart the Identity Server and API Manager instances.
+26. Restart the Identity Server and API Manager instances.
 
 ## Step 2: Configure IS as Key Manager
 

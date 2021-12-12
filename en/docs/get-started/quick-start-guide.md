@@ -1,7 +1,7 @@
-WSO2 Open Banking UK Toolkit contains the customizations done on top of WSO2  Open Banking Accelerator to comply with 
-the Open Banking UK specification. This toolkit has been developed as an extension of WSO2 Open Banking Accelerator. 
-The accelerators run on top of WSO2 Identity Server, WSO2 API Manager, WSO2 Streaming Integrator and these are referred 
-to as base products.
+WSO2 Open Banking CDS Toolkit contains the customizations done on top of WSO2 Open Banking Accelerator to comply with 
+the Australian Consumer Data Standards specification. This toolkit has been developed as an extension of WSO2 Open Banking 
+Accelerator. The accelerators run on top of WSO2 Identity Server, WSO2 API Manager, WSO2 Streaming Integrator and these 
+are referred to as base products.
 
 This section guides you on how to set up the solution in a local environment. Follow the instructions to find how you 
 can quickly set up and try out a basic flow.
@@ -50,21 +50,21 @@ accelerators:
     - wso2-obam-accelerator-3.0.0
     - wso2-obbi-accelerator-3.0.0
             
-## Installing WSO2 Open Banking UK Toolkit
+## Installing WSO2 Open Banking CDS Toolkit
 
 1. If you have an active WSO2 Open Banking subscription, contact us via 
-[WSO2 Online Support System](https://support.wso2.com/) to download Open Banking UK Toolkit 1.0.0.
-       
+[WSO2 Online Support System](https://support.wso2.com/) to download Open Banking CDS Toolkit 1.0.0.
+
     !!! note
         If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
         for more information.
               
-2. Extract the downloaded WSO2 Open Banking UK Toolkit zip files. WSO2 Open Banking UK Toolkit contains the following 
-accelerators:
+2. Extract the downloaded WSO2 Open Banking CDS Toolkit zip files. WSO2 Open Banking CDS Toolkit contains the following 
+toolkits:
    
-    - wso2-obiam-toolkit-uk-1.0.0
-    - wso2-obam-toolkit-uk-1.0.0
-    - wso2-obbi-toolkit-uk-1.0.0
+    - wso2ob-is-toolkit-cds-1.0.0
+    - wso2ob-apim-toolkit-cds-1.0.0
+    - wso2ob-bi-toolkit-cds-1.0.0
 
 3. This document uses the following placeholders to refer to the following products:
         
@@ -74,8 +74,8 @@ accelerators:
     |WSO2 API Manager|`<APIM_HOME>`|
     |WSO2 Open Banking Identity Server Accelerator|`<OB_IS_ACCELERATOR_HOME>`|
     |WSO2 Open Banking API Manager Accelerator |`<OB_APIM_ACCELERATOR_HOME>`|
-    |WSO2 Open Banking Identity Server UK Toolkit|`<OB_IS_TOOLKIT_HOME>`|
-    |WSO2 Open Banking API Manager UK Toolkit|`<OB_APIM_TOOLKIT_HOME>`|
+    |WSO2 Open Banking Identity Server CDS Toolkit|`<OB_IS_TOOLKIT_HOME>`|
+    |WSO2 Open Banking API Manager CDS Toolkit|`<OB_APIM_TOOLKIT_HOME>`|
 
 ## Getting WSO2 Updates
 
