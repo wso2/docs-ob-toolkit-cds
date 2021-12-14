@@ -1,11 +1,11 @@
 !!!tip "Prerequisites"
-    Set up WSO2 Open Banking Business Intelligence Accelerator and WSO2 Open Banking Business Intelligence UK Toolkit 
+    Set up WSO2 Open Banking Business Intelligence Accelerator and WSO2 Open Banking Business Intelligence CDS Toolkit 
     as follows:
     
     !!!note          
         - `<SI_HOME>` refers to the root directory of WSO2 Streaming Integrator.
         - `<OB_BI_ACCELERATOR_HOME>` refers to the root directory of WSO2 Open Banking Business Intelligence Accelerator.
-        - `<OB_BI_TOOLKIT_HOME>` refers to the root directory of WSO2 Open Banking Business Intelligence UK Toolkit.
+        - `<OB_BI_TOOLKIT_HOME>` refers to the root directory of WSO2 Open Banking Business Intelligence CDS Toolkit.
 
     
     1. Copy and extract the `wso2-obbi-accelerator-3.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
@@ -19,7 +19,7 @@
     ```
     ./configure.sh
     ```
-    4. Copy and extract the `wso2ob-bi-toolkit-uk-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
+    4. Copy and extract the `wso2ob-bi-toolkit-cds-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
     Integrator.
 
     5. Run the `merge.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`. 
