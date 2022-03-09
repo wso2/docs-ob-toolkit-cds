@@ -6,9 +6,9 @@ Open banking regulations provide a policy and legislative framework to help bank
 benefits of open banking. 
 
 - The Australian Government introduced the **Consumer Data Right (CDR)** to give consumers more control over their data. 
-  CDR provides customers and small businesses a choice about how their data is shared with third parties and sets standards 
-  for a whole industry about what data should be made available safely. In doing so, CDR encourages competition between 
-  service providers, leading to better prices for customers and more innovative products and services.
+  CDR provides customers and small businesses a choice about how their data is shared with accredited data recipients 
+  and sets standards for a whole industry about what data should be made available safely. In doing so, CDR encourages 
+  competition between service providers, leading to better prices for customers and more innovative products and services.
 
 - The CDR will be rolled out sector-by-sector, starting with the banking sector. Further information on the CDR is 
   available on the [Treasury website](https://treasury.gov.au/consumer-data-right). Specific examples of the benefits of a CDR might include:
@@ -22,6 +22,20 @@ benefits of open banking.
     sector and then the telecommunications sector. The introduction of CDR in the banking sector will provide consumers with 
     access to, and the ability to safely transfer, their banking data to trusted parties. The CDR will be introduced into 
     the banking sector in [phases and segments](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0/accc-consultation-on-proposed-timetable-for-participation-of-non-major-adis-in-the-cdr).
+
+## Consumer Data Right (CDR)
+
+![conceptual_evolution_cdr](../assets/img/get-started/regulation-and-standards/conceptual-evolution-of-cdr.jpg)
+
+The process of rolling out Open Banking in Australia started in 2018 when the Federal Government implemented the Consumer
+Data Right legislation and phased implementation was announced to gradually roll out Open Banking. In early 2020 the Big
+Four banks (Commonwealth, NAB, Westpac and ANZ) were required to start making customer data available for Open Banking.
+From October 1 2020, all other banks were required to start the process of making product reference data available.
+By February 1, 2021 the major banks were required to have provided all data required and all other banks were are
+required to make account and transaction data available by February 1, 2022. As Australia is dominated by the Big Four
+banks, Open Banking is expected to shake up the Australian financial services sector. There will be much greater levels
+of competition and many smaller financial institutions are set to challenge the Big Four and create a more competitive
+financial services landscape.
 
 ## Consumer Data Standards (CDS)
 Alongside regulations introduced in different regions, there are specifications to describe the implementation 
