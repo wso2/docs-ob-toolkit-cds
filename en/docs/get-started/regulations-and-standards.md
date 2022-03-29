@@ -11,11 +11,14 @@ benefits of open banking.
   competition between service providers, leading to better prices for customers and more innovative products and services.
 
 - The CDR will be rolled out sector-by-sector, starting with the banking sector. Further information on the CDR is 
-  available on the [Treasury website](https://treasury.gov.au/consumer-data-right). Specific examples of the benefits of a CDR might include:
+  available on the [Treasury website](https://treasury.gov.au/consumer-data-right). Specific examples of the benefits of 
+  a CDR might include:
 
-    - Banking applications that analyse credit card customers spending and repayment behaviours to identify the best product for an individual, saving them money on high fees or obtaining better interest rates. 
+    - Banking applications that analyse credit card customers spending and repayment behaviours to identify the best 
+      product for an individual, saving them money on high fees or obtaining better interest rates. 
     - Applications that help customers understand and manage their energy use to save money on their power bills. 
-    - Comparison websites that identify a more appropriate internet or mobile phone plan taking into account each customer’s actual usage and budget.
+    - Comparison websites that identify a more appropriate internet or mobile phone plan taking into account each 
+      customer’s actual usage and budget.
   
    
     The Australian government determined that the CDR will first apply to the banking sector, followed by the energy 

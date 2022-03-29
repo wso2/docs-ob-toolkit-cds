@@ -1,16 +1,16 @@
 ## What is Open Banking?
 
-Open banking is a concept that enables data holders, customers, and accredited data recipients to use and benefit more 
-from the vast silos of data held by data holders on their customers. Fundamentally, open banking allows CDR consumers to 
-share their financial data with accredited data recipients with their consent. In technical terms, this is done via 
-secured APIs that allow the CDR consumers or authorized data recipients to access data held by the bank. It is 
-envisioned that upon wide adoption, an ecosystem of APIs would be created with various accredited data recipients, 
-services and intermediary platforms integrating with data holders to reinvent financial services using end consumers data. 
+Open banking is a concept that enables banks, customers, and third parties to use and benefit more from the vast silos 
+of data held by banks on their customers. Fundamentally, open banking allows bank customers to share their financial 
+data with third parties with their consent. In technical terms, this is done via secure APIs that allow the customers 
+or authorized Third Party Provider applications to access data held by the bank. It is envisioned that upon wide 
+adoption, an ecosystem of APIs would be created with various third-party applications, services and intermediary platforms
+integrating with banks to reinvent financial services using customer data.
 
 This gives customers more control over their data and greater financial transparency. It enables non-banking financial 
-service providers and newer entrants such as accredited data recipients to participate more actively and meaningfully in 
-generating customized user experiences for consumers. Open Banking reshapes the banking industry by encouraging 
-networking of data and innovation across various financial institutions.
+service providers and newer entrants such as fintech to participate more actively and meaningfully in generating 
+customized user experiences for consumers. Open Banking reshapes the banking industry by encouraging networking of data 
+and innovation across various financial institutions.
 
 ![conceptual evolution of ob](../assets/img/get-started/open-banking/conceptual-evolution-of-open-banking-globally.png)
 
@@ -49,7 +49,7 @@ the open banking ecosystem comprises the following main stakeholders:
    * **Consumer** - The end-user who has benefited from CDR, the consumer can give permission to the relevant data holder 
    to share their financial data or authorize transactions with the accredited data recipients.
 
-   * **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR consumers data from a 
+   * **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR consumers' data from a 
    Data Holder with the consent of the consumer. Data Recipients use standard APIs to access consumer data to provide 
    services. A Data Recipient needs to be authorized by the ACCC, after successful authorization, an Accredited Data 
    Recipient can request banking data from a Data Holder with the consent of the consumer.

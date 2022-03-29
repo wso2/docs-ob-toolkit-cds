@@ -24,29 +24,31 @@ granted. The solution includes a fully-featured consent management module that:
 
    <br/>  A consent goes through a phased life cycle as follows: ![lifecycle of a consent](../assets/img/get-started/open-banking-requirements/consent-lifecycle.png)
 
- - **Consent provision**: The accredited data recipients will send a consent request to the data holder with the purpose
-   to consume a defined data holder's consumer data set.
+ - **Consent provision**: The accredited data recipients will send a consent request to the Data Holder with the purpose
+   to consume a defined Data Holder's consumer data set.
 
-   - **Consent grant**: The act of establishing permission by a consumer to a data holder to authorize access to the 
-     consumer data by accredited data recipients.
+   - **Consent grant**: The act of establishing permission by a consumer to a Data Holder to authorize access to the 
+     consumer data by Accredited Data Recipients.
 
-   - **Consent verification**: The data holder verifies whether the consumer has approved the accredited data recipient 
+   - **Consent verification**: The Data Holder verifies whether the customer has approved the Accredited Data Recipient 
      to access the information. If the bank consumer has rejected the consent, the bank must detect and stop the 
      application from invoking the banking APIs.
 
-   - **Consent revocation**: The act of ending or removing permission for access by the consumer via consent management 
-     applications or by a bank representative upon the customer’s request.
+   - **Consent revocation**: A customer can revoke the consent via consent management applications. It can either be 
+       done by the customer themselves or by a bank representative upon the customer’s request.
 
-   - **Consent expiration**: An inactive state caused by the occurrence of a time limit and was not renewed. 
-     Once expired, the bank (data holder) shall no longer share any data with the specified accredited data recipient.
+   - **Consent expiration**: When the consent validity period expires, the bank sets the consent status as expired. 
+      For the Accredited Data Recipient application to access the customer’s financial information again, the customer needs to 
+      regrant the consent.
 
-3. **Consumer Authentication** - Process by which the End User’s access to Financial Account Information is authenticated 
-   by the data holder. This is accomplished via different mechanisms:
+3. **Consumer Authentication** - Consumer authentication is an authentication mechanism with a layered defence. 
+     When a user initiates a payment or accesses information via a Data Recipient application, it authenticates 
+     the user using the following factors one at a time:
    ![authentication factors](../assets/img/get-started/open-banking-requirements/authentication-factors.png)
   
      - Knowledge    : something you know – passwords, PINs, code words, etc.
      - Possession	: something you have – typically smart phones, token devices, etc.
-     - Inherence	: something you are – Biometrics (e.g., fingerprints, facial recognition, iris or retina scans).
+     - Inherence	: something you are – fingerprints, facial recognition, iris or retina scans
 
     The solution supports multifactor authentication and identifier-first authentication. In addition, you can extend 
     the existing authenticators or write new authenticators in accordance with your open banking standard.

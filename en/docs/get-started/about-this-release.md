@@ -27,13 +27,13 @@ For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-ba
 ####WSO2 Open Banking API Manager CDS Toolkit
 
 - Support for Consumer Data Standard (CDS) API v1.8.0
-- Dynamic Client Registration
+- Consumer Data Standard (CDS) Error Format
+- Dynamic Client Registration (DCR) v0.2
 - Consumer Data Standard Specific Header Validations
 - ID Permanence
 - Consumer Data Standard Metrics API
-- Consumer Data Standard (CDS) error format
 - Response Schema Validation
 
-####WSO2 Open Banking Business Intelligence UK Toolkit
+####WSO2 Open Banking Business Intelligence CDS Toolkit
 
-- Siddhi Apps for publishing data and to support Metrics data processing.
+- Siddhi Apps for publishing data and to support Metrics data processing
