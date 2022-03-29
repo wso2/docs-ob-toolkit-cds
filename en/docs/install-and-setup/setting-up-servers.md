@@ -1,7 +1,7 @@
-This section guides you to set up and prepare the servers to run WSO2 Open Banking UK Toolkit.
+This section guides you to set up and prepare the servers to run WSO2 Open Banking CDS Toolkit.
 
 ##Installing base products
-WSO2 Open Banking UK Toolkit runs on top of WSO2 Identity Server, API Manager, and Streaming Integrator, which are 
+WSO2 Open Banking CDS Toolkit runs on top of WSO2 Identity Server, API Manager, and Streaming Integrator, which are 
 referred to as base products. Before setting up the toolkit, download and install the base products:
 
 - Install [WSO2 Identity Server 5.11.0](https://wso2.com/identity-and-access-management/#)
@@ -44,14 +44,14 @@ homes.
         This documentation will refer to the above-extracted directories of the accelerators as 
         `<OB_IS_ACCELERATOR_HOME>`,`<OB_APIM_ACCELERATOR_HOME>`, `<OB_BI_ACCELERATOR_HOME>` respectively.
         
-## Installing WSO2 Open Banking UK Toolkit
+## Installing WSO2 Open Banking CDS Toolkit
 
 !!! tip "Before you begin"
     See the environment [compatibility](prerequisites.md) to determine whether the current toolkit version is 
     compatible with your operating system.        
     
 1. If you have an active WSO2 Open Banking subscription, contact us via [WSO2 Online Support System](https://support.wso2.com/) 
-to download Open Banking UK Toolkit 1.0.0.
+to download Open Banking CDS Toolkit 1.0.0.
 
     !!! note
         If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
@@ -59,9 +59,9 @@ to download Open Banking UK Toolkit 1.0.0.
     
 2. Extract the downloaded WSO2 Open Banking Toolkit zip files. It contains the following toolkits.
 
-    - wso2-obiam-toolkit-uk-1.0.0
-    - wso2-obam-toolkit-uk-1.0.0
-    - wso2-obbi-toolkit-uk-1.0.0
+    - wso2-obiam-toolkit-cds-1.0.0
+    - wso2-obam-toolkit-cds-1.0.0
+    - wso2-obbi-toolkit-cds-1.0.0
     
 3. Go to the product homes directories of WSO2 Identity Server, API Manager and Streaming Integrator.
 
@@ -69,9 +69,9 @@ to download Open Banking UK Toolkit 1.0.0.
 
     |File| Directory location to place the Accelerator|
     |----| -------------------------------------------|
-    |wso2-obiam-toolkit-uk-1.0.0.zip| `<IS_HOME>`|
-    |wso2-obam-toolkit-uk-1.0.0.zip| `<APIM_HOME>`|
-    |wso2-obbi-toolkit-uk-1.0.0.zip| `<SI_HOME>`|
+    | wso2-obiam-toolkit-cds-1.0.0.zip | `<IS_HOME>`|
+    | wso2-obam-toolkit-cds-1.0.0.zip | `<APIM_HOME>`|
+    | wso2-obbi-toolkit-cds-1.0.0.zip | `<SI_HOME>`|
      
     !!! tip
         This documentation will refer to the above-extracted directories of the toolkits as 
@@ -96,7 +96,7 @@ relevant script.
         ```
         
         ```bash tab='On Windows'
-        ./wso2update_windows.exe
+        .\wso2update_windows.exe
         ```
       
 2. Go to `<ACCELERATOR_HOME>/bin` and run the WSO2 Update tool:
@@ -112,7 +112,7 @@ relevant script.
         ```
         
         ```bash tab='On Windows'
-        ./wso2update_windows.exe
+        .\wso2update_windows.exe
         ```
       
 3. Go to `<TOOLKIT_HOME>/bin` and run the WSO2 Update tool:
@@ -128,7 +128,7 @@ relevant script.
         ```
         
         ```bash tab='On Windows'
-        ./wso2update_windows.exe
+        .\wso2update_windows.exe
         ```
 
 For more information, see the [WSO2 Updates documentation](https://updates.docs.wso2.com/en/latest/updates/overview/).
@@ -273,14 +273,14 @@ client-truststore of all the servers.
 
 ## Copying the deployment.toml
 
-WSO2 Open Banking UK Toolkit contains TOML-based configurations. All the server-level configurations of the instance 
+WSO2 Open Banking CDS Toolkit contains TOML-based configurations. All the server-level configurations of the instance 
 can be applied using a single configuration file, which is the `deployment.toml` file. 
 
 1. Replace the existing `deployment.toml` file in the API Manager as follows:
 
     - Go to the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources` directory.
     
-    - Rename `wso2am-4.0.0-deployment-uk.toml` to `deployment.toml`.
+    - Rename `wso2am-4.0.0-deployment-cds.toml` to `deployment.toml`.
     
     - Copy the `deployment.toml` file to the `<APIM_HOME>/repository/conf` directory and replace the existing file.
         
@@ -288,7 +288,7 @@ can be applied using a single configuration file, which is the `deployment.toml`
 
     - Go to the `<IS_HOME>/<OB_IS_TOOLKIT_HOME>/repository/resources` directory.
     
-    - Rename `wso2is-5.11.0-deployment-uk.toml` to `deployment.toml`.
+    - Rename `wso2is-5.11.0-deployment-cds.toml` to `deployment.toml`.
     
     - Copy the `deployment.toml` file to the `<IS_HOME>/repository/conf` directory to replace the existing file.
      

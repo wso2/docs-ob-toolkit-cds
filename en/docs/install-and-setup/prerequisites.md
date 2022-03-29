@@ -1,6 +1,7 @@
-WSO2 Open Banking UK Toolkit is a purpose-built solution for regulatory compliance that supports PSD2. Instead of 
-building an open banking solution from scratch, you can use WSO2 Open Banking UK Toolkit to meet all open 
-banking requirements with additional benefits beyond compliance. This toolkit runs on top of the following WSO2 products:
+WSO2 Open Banking CDS Toolkit is a purpose-built solution for regulatory compliance that supports Australia Consumer
+Data Right and Consumer Data Standard. Instead of building an open banking solution from scratch, you can use WSO2 Open 
+Banking CDS Toolkit to meet all open banking requirements with additional benefits beyond compliance. This toolkit runs 
+on top of the following WSO2 products:
 
 - WSO2 Open Banking Accelerator 3.0
 - WSO2 Identity Server 5.11.0
@@ -8,7 +9,7 @@ banking requirements with additional benefits beyond compliance. This toolkit ru
 - WSO2 Streaming Integrator 4.0.0
 
 !!! note
-    The WSO2 Open Banking UK Toolkit is built by customizing the WSO2 Open Banking Accelerator and helps you 
+    The WSO2 Open Banking CDS Toolkit is built by customizing the WSO2 Open Banking Accelerator and helps you 
     comply with the Open Banking Standard. For more information on the accelerator, see 
     the [WSO2 Open Banking Accelerator Documentation](https://ob.docs.wso2.com/).
 
@@ -21,11 +22,11 @@ management, and access authorization among numerous other features to set up an 
 
 ## Product Matrix
 
-Given below is a product matrix for different versions of WSO2 Open Banking UK Toolkit:
+Given below is a product matrix for different versions of WSO2 Open Banking CDS Toolkit:
 
-| Version | Mandatory Components | Additional Components |
-| --------| ---------------------| ----------------------|
-| 1.0.0 | wso2-obam-toolkit-uk-1.0.0 <br/> wso2-obiam-toolkit-uk-1.0.0 | wso2-obbi-toolkit-uk-1.0.0 |
+| Version | Mandatory Components                                           | Additional Components       |
+| --------|----------------------------------------------------------------|-----------------------------|
+| 1.0.0 | wso2-obam-toolkit-cds-1.0.0 <br/> wso2-obiam-toolkit-cds-1.0.0 | wso2-obbi-toolkit-cds-1.0.0 |
 
 ## Prerequisites for a Deployment
 
@@ -38,7 +39,8 @@ Listed below are the prerequisites for a successful deployment:
       <tr>
          <th>Disk space</th>
          <td>
-            40 GB free disk space <br/> The disk space is based on the expected storage requirements that are calculated by considering the file uploads and the backup policies.
+            40 GB free disk space <br/> The disk space is based on the expected storage requirements that are calculated 
+            by considering the file uploads and the backup policies.
          </td>
       </tr>
       <tr>
@@ -66,7 +68,8 @@ Listed below are the prerequisites for a successful deployment:
             <ul>
                <li>Windows </li>
                <li>Linux </li>
-               In a production deployment, it is recommended that WSO2 products are installed on the latest releases of RedHat Enterprise Linux or Ubuntu Server LTS. 
+               In a production deployment, it is recommended that WSO2 products are installed on the latest releases of 
+               RedHat Enterprise Linux or Ubuntu Server LTS. 
                <br/> <br/>
                See the following documentation to find the environments that the WSO2 products are tested with:
                <ul>
@@ -99,14 +102,15 @@ Listed below are the prerequisites for a successful deployment:
       </tr>
       <tr>
          <th> User store</th>
-         <td> It is not recommended to use Apache DS in a production environment due to scalability issues. Instead, use an LDAP such as OpenLDAP, RDBMS, Active Directory or custom user stores for user management.</td>
+         <td> It is not recommended to use Apache DS in a production environment due to scalability issues. Instead, 
+              use an LDAP such as OpenLDAP, RDBMS, Active Directory or custom user stores for user management.</td>
       </tr>
    </tbody>
 </table>
 
 ## Compatibility 
 
-WSO2 Open Banking UK Toolkit 1.0.0 is supported on the following platforms:
+WSO2 Open Banking CDS Toolkit 1.0.0 is supported on the following platforms:
 
 <table>
    <tbody>
