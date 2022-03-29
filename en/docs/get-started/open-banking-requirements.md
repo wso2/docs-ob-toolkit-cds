@@ -31,7 +31,7 @@ granted. The solution includes a fully-featured consent management module that:
      consumer data by Accredited Data Recipients.
 
    - **Consent verification**: The Data Holder verifies whether the customer has approved the Accredited Data Recipient 
-     to access the information. If the bank consumer has rejected the consent, the bank must detect and stop the 
+     to access the information. If the bank customer has rejected the consent, the bank must detect and stop the 
      application from invoking the banking APIs.
 
    - **Consent revocation**: A customer can revoke the consent via consent management applications. It can either be 
