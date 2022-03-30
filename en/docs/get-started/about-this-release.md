@@ -1,42 +1,39 @@
-WSO2 Open Banking UK Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become 
-regulatory-compliant with Payment Service Directive 2 (PSD2) and Open Banking Standard UK v3.1.6 specification.
+WSO2 Open Banking CDS Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become 
+regulatory-compliant with Consumer Data Right (CDR) and Consumer Data Standard (CDS) v1.8.0 specification.
 
-This toolkit is based on WSO2 Open Banking 3.0 and contains specific feature customisations to satisfy open banking 
-requirements of Open Banking Standard UK. You can use WSO2 Open Banking UK Toolkit to meet all legislative requirements 
-with additional benefits beyond compliance. This toolkit comprises three modules:
+This toolkit is based on WSO2 Open Banking Accelerator 3.0 and contains specific feature customisations to satisfy open 
+banking requirements of Consumer Data Standard (CDS). You can use WSO2 Open Banking CDS Toolkit to meet all legislative 
+requirements with additional benefits beyond compliance. This toolkit comprises three modules:
 
-- **WSO2 Open Banking Identity Server UK Toolkit** runs on top of WSO2 Identity Server.
-- **WSO2 Open Banking API Manager UK Toolkit** runs on top of WSO2 API Manager.
-- **WSO2 Open Banking Business Intelligence UK Toolkit**  runs on top of WSO2 Streaming Integrator.
+- **WSO2 Open Banking Identity Server CDS Toolkit** runs on top of WSO2 Identity Server.
+- **WSO2 Open Banking API Manager CDS Toolkit** runs on top of WSO2 API Manager.
+- **WSO2 Open Banking Business Intelligence CDS Toolkit**  runs on top of WSO2 Streaming Integrator.
 
 For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-banking.md) section.
 
 ## What is new in this release
 
-####WSO2 Open Banking Identity Server UK Toolkit
+####WSO2 Open Banking Identity Server CDS Toolkit
 
-- Dynamic Client Registration (DCR) API 3.3 for creating applications and DCR request validation.
-- Request object validation implementation related to the Open Banking Standard UK specification.
-- Consent Management support for the following API flows:
- - Account and Transaction API v3.1.6
- - Payment Initiation API v3.1.6
- - Confirmation of Funds API v3.1.6
-- Web app extension for consent approval during authentication.
-- Account Reauthorization for the Account and Transaction Flow.
-- Multi Authorization for the Payment Initiation Flow.
-- Extensions for Data Publishing during authorization and registration flows.
+- Pushed Authorization
+- Consumer Data Right (CDR) Arrangement Management API
+- Joint Accounts Support
+- Metadata Caching
+- Data Holder Initiated Consent Revocation Notifications
+- Consent Amendment
+- Self Care Portal for Consent Management
+- User Interface Improvements for Consent Flow
 
-####WSO2 Open Banking API Manager UK Toolkit
+####WSO2 Open Banking API Manager CDS Toolkit
 
-- Data Publishing Executor.
-- Error Handling for the Dynamic Client Registration (DCR) API.
-- Error Handling for Account and Transaction API.
-- Error Handling for Payment Initiation API.
-- Error Handling for Confirmation of Funds API.  
-- Error Handling for Schema Validation.
-- Handling Idempotency for the Payment Initiation Flow.
-- Official Swagger and in-sequence files for the DCR, Account, Payment, and Confirmation of Funds APIs
+- Support for Consumer Data Standard (CDS) API v1.8.0
+- Consumer Data Standard (CDS) Error Format
+- Dynamic Client Registration (DCR) v0.2
+- Consumer Data Standard Specific Header Validations
+- ID Permanence
+- Consumer Data Standard Metrics API
+- Response Schema Validation
 
-####WSO2 Open Banking Business Intelligence UK Toolkit
+####WSO2 Open Banking Business Intelligence CDS Toolkit
 
-- Siddhi Apps for publishing data during authorization, registration, token generation, and API invocation
+- Siddhi Apps for publishing data and to support Metrics data processing

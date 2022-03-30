@@ -3,9 +3,9 @@
 Open banking is a concept that enables banks, customers, and third parties to use and benefit more from the vast silos 
 of data held by banks on their customers. Fundamentally, open banking allows bank customers to share their financial 
 data with third parties with their consent. In technical terms, this is done via secure APIs that allow the customers 
-or authorized Third Party Provider applications to access data held by the bank. It is envisioned that upon wide adoption, an 
-ecosystem of APIs would be created with various third-party applications, services and intermediary platforms 
-integrating with banks to reinvent financial services using customer data. 
+or authorized Third Party Provider applications to access data held by the bank. It is envisioned that upon wide 
+adoption, an ecosystem of APIs would be created with various third-party applications, services and intermediary platforms
+integrating with banks to reinvent financial services using customer data.
 
 This gives customers more control over their data and greater financial transparency. It enables non-banking financial 
 service providers and newer entrants such as fintech to participate more actively and meaningfully in generating 
@@ -46,19 +46,20 @@ of them.
 As described in the [Consumer Data Standards](https://consumerdatastandardsaustralia.github.io/standards/#introduction), 
 the open banking ecosystem comprises the following main stakeholders:
    
-   * **Consumer** - The end-user who is benefited from CDR, the consumer can request the Data Holder to provide data.
+   * **Consumer** - The end-user who has benefited from CDR, the consumer can give permission to the relevant data holder 
+   to share their financial data or authorize transactions with the accredited data recipients.
+
+   * **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR consumers' data from a 
+   Data Holder with the consent of the consumer. Data Recipients use standard APIs to access consumer data to provide 
+   services. A Data Recipient needs to be authorized by the ACCC, after successful authorization, an Accredited Data 
+   Recipient can request banking data from a Data Holder with the consent of the consumer.
+
+   * **Data Holder** -  The Data Holder is an entity such as a bank that provides and maintains a payment account for 
+   consumers. With the consumer's consent, the Data Holders share account and transaction data via secure API endpoints.
+
+   * **Treasury** -  The lead regulatory body for the CDR regime and this organization serves the CDR consumers by 
+   creating and imposing rules.
    
-   * **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR data from a Data Holder with 
-   the consent of the consumer. Data Recipients use standard APIs to access consumer data to provide services. <br/> 
-   A Data Recipient needs to be accredited by the ACCC. Once accredited, an Accredited Data Recipient can request banking 
-   data from a Data Holder with the consent of the consumer.
-
-   * **Data Holder** -  The Data Holder is the organization that the CDR is applied to. This is an entity such as a bank 
-   that provides and maintains a payment account for a consumer. With the consumer's consent, the Data Holders share 
-   account and transaction data via API endpoints.
-
-   * **Treasury** -  The lead regulator for the CDR. The Treasury oversees rule-making and is responsible for the overall program.
-
    * **ACCC** - The Australian Competition and Consumer Commission (ACCC) is a co-regulator for the CDR regime. The ACCC works 
    with the Treasury, the Data Standards Body and the OAIC to implement the CDR. <br/> The ACCC is responsible for the accreditation 
    of Data Recipients and maintaining a registry of accredited data holders and persons. It also guides stakeholders about

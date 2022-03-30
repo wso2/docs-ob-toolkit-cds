@@ -11,9 +11,8 @@ Banking addresses the open banking requirements in the solution:
 with a bank to provide services to customers. It is important since the Data Recipient has access to the customer's 
 financial information via their applications. WSO2 Open Banking provides dynamic client registration for Data Recipients.
  
-2. **Consent Management** - Consent management is the process of prompting, collecting, and managing bank customer’s 
-consent before a Data Recipient collects or shares the customer's financial information. The Solution includes a 
-fully-featured consent management module that:
+2. **Consent Management** - The ability to or action by an end user to update or make changes to Consent that they have 
+granted. The solution includes a fully-featured consent management module that:
 
     - securely exposes consent data through an API
     - provides in-built consent management user interfaces for customers and bank staff
@@ -25,47 +24,48 @@ fully-featured consent management module that:
 
    <br/>  A consent goes through a phased life cycle as follows: ![lifecycle of a consent](../assets/img/get-started/open-banking-requirements/consent-lifecycle.png)
 
- - **Consent provision**: A Data Recipient application sends a consent request to the bank containing the customer’s 
- financial information that it wants to access.
+ - **Consent provision**: The accredited data recipients will send a consent request to the Data Holder with the purpose
+   to consume a defined Data Holder's consumer data set.
 
-   - **Consent grant**: The bank redirects the consent request to the customer to approve/deny.
+   - **Consent grant**: The act of establishing permission by a consumer to a Data Holder to authorize access to the 
+     consumer data by Accredited Data Recipients.
 
-   - **Consent verification**: The bank verifies if the customer has approved the Data Recipient application to access 
-   the information. If the bank customer has denied the consent, the bank must detect and stop the application from 
-   invoking the banking APIs.
+   - **Consent verification**: The Data Holder verifies whether the customer has approved the Accredited Data Recipient 
+     to access the information. If the bank customer has rejected the consent, the bank must detect and stop the 
+     application from invoking the banking APIs.
 
    - **Consent revocation**: A customer can revoke the consent via consent management applications. It can either be 
-   done by the customer themselves or by a bank representative upon the customer’s request.
+       done by the customer themselves or by a bank representative upon the customer’s request.
 
    - **Consent expiration**: When the consent validity period expires, the bank sets the consent status as expired. 
-   For the Data Recipient application to access the customer’s financial information again, the customer needs to regrant 
-   the consent.
+      For the Accredited Data Recipient application to access the customer’s financial information again, the customer needs to 
+      regrant the consent.
 
 3. **Consumer Authentication** - Consumer authentication is an authentication mechanism with a layered defence. 
-When a user initiates a payment or accesses information via a Data Recipient application, it authenticates the user 
-using the following factors one at a time:
+     When a user initiates a payment or accesses information via a Data Recipient application, it authenticates 
+     the user using the following factors one at a time:
    ![authentication factors](../assets/img/get-started/open-banking-requirements/authentication-factors.png)
   
-     - Knowledge	: something the user knows. For example: password.
-     - Possession	: something the user owns. For example: ATM cards.
-     - Inherence	: something the user is. For example: fingerprint.
+     - Knowledge    : something you know – passwords, PINs, code words, etc.
+     - Possession	: something you have – typically smart phones, token devices, etc.
+     - Inherence	: something you are – fingerprints, facial recognition, iris or retina scans
 
     The solution supports multifactor authentication and identifier-first authentication. In addition, you can extend 
     the existing authenticators or write new authenticators in accordance with your open banking standard.
 
-4. **Developer Portal** - The solution offers a customizable Developer Portal that enables application developers to 
+5. **Developer Portal** - The solution offers a customizable Developer Portal that enables application developers to 
 publish, republish, subscribe, and test APIs.
  
-5. **Banking Systems Integration** - The solution uses the integration capabilities of [WSO2 Micro Integrator](https://apim.docs.wso2.com/en/latest/integrate/integration-overview/) 
+6. **Banking Systems Integration** - The solution uses the integration capabilities of [WSO2 Micro Integrator](https://apim.docs.wso2.com/en/latest/integrate/integration-overview/) 
 to help banks connect their core banking systems and overcome the challenges of legacy technology. With the help of 
 the Micro Integrator, WSO2 Open Banking can support:
      - different message protocols (HTTP/TCP), message types (REST/SOAP), and formats (ISO 8583, ISO 20022).
      - mediation between a legacy or digital core and other banking systems, and the bank’s library of open banking APIs.
 
-6. **Data Analytics** - The solution to mediate between the bank’s systems and modern analytics systems. Analytics allows 
+7. **Data Analytics** - The solution to mediate between the bank’s systems and modern analytics systems. Analytics allows 
 banks to monitor user patterns and behaviours and to identify fraudulent activities.
 
-7. **API Security** - Data Recipients invoke APIs to access customer’s financial information. Therefore, API security plays 
+8. **API Security** - Data Recipients invoke APIs to access customer’s financial information. Therefore, API security plays 
 a vital role in open banking to mitigate data theft. The solution has built-in support for global industry-standards 
 such as OpenID Connect Financial Grade API (FAPI), OAuth 2.0, Electronic Identification and Trust Services (eIDAS).
 
@@ -80,15 +80,15 @@ such as OpenID Connect Financial Grade API (FAPI), OAuth 2.0, Electronic Identif
      - Transport layer security - Secures the communication between the Data Recipient, and the bank using Mutual Transport 
      Layer Security (MTLS). 
 
-8. **User Experience** - The solution provides an enhanced user experience for the banks, Data Recipients, and customers with 
+9. **User Experience** - The solution provides an enhanced user experience for the banks, Data Recipients, and customers with 
 self-explanatory and simple actions.
 
-9. **Premium APIs and Monetization** - Using the capabilities in WSO2 API Manager, WSO2 Open Banking allows:
-    - banks to publish highly-performant custom APIs for Data Recipients. 
-    - banks to expose their performance and compliance data by integrating into analytics engines.
-    - banks to plug in any billing engines with subscription-based freemium, tiered pricing, or per-request pricing.
+10. **Premium APIs and Monetization** - Using the capabilities in WSO2 API Manager, WSO2 Open Banking allows:
+     - banks to publish highly-performant custom APIs for Data Recipients. 
+     - banks to expose their performance and compliance data by integrating into analytics engines.
+     - banks to plug in any billing engines with subscription-based freemium, tiered pricing, or per-request pricing.
 
-10. **Standards-based API Templates** - WSO2 API Manager offers standard API management capabilities, and you can customize 
+11. **Standards-based API Templates** - WSO2 API Manager offers standard API management capabilities, and you can customize 
 the API templates according to your open banking and other requirements.
 
 ## Open Banking Approaches
