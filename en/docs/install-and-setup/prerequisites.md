@@ -1,5 +1,5 @@
-WSO2 Open Banking CDS Toolkit is a purpose-built solution for regulatory compliance that supports Australia Consumer
-Data Right and Consumer Data Standard. Instead of building an open banking solution from scratch, you can use WSO2 Open 
+WSO2 Open Banking CDS Toolkit is a purpose-built solution for regulatory compliance that supports the Australian Consumer
+Data Right and Consumer Data Standards. Instead of building an open banking solution from scratch, you can use WSO2 Open 
 Banking CDS Toolkit to meet all open banking requirements with additional benefits beyond compliance. This toolkit runs 
 on top of the following WSO2 products:
 
