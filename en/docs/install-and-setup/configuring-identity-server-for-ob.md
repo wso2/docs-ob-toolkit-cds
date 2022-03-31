@@ -173,7 +173,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     enable = true	
     username="$ref{super_admin.username}@carbon.super"	
     password="$ref{super_admin.password}"	
-    server_url = "{tcp://<BI_HOST>:7612}"	
+    server_url = "{tcp://<SI_HOST>:7612}"	
     ```   
 
 ## Starting servers
