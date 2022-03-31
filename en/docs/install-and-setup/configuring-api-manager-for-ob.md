@@ -1,4 +1,4 @@
-WSO2 Open Banking UK Toolkit contains TOML-based configurations. All the server-level configurations of the 
+WSO2 Open Banking CDS Toolkit contains TOML-based configurations. All the server-level configurations of the 
 API Manager instance can be applied using a single configuration file, which is the `deployment.toml` file. 
 
 ## Configuring deployment.toml
@@ -78,8 +78,8 @@ database server, and the JDBC driver.
 6. Add the following and configure the hostname of the Identity Server.  
 
     ``` toml
-    [open_banking.gateway.consent.validation]
-    endpoint = "https://<IS_HOST>:9446/api/openbanking/consent/validate"
+    [open_banking.gateway]
+    consent.validation.endpoint = "https://<IS_HOST>:9446/api/openbanking/consent/validate"
     ```
    
 7. Add the following gateway executor configurations for the Consent flow:
@@ -96,25 +96,22 @@ database server, and the JDBC driver.
 the consent page.
 
     ``` toml
-    [open_banking_uk.consent]
-    payable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts"
-    sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
+    [open_banking_cds.consent_management]
+    sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/cds/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
     ```
    
 9. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
 
     ``` toml
-    [open_banking_uk.consent]
-    account_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/aisp/"
-    payment_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/pisp/"
-    cof_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/cbpii/"    
+    [open_banking_cds.consent]
+    account_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/aisp/"  
     ```
     
 10. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
 account retrieval. By default, this is disabled and the configuration is set to `false`.
 
     ``` toml
-    [open_banking_uk.consent]
+    [open_banking_cds.consent]
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
@@ -124,10 +121,10 @@ account retrieval. By default, this is disabled and the configuration is set to 
     - Replay and enable payment submission idempotency validation
 
     ``` toml
-    [open_banking_uk.consent.idempotency]
+    [open_banking_cds.consent.idempotency]
     allowed_time = 24
     
-    [open_banking_uk.consent.idempotency.submission]
+    [open_banking_cds.consent.idempotency.submission]
     Enabled = true
     ```
     
@@ -141,7 +138,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     enable = true	
     username="$ref{super_admin.username}@carbon.super"	
     password="$ref{super_admin.password}"	
-    server_url = "{tcp://<SI_HOST>:7612}"	
+    server_url = "{tcp://<BI_HOST>:7612}"	
     ```  
    
 ## Starting servers
