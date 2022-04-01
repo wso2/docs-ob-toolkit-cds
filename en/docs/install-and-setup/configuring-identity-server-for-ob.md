@@ -1,4 +1,4 @@
-WSO2 Open Banking UK Toolkit contains TOML-based configurations. All the server-level configurations of the Identity 
+WSO2 Open Banking CDS Toolkit contains TOML-based configurations. All the server-level configurations of the Identity 
 Server instance can be applied using a single configuration file, which is the `deployment.toml` file. 
 
 ## Configuring deployment.toml
@@ -119,29 +119,26 @@ database server, and the JDBC driver.
     http_method="GET,DELETE"
     ```
    
-10. Configure the endpoints to retrieve sharable and payable accounts. This is required when displaying the accounts on 
+10. Configure the endpoints to retrieve sharable accounts. This is required when displaying the accounts on 
 the consent page.
 
     ``` toml
-    [open_banking_uk.consent]
-    payable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/payable-accounts"
-    sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/uk/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
+    [open_banking_cds.consent_management]
+    sharable_account_retrieve_endpoint = "http://<APIM_HOST>:9763/api/openbanking/cds/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
     ```
 
 11. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
    
     ``` toml
-    [open_banking_uk.consent]
+    [open_banking_cds.consent]
     account_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/aisp/"
-    payment_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/pisp/"
-    cof_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/cbpii/"
     ```
 
 12. In the consent re-authentication step of the Accounts flow, during authorisation, the PSU is allowed to change the 
 selected account. To enable this feature and update the account bound to the consent, set the following property to true:
 
     ``` toml
-    [open_banking_uk.consent]
+    [open_banking_cds.consent]
     acc_update_by_psu_enabled = true
     ```
 
@@ -149,7 +146,7 @@ selected account. To enable this feature and update the account bound to the con
 account retrieval. By default, this is disabled and the configuration is set to `false`.
 
     ``` toml
-    [open_banking_uk.consent]
+    [open_banking_cds.consent]
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
@@ -159,10 +156,10 @@ account retrieval. By default, this is disabled and the configuration is set to 
     - Replay and enable payment submission idempotency validation
 
     ``` toml
-    [open_banking_uk.consent.idempotency]
+    [open_banking_cds.consent.idempotency]
     allowed_time = 24
     
-    [open_banking_uk.consent.idempotency.submission]
+    [open_banking_cds.consent.idempotency.submission]
     Enabled = true
     ```
 
