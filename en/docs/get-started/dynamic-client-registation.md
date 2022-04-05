@@ -200,7 +200,7 @@ curl -X POST https://localhost:8243/open-banking/v3.3.0/register \
     If you change the payload, use the following certificates to sign the JWT and SSA:
     
     - [signing certificate](../../assets/attachments/signing_certificate.pem)
-    - [private keys](../../assets/attachments/sgsMuc8ACBgBzinpr8oJ8B.key)
+    - [private keys](../../assets/attachments/u3ZWlf9Yt42dyZgIvzkvqb.key)
 
 - The bank registers the application using the metadata sent in the SSA.
 
