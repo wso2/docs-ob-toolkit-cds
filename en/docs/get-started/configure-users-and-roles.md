@@ -134,7 +134,7 @@ Now you have started the servers, let’s create the users and define their perm
 6. Test  scenarios can include attempting to login using invalid usernames more than allowed number of times, attempting
    invalid OTPs more than allowed number of times, etc.
 
-7. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
+7. Open the `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configurations as follows.
 
    ```
    [authentication.custom_authenticator]
