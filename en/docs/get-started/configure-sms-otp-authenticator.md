@@ -74,7 +74,7 @@ This document provides step by step instructions to setup SMS OTP configurations
      attempt to login. Mobile number should be given in the format of the following example - 94714564567
 
 !!!note 
-     Test  scenarios can include attempting to login using invalid usernames more than allowed number of times, attempting
+     Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
      invalid OTPs more than allowed number of times, etc.
 
 Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
