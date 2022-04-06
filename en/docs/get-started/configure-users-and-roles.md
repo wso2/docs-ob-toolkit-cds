@@ -136,7 +136,7 @@ Now you have started the servers, let’s create the users and define their perm
 
 7. Open the `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configurations as follows.
 
-   ```
+   ```toml
    [authentication.custom_authenticator]
    name = "OBIdentifierExecutor"
    ```
