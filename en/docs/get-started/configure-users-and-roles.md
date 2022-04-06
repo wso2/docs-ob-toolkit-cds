@@ -129,7 +129,7 @@ Now you have started the servers, let’s create the users and define their perm
 
     - Scroll down and click **Update**
 
-5. In the authentication flow, if you login as an admin user, it will prompt for the mobile number in the first
+5. In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
    attempt to log in. The mobile number should be given in the format of the following example - 94714564567
 
 6. Test  scenarios can include attempting to login using invalid usernames more than allowed number of times, attempting
