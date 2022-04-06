@@ -86,8 +86,6 @@ nav:
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
-    - 'Payment Initiation flow': try-out/payment-initiation-flow.md
-    - 'Confirmation of Funds flow': try-out/confirmation-of-funds-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
     - 'Identity Server Configuration Catalog': references/config-catalog-is.md

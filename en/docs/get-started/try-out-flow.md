@@ -77,53 +77,43 @@ Given below is a summary of configurations to follow when deploying the APIs in 
    
 ### Authorizing a consent
 
-The Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
+The Accredited Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
     ``` tab="Format"
     {
-      "kid": "<CERTIFICATE_FINGERPRINT>",
-      "alg": "<SUPPORTED_ALGORITHM>",
+      "kid": "2MI9XSKi6ddxCbWg2rhDNtUlxJc",
+      "alg": "PS256",
       "typ": "JWT"
     }
     {
-      "max_age": 86400,
-      "aud": "<This is the audience that the ID token is intended for. e.g., https://<IS_HOST>:9446/oauth2/token>",
-      "scope": "accounts openid",
-      "iss": "<APPLICATION_ID>",
+      "aud": "https://localhost:9446/oauth2/token",
+      "iss": "3nzwb1VuaUISzujNe6QjDxlgnCka",
+      "scope": "openid bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read",
       "claims": {
-        "id_token": {
-          "acr": {
-            "values": [
-              "urn:openbanking:psd2:sca",
-              "urn:openbanking:psd2:ca"
+        "sharing_duration": 60000,
+          "id_token": {
+            "acr": {
+              "values": [
+                "urn:cds.au:cdr:3"
             ],
-            "essential": true
-          },
-          "openbanking_intent_id": {
-            "value": "<CONSENTID>",
             "essential": true
           }
         },
-        "userinfo": {
-          "openbanking_intent_id": {
-            "value": "<CONSENTID>",
-            "essential": true
-          }
-        }
-      },
-      "response_type": "<code:Retrieves authorize code/code id_token: Retrieves authorize token and ID token>",  
-      "redirect_uri": "<CLIENT_APPLICATION_REDIRECT_URI>",
-      "state": "YWlzcDozMTQ2",
-      "exp": <EPOCH_TIME_OF_TOKEN_EXPIRATION>,
-      "nonce": "<PREVENTS_REPLAY_ATTACKS>",
-      "client_id": "<APPLICATION_ID>"
-    }
+        "userinfo": {}
+       },
+       "response_type": "code id_token",
+       "redirect_uri": "https://wso2.com",
+       "state": "suite",
+       "exp": 1739640532,
+       "nonce": "8fc4cbb4-287b-42aa-a1d0-67dce6fc7479",
+       "client_id": "3nzwb1VuaUISzujNe6QjDxlgnCka"
+      }
     ```
     
     ``` tab="Sample"
-    eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
+    eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo5NDQ2L29hdXRoMi90b2tlbiIsImlzcyI6IjNuendiMVZ1YVVJU3p1ak5lNlFqRHhsZ25Da2EiLCJzY29wZSI6Im9wZW5pZCBiYW5rOmFjY291bnRzLmJhc2ljOnJlYWQgYmFuazphY2NvdW50cy5kZXRhaWw6cmVhZCBiYW5rOnRyYW5zYWN0aW9uczpyZWFkIiwiY2xhaW1zIjp7InNoYXJpbmdfZHVyYXRpb24iOjYwMDAwLCJpZF90b2tlbiI6eyJhY3IiOnsidmFsdWVzIjpbInVybjpjZHMuYXU6Y2RyOjMiXSwiZXNzZW50aWFsIjp0cnVlfX0sInVzZXJpbmZvIjp7fX0sInJlc3BvbnNlX3R5cGUiOiJjb2RlIGlkX3Rva2VuIiwicmVkaXJlY3RfdXJpIjoiaHR0cHM6Ly93c28yLmNvbSIsInN0YXRlIjoic3VpdGUiLCJleHAiOjE3Mzk2NDA1MzIsIm5vbmNlIjoiOGZjNGNiYjQtMjg3Yi00MmFhLWExZDAtNjdkY2U2ZmM3NDc5IiwiY2xpZW50X2lkIjoiM256d2IxVnVhVUlTenVqTmU2UWpEeGxnbkNrYSJ9.nrLPRvsFq_D0hEEvKKqN6m1uiQUV4cJK3Oy0YeY9BK5aaOgVJ43ni5ObGCuUnarBnRoxQQC4_wgqa54qI5KDjz_PV0ntMsUDlwhSIrGiy31zI4RqUogiF70ITClnPN6g1fQFQchjb7EQcwmrV5OXkJgNI-Ly3R7MKgyECcWINRvPsS15dwd9XBy_2HSkEyDRipAb5oPFLT-GLyvE2YlHiHXatf1Dj6vFpeKWoCQ0sN6djZBVoH7NExkQ7TSY5RIc9eHCyWZDD4puj9FtRXBYJw0My8L5CgfpPUngbcAut1oYz9tsvYiRb_adjbZ87-r_RlQqhGtH15ccf7cxx_CDvg
     ```
 
 2. The Data Holder sends the request to the consumer stating the accounts and information that the application wishes to access. 
@@ -141,7 +131,7 @@ user that has a `subscriber` role.
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
-5. At the bottom of the page, a list of bank accounts that the Data Recipient application wishes to access is displayed.
+5. At the bottom of the page, a list of bank accounts that the Accredited Data Recipient application wishes to access is displayed.
 
 6. Select one or more accounts from the list and click **Confirm**. ![confirm_consent](../assets/img/get-started/quick-start-guide/consent-page-confirm.png)
 
@@ -213,7 +203,7 @@ In this section, you will be generating an access token using the authorization 
    
 ### Invoking Consumer Data Standards API
 
-Once the consumer approves the account consent, the Data Recipient application is eligible to access the account details of the consumer.
+Once the consumer approves the account consent, the Accredited Data Recipient application is eligible to access the account details of the consumer.
 
 The application can now invoke the **GET/ accounts** endpoint available in the CDS API. This retrieves a 
 full list of accounts that the consumer has authorised the application to access. The Account Ids returned are used to retrieve 
@@ -224,7 +214,12 @@ other resources for a specific AccountId.
     ```
     curl -X GET \
     https://localhost:8243/open-banking/v3.1/aisp/accounts' \
-    -H 'x-fapi-financial-id: open-bank' \
+    -H 'x-v: 2'
+    -H 'x-min-v: 1'
+    -H 'x-fapi-interaction-id: 430a9796-2cf0-ba37-e99b-3d44d0263fde'
+    -H 'x-fapi-auth-date: Tue, 78 Jan 1312 80:05:73 GMT'
+    -H 'x-fapi-customer-ip-address: ut incididunt'
+    -H 'x-cds-client-headers: TFXbY7qlgHKbMHEwmjrTJ2t5Tq/y7DVssP=='
     -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
     -H 'Accept: application/json' \
     -H 'charset: UTF-8' \
@@ -232,7 +227,7 @@ other resources for a specific AccountId.
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
     ```
 
-2. The request retrieves the account information for all the accounts related to the PSU. Given below is a sample response:
+2. The request retrieves the account information for all the accounts related to the bank customer. Given below is a sample response:
     
     ```
     {

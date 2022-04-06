@@ -127,10 +127,10 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 ## Step 3: Register an application
 
-TPPs use the DCR API to request the ASPSP to register a new client. 
+Accredited Data Recipients use the DCR API to request the Data Holder to register a new client. 
 
 The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload. 
-This SSA contains client metadata. It is a signed JWT issued by the Open Banking directory and the TPPs need to obtain it before registering with an ASPSP.
+This SSA contains client metadata. It is a signed JWT issued by the Open Banking directory and the Accredited Data Recipients need to obtain it before registering with a Data Holder.
 
 This section explains the client registration process.
 
@@ -191,5 +191,42 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
 The TPP can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is 
 given below:
 ```
-Add sample reponse
+{
+   "client_name": "Mock Software",
+   "client_description": "A mock software product for testing SSA",
+   "client_uri": "https://www.mockcompany.com.au",
+   "org_id": "3B0B0A7B-3E7B-4A2C-9497-E357A71D07C8",
+   "org_name": "Mock Company Inc.",
+   "logo_uri": "https://www.mockcompany.com.au/logos/logo1.png",
+   "tos_uri": "https://www.mockcompany.com.au/tos.html",
+   "policy_uri": "https://www.mockcompany.com.au/policy.html",
+   "jwks_uri": "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks",
+   "sector_identifier_uri": "https://www.mockcompany.com.au/sector_identifier",
+   "revocation_uri": "https://gist.githubusercontent.com/imesh94/3172e2e45757cda08ec2727f90b72ced/raw/ff0d3eabe4cddce47eec0228f592175223dd92b2/wso2-au-dcr-demo.jwks",
+   "recipient_base_uri": "https://www.mockcompany.com.au",
+   "token_endpoint_auth_signing_alg": "PS256",
+   "id_token_encrypted_response_alg": "RSA-OAEP",
+   "id_token_encrypted_response_enc": "A256GCM",
+   "software_roles": "data-recipient-software-product",
+   "client_id": "8Zofufw_Yqt823g727JdZo9DvhAa",
+   "client_id_issued_at": "1649137285",
+   "redirect_uris": [
+       "https://wso2.com"
+   ],
+   "grant_types": [
+       "authorization_code",
+       "refresh_token"
+   ],
+   "response_types": [
+       "code id_token"
+   ],
+   "application_type": "web",
+   "id_token_signed_response_alg": "PS256",
+   "request_object_signing_alg": "PS256",
+   "scope": "openid profile bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read bank:payees:read bank:regular_payments:read common:customer.basic:read common:customer.detail:read cdr:registration",
+   "software_id": "Software_78",
+   "token_endpoint_auth_method": "private_key_jwt",
+   "software_statement": "eyJhbGciOiJQUzI1NiIsImtpZCI6IkdxaEtWVEFObkxNWXBHR2ZBdEoxTmhka2dqdyIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJjZHItcmVnaXN0ZXIiLCJpYXQiOjE2NDQ4MzQ0NzMsImV4cCI6MjE0NzQ4MzY0NiwianRpIjoiM2JjMmQwNWNhMXNlc2JkYzlkc2Q0M2ZkZGJiNjI0YjE0ZmNiMjQxMTk2Iiwib3JnX2lkIjoiM0IwQjBBN0ItM0U3Qi00QTJDLTk0OTctRTM1N0E3MUQwN0M4Iiwib3JnX25hbWUiOiJNb2NrIENvbXBhbnkgSW5jLiIsImNsaWVudF9uYW1lIjoiTW9jayBTb2Z0d2FyZSIsImNsaWVudF9kZXNjcmlwdGlvbiI6IkEgbW9jayBzb2Z0d2FyZSBwcm9kdWN0IGZvciB0ZXN0aW5nIFNTQSIsImNsaWVudF91cmkiOiJodHRwczovL3d3dy5tb2NrY29tcGFueS5jb20uYXUiLCJyZWRpcmVjdF91cmlzIjpbImh0dHBzOi8vd3NvMi5jb20iXSwibG9nb191cmkiOiJodHRwczovL3d3dy5tb2NrY29tcGFueS5jb20uYXUvbG9nb3MvbG9nbzEucG5nIiwidG9zX3VyaSI6Imh0dHBzOi8vd3d3Lm1vY2tjb21wYW55LmNvbS5hdS90b3MuaHRtbCIsInBvbGljeV91cmkiOiJodHRwczovL3d3dy5tb2NrY29tcGFueS5jb20uYXUvcG9saWN5Lmh0bWwiLCJqd2tzX3VyaSI6Imh0dHBzOi8va2V5c3RvcmUub3BlbmJhbmtpbmd0ZXN0Lm9yZy51ay8wMDE1ODAwMDAxSFFRclpBQVgvdTNaV2xmOVl0NDJkeVpnSXZ6a3ZxYi5qd2tzIiwicmV2b2NhdGlvbl91cmkiOiJodHRwczovL2dpc3QuZ2l0aHVidXNlcmNvbnRlbnQuY29tL2ltZXNoOTQvMzE3MmUyZTQ1NzU3Y2RhMDhlYzI3MjdmOTBiNzJjZWQvcmF3L2ZmMGQzZWFiZTRjZGRjZTQ3ZWVjMDIyOGY1OTIxNzUyMjNkZDkyYjIvd3NvMi1hdS1kY3ItZGVtby5qd2tzIiwicmVjaXBpZW50X2Jhc2VfdXJpIjoiaHR0cHM6Ly93d3cubW9ja2NvbXBhbnkuY29tLmF1Iiwic2VjdG9yX2lkZW50aWZpZXJfdXJpIjoiaHR0cHM6Ly93d3cubW9ja2NvbXBhbnkuY29tLmF1L3NlY3Rvcl9pZGVudGlmaWVyIiwic29mdHdhcmVfaWQiOiJTb2Z0d2FyZV83OCIsInNvZnR3YXJlX3JvbGVzIjoiZGF0YS1yZWNpcGllbnQtc29mdHdhcmUtcHJvZHVjdCIsInNjb3BlIjoib3BlbmlkIHByb2ZpbGUgYmFuazphY2NvdW50cy5iYXNpYzpyZWFkIGJhbms6YWNjb3VudHMuZGV0YWlsOnJlYWQgYmFuazp0cmFuc2FjdGlvbnM6cmVhZCBiYW5rOnBheWVlczpyZWFkIGJhbms6cmVndWxhcl9wYXltZW50czpyZWFkIGNvbW1vbjpjdXN0b21lci5iYXNpYzpyZWFkIGNvbW1vbjpjdXN0b21lci5kZXRhaWw6cmVhZCBjZHI6cmVnaXN0cmF0aW9uIn0.MierpTUvItRijU5-XH4j9cf4L1T6eFn-zyAoglGJakWT72QBzTOgA0B_3PtWBlGS9EH9hvwRucQyNERjHrX0cAlQdAU-BXSkUkhM06a4_BhdxbYgkl1X4FjSxFJ-OoUAfWA5SSFzVOyyGpo7WXMqdklmL4SCTUFyoLnNWoxIo407uVSUgIOPXq4yr-QwklWdXJIzTh6IPHHUVGQ8qotXtIq717Y1zzymOzjqpZt0HVcVBfX9QH7MVxbDXNWGqj_BfBS4sDczMA7r_GY2ueTwcL_kEm9aEbeRtY0kSeINkSkMh9HzqITIp9ObAm3J-O-nevSgyzzPI-l2O1VW_o6sJA"
+}
+
 ```
