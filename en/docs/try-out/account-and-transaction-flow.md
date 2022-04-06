@@ -228,8 +228,8 @@ The AISP application redirects the bank customer to authenticate and approve/den
 
     ``` tab="Format"
     {
-      "kid": "2MI9XSKi6ddxCbWg2rhDNtUlxJc",
-      "alg": "PS256",
+      "kid": "<CERTIFICATE_FINGERPRINT>",
+      "alg": "<SUPPORTED_ALGORITHM>",
       "typ": "JWT"
     }
     {

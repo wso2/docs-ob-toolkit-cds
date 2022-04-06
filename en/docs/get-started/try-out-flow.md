@@ -83,8 +83,8 @@ The Accredited Data Recipient application redirects the bank customer to authent
 
     ``` tab="Format"
     {
-      "kid": "2MI9XSKi6ddxCbWg2rhDNtUlxJc",
-      "alg": "PS256",
+      "kid": "<CERTIFICATE_FINGERPRINT>",
+      "alg": "<SUPPORTED_ALGORITHM>",
       "typ": "JWT"
     }
     {
