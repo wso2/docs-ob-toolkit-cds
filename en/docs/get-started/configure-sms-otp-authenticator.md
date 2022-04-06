@@ -14,7 +14,7 @@ This document provides step by step instructions to setup SMS OTP configurations
 
 ### Step 1: Adding SMS OTP Identity Provider
 
-1. Go to the **Main menu** -> **Identity** -> **Identity Providers** -> **Add**.
+1. Go to the **Main menu > Identity > Identity Providers > Add**.
 
       ![add_identity_providers](../assets/img/get-started/quick-start-guide/go-to-add-identity-providers.png)
 
