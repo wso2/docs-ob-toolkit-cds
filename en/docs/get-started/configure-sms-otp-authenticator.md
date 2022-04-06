@@ -18,7 +18,7 @@ This document provides step by step instructions to setup SMS OTP configurations
 
       ![add_identity_providers](../assets/img/get-started/quick-start-guide/go-to-add-identity-providers.png)
 
-2. Fill the **Basic Information** section and name this identity provider as **SMSAuthentication**
+2. Fill the **Basic Information** section and name this Identity Provider as **SMSAuthentication**
 
       ![sms_authentication_idp](../assets/img/get-started/quick-start-guide/sms-authentication-idp.png)
 
