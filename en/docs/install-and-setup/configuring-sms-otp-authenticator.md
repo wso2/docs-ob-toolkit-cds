@@ -1,5 +1,20 @@
 This document provides step by step instructions to setup SMS OTP configurations.
 
+## Configuring deployment.toml
+
+1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
+
+     ``` toml
+     [authentication.custom_authenticator]
+     name = "OBIdentifierExecutor"
+     ```
+
+2. Run the following command in `<IS_HOME>/bin` and restart the server.
+
+     ``` bash
+     ./wso2server.sh 
+     ```
+   
 ## Sign in to the Identity Server
 
 1. Sign in to the Management Console of WSO2 Identity Server at `https://<IS_HOST>:9446/carbon`.
@@ -69,17 +84,10 @@ This document provides step by step instructions to setup SMS OTP configurations
 
 3. Scroll down and click **Update**.
 
-!!! tip "More on Login Information..."
-     In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
-     attempt to log in. Mobile number should be given in the format of the following example - 94714564567.
+    !!! tip "More on Login Information..."
+         In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first
+         attempt to log in. Mobile number should be given in the format of the following example - 94714564567.
 
-!!!note 
-     Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
-     invalid OTPs more than allowed number of times, etc.
-
-Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
-
-     ```
-     [authentication.custom_authenticator]
-     name = "OBIdentifierExecutor"
-     ```
+    !!!note 
+         Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
+         invalid OTPs more than allowed number of times, etc.
