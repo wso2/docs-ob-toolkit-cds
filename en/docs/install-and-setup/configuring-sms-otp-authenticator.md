@@ -1,8 +1,8 @@
-This document provides step by step instructions to setup SMS OTP configurations.
+This document provides step by step instructions to set up SMS OTP configurations.
 
 ## Configuring deployment.toml
 
-1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
+1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configurations as follows.
 
      ``` toml
      [authentication.custom_authenticator]
@@ -41,7 +41,7 @@ This document provides step by step instructions to setup SMS OTP configurations
 
       ![expand_federated_authenticators](../assets/img/get-started/quick-start-guide/expand-federated-authenticators.png)
 
-4. Select both the **Enable** and **Default** checkboxes. This is to enable and make the SMSAuthentication authenticator the default one.
+4. Select both the **Enable** and **Default** checkboxes. This is to enable and make the **SMSAuthentication** authenticator the default one.
 
       ![config_sms_otp](../assets/img/get-started/quick-start-guide/config-sms-otp.png)
 
