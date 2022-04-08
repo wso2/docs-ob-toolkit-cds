@@ -233,45 +233,35 @@ The AISP application redirects the bank customer to authenticate and approve/den
       "typ": "JWT"
     }
     {
-      "max_age": 86400,
-      "aud": "<This is the audience that the ID token is intended for. e.g., https://<IS_HOST>:9446/oauth2/token>",
-      "scope": "accounts openid",
-      "iss": "<APPLICATION_ID>",
+      "aud": "https://localhost:9446/oauth2/token",
+      "iss": "3nzwb1VuaUISzujNe6QjDxlgnCka",
+      "scope": "openid bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read",
       "claims": {
+        "sharing_duration": 60000,
         "id_token": {
           "acr": {
             "values": [
-              "urn:openbanking:psd2:sca",
-              "urn:openbanking:psd2:ca"
+              "urn:cds.au:cdr:3"
             ],
-            "essential": true
-          },
-          "openbanking_intent_id": {
-            "value": "<CONSENTID>",
             "essential": true
           }
         },
-        "userinfo": {
-          "openbanking_intent_id": {
-            "value": "<CONSENTID>",
-            "essential": true
-          }
-        }
+        "userinfo": {}
       },
-      "response_type": "<code:Retrieves authorize code/code id_token: Retrieves authorize token and ID token>",  
-      "redirect_uri": "<CLIENT_APPLICATION_REDIRECT_URI>",
-      "state": "YWlzcDozMTQ2",
-      "exp": <EPOCH_TIME_OF_TOKEN_EXPIRATION>,
-      "nonce": "<PREVENTS_REPLAY_ATTACKS>",
-      "client_id": "<APPLICATION_ID>"
+      "response_type": "code id_token",
+      "redirect_uri": "https://wso2.com",
+      "state": "suite",
+      "exp": 1739640532,
+      "nonce": "8fc4cbb4-287b-42aa-a1d0-67dce6fc7479",
+      "client_id": "3nzwb1VuaUISzujNe6QjDxlgnCka"
     }
     ```
     
     ``` tab="Sample"
-    eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJtYXhfYWdlIjo4NjQwMCwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJzY29wZSI6ImFjY291bnRzIG9wZW5pZCIsImlzcyI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjbGFpbXMiOnsiaWRfdG9rZW4iOnsiYWNyIjp7InZhbHVlcyI6WyJ1cm46b3BlbmJhbmtpbmc6cHNkMjpzY2EiLCJ1cm46b3BlbmJhbmtpbmc6cHNkMjpjYSJdLCJlc3NlbnRpYWwiOnRydWV9LCJvcGVuYmFua2luZ19pbnRlbnRfaWQiOnsidmFsdWUiOiJkYzY0ZTI3Yy03MTM5LTQ0MGUtOGI0Zi1jZDcwYzY0OWUwOTYiLCJlc3NlbnRpYWwiOnRydWV9fSwidXNlcmluZm8iOnsib3BlbmJhbmtpbmdfaW50ZW50X2lkIjp7InZhbHVlIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2IiwiZXNzZW50aWFsIjp0cnVlfX19LCJyZXNwb25zZV90eXBlIjoiY29kZSBpZF90b2tlbiIsInJlZGlyZWN0X3VyaSI6Imh0dHBzOi8vd3NvMi5jb20iLCJzdGF0ZSI6IllXbHpjRG96TVRRMiIsImV4cCI6MTYzMzU4NjQwOCwibm9uY2UiOiJuLTBTNl9XekEyTWoiLCJjbGllbnRfaWQiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIn0.OK0G0hxKQwBYEV8G9cDZAMkuLYU0Go3O8DhphzlYXpaTxPTpNUGFuUk6wiDNh0SGt-bBg6lC0mv7FrfBMv9r79yuDME6iqefgVB3PXhqWfGfRvhDY0wW9HvfGsWdrJ3MUxV0RomZeEyoooD3TrRItsc8-CsmAz5_BbCgSwYRGMcAwS89P-twlc3CE7YYru1ktGkoVQ8UvQA8IiXoomq-eS3oebRTD8DmYkjpeKURkO0rrssMuxOcN64GcgEAQeDW_dANSq_YSX9yTGGFWIzVmkafT5qzz0792VIGDtxx5Tr7keuDWIR_2SBdo_49oVLHttLu_kwNhN9u-Ed2Hx1wPQ
+    eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo5NDQ2L29hdXRoMi90b2tlbiIsImlzcyI6IjNuendiMVZ1YVVJU3p1ak5lNlFqRHhsZ25Da2EiLCJzY29wZSI6Im9wZW5pZCBiYW5rOmFjY291bnRzLmJhc2ljOnJlYWQgYmFuazphY2NvdW50cy5kZXRhaWw6cmVhZCBiYW5rOnRyYW5zYWN0aW9uczpyZWFkIiwiY2xhaW1zIjp7InNoYXJpbmdfZHVyYXRpb24iOjYwMDAwLCJpZF90b2tlbiI6eyJhY3IiOnsidmFsdWVzIjpbInVybjpjZHMuYXU6Y2RyOjMiXSwiZXNzZW50aWFsIjp0cnVlfX0sInVzZXJpbmZvIjp7fX0sInJlc3BvbnNlX3R5cGUiOiJjb2RlIGlkX3Rva2VuIiwicmVkaXJlY3RfdXJpIjoiaHR0cHM6Ly93c28yLmNvbSIsInN0YXRlIjoic3VpdGUiLCJleHAiOjE3Mzk2NDA1MzIsIm5vbmNlIjoiOGZjNGNiYjQtMjg3Yi00MmFhLWExZDAtNjdkY2U2ZmM3NDc5IiwiY2xpZW50X2lkIjoiM256d2IxVnVhVUlTenVqTmU2UWpEeGxnbkNrYSJ9.nrLPRvsFq_D0hEEvKKqN6m1uiQUV4cJK3Oy0YeY9BK5aaOgVJ43ni5ObGCuUnarBnRoxQQC4_wgqa54qI5KDjz_PV0ntMsUDlwhSIrGiy31zI4RqUogiF70ITClnPN6g1fQFQchjb7EQcwmrV5OXkJgNI-Ly3R7MKgyECcWINRvPsS15dwd9XBy_2HSkEyDRipAb5oPFLT-GLyvE2YlHiHXatf1Dj6vFpeKWoCQ0sN6djZBVoH7NExkQ7TSY5RIc9eHCyWZDD4puj9FtRXBYJw0My8L5CgfpPUngbcAut1oYz9tsvYiRb_adjbZ87-r_RlQqhGtH15ccf7cxx_CDvg
     ```
 
-2. The ASPSP sends the request to the customer stating the accounts and information that the API consumer wishes to access. 
+2. The Data Holder sends the request to the customer stating the accounts and information that the API consumer wishes to access. 
 This request is in the format of a URL as follows. 
 
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
@@ -300,19 +290,19 @@ user that has a `subscriber` role.
 
 #### Consent Re-authentication for Account Consents
 
- Account consents are long-lived consents and PSUs can re-authenticate account consents. Consent re-authentication is 
- the process that enables an ASPSP to authenticate a PSU more than once for the same consent. To re-authenticate a consent:
+ Account consents are long-lived consents and bank customer can re-authenticate account consents. Consent re-authentication is 
+ the process that enables an Data Holder to authenticate a customer more than once for the same consent. To re-authenticate a consent:
  
  - The consent must be in the authorized state.
  - The `ExpirationDateTime` of the consent should not have elapsed.
  
  Once re-authentication is successful, an AISP must not use or refresh access tokens that were issued for the same consent. 
- The ASPSP can decide to invalidate the previously issued tokens for the same consent. 
+ The Data Holder can decide to invalidate the previously issued tokens for the same consent. 
  
 ??? tip "Changing authorized accounts during re-authentication"
 
-     In the Account and transaction flow, the PSU can change the account IDs related to a consent during consent re-authentication. 
-     The ASPSP can allow the PSU to change the account IDs using the following configurations:
+     In the Account and transaction flow, the bank customer can change the account IDs related to a consent during consent re-authentication. 
+     The Data Holder can allow the bank customer to change the account IDs using the following configurations:
      
      1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
      2. Set the following configuration to `true`:
@@ -382,7 +372,7 @@ In this section, you will be generating an access token using the authorization 
    
 ### Invoking Accounts and Transaction API
 
-Once the PSU approves the account consent, the AISP is eligible to access the account details of the PSU.
+Once the customer approves the account consent, the AISP is eligible to access the account details of the bank customer.
 
 The AISP can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
 full list of accounts that the PSU has authorised the AISP to access. The Account Ids returned are used to retrieve 
@@ -393,7 +383,12 @@ other resources for a specific AccountId.
     ```
     curl -X GET \
     https://<APIM_HOST>:8243/open-banking/v3.1/aisp/accounts' \
-    -H 'x-fapi-financial-id: open-bank' \
+    -H 'x-v: 2'
+    -H 'x-min-v: 1'
+    -H 'x-fapi-interaction-id: 430a9796-2cf0-ba37-e99b-3d44d0263fde'
+    -H 'x-fapi-auth-date: Tue, 78 Jan 1312 80:05:73 GMT'
+    -H 'x-fapi-customer-ip-address: ut incididunt'
+    -H 'x-cds-client-headers: TFXbY7qlgHKbMHEwmjrTJ2t5Tq/y7DVssP=='
     -H 'Authorization: Bearer <USER_ACCESS_TOKEN>' \
     -H 'Accept: application/json' \
     -H 'charset: UTF-8' \
