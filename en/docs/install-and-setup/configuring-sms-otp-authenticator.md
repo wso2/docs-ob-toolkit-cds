@@ -45,14 +45,30 @@ This document provides step by step instructions to set up SMS OTP configuration
 
       ![config_sms_otp](../assets/img/get-started/quick-start-guide/config-sms-otp.png)
 
-5. Add the following sample configurations and click **Register**.
+5. Based on your **SMS provider**, fill out the SMS OTP configurations.
 
-       ```
-        SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
-        HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
-        HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
-        HTTP Method : POST
-       ```
+    - If Twilio is used as the SMS provider, go to [https://www.twilio.com/try-twilio](https://www.twilio.com/try-twilio) and create an account.
+
+    - While registering the account, verify your mobile number and click on console home [https://www.twilio.com/console](https://www.twilio.com/console)
+      to get free credits (Account SID and Auth Token).
+
+    - Twilio uses a POST method with headers and the text message and phone number are sent as the payload.
+
+6. Add the following sample configurations and click **Register**.
+
+     ``` tab="Format"
+     SMS URL : https://api.twilio.com/2010-04-01/Accounts/%7BAccountSID%7D/SMS/Messages.json
+     HTTP Headers : Authorization: Basic base64{AccountSID:AuthToken}
+     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=urlencode{TrialNumber}
+     HTTP Method : POST
+     ```
+
+     ``` tab="Sample"
+     SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
+     HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
+     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
+     HTTP Method : POST
+     ```
 
 ### Step 2: Configuring Account Lock
 
