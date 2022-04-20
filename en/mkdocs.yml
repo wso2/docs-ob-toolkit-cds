@@ -80,6 +80,7 @@ nav:
     - 'Strong Customer Authentication':
        - 'Introduction': learn/strong-customer-authentication.md
        - 'App-to-App Redirection': learn/app-to-app-redirection.md
+    - 'Metadata Cache Management': learn/metadata-cache-management.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
