@@ -1,6 +1,6 @@
 # API Security
 
-Open Banking allows TPPs to access financial data through open APIs, which requires greater API security. Therefore, 
+Open Banking allows Accredited Data Recipients to access financial data through open APIs, which requires greater API security. Therefore, 
 open banking standards provide guidelines for security implementations.
 
 WSO2 Open Banking provides an extra level of security to the Open Banking APIs adhering to the security guidelines 
@@ -8,18 +8,18 @@ provided in the Financial API (FAPI) group, which is based on OAuth 2.0 and Open
 
 ###MTLS enforcement
 
-Authentication is a  crucial requirement in open banking to verify the authenticity of an TPP before sharing the 
-customer’s banking information. When a TPP invokes APIs, their private credentials can be shared in the requests, 
-and it leads to credential leakages and data thefts. Therefore, Mutual Transport Layer Security (MTLS) is introduced as 
-an authentication protocol where the TPPs do not need to send their private credentials.
+Authentication is a  crucial requirement in open banking to verify the authenticity of an Accredited Data Recipient 
+before sharing the customer’s banking information. When an Accredited Data Recipient invokes APIs, their private 
+credentials can be shared in the requests, and it leads to credential leakages and data thefts. Therefore, Mutual 
+Transport Layer Security (MTLS) is introduced as an authentication protocol where the TPPs do not need to send their private credentials.
 
-MTLS handshake at the transport layer ensures that the corresponding TPP possesses a secret key that is associated 
-with the X509 certificate issued by a trusted Certificate Authority (CA).
+MTLS handshake at the transport layer ensures that the corresponding Accredited Data Recipient possesses a secret key 
+that is associated with the X509 certificate issued by a trusted Certificate Authority (CA).
 
 In WSO2 Open Banking, MTLS is enforced at the API Manager level to check if 
 
-- the message context contains the transport certificate to make sure that the MTLS handshake is successful at the gateway
-- the transport certificate bound to the application when invoking the APIs
+- the message context contains the transport certificate to make sure that the MTLS handshake is successful at the gateway.
+- the transport certificate bound to the application when invoking the APIs.
 
 There are two scenarios to consider for the MTLS validation:
 
@@ -58,10 +58,10 @@ By default, WSO2 Open Banking verifies the revocation status of a certificate us
 OCSP validation is unsuccessful, the revocation status is verified using the CRL information. The certificate is rejected 
 if none of these protocols is successful or if the required revocation information is not found on the certificate.
 
-###Validate external TPPs
+###Validate external Accredited Data Recipients
 
-This validation allows banks to validate TPPs from the NCAs. This is done by 
-validating the transport layer certificate a TPP has obtained. 
+This validation allows Data Holders to validate Accredited Data Recipients from the NCAs. This is done by 
+validating the transport layer certificate an Accredited Data Recipient has obtained. 
 
 ###Role validation 
 According to the [Open Banking Standard - UK](https://www.openbanking.org.uk/about-us/glossary/), TPPs have roles 

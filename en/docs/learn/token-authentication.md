@@ -1,9 +1,9 @@
-When a TPP registers an application, a consumer-key and a consumer-secret is given for that application. 
+When an Accredited Data Recipient registers an application, a consumer-key and a consumer-secret is given for that application. 
 These are the credentials of the application that is being registered. The consumer-key becomes 
 the unique identifier of the application, which is similar to a username that is used for authentication. 
 When an **access token** is issued for the application, it is issued against the latter mentioned consumer-key.
 
-TPPs generate access tokens and pass them in the incoming API requests. The generated access token is a simple 
+Accredited Data Recipients generate access tokens and pass them in the incoming API requests. The generated access token is a simple 
 string that you need to pass as an HTTP header. For example, `"Authorization: Bearer NtBQkXoKElu0H1a1fQ0DWfo6IX4a"`. 
 
 WSO2 Open Banking supports two types of access tokens for authentication:

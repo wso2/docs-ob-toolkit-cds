@@ -5,7 +5,7 @@ ways:
    2. App-based redirection
     
 Browser-based redirection is the general redirection flow supported by most of the open banking specifications. The 
-*Open Banking Standard - UK* mentions an app-based redirection flow, which is known as **App-to-App redirection**. 
+*Open Banking Standard - CDS* mentions an app-based redirection flow, which is known as **App-to-App redirection**. 
 
 !!! note
     WSO2 Open Banking supports both browser-based and app-based redirection flows.
@@ -13,9 +13,9 @@ Browser-based redirection is the general redirection flow supported by most of t
 Ideally, even when app-based redirection is used, browser-based redirection needs to be available for users 
 who do not have the mobile application of the bank installed in their devices.
 
-According to the OAuth2/OIDC Authorization Code Flow, the bank customer is redirected from the TPP’s mobile 
+According to the OAuth2/OIDC Authorization Code Flow, the bank customer is redirected from the Accredited Data Recipients mobile 
 application to the bank’s mobile application via mobile OS utilities. Upon successful authentication, the customer is 
-redirected back to the TPP's mobile application with the authentication code. 
+redirected back to the Accredited Data Recipients mobile application with the authentication code. 
 
 !!!note 
     The [Open Banking Implementation Entity](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/23889379/Deep+linking+for+App-to-App+redirection) 
@@ -26,21 +26,21 @@ redirected back to the TPP's mobile application with the authentication code.
 
 ## Customer Experience Guidelines
     
-The bank’s interface and redirection may vary according to the service it provides. The following section explains some 
-guidelines provided by the [Customer Experience Guidelines, Open Banking Standard - UK](https://www.openbanking.org.uk/wp-content/uploads/Customer-Experience-Guidelines-V1.3.0.pdf).
+The Data Holders interface and redirection may vary according to the service it provides. The following section explains some 
+guidelines provided by the [Customer Experience Guidelines, Open Banking Standard - CDS](https://d61cds.notion.site/d61cds/Consumer-Experience-Standards-and-Guidelines-dffe42d39d4942c5b4f2c7612ba4f6e0).
 
 ### Account Information Service
 
-If the TPP application is aggregating account information on behalf of the bank user, the APP-to-APP redirection 
+If the Accredited Data Recipients application is aggregating account information on behalf of the bank user, the APP-to-APP redirection 
 flow is as follows: 
 
 [ ![](../assets/img/learn/app-to-app-redirection/ais-app-based-flow.png) ](../assets/img/learn/app-to-app-redirection/ais-app-based-flow.png)
 
-According to the [Customer Experience Guidelines, Open Banking Standard - UK](https://www.openbanking.org.uk/wp-content/uploads/Customer-Experience-Guidelines-V1.3.0.pdf), 
+According to the [Customer Experience Guidelines, Open Banking Standard - CDS](https://d61cds.notion.site/d61cds/Consumer-Experience-Standards-and-Guidelines-dffe42d39d4942c5b4f2c7612ba4f6e0), 
 the following implementation steps are described explicitly:
 
 !!! note
-    According to [Open Banking Standard - UK](https://www.openbanking.org.uk/about-us/glossary/), when a TPP 
+    According to [Open Banking Standard - CDS](https://d61cds.notion.site/Glossary-a798d008acf945ce856d787b01385de0), when an Accredited Data Recipient
     application provides the Account Information Service, it is known as an Account Information Service Provider (AISP).
 
 | Implementation | Requirement | Participant |
@@ -49,29 +49,6 @@ the following implementation steps are described explicitly:
 | B- The bank application loads for authentication (If the bank app resides in the same mobile device, or else redirect to the browser) | Required | bank |
 | C- The customer consents to the accounts, which the AISP is allowed to have access | Required | Bank |
 | D- Confirms the completion of AIS request | Recommended | AISP |
- 
-### Payment Initiation Service
-
-If the TPP application is initiating a credit transfer on behalf of the bank customer, the App-to-App redirection 
-flow is as follows:
-
-[ ![](../assets/img/learn/app-to-app-redirection/pis-app-based-flow.png) ](../assets/img/learn/app-to-app-redirection/pis-app-based-flow.png)
-
-According to the [Customer Experience Guidelines, Open Banking Standard - UK](https://www.openbanking.org.uk/wp-content/uploads/Customer-Experience-Guidelines-V1.3.0.pdf), 
-the following implementation steps are described explicitly:
-
-!!! note
-    According to [Open Banking Standard - UK](https://www.openbanking.org.uk/about-us/glossary/), when a TPP 
-    application provides the Payment Initiation Service, it is known as a Payment Initiation Services Provider (PISP).
-
-| Implementation | Requirement | Participant |
-| -------------- | ------------| ------------|
-| A- The customer enters/selects the account associated with their bank | Required | PISP |
-| B- Shares the information to obtain customer's consent before initiating a payment | Required | PISP |
-| C- The bank application loads for authentication (If the bank app resides in the same mobile device, or else redirect to the browser) | Required | Bank |
-| D- Display the minimum payment amount, currency, and payee account name to the customer | Required | Bank |
-| E- The bank's app-based authentication must not be more than the number of steps the customer would go through when directly accessing the bank interface | Required | Bank |
-| F- The customer needs to be directed back to the TPP’s interface displaying the confirmation of successful payment initiation. | Required | PISP |
 
 ## How WSO2 Open Banking supports App-to-App redirection
 
@@ -79,18 +56,18 @@ the following implementation steps are described explicitly:
 
 WSO2 Open Banking supports the App-to-App redirection flow as follows: 
 
-The TPP mobile application invokes the `authorize` endpoint, similar to a basic browser-based auth-code/hybrid 
-redirect flow. When the bank’s mobile application is installed in the customer’s device with a deep link connected to 
+The Accredited Data Recipient mobile application invokes the `authorize` endpoint, similar to a basic browser-based auth-code/hybrid 
+redirect flow. When the Data Holder's mobile application is installed in the customer’s device with a deep link connected to 
 this authorize request, the request is handled by the bank’s mobile application instead of the browser.
 
 !!! note 
-    If the bank’s mobile application is not available in the customer’s device, the customer is taken through a typical 
+    If the Data Holder's mobile application is not available in the customer’s device, the customer is taken through a typical 
     browser-based flow. 
     
 Once the mobile application handles the customer authentication and consent, it obtains a callback URI. This is the URL 
-to the TPP application. Using deep links, the bank application redirects the customer to the TPP’s 
-mobile application. Here, similar to the initial scenario, the callback URI is deep linked to the TPP’s mobile 
-application. Using this, the flow continues from the bank’s mobile application to the TPP’s mobile application 
+to the Accredited Data Recipient application. Using deep links, the bank application redirects the customer to the Accredited Data Recipients 
+mobile application. Here, similar to the initial scenario, the callback URI is deep linked to the Accredited Data Recipients mobile 
+application. Using this, the flow continues from the bank’s mobile application to the Accredited Data Recipients mobile application 
 again.
 
 In the App-to-App redirection method, the flow should be handled in the bank’s mobile application as follows:
@@ -135,5 +112,5 @@ required to display on the consent page.
 to persist the consent information.
 
 7. Finally, if the persistence is successful, to complete the flow the `/authorize` endpoint is invoked. This results in 
-a redirection to the callback URL of the TPP application, which is deep linked to the TPP application. 
-Therefore, the customer is redirected to the mobile application of the TPP. 
+a redirection to the callback URL of the Accredited Data Recipient application, which is deep linked to the Accredited Data Recipient application. 
+Therefore, the customer is redirected to the mobile application of the Accredited Data Recipient. 

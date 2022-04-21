@@ -4,7 +4,7 @@ Open banking is a concept that lets third-party financial service providers acce
 services with their consent. Consent management is the process of prompting, collecting, and managing bank customer’s 
 consent before a third-party provider collects or shares the customer's financial information. 
 
-In an open banking ecosystem, once a bank customer requests a service via a TPP application for the first 
+In an open banking ecosystem, once a bank customer requests a service via an Accredited Data Recipients application for the first 
 time to access the customer's data, the customer needs to authorize and grant consent. These consents go through a 
 phased lifecycle as follows:
 
@@ -15,10 +15,10 @@ section in Open Banking Requirements.
 
 ## How to manage consents
 
-The TPP applications seek consent from their customers who wish to expose their financial data through the 
+The Accredited Data Recipient applications seek consent from their customers who wish to expose their financial data through the 
 application. When granting consent the customers must know the following:
 
-- Who they are granting access to: The identity of the TPP application
+- Who they are granting access to: The identity of the Accredited Data Recipient application
 - For what purpose: The details that this application will have access to. For example, account details, payment details
 - For what period: Number of days the consent is valid for
 - Expiration process: How the user can revoke a granted consent
@@ -28,11 +28,11 @@ with the customer and authenticates them according to the available security mec
 authentication/Strong Customer Authentication via SMS OTP. 
 
 After successful authentication, the customer is presented with the details of the consent where they can allow or 
-deny this request from the TPP application to access data. Depending on the customer’s response the API 
+deny this request from the Accredited Data Recipient application to access data. Depending on the customer’s response the API 
 consumer application may or may not have access to the data. 
 
 With the [Consent Manager](consent-manager.md) application in WSO2 Open Banking you can use one of the 
-following methods to revoke these consents granted to TPP applications.
+following methods to revoke these consents granted to Accredited Data Recipient applications.
  
  - A customer can revoke a consent using the Consent Manager portal 
  - A Customer Care Representative from the bank can revoke a consent on behalf of a user
