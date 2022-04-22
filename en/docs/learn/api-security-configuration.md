@@ -31,7 +31,7 @@ priority = 2
     port = 8080
     ```
 
-###Configuring external TPP validation
+###Configuring external Accredited Data Recipient validation
 
 !!!note
     By default, WSO2 Open Banking supports a sample API flow to get account information and to initiate a 
@@ -51,7 +51,7 @@ priority = 2
     roles = "PISP"
     ```
  
-By default, external TPP validation is enforced in two occurrences:
+By default, external Accredited Data Recipient validation is enforced in two occurrences:
 
 - API-level 
 - Dynamic Client Registration (DCR)

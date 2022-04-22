@@ -77,8 +77,8 @@ nav:
     - 'Dynamic Client Registration':
        - 'Introduction': learn/dynamic-client-registration.md
        - 'Configuration': learn/dynamic-client-registration-configuration.md
-    - 'Strong Customer Authentication':
-       - 'Introduction': learn/strong-customer-authentication.md
+    - 'Consumer Authentication':
+       - 'Introduction': learn/consumer-authentication.md
        - 'App-to-App Redirection': learn/app-to-app-redirection.md
     - 'API Security':
        - 'Introduction': learn/api-security.md

@@ -106,6 +106,7 @@ read_timeout = 3000
 ## Configuring a custom DCR validator
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
+
 2. Find the following configuration and replace that with your extended class. By default the 
 `DefaultRegistrationValidatorImpl` class is configured as follows: 
 ````toml
@@ -126,7 +127,7 @@ name = "PS256"
 ```
 
 !!! note "Configuring DCR request parameters" 
-    - WSO2 Open Banking provides the capability to configure the parameters and the values allowed by Open Banking UK.
+    - WSO2 Open Banking provides the capability to configure the parameters and the values allowed by Open Banking CDS.
         - By default, the following values are configured as mandatory parameters. To configure 
         the allowed values for them, open the `<IS_HOME>/repository/conf/deployment.toml` file and add the following 
         tags.
@@ -156,7 +157,7 @@ name = "PS256"
               ````toml
               [open_banking.dcr.registration.issuer]
               required = false
-              allowed_values = ["accounts", "payments"]
+              allowed_values = ["accounts"]
               ````
               
     - By default, the following values are configured as optional parameters. To configure 
@@ -166,7 +167,7 @@ name = "PS256"
          
             ````toml
             [open_banking.dcr.registration.scope]
-            allowed_values = ["accounts", "payments"]
+            allowed_values = ["accounts"]
             
             [open_banking.dcr.registration.application_type] 
             allowed_values = ["web"]
@@ -214,6 +215,5 @@ name = "PS256"
         ````toml
         [open_banking.dcr.registration.scope]
         required = true
-        allowed_values = ["accounts", "payments"]
+        allowed_values = ["accounts"]
         ````
-        
