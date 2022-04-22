@@ -1,6 +1,6 @@
-#Strong Customer Authentication
+#Consumer Authentication
 
-**Strong Customer Authentication** is a mechanism used to authenticate a user that accesses banking 
+**Consumer Authentication** is a mechanism used to authenticate a user that accesses banking 
 information via an Accredited Data Recipient validation application. Authentication can be configured using two or more of the following factors 
 to  minimise fraudulent activities by preventing identity theft. It authenticates the user using the following factors 
 one at a time:
