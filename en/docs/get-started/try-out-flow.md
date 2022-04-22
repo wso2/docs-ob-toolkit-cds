@@ -88,8 +88,8 @@ The Accredited Data Recipient application redirects the bank customer to authent
       "typ": "JWT"
     }
     {
-      "aud": "https://localhost:9446/oauth2/token",
-      "iss": "3nzwb1VuaUISzujNe6QjDxlgnCka",
+      "aud": "<This is the audience that the ID token is intended for. Example, https://<IS_HOST>:9446/oauth2/token>",
+      "iss": "<CLIENT_ID>",
       "scope": "openid bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read",
       "claims": {
         "sharing_duration": 60000,
@@ -104,11 +104,11 @@ The Accredited Data Recipient application redirects the bank customer to authent
         "userinfo": {}
        },
        "response_type": "code id_token",
-       "redirect_uri": "https://wso2.com",
+       "redirect_uri": "<CLIENT_APPLICATION_REDIRECT_URI>",
        "state": "suite",
-       "exp": 1739640532,
-       "nonce": "8fc4cbb4-287b-42aa-a1d0-67dce6fc7479",
-       "client_id": "3nzwb1VuaUISzujNe6QjDxlgnCka"
+       "exp": <EPOCH_TIME_OF_TOKEN_EXPIRATION>,
+       "nonce": "<PREVENTS_REPLAY_ATTACKS>",
+       "client_id": "<CLIENT_ID>"
       }
     ```
     
@@ -213,7 +213,7 @@ other resources for a specific AccountId.
     
     ```
     curl -X GET \
-    https://localhost:8243/open-banking/v3.1/aisp/accounts' \
+    https://localhost:8243/cds-au/v1/banking/accounts' \
     -H 'x-v: 2'
     -H 'x-min-v: 1'
     -H 'x-fapi-interaction-id: 430a9796-2cf0-ba37-e99b-3d44d0263fde'

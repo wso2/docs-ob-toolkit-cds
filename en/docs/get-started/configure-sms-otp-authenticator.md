@@ -1,8 +1,8 @@
-This document provides step by step instructions to setup SMS OTP configurations.
+This document provides step by step instructions to set up SMS OTP configurations.
 
 ## Configuring deployment.toml
 
-1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configs as follows.
+1. Open `<IS_HOME>/repository/conf/deployment.toml` file and configure the authenticator configurations as follows.
 
      ``` toml
      [authentication.custom_authenticator]
@@ -41,18 +41,34 @@ This document provides step by step instructions to setup SMS OTP configurations
 
       ![expand_federated_authenticators](../assets/img/get-started/quick-start-guide/expand-federated-authenticators.png)
 
-4. Select both the **Enable** and **Default** checkboxes. This is to enable and make the SMSAuthentication authenticator the default one.
+4. Select both the **Enable** and **Default** checkboxes. This is to enable and make the **SMSAuthentication** authenticator the default one.
 
       ![config_sms_otp](../assets/img/get-started/quick-start-guide/config-sms-otp.png)
 
-5. Add the following sample configurations and click **Register**.
+5. Based on your **SMS provider**, fill out the SMS OTP configurations. 
 
-       ```
-        SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
-        HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
-        HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
-        HTTP Method : POST
-       ```
+    - If Twilio is used as the SMS provider, go to [https://www.twilio.com/try-twilio](https://www.twilio.com/try-twilio) and create an account.
+   
+    - While registering the account, verify your mobile number and click on console home [https://www.twilio.com/console](https://www.twilio.com/console) 
+      to get free credits (Account SID and Auth Token).
+
+    - Twilio uses a POST method with headers and the text message and phone number are sent as the payload.
+     
+6. Add the following sample configurations and click **Register**.
+
+     ``` tab="Format"
+     SMS URL : https://api.twilio.com/2010-04-01/Accounts/%7BAccountSID%7D/SMS/Messages.json
+     HTTP Headers : Authorization: Basic base64{AccountSID:AuthToken}
+     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=urlencode{TrialNumber}
+     HTTP Method : POST
+     ```
+
+     ``` tab="Sample"
+     SMS URL : https://api.twilio.com/2010-04-01/Accounts/AC34f40df03e20fb6498b3fcee256ebd3b/SMS/Messages.json
+     HTTP Headers : Authorization: Basic QUMzNGY0MGRmMDNlMjBmYjY0OThiM2ZjZWUyNTZlYmQzYjo1ZmFkM2VkYzg4YWM1NTNiMmFiZjc4 NWI1MmM4MWFkYg==
+     HTTP Payloads : Body=$ctx.msg&To=$ctx.num&From=+1 210-880-1806
+     HTTP Method : POST
+     ```
 
 ### Step 2: Configuring Account Lock
 
