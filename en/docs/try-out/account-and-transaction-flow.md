@@ -1,7 +1,8 @@
 This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
 
 !!! tip
-    When the TPP provides an Account Information Service as an online service, the TPP is known as an Account Information Services Provider (AISP).
+    When the Accredited Data Recipient provides an Account Information Service as an online service, the Accredited Data Recipient
+    is known as an Account Information Services Provider (AISP).
 
 ## Deploying Account and Transaction API
 
@@ -13,55 +14,68 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the relevant API from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` file.
 
 5. Click **Next**.
 
-6. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
+6. Set the **Endpoint** as follows:
+   ```
+   https://<IS_HOST>:9443/api/openbanking/cds/backend/services
+   ```
+7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
-7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-9. Click **Save**.
+10. Click **Save**.
 
-10. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
+11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-12. Now, select the **Custom Policy** option.
+13. Now, select the **Custom Policy** option.
 
-13. Upload the relevant insequence file from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis` directory. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
+14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` insequence file. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
  
-14. Click **Select**. 
+15. Click **Select**. 
 
-15. Scroll down and click **SAVE**.
+16. Scroll down and click **SAVE**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. 
+17. Use the left menu panel and go to **API Configurations > Endpoints**. 
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
+18. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
-18. Go to **Deployments** using the left menu pane. 
+19. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
     
-19. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+20. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-20. Click **Deploy**.
+21. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane. 
+22. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+23. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+
+### Summarized information for configuring APIs
+
+Given below is a summary of configurations to follow when deploying the APIs in the toolkit.
+
+| API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
+|-----|--------------------------------|--------------|---------------------------------- |
+| Consumer Data Standards API v1.8 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` | HTTP/REST Endpoint <br/> `https://<APIM_HOST>:9443/api/openbanking/cds/backend/services` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` |
+| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` | HTTP/REST Endpoint <br/> ` https://<APIM_HOST>:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
 
 ## Subscribing to Account and Transaction API
 
 1. The deployed API is now available in the Developer Portal at `https://<APIM_HOST>:9443/devportal`.
 
-2. Select the **AccountAndTransactionAPI V3.1** API.
+2. Select the **AccountAndTransactionAPI V1** API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
@@ -108,31 +122,31 @@ eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJ
 ```
 
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-``` curl
-curl -X POST \
-https://<IS_HOST>:9446/oauth2/token \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
-```
+    ``` curl
+    curl -X POST \
+    https://<IS_HOST>:9446/oauth2/token \
+    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
+    -d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
+    ```
 
 3. Upon successful token generation, you can obtain a token as follows:
-``` json
-{
-   "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-   "scope":"accounts",
-   "token_type":"Bearer",
-   "expires_in":3600
-}
-```
+    ``` json
+    {
+        "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
+        "scope":"accounts",
+        "token_type":"Bearer",
+        "expires_in":3600
+    }
+    ```
 
 ### Initiating an account consent
 
-In this step, the AISP generates a request to get the consent of the PSU to access the accounts and banking information. 
+In this step, the Accredited Data Recipient generates a request to get the consent of the PSU to access the accounts and banking information.
 
 1. Create an account consent using the following request format:
 ```
 curl -X POST \
-https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
+https://<APIM_HOST>:8243/cds-au/v1/banking/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
@@ -218,11 +232,11 @@ https://<APIM_HOST>:8243/open-banking/v3.1/aisp/account-access-consents \
             "Self": "https://localhost:8243/open-banking/3.1/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
         }
     }
-    ```
+    ```   
    
 ### Authorizing a consent
 
-The AISP application redirects the bank customer to authenticate and approve/deny application-provided consents.
+The Accredited Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
@@ -233,8 +247,8 @@ The AISP application redirects the bank customer to authenticate and approve/den
       "typ": "JWT"
     }
     {
-      "aud": "https://localhost:9446/oauth2/token",
-      "iss": "3nzwb1VuaUISzujNe6QjDxlgnCka",
+      "aud": "<This is the audience that the ID token is intended for. Example, https://<IS_HOST>:9446/oauth2/token>",
+      "iss": "<CLIENT_ID>",
       "scope": "openid bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read",
       "claims": {
         "sharing_duration": 60000,
@@ -249,11 +263,11 @@ The AISP application redirects the bank customer to authenticate and approve/den
         "userinfo": {}
       },
       "response_type": "code id_token",
-      "redirect_uri": "https://wso2.com",
+      "redirect_uri": "<CLIENT_APPLICATION_REDIRECT_URI>",
       "state": "suite",
-      "exp": 1739640532,
-      "nonce": "8fc4cbb4-287b-42aa-a1d0-67dce6fc7479",
-      "client_id": "3nzwb1VuaUISzujNe6QjDxlgnCka"
+      "exp": <EPOCH_TIME_OF_TOKEN_EXPIRATION>,
+      "nonce": "<PREVENTS_REPLAY_ATTACKS>",
+      "client_id": "<CLIENT_ID>"
     }
     ```
     
@@ -267,16 +281,20 @@ This request is in the format of a URL as follows.
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
     
     ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=accounts%20op
-    enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
+    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=<YOUR_SCOPE>
+    &redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
+   
+    !!!note
+        For more details on authorization scope, see [Consumer Data Standards - Authorization Scope](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).
+
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a 
 user that has a `subscriber` role. 
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
-5. At the bottom of the page, a list of bank accounts that the AISP wishes to access is displayed.
+5. At the bottom of the page, a list of bank accounts that the Accredited Data Recipient wishes to access is displayed.
 
 6. Select one or more accounts from the list and click **Confirm**. ![confirm_consent](../assets/img/get-started/quick-start-guide/consent-page-confirm.png)
 
@@ -296,7 +314,7 @@ user that has a `subscriber` role.
  - The consent must be in the authorized state.
  - The `ExpirationDateTime` of the consent should not have elapsed.
  
- Once re-authentication is successful, an AISP must not use or refresh access tokens that were issued for the same consent. 
+ Once re-authentication is successful, an Accredited Data Recipient must not use or refresh access tokens that were issued for the same consent. 
  The Data Holder can decide to invalidate the previously issued tokens for the same consent. 
  
 ??? tip "Changing authorized accounts during re-authentication"
@@ -307,7 +325,7 @@ user that has a `subscriber` role.
      1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
      2. Set the following configuration to `true`:
         ``` toml
-        [open_banking_uk.consent]
+        [open_banking_cds.consent]
         acc_update_by_psu_enabled = false
         ```
     3. Restart the Identity Server.
@@ -361,10 +379,11 @@ In this section, you will be generating an access token using the authorization 
 
     ``` json
     {
-        "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
-        "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
-        "scope": "accounts openid",
-        "id_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiUEFGdl9WZFdqREp0bFYyN1U1NEJYdyIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJac2l4aVM4c2RBZFJhVHVHZjlYbmxBIiwic3ViIjoiYWRtaW5Ad3NvMi5jb21AY2FyYm9uLnN1cGVyIiwibmJmIjoxNjI4NzQ2NTkyLCJhenAiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2Mjg3NTAxOTIsImlhdCI6MTYyODc0NjU5Miwibm9uY2UiOiJuLTBTNl9XekEyTSJ9.VRMfZouZTRm0QotoN0g95QjH7qKG_KwLExJyyb6AGbFewulyjwyPTJsHIj7D19ZZuNL14KqdCw51X3QjDXjLuvE6oas12EpKwHBuAAJjRtLf7NbbRPFok8Qlq011U_qNfYgcFubOQ5bXTr1QpwIU8imExvRxYS5UzsGyvluQ9hzjmRZM5cfwJ7hck71joX45Ue3E2tIvWxqyU13EJOyD3gd2QuhM6GSq3oWk8S0N_y7ACWLEHM8nzBUXiRo03D4DIacnmiZeicjIiim-SzF70tDJe70qy_nqbgf6VGqdAAIXyMXAvKxF5QWwYd5seMvt5o-_hCsI6DV69FawGJcbVQ",
+        "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJpbWVzaHVAd3NvMi5jb21AY2FyYm9uLnN1cGVyIiwiYXV0IjoiQVBQTElDQVRJT05fVVNFUiIsImF1ZCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJuYmYiOjE2NTA1MTM5MzcsImF6cCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJzY29wZSI6ImJhbms6YWNjb3VudHMuYmFzaWM6cmVhZCBiYW5rOmFjY291bnRzLmRldGFpbDpyZWFkIGNvbW1vbjpjdXN0b21lci5iYXNpYzpyZWFkIGNvbW1vbjpjdXN0b21lci5kZXRhaWw6cmVhZCBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiIyaHlmMEF0a2Q2Rmo0cnpuLXZzRDdHT244aUtnY2JiSEpVSlhMbG1yMUlzIn0sImV4cCI6MTY1MDUxNzUzNywiaWF0IjoxNjUwNTEzOTM3LCJqdGkiOiIzNDQwYzdjZS1lODJkLTQ1NTgtYmQ0NC0xM2YxOGM1MDIxZmYiLCJjb25zZW50X2lkIjoiY2MwMjUwYzQtNWQyNS00ZDhhLWFmNGItZGFmNDdhNWE1YjM3In0.oiWyWGzv-tnLqoeuhEICOnYFyYo1f_Ix178whrWQhs-dcr4HsKjZpEiDpi1Snfz0nFV9fBC2lyn9aoSIgSkcs859GlnKP33pKQ948OC8okJi5JJ6hLs626o9nWxMftxMYBDIy-OTxa6RDmPvnUFqDbkxVDrF0q_M14M250yRtVXzCHaI5t2l6wxZTgnqF8XdAGoEVVoo_j3_9CbmYBAmsDnrZKY0X4_KZ8LGaIQp6h-7uU3RvK_zHIIMDPfQ3TR4B8WCSXdOJV0S3s9mXRBNU5C5TEMIhQEZz6quXzmuAaE1gTroJKYstryjykyHJkILLmVlIEn4Isk3CRVOtKXkhg",
+        "refresh_token": "1c8ab391-deaf-38e9-8b10-9739c3e47214",
+        "cdr_arrangement_id": "cc0250c4-5d25-4d8a-af4b-daf47a5a5b37",
+        "scope": "bank:accounts.basic:read bank:accounts.detail:read common:customer.basic:read common:customer.detail:read openid",
+        "id_token": "eyJraWQiOiJHcWhLVlRBTm5MTVlwR0dmQXRKMU5oZGtnanciLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.oZRHhMTcZ1UAYISEZDhdZhQvegHqLJD-roNX5cfzpnWqd8-3UAQOBkN6oNKB6c8c-B-m9zklN4SI8T9CjzE8wHrfHxp9wiLiElXp16lGcPb_Ll4X2RJV4ScoEYXiDXbg0obb-OmPv2QCQ8fU9QpJxesHLnOQEYyDSy_Fhz81SM3qSKN3Z267qZlYMuYrJs_cBwqgn30Ur5I1yrfNYPjVEngVtdaF5jwAhtLWVB7jPLa_om0IcYykzWvmhBgQpLouRTSKvV3eIJuUYuQzP4hLWqFjCHL8WtzjiqI9dKpLrv4UGwOI_TJOu5VjCiyX2kT3GHkWVHwwf02cOTCbb_Xdxw.AvGimFwlUg4gTXlb.rdAeuP52k1w2ALA6vG6zJ0ntYCUTH_7yuP-PsqgSGllcnbvwI4h8pznugkcAsGOk5uE7-VztagdgFZbXIJZ1yzjklqBFl8YWSpH44JVQCwvl6SbroUSvTbaUPR32rueDp9Bx2qrbKWHRiIAayjLRSdGhtSCctprBeslh-NYGiLxRwgJBkHftqmruybenOhbBAbXBcqhktDfg31GmMJNbhHI9ZFZF_K1mdfKNhWzuY3URhOk1hkMxvGEIB9745uDpWV4UNd5cPJJCLrCGyahvi7864KPSeyVeaOSXXFWFkfTj8JvmTTK7qw9yuC72kvgnOIma65iB3oT3iYXuAQO4GQUOVpXFUNeawU0_CrMZVskMftOawY_be8JCzcsKj4ljykBC888H-LI_Ssad0a2s9NrcmKbYRS7rNGNLQGhvNfgwKvotbwhgxWxeBFPPNcGhyjfgpcQe8BcjTa-vWKPjrsr68QM6I9Bj9mGOLD8d31ZWQQlfe9N3m5I90A6Aag7EW7kkS30simqYyGBGKOSQ1n4bkFTtvmGjPKRx8pmFZM1CJvvAHS_wW_hxUvVAvXS8Jjp23K7mzi9W8SlXor7zyo9ssc1u1y1K_PUzpBxuKdgA3Y57kXrHdvEkotZOAyROjxH03TnJzQ3rzcW8ZSNCSH1bxGczBk-wPwSe.4JUZsGWWJB5bCHPIbxuCwg",
         "token_type": "Bearer",
         "expires_in": 3600
     }
@@ -374,15 +393,15 @@ In this section, you will be generating an access token using the authorization 
 
 Once the customer approves the account consent, the AISP is eligible to access the account details of the bank customer.
 
-The AISP can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
-full list of accounts that the PSU has authorised the AISP to access. The Account Ids returned are used to retrieve 
+The Accredited Data Recipient can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
+full list of accounts that the bank customer has authorised the Accredited Data Recipient to access. The Account Ids returned are used to retrieve 
 other resources for a specific AccountId.
 
 1. A sample request looks as follows:
     
     ```
     curl -X GET \
-    https://<APIM_HOST>:8243/open-banking/v3.1/aisp/accounts' \
+    https://<APIM_HOST>:8243/cds-au/v1/banking/accounts' \
     -H 'x-v: 2'
     -H 'x-min-v: 1'
     -H 'x-fapi-interaction-id: 430a9796-2cf0-ba37-e99b-3d44d0263fde'
@@ -400,53 +419,54 @@ other resources for a specific AccountId.
     
     ```
     {
-        "Data": {
-            "Account": [
+        "data": {
+            "accounts": [
                 {
-                    "AccountId": "30080012343456",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343456",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yM0ngWwicI91pdyPjM28r62G3zWu0LrUfBXN34V3E-wS",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
                 },
                 {
-                    "AccountId": "30080012343789",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343789",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yA_1IfEkgzFJJXf1UWh-kKJnyY9_KWEAtY5Emejdqr9x",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
+                },
+                {
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yCiPL8bWO0iOUvYK_mkw_991Gd4u8nzCSyfzelMXBuSC",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
                 }
             ]
         },
-        "Links": {
-            "Self": "https://api.alphabank.com/open-banking/v3.1/accounts"
+        "links": {
+            "self": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts",
+            "first": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/1",
+            "prev": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/1",
+            "next": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/2",
+            "last": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/3"
         },
-        "Meta": {
-            "TotalPages": 1
+        "meta": {
+            "totalRecords": 10,
+            "totalPages": 10
         }
+
     }
     ```

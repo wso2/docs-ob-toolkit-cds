@@ -122,9 +122,12 @@ This request is in the format of a URL as follows.
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
     
     ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=accounts%20op
-    enid&redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
+     https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=<YOUR_SCOPE>
+     &redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
+    
+    !!!note
+        For more details on authorization scope, see [Consumer Data Standards - Authorization Scope](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a 
 user that has a `subscriber` role. 
@@ -191,14 +194,15 @@ In this section, you will be generating an access token using the authorization 
 3. Upon successful token generation, you can obtain a token as follows:
 
     ``` json
-    {
-        "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTl9VU0VSIiwiYXVkIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsIm5iZiI6MTYyODc0NjU5MiwiYXpwIjoiWURjRzRmNDlHMTNrV2ZWc25xZGh6OGdiYTJ3YSIsInNjb3BlIjoiYWNjb3VudHMgY29uc2VudF9pZGRjNjRlMjdjLTcxMzktNDQwZS04YjRmLWNkNzBjNjQ5ZTA5NiBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiJ2WW9VWVJTUTdDZ29ZeE5NV1dPekM4dU5mUXJpczRwWFFYMFptaXRSeHpzIn0sImV4cCI6MTYyODc1MDE5MiwiaWF0IjoxNjI4NzQ2NTkyLCJqdGkiOiI3NTA4MmEzYS1iNDllLTRjZjEtYjI4Ni1lMWJiYTYwZTViNTYiLCJjb25zZW50X2lkIjoiZGM2NGUyN2MtNzEzOS00NDBlLThiNGYtY2Q3MGM2NDllMDk2In0.MhNpi0C2vASqrigTE1qGjK_7PY722H4PjzOSwMKcmFo7YgIFIBQdtj2BRJN0y7WAOFYGqh5lUFKMJWrXXtOyo0-6pWheluQfmOMiTyqOzA7WcTZAwYUzeoRmgWtR_LCYNwzm1O7CcNeavLGucLkCmpTW9Xvn3dKkk0XFonzrrCH9QqMrA0iQP6vYgH5wH4rDxcK_6Vk1r0X33sHVM-k4ifbcIzZekUdJIgNQfK1Qosslmvm1LZfEZ1vi63cfkc0IexNW6jJYvvZxdYJVz42EKKIqR_Z_HBs8umamqhUqKAkcv7Q76bNNPpM1iBJK-eDVf8yfIr9243fyictuqhP-2Q",
-        "refresh_token": "98dfa00b-a2a4-3ba0-9af2-4fac26f317b3",
-        "scope": "accounts openid",
-        "id_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiUEFGdl9WZFdqREp0bFYyN1U1NEJYdyIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJac2l4aVM4c2RBZFJhVHVHZjlYbmxBIiwic3ViIjoiYWRtaW5Ad3NvMi5jb21AY2FyYm9uLnN1cGVyIiwibmJmIjoxNjI4NzQ2NTkyLCJhenAiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYW1yIjpbIkJhc2ljQXV0aGVudGljYXRvciJdLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2Mjg3NTAxOTIsImlhdCI6MTYyODc0NjU5Miwibm9uY2UiOiJuLTBTNl9XekEyTSJ9.VRMfZouZTRm0QotoN0g95QjH7qKG_KwLExJyyb6AGbFewulyjwyPTJsHIj7D19ZZuNL14KqdCw51X3QjDXjLuvE6oas12EpKwHBuAAJjRtLf7NbbRPFok8Qlq011U_qNfYgcFubOQ5bXTr1QpwIU8imExvRxYS5UzsGyvluQ9hzjmRZM5cfwJ7hck71joX45Ue3E2tIvWxqyU13EJOyD3gd2QuhM6GSq3oWk8S0N_y7ACWLEHM8nzBUXiRo03D4DIacnmiZeicjIiim-SzF70tDJe70qy_nqbgf6VGqdAAIXyMXAvKxF5QWwYd5seMvt5o-_hCsI6DV69FawGJcbVQ",
+     {
+        "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJpbWVzaHVAd3NvMi5jb21AY2FyYm9uLnN1cGVyIiwiYXV0IjoiQVBQTElDQVRJT05fVVNFUiIsImF1ZCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJuYmYiOjE2NTA1MTM5MzcsImF6cCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJzY29wZSI6ImJhbms6YWNjb3VudHMuYmFzaWM6cmVhZCBiYW5rOmFjY291bnRzLmRldGFpbDpyZWFkIGNvbW1vbjpjdXN0b21lci5iYXNpYzpyZWFkIGNvbW1vbjpjdXN0b21lci5kZXRhaWw6cmVhZCBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiIyaHlmMEF0a2Q2Rmo0cnpuLXZzRDdHT244aUtnY2JiSEpVSlhMbG1yMUlzIn0sImV4cCI6MTY1MDUxNzUzNywiaWF0IjoxNjUwNTEzOTM3LCJqdGkiOiIzNDQwYzdjZS1lODJkLTQ1NTgtYmQ0NC0xM2YxOGM1MDIxZmYiLCJjb25zZW50X2lkIjoiY2MwMjUwYzQtNWQyNS00ZDhhLWFmNGItZGFmNDdhNWE1YjM3In0.oiWyWGzv-tnLqoeuhEICOnYFyYo1f_Ix178whrWQhs-dcr4HsKjZpEiDpi1Snfz0nFV9fBC2lyn9aoSIgSkcs859GlnKP33pKQ948OC8okJi5JJ6hLs626o9nWxMftxMYBDIy-OTxa6RDmPvnUFqDbkxVDrF0q_M14M250yRtVXzCHaI5t2l6wxZTgnqF8XdAGoEVVoo_j3_9CbmYBAmsDnrZKY0X4_KZ8LGaIQp6h-7uU3RvK_zHIIMDPfQ3TR4B8WCSXdOJV0S3s9mXRBNU5C5TEMIhQEZz6quXzmuAaE1gTroJKYstryjykyHJkILLmVlIEn4Isk3CRVOtKXkhg",
+        "refresh_token": "1c8ab391-deaf-38e9-8b10-9739c3e47214",
+        "cdr_arrangement_id": "cc0250c4-5d25-4d8a-af4b-daf47a5a5b37",
+        "scope": "bank:accounts.basic:read bank:accounts.detail:read common:customer.basic:read common:customer.detail:read openid",
+        "id_token": "eyJraWQiOiJHcWhLVlRBTm5MTVlwR0dmQXRKMU5oZGtnanciLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.oZRHhMTcZ1UAYISEZDhdZhQvegHqLJD-roNX5cfzpnWqd8-3UAQOBkN6oNKB6c8c-B-m9zklN4SI8T9CjzE8wHrfHxp9wiLiElXp16lGcPb_Ll4X2RJV4ScoEYXiDXbg0obb-OmPv2QCQ8fU9QpJxesHLnOQEYyDSy_Fhz81SM3qSKN3Z267qZlYMuYrJs_cBwqgn30Ur5I1yrfNYPjVEngVtdaF5jwAhtLWVB7jPLa_om0IcYykzWvmhBgQpLouRTSKvV3eIJuUYuQzP4hLWqFjCHL8WtzjiqI9dKpLrv4UGwOI_TJOu5VjCiyX2kT3GHkWVHwwf02cOTCbb_Xdxw.AvGimFwlUg4gTXlb.rdAeuP52k1w2ALA6vG6zJ0ntYCUTH_7yuP-PsqgSGllcnbvwI4h8pznugkcAsGOk5uE7-VztagdgFZbXIJZ1yzjklqBFl8YWSpH44JVQCwvl6SbroUSvTbaUPR32rueDp9Bx2qrbKWHRiIAayjLRSdGhtSCctprBeslh-NYGiLxRwgJBkHftqmruybenOhbBAbXBcqhktDfg31GmMJNbhHI9ZFZF_K1mdfKNhWzuY3URhOk1hkMxvGEIB9745uDpWV4UNd5cPJJCLrCGyahvi7864KPSeyVeaOSXXFWFkfTj8JvmTTK7qw9yuC72kvgnOIma65iB3oT3iYXuAQO4GQUOVpXFUNeawU0_CrMZVskMftOawY_be8JCzcsKj4ljykBC888H-LI_Ssad0a2s9NrcmKbYRS7rNGNLQGhvNfgwKvotbwhgxWxeBFPPNcGhyjfgpcQe8BcjTa-vWKPjrsr68QM6I9Bj9mGOLD8d31ZWQQlfe9N3m5I90A6Aag7EW7kkS30simqYyGBGKOSQ1n4bkFTtvmGjPKRx8pmFZM1CJvvAHS_wW_hxUvVAvXS8Jjp23K7mzi9W8SlXor7zyo9ssc1u1y1K_PUzpBxuKdgA3Y57kXrHdvEkotZOAyROjxH03TnJzQ3rzcW8ZSNCSH1bxGczBk-wPwSe.4JUZsGWWJB5bCHPIbxuCwg",
         "token_type": "Bearer",
         "expires_in": 3600
-    }
+     }
     ```
    
 ### Invoking Consumer Data Standards API
@@ -230,54 +234,55 @@ other resources for a specific AccountId.
 2. The request retrieves the account information for all the accounts related to the bank customer. Given below is a sample response:
     
     ```
-    {
-        "Data": {
-            "Account": [
+     {
+        "data": {
+            "accounts": [
                 {
-                    "AccountId": "30080012343456",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343456",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yM0ngWwicI91pdyPjM28r62G3zWu0LrUfBXN34V3E-wS",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
                 },
                 {
-                    "AccountId": "30080012343789",
-                    "Status": "Enabled",
-                    "StatusUpdateDateTime": "2020-04-16T06:06:06+00:00",
-                    "Currency": "GBP",
-                    "AccountType": "Personal",
-                    "AccountSubType": "CurrentAccount",
-                    "Nickname": "Bills",
-                    "OpeningDate": "2020-01-16T06:06:06+00:00",
-                    "MaturityDate": "2025-04-16T06:06:06+00:00",
-                    "Account": [
-                        {
-                            "SchemeName": "SortCodeAccountNumber",
-                            "Identification": "30080012343789",
-                            "Name": "Mr Kevin",
-                            "SecondaryIdentification": "00021"
-                        }
-                    ]
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yA_1IfEkgzFJJXf1UWh-kKJnyY9_KWEAtY5Emejdqr9x",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
+                },
+                {
+                    "accountId": "bOdbKX3AmiL774gkw40tAuSxlWS4ic2njE2kA_PUO0S36EJMygrh9r-5qid-zC5ybs_-FJaWVjrMIT6eebj8yCiPL8bWO0iOUvYK_mkw_991Gd4u8nzCSyfzelMXBuSC",
+                    "creationDate": "2019-05-01T15:43:00.12345Z",
+                    "displayName": "account_1",
+                    "nickname": "Alpha",
+                    "openStatus": "OPEN",
+                    "isOwned": true,
+                    "maskedNumber": "1234",
+                    "productCategory": "TRANS_AND_SAVINGS_ACCOUNTS",
+                    "productName": "Product name"
                 }
             ]
         },
-        "Links": {
-            "Self": "https://api.alphabank.com/open-banking/v3.1/accounts"
+        "links": {
+            "self": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts",
+            "first": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/1",
+            "prev": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/1",
+            "next": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/2",
+            "last": "https://api.alphabank.com/cds-au/1.2.0/banking/accounts/3"
         },
-        "Meta": {
-            "TotalPages": 1
+        "meta": {
+            "totalRecords": 10,
+            "totalPages": 10
         }
-    }
+
+     }
     ```
