@@ -1,9 +1,5 @@
 This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
 
-!!! tip
-    When the Accredited Data Recipient provides an Account Information Service as an online service, the Accredited Data Recipient
-    is known as an Account Information Services Provider (AISP).
-
 ## Deploying Account and Transaction API
 
 1. Sign in to the API Publisher Portal at `https://<APIM_HOST>:9443/publisher` with the creator/publisher privileges.
@@ -14,13 +10,13 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the relevant API from the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` directory.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` directory.
 
 5. Click **Next**.
 
 6. Set the **Endpoint** as follows:
    ```
-   https://localhost:9443/api/openbanking/cds/backend/services
+   https://<IS_HOST>:9443/api/openbanking/cds/backend/services
    ```
 7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
@@ -146,7 +142,7 @@ In this step, the Accredited Data Recipient generates a request to get the conse
 1. Create an account consent using the following request format:
 ```
 curl -X POST \
-https://localhost:8243/cds-au/v1/banking/account-access-consents \
+https://<APIM_HOST>:8243/cds-au/v1/banking/account-access-consents \
 -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
 -H 'Content-Type: application/json' \
 -H 'Accept: application/json' \
@@ -326,7 +322,7 @@ user that has a `subscriber` role.
      2. Set the following configuration to `true`:
         ``` toml
         [open_banking_cds.consent]
-        acc_update_by_psu_enabled = false
+        acc_update_by_psu_enabled = true
         ```
     3. Restart the Identity Server.
      
