@@ -131,7 +131,7 @@ the consent page.
    
     ``` toml
     [open_banking_cds.consent]
-    account_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/aisp/"
+    account_consent_self_link = "https://<APIM_HOST>:8243/cds-au/{version}/banking/accounts"
     ```
 
 12. In the consent re-authentication step of the Accounts flow, during authorisation, the PSU is allowed to change the 
@@ -150,20 +150,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
-14. To enable idempotency support for the Payments API:
-
-    - Configure the allowed time duration for the Idempotency key in hours 
-    - Replay and enable payment submission idempotency validation
-
-    ``` toml
-    [open_banking_cds.consent.idempotency]
-    allowed_time = 24
-    
-    [open_banking_cds.consent.idempotency.submission]
-    Enabled = true
-    ```
-
-15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+14. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
 
     - Enable the feature and configure the `server_url` and `auth_url` properties with the hostname of WSO2 Streaming 
     Integrator.

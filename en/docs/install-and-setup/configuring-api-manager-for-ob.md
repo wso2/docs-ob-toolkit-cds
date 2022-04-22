@@ -70,8 +70,8 @@ database server, and the JDBC driver.
    
     ``` toml
     [open_banking.dcr]
-    #jwks_endpoint_name = ""
-    #app_name_claim = " "
+    jwks_endpoint_name = "jwks_uri"
+    app_name_claim = "client_name"
     token_endpoint = https://<APIM_HOST>:9443/oauth2/token
     ```
 
@@ -104,7 +104,7 @@ the consent page.
 
     ``` toml
     [open_banking_cds.consent]
-    account_consent_self_link = "https://<APIM_HOST>:8243/open-banking/{version}/aisp/"  
+    account_consent_self_link = "https://<APIM_HOST>:8243/cds-au/{version}/banking/accounts"  
     ```
     
 10. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
@@ -113,19 +113,6 @@ account retrieval. By default, this is disabled and the configuration is set to 
     ``` toml
     [open_banking_cds.consent]
     Validate_acc_id_on_retrieval_enabled = true
-    ```
-    
-11. To enable idempotency support for the Payments API:
-
-    - Configure the allowed time duration for the Idempotency key in hours
-    - Replay and enable payment submission idempotency validation
-
-    ``` toml
-    [open_banking_cds.consent.idempotency]
-    allowed_time = 24
-    
-    [open_banking_cds.consent.idempotency.submission]
-    Enabled = true
     ```
     
 12. If you want to use the [Data publishing](../learn/data-publishing.md) feature:

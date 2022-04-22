@@ -66,4 +66,3 @@ Now you have started the servers, let’s create the users and define their perm
     ![set_new_user_roles](../assets/img/get-started/quick-start-guide/set-new-user-roles.png)
         
     iii. Click **Finish**.
- 
