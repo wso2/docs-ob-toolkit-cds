@@ -14,7 +14,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` directory.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` file.
 
 5. Click **Next**.
 
