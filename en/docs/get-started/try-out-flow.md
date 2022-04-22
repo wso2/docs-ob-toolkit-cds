@@ -77,6 +77,8 @@ Given below is a summary of configurations to follow when deploying the APIs in 
    
 ### Authorizing a consent
 
+The Accredited Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
+
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
     ``` tab="Format"
