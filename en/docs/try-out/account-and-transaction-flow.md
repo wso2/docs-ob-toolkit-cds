@@ -401,7 +401,7 @@ other resources for a specific AccountId.
     
     ```
     curl -X GET \
-    https://localhost:8243/cds-au/v1/banking/accounts' \
+    https://<APIM_HOST>:8243/cds-au/v1/banking/accounts' \
     -H 'x-v: 2'
     -H 'x-min-v: 1'
     -H 'x-fapi-interaction-id: 430a9796-2cf0-ba37-e99b-3d44d0263fde'
