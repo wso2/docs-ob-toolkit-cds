@@ -1,4 +1,4 @@
-After a certain period, bank customers/PSUs may need to view, update, or revoke consents they have granted to TPP 
+After a certain period, bank customers may need to view, update, or revoke consents they have granted to Accredited Data Recipient 
 applications to access account data. **Consent Manager** is an application in WSO2 Open Banking that supports all these
 requirements and manages consents.
 
@@ -17,17 +17,6 @@ requirements and manages consents.
     secure="false"
     http_method="GET,DELETE"
     ```
-   
-2. Open the `<API_HOME>/repository/conf/deployment.toml` file and add the following gateway executor configurations for 
-the Consent flow:
-   
-    ``` toml
-    [[open_banking.gateway.openbanking_gateway_executors.type]]
-    name = "Consent"
-    [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-    name = "com.wso2.openbanking.accelerator.gateway.executor.impl.selfcare.portal.UserPermissionValidationExecutor"
-    priority = 1
-    ``` 
    
 3. Restart the Identity Server and API Manager servers respectively.
 
@@ -56,7 +45,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
 6. Set the value for **Endpoint** as follows:
 
     ``` 
-    https://<IS_HOST>:9446/api/openbanking/consent
+    https://localhost:9443/api/openbanking/cds/backend/services
     ```
    
     - Replace the placeholder with the hostname of Identity Server. 

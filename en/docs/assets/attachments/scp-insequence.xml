@@ -1,4 +1,23 @@
-<sequence xmlns="http://ws.apache.org/ns/synapse" name="SCPTokenExchange">
-    <property name="Authorization" scope="transport" action="remove"/>
-    <property name="Authorization" value="Basic YWRtaW5Ad3NvMi5jb206d3NvMjEyMw==" scope="transport"/>
+<!--
+ ~ Copyright (c) 2021, WSO2 Inc. (http://www.wso2.com). All Rights Reserved.
+ ~
+ ~ This software is the property of WSO2 Inc. and its suppliers, if any.
+ ~ Dissemination of any information or reproduction of any material contained
+ ~ herein is strictly forbidden, unless permitted by WSO2 in accordance with
+ ~ the WSO2 Software License available at https://wso2.com/licenses/eula/3.1.
+ ~ For specific language governing the permissions and limitations under this
+ ~ license, please see the license as well as any agreement you’ve entered into
+ ~ with WSO2 governing the purchase of this software and any associated services.
+-->
+
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="cdr-standards-dynamic-endpoint-insequence-1.8.0">
+    <!-- Set UUID if header is not present-->
+    <property name="x-fapi-interaction-id" expression="fn:concat('',$trp:x-fapi-interaction-id)" />
+    <filter xpath="$ctx:x-fapi-interaction-id = ''" >
+        <then>
+            <header name="x-fapi-interaction-id"
+                    expression="fn:substring-after(get-property('MessageID'), 'urn:uuid:')" scope="transport"/>
+        </then>
+    </filter>
+    <class name="com.wso2.openbanking.cds.gateway.mediators.IDPermanenceMediator"/>
 </sequence>

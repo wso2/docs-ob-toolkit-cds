@@ -1,4 +1,4 @@
-#Strong Customer Authentication
+#Customer Authentication
 
 **Strong Customer Authentication** is a mechanism used to authenticate a user that initiates a payment or accesses banking 
 information via a TPP application. Authentication can be configured using two or more of the following factors 
@@ -10,12 +10,6 @@ one at a time:
 - Inherence: Things only the user is, such as a fingerprint.
 
 ![authentication factors](../assets/img/learn/app-to-app-redirection/authentication-factors.png)
-
-!!!note
-    In SCA, it is mandatory to use at least two of the authentication factors mentioned above.
-    
-You can enforce SCA for the WSO2 Open Banking solution with the use of authentication mechanisms supported in
-WSO2 Identity Server. For more information:
 
 - By default, WSO2 Identity Server supports basic authentication and SMS OTP authentication. See [The Default Authenticator](https://is.docs.wso2.com/en/latest/learn/writing-a-new-oauth-client-authenticator/#the-default-authenticator).
 - WSO2 Identity Server provides you with the flexibility of implementing any type of authentication such as biometric, FIDO, Duo etc. See [Identity Federation for Developers](https://is.docs.wso2.com/en/latest/develop/writing-a-custom-federated-authenticator/).
