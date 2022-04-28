@@ -6,7 +6,7 @@
 a non-regulatory application.
 ``` toml
 [[open_banking.dcr.regulatory_issuers.iss]]
-name = "OpenBanking fLtd"
+name = "cdr-register"
 ```
 
 3. If you have modified the Application Listener interface, for example, adding OAuth 2.0 properties or for data 
@@ -14,7 +14,7 @@ publishing requirements, the Application Listener invokes methods that are overr
 tag with the name of the class that is extended to do so.
 ``` toml
 [open_banking.dcr]
-applicationupdater = "com.wso2.openbanking.accelerator.identity.listener.application.ApplicationUpdaterImpl"
+applicationupdater = "com.wso2.openbanking.cds.identity.listener.application.CDSApplicationUpdaterImpl"
 ```
 
 4. The following configuration sets the software id as the name of the application. By default, this configuration is
@@ -28,18 +28,22 @@ use_softwareIdForAppName = true
 this value. For example, the `software_jwks_endpoint` claim.
 ``` toml
 [open_banking.dcr] 
-jwks_endpoint_name = "software_jwks_endpoint" 
+jwks_endpoint_name = "jwks_uri"
 ```
 
 6. Configure the names of the primary authenticator to be engaged in the authentication flow and the identity provider 
 if SMS OTP is used as the secondary authentication method.
 ``` toml
 [open_banking.sca.primaryauth]
-name = "BasicAuthenticator"
-display = "basic"
+name = "IdentifierExecutor"
+display = "ob-identifier-first"
+```
 
-[open_banking.sca.idp]
-name = "SMSAuthentication"
+7. Configure the timeout values when validating the signature of the request.
+``` toml
+[open_banking.dcr.jwks_retriever]
+connection_timeout = 3000
+read_timeout = 3000
 ```
 
 ## Configuring DCR in WSO2 API Manager
@@ -73,14 +77,14 @@ use_softwareIdForAppName = true
 set to `false`, the name of the application is set using the value of the given claim.
 ```toml
 [open_banking.dcr]
-app_name_claim = "software_client_name"
+app_name_claim = "client_name"
 ```
 
 6. Configure the name of the claim regarding the jwks endpoint that is issued for the SSA. You can refer to the SSA 
 for this value. For example, the `software_jwks_endpoint` claim.
 ``` toml
 [open_banking.dcr]
-jwks_endpoint_name = "software_jwks_endpoint"
+jwks_endpoint_name = "jwks_uri"
 ```
 
 7. By default, a JWT is expected at the DCR endpoint. If you want to **send a json payload**, add the following 
@@ -93,14 +97,7 @@ isRequestJWT = false
 8. Configure the names of all regulatory applications. By default, the DCR API is configured.   
 ``` toml
 [[open_banking.dcr.regulatory_api]]
-api_name = "CDR-DynamicClientRegistration"
-```
-
-9. Configure the timeout values when validating the signature of the request.
-``` toml
-[open_banking.dcr.jwks_retriever]
-connection_timeout = 3000
-read_timeout = 3000
+api_name = "CDRDynamicClientRegistrationAPI"
 ```
 
 ## Configuring a custom DCR validator
@@ -108,16 +105,16 @@ read_timeout = 3000
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
 2. Find the following configuration and replace that with your extended class. By default the 
-`DefaultRegistrationValidatorImpl` class is configured as follows: 
+`CDSRegistrationValidatorImpl` class is configured as follows: 
 ````toml
 [open_banking.dcr]
-validator = "com.wso2.openbanking.accelerator.identity.dcr.validation.DefaultRegistrationValidatorImpl"
+validator = "com.wso2.openbanking.cds.identity.dcr.validation.CDSRegistrationValidatorImpl"
 ````
 3. Configure the jwks endpoint that is used for validating the SSA signature. 
 ```toml
 [open_banking.dcr]
-jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/9b5usDpbNtmxDcTzs7GzKp.jwks"
-jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/9b5usDpbNtmxDcTzs7GzKp.jwks"
+jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
+jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
 ```       
 4. Configure the algorithms that are allowed during signature validation. These algorithms are used for token endpoint 
 authentication assertion signature, request object signature, and id token signature validations.

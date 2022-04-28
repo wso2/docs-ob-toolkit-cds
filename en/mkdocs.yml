@@ -79,7 +79,6 @@ nav:
        - 'Configuration': learn/dynamic-client-registration-configuration.md
     - 'Consumer Authentication':
        - 'Introduction': learn/consumer-authentication.md
-       - 'App-to-App Redirection': learn/app-to-app-redirection.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
     - 'API Security':
        - 'Introduction': learn/api-security.md

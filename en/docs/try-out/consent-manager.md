@@ -1,4 +1,4 @@
-After a certain period, bank customers/PSUs may need to view, update, or revoke consents they have granted to TPP 
+After a certain period, bank customers may need to view, update, or revoke consents they have granted to Accredited Data Recipient 
 applications to access account data. **Consent Manager** is an application in WSO2 Open Banking that supports all these
 requirements and manages consents.
 
