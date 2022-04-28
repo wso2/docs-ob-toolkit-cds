@@ -18,6 +18,16 @@ requirements and manages consents.
     http_method="GET,DELETE"
     ```
    
+2. Open the `<API_HOME>/repository/conf/deployment.toml` file and add the following gateway executor configurations for the Consent flow:
+
+    ``` toml
+    [[open_banking.gateway.openbanking_gateway_executors.type]]
+    name = "Consent"
+    [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+    name = "com.wso2.openbanking.accelerator.gateway.executor.impl.selfcare.portal.UserPermissionValidationExecutor"
+    priority = 1
+    ```
+   
 3. Restart the Identity Server and API Manager servers respectively.
 
 ## Creating users and roles
@@ -45,7 +55,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
 6. Set the value for **Endpoint** as follows:
 
     ``` 
-    https://localhost:9443/api/openbanking/cds/backend/services
+    https://<IS_HOST>:9446/api/openbanking/consent
     ```
    
     - Replace the placeholder with the hostname of Identity Server. 
