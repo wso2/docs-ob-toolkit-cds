@@ -6,7 +6,7 @@ This document provides step by step instructions to set up SMS OTP configuration
 
      ``` toml
      [authentication.custom_authenticator]
-     name = "OBIdentifierExecutor"
+     name = "IdentifierExecutor"
      ```
    
 2. Run the following command in `<IS_HOME>/bin` and restart the server.
