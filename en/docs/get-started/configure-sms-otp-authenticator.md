@@ -7,6 +7,10 @@ This document provides step by step instructions to set up SMS OTP configuration
      ``` toml
      [authentication.custom_authenticator]
      name = "IdentifierExecutor"
+     parameters.ValidateUsername = true
+     parameters.throttleLimit = 3
+     parameters.throttleTimePeriod = 300
+     parameters.authRequestURL = "https://localhost:9446/api/identity/auth/v1.1/data/AuthRequestKey/"
      ```
    
 2. Run the following command in `<IS_HOME>/bin` and restart the server.
