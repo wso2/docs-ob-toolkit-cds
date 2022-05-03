@@ -85,7 +85,7 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 5. Click **Subscribe**.
 
-## Invoking Account and Transaction API
+## Invoking Accounts API
    
 ### Authorizing a consent
 
@@ -229,6 +229,10 @@ In this section, you will be generating an access token using the authorization 
     ```
 
 3. Upon successful token generation, you can obtain a token as follows:
+
+    !!! note
+        The CDR Arrangement ID is a unique string that represents a consent arrangement between a Data Recipient Software Product 
+        and Data Holder for a given consumer. For more information, see [Consumer Data Standards - CDR Arrangement ID](https://consumerdatastandardsaustralia.github.io/standards/#identifiers-and-subject-types).
 
     ``` json
     {
