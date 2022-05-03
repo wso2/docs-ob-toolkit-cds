@@ -42,25 +42,23 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
-
-18. Go to **Deployments** using the left menu pane. 
+17. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-19. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+18. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-20. Click **Deploy**.
+19. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane. 
+20. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+21. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-23. The deployed API is now available in the Developer Portal at `https://<APIM_HOME>:9443/devportal`.
+22. The deployed API is now available in the Developer Portal at `https://<APIM_HOME>:9443/devportal`.
 
-24. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
+23. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
     to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
     `<IS_HOME>/repository/resources/security/client-truststore.jks` using the following command:
     
@@ -68,7 +66,7 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
     keytool -import -alias <alias> -file <certificate_location> -storetype JKS -keystore <truststore_location> -storepass wso2carbon
     ```
                 
-25. Restart the Identity Server and API Manager instances.
+24. Restart the Identity Server and API Manager instances.
 
 ## Step 2: Configure IS as Key Manager
 

@@ -85,154 +85,7 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 5. Click **Subscribe**.
 
-## Invoking Account and Transaction API
-
-### Generating application access token
-
-Once you register the application, generate an application access token.
-
-1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
-
-!!! note
-    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-    download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
-
-``` tab='Format'
-
-{
-"alg": "<The algorithm used for signing.>",
-"kid": "<The thumbprint of the certificate.>",
-"typ": "JWT"
-}
- 
-{
-"iss": "<This is the issuer of the token. For example, client ID of your application>",
-"sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
-"exp": <This is the epoch time of the token expiration date/time>,
-"iat": <This is the epoch time of the token issuance date/time>,
-"jti": "<This is an incremental unique value>",
-"aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
-}
- 
-<signature: For DCR, the client assertion is signed by the private key of the signing certificate. For other scenarios, use the private signature of the application certificate.>
-```
-
-``` tab='Sample'
-eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
-```
-
-2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-    ``` curl
-    curl -X POST \
-    https://<IS_HOST>:9446/oauth2/token \
-    --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
-    -d 'grant_type=client_credentials&scope=accounts%20openid&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=<CLIENT_ASSERTION_JWT>&redirect_uri=<REDIRECT_URI>&client_id=<CLIENT_ID>'
-    ```
-
-3. Upon successful token generation, you can obtain a token as follows:
-    ``` json
-    {
-        "access_token":"eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJhZG1pbkB3c28yLmNvbUBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJuYmYiOjE2Mjg3NDQ4NTYsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJzY29wZSI6ImFjY291bnRzIiwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwiY25mIjp7Ing1dCNTMjU2IjoidllvVVlSU1E3Q2dvWXhOTVdXT3pDOHVOZlFyaXM0cFhRWDBabWl0Unh6cyJ9LCJleHAiOjE2Mjg3NDg0NTYsImlhdCI6MTYyODc0NDg1NiwianRpIjoiNzBjZDIzYzItMzYxZS00YTEwLWI4YTQtNzg2MTljZmQ2MWJmIn0.WT9d2ov9kfSe75Q6ia_VNvJ12lNkrkMZNWdHu_Ata_nEpM8AWj4Mtc0e8Yb0oZFif_ypNgBtE2ck29nQLFgQ1IicL_OMIFUuwykro2oOCcFAbz7o_rhGsh39aW-ORlxm11_csmNeaWZNfC7lPp-9hBmNt9Sons_pCm2beTMFreZQyywPrJoQ9vwt1QCmkAlTP33YnPrf0u0RQePQvUq81RiJiokhZvwVufHARZv8KLtS8VLrpfbEoSglON_XkumydVjvRWs17I3Ot9zUj6kndHBsqMPZdq_aNQHntftdSI7TVNj5f66Q_4Uafz_hMXADS46pw87rTgzENHHf-5SRhw",
-        "scope":"accounts",
-        "token_type":"Bearer",
-        "expires_in":3600
-    }
-    ```
-
-### Initiating an account consent
-
-In this step, the Accredited Data Recipient generates a request to get the consent of the PSU to access the accounts and banking information.
-
-1. Create an account consent using the following request format:
-```
-curl -X POST \
-https://<APIM_HOST>:8243/cds-au/v1/banking/account-access-consents \
--H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
--H 'Content-Type: application/json' \
--H 'Accept: application/json' \
---cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
--d '{
-    "Data": {
-        "Permissions": [
-            "ReadAccountsBasic",
-            "ReadAccountsDetail",
-            "ReadBalances",
-            "ReadBeneficiariesBasic",
-            "ReadBeneficiariesDetail",
-            "ReadDirectDebits",
-            "ReadProducts",
-            "ReadStandingOrdersBasic",
-            "ReadStandingOrdersDetail",
-            "ReadTransactionsBasic",
-            "ReadTransactionsCredits",
-            "ReadTransactionsDebits",
-            "ReadTransactionsDetail",
-            "ReadStatementsBasic",
-            "ReadStatementsDetail",
-            "ReadOffers",
-            "ReadParty",
-            "ReadPartyPSU",
-            "ReadScheduledPaymentsBasic",
-            "ReadScheduledPaymentsDetail",
-            "ReadPAN"
-        ],
-        "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-        "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-        "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30"
-    },
-    "Risk": {
-        
-    }
-}'
-```
-
-2. The response contains a Consent Id. A sample response is as follows:
-
-    ```
-    {
-        "Data": {
-            "ConsentId": "dc64e27c-7139-440e-8b4f-cd70c649e096",
-            "Status": "AwaitingAuthorisation",
-            "StatusUpdateDateTime": "2021-08-12T10:37:38+05:30",
-            "CreationDateTime": "2021-08-12T10:37:38+05:30",
-            "TransactionFromDateTime": "2021-08-12T10:37:34.649+05:30",
-            "TransactionToDateTime": "2021-08-15T10:37:34.649+05:30",
-            "ExpirationDateTime": "2021-08-17T10:37:34.607+05:30",
-            "Permissions": [
-                "ReadAccountsBasic",
-                "ReadAccountsDetail",
-                "ReadBalances",
-                "ReadBeneficiariesBasic",
-                "ReadBeneficiariesDetail",
-                "ReadDirectDebits",
-                "ReadProducts",
-                "ReadStandingOrdersBasic",
-                "ReadStandingOrdersDetail",
-                "ReadTransactionsBasic",
-                "ReadTransactionsCredits",
-                "ReadTransactionsDebits",
-                "ReadTransactionsDetail",
-                "ReadStatementsBasic",
-                "ReadStatementsDetail",
-                "ReadOffers",
-                "ReadParty",
-                "ReadPartyPSU",
-                "ReadScheduledPaymentsBasic",
-                "ReadScheduledPaymentsDetail",
-                "ReadPAN"
-            ]
-        },
-       "Meta": {
-            
-        },
-        "Risk": {
-            
-        },
-        "Links": {
-            "Self": "https://localhost:8243/open-banking/3.1/aisp/account-access-consents/dc64e27c-7139-440e-8b4f-cd70c649e096"
-        }
-    }
-    ```   
+## Invoking Accounts API
    
 ### Authorizing a consent
 
@@ -376,6 +229,10 @@ In this section, you will be generating an access token using the authorization 
     ```
 
 3. Upon successful token generation, you can obtain a token as follows:
+
+    !!! note
+        The CDR Arrangement ID is a unique string that represents a consent arrangement between a Data Recipient Software Product 
+        and Data Holder for a given consumer. For more information, see [Consumer Data Standards - CDR Arrangement ID](https://consumerdatastandardsaustralia.github.io/standards/#identifiers-and-subject-types).
 
     ``` json
     {
