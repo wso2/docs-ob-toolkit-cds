@@ -11,15 +11,15 @@ template: templates/single-column.html
         <p>
         Open Banking CDS Toolkit delivers end-to-end compliance for Australia’s Consumer Data Standard. It increases the speed 
         and reduces the complexity of adopting Consumer Data Right (CDR) compliance for banks. Instead of building an open 
-        banking solution from scratch, you can simply deploy WSO2 Open Banking UK Toolkit to meet all legislative requirements with additional benefits 
+        banking solution from scratch, you can simply deploy WSO2 Open Banking CDS Toolkit to meet all legislative requirements with additional benefits 
         beyond compliance.       
         </p>
         <p>
+        The toolkit runs on top of WSO2 Identity Server, WSO2 API Manager, and WSO2 Streaming Integrator. 
         Get a head start with our Quick Start Guide or dive straight into the documentation to understand what we offer.
-        </p>
      </div>
     <div class="md-main .md-content " style="float:right; width: 55%; align:right;  flex-shrink: 0;min-width: 40%; max-height: 100%; max-width:50%; margin-left:10px; margin-top:20px">
-        <iframe width="800" height="250" src="https://www.youtube.com/embed/xSxuYxfGs3I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <image src="assets/img/home/accelerator-toolkit-model.png" frameborder="0"></image>
     </div>
     <div>
     	<div class="content">
