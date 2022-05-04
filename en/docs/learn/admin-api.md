@@ -258,7 +258,7 @@ curl -k -X GET "https://<APIM_HOST>:8243/cds-au/v1/admin/metrics?period=ALL" -H 
 !!!tip
      For more details on the response payload, see [Consumer Data Standards - Get Metrics](https://consumerdatastandardsaustralia.github.io/standards/#get-metrics).
 
-### Metadata Update - POST /admin/register/metadata
+### Update Metadata Endpoint
 
 Indicate that a critical update to the metadata for Accredited Data Recipients has been made and should be obtained.
 
