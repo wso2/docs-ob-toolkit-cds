@@ -63,7 +63,7 @@ Sign in to the API Publisher as a user whose role includes `Internal/publisher`.
 
 ### GET Metrics - GET /admin/metrics
 
-This end point allows the Australian Competition & Consumer Commission to obtain operational statistics from the 
+This end point allows the Australian Competition & Consumer Commission (ACCC) to obtain operational statistics from the 
 Data Holder on the operation of their CDR compliant implementation. The statistics obtainable from this end point are 
 determined by the non-functional requirements for the CDR regime.
 
