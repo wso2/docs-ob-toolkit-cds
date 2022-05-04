@@ -15,18 +15,14 @@
     ```
     ./merge.sh
     ```
-    3. Run the `configure.sh` file in `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin`:
-    ```
-    ./configure.sh
-    ```
-    4. Copy and extract the `wso2ob-bi-toolkit-cds-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
+    3. Copy and extract the `wso2ob-bi-toolkit-cds-1.0.0.zip` accelerator file in the root directory of WSO2 Streaming 
     Integrator.
 
-    5. Run the `merge.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`. 
+    4. Run the `merge.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`. 
     ```
     ./merge.sh
     ```
-    6. Exchange the public certificates between servers. 
+    5. Exchange the public certificates between servers. 
         
         ??? "Click here to see how it is done..."
     

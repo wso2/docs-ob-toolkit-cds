@@ -84,12 +84,12 @@ nav:
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
-    - 'Administration API': learn/admin-api.md
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/tryout.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'Administration API': learn/admin-api.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
