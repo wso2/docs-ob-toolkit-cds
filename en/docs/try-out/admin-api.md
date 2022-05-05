@@ -70,8 +70,6 @@ This endpoint allows the Australian Competition & Consumer Commission to obtain 
 Data Holder on the operation of their CDR compliant implementation. The statistics obtainable from this endpoint are 
 determined by the non-functional requirements for the CDR regime.
 
-This is the only endpoint available in the API. A sample request and response are as follows:
-
 ``` tab="Request"
 curl -k -X GET "https://<APIM_HOST>:8243/cds-au/v1/admin/metrics?period=ALL" -H "accept: application/json" -H "x-v: 1" -H "Authorization: Bearer <USER_ACCESS_TOKEN> "
 ```
@@ -265,7 +263,7 @@ curl -k -X GET "https://<APIM_HOST>:8243/cds-au/v1/admin/metrics?period=ALL" -H 
 
 **POST /admin/register/metadata**
 
-This endpoint indicates a critical update to the metadata for Accredited Data Recipients has been made.
+Indicates that important metadata for certified data recipients has been updated and needs to be retrieved.
 
 If the Data Holder supports Private Key JWT client authentication to authenticate the CDR Register, authorisation 
 requires the following scope: [admin:metadata:update](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).

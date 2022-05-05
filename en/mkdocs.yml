@@ -81,6 +81,7 @@ nav:
        - 'Introduction': learn/consumer-authentication.md
        - 'Configuration': learn/consumer-authentication-configuration.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
+    - 'Administration API': learn/administration-api.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
