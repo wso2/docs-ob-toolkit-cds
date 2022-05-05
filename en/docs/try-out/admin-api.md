@@ -1,4 +1,4 @@
-The page explains how to deploy the administration API and try out the flow.
+The page explains how to deploy the Administration API and try out the flow.
 
 1. Sign in to the API Publisher portal at `https:// <APIM_HOST>:9443/publisher` with `creator/publisher` privileges.
      
@@ -8,55 +8,55 @@ The page explains how to deploy the administration API and try out the flow.
      
      ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
-4. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
+3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-5. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-1.8.0.yaml` file.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-1.8.0.yaml` file.
 
-6. Click **Next**.
+5. Click **Next**.
 
-7. Set the **Endpoint** as follows:
+6. Set the **Endpoint** as follows:
      ```
      https://<APIM_HOST>:9443/cds-admin-api/au100
      ```
-8. Click **Create** to create the API
+7. Click **Create** to create the API
 
-9. After the API is successfully created, go to **Portal Configurations** using the left menu panel.
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel.
      ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-10. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. 
-      ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. 
+     ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-11. Click **Save**.
+10. Click **Save**.
 
-12. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**.
+11. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**.
       
      ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
 
-13. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-14. Now, select the **Custom Policy** option.
+13. Now, select the **Custom Policy** option.
 
-15. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
 
-16. Click **Select**.
+15. Click **Select**.
 
-17. Scroll down and click **SAVE**.
+16. Scroll down and click **SAVE**.
 
-18. Go to **Deployments** using the left menu pane.
+17. Go to **Deployments** using the left menu pane.
      
       ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-19. Select the API Gateway type 
+18. Select the API Gateway type 
 
       ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
   
-20. Click **Deploy**.
+19. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane.
+20. Go to **Overview** using the left menu pane.
       
       ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. 
+21. Click **Publish**. 
 
       ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
