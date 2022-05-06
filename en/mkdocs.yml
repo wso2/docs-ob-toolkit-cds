@@ -81,13 +81,16 @@ nav:
        - 'Introduction': learn/consumer-authentication.md
        - 'Configuration': learn/consumer-authentication-configuration.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
+    - 'Administration API': learn/administration-api.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
+       - 'Tryout': learn/data-publishing-tryout.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'Administration API': try-out/admin-api.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
