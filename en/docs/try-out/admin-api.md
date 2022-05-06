@@ -263,7 +263,7 @@ curl -k -X GET "https://<APIM_HOST>:8243/cds-au/v1/admin/metrics?period=ALL" -H 
 
 **POST /admin/register/metadata**
 
-Indicates that important metadata for certified data recipients has been updated and needs to be retrieved.
+The CDR Register invokes this endpoint to update the Data Holders regarding critical updates of the Accredited Data Recipients' metadata.
 
 If the Data Holder supports Private Key JWT client authentication to authenticate the CDR Register, authorisation 
 requires the following scope: [admin:metadata:update](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).
