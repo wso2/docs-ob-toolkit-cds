@@ -91,23 +91,38 @@ database server, and the JDBC driver.
     name = "com.wso2.openbanking.accelerator.gateway.executor.impl.selfcare.portal.UserPermissionValidationExecutor"
     priority = 1
     ```
-   
-8. Configure the endpoints to retrieve sharable and payable accounts. This is required when displaying the accounts on 
+
+8. Configure `holder_identifier` with the Data Holder specific identifier.
+
+    ```
+    [open_banking_cds.headers]
+    holder_identifier="HolderIdentifierValue"
+    ```
+
+9. Configure the encryption/decryption key for ID permanence. By default, the secret value is "wso2".
+
+    ```
+    [open_banking_cds.id_permanence]
+    enabled=true
+    secret_key="wso2"
+    ```
+
+10. Configure the endpoints to retrieve sharable and payable accounts. This is required when displaying the accounts on 
 the consent page.
 
-    ``` toml
-    [open_banking_cds.consent_management]
-    sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/cds/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
-    ```
+      ``` toml
+      [open_banking_cds.consent_management]
+      sharable_account_retrieval_endpoint = "http://<APIM_HOST>:9763/api/openbanking/cds/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
+      ```
    
-9. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
+11. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
 
-    ``` toml
-    [open_banking_cds.consent]
-    account_consent_self_link = "https://<APIM_HOST>:8243/cds-au/{version}/banking/accounts"  
-    ```
+     ``` toml
+     [open_banking_cds.consent]
+     account_consent_self_link = "https://<APIM_HOST>:8243/cds-au/{version}/banking/accounts"  
+     ```
     
-10. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
+12. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
 account retrieval. By default, this is disabled and the configuration is set to `false`.
 
     ``` toml
@@ -115,7 +130,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
-12. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+13. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
    
     - Enable the feature and configure the `server_url` property with the hostname of WSO2 Streaming 
     Integrator.
