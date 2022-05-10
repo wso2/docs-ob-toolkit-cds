@@ -64,7 +64,7 @@ database server, and the JDBC driver.
     driver = "com.mysql.jdbc.Driver"
     ```
 
-5. 	Configure the authentication endpoints with the hostname of the Identity Server.
+5. Configure the authentication endpoints with the hostname of the Identity Server.
 
     ``` toml
     [authentication.endpoints]	
@@ -118,8 +118,37 @@ database server, and the JDBC driver.
     secure="false"
     http_method="GET,DELETE"
     ```
-   
-10. Configure the endpoints to retrieve sharable accounts. This is required when displaying the accounts on 
+
+10. Add and configure the following tags:
+
+    - `enable` : To enable metadata caching, set the value to `true`.
+    - `update_period` : Configure the fetch time for periodical cache update in minutes.
+    - `data_recipient_discovery_url` : Configure the endpoint provided by ACCC for retrieving the statuses of Data Recipients.
+    - `dcr_internal_url` : Configure the `<IS_HOST>` placeholder with the hostname of the Identity Server.
+    - `apim_application_search_url` : Configure the `<APIM_HOST>` placeholder with the hostname of the API Manager. This endpoint will
+      return a list of client applications. For more details, see
+      [list of client applications](https://apim.docs.wso2.com/en/latest/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Applications/paths/~1applications/get).
+    - `http_request_retry_count` : Configure the retry count for HTTP request failures, when polling the `data_recipient_discovery_url`.
+    - `dataholder_responsibilities.bulk_execution` : To execute data holder responsibilities as an overnight bulk operation, set the value to `true`.
+    - `dataholder_responsibilities.bulk_execution_hour` : To define the maximum number of bulk execution hours and this is in 24-Hour(0 -23) time format.
+
+      ```
+      [open_banking_cds.metadata_cache]
+      enable=true
+      update_period=5
+      data_recipients_discovery_url="https://api.cdr.gov.au/cdr-register/v1/banking/data-recipients"
+      dcr_internal_url="https://<IS_HOST>:9446/api/openbanking/dynamic-client-registration/register"
+      apim_application_search_url="https://<APIM_HOST>:9443/api/am/admin/v2/applications"
+      http_request_retry_count=2
+      dataholder_responsibilities.bulk_execution=true
+      dataholder_responsibilities.bulk_execution_hour=12
+      ```
+      ```
+      [open_banking.service_activator.subscribers]
+      subscriber="com.wso2.openbanking.cds.identity.metadata.periodical.updater.internal.MetadataScheduledTaskObserver"
+      ```
+    
+11. Configure the endpoints to retrieve sharable accounts. This is required when displaying the accounts on 
 the consent page.
 
     ``` toml
@@ -127,14 +156,14 @@ the consent page.
     sharable_account_retrieve_endpoint = "http://<APIM_HOST>:9763/api/openbanking/cds/backend/services/bankaccounts/bankaccountservice/sharable-accounts"
     ```
 
-11. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
+12. To generate the self link in the consent JSON response, configure the URLs of the exposed APIs as follows:
    
     ``` toml
     [open_banking_cds.consent]
     account_consent_self_link = "https://<APIM_HOST>:8243/cds-au/{version}/banking/accounts"
     ```
 
-12. In the consent re-authentication step of the Accounts flow, during authorisation, the PSU is allowed to change the 
+13. In the consent re-authentication step of the Accounts flow, during authorisation, the PSU is allowed to change the 
 selected account. To enable this feature and update the account bound to the consent, set the following property to true:
 
     ``` toml
@@ -142,7 +171,7 @@ selected account. To enable this feature and update the account bound to the con
     acc_update_by_psu_enabled = true
     ```
 
-13. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
+14. Enable Request-URI validation that validates `AccountID` in the request against the `AccountID` in consent during 
 account retrieval. By default, this is disabled and the configuration is set to `false`.
 
     ``` toml
@@ -150,7 +179,7 @@ account retrieval. By default, this is disabled and the configuration is set to 
     Validate_acc_id_on_retrieval_enabled = true
     ```
     
-14. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
+15. If you want to use the [Data publishing](../learn/data-publishing.md) feature:
 
     - Enable the feature and configure the `server_url` and `auth_url` properties with the hostname of WSO2 Streaming 
     Integrator.
