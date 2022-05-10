@@ -124,7 +124,7 @@ database server, and the JDBC driver.
     - `enable` : To enable metadata caching, set the value to `true`.
     - `update_period` : Configure the fetch time for periodical cache update in minutes.
     - `data_recipient_discovery_url` : Configure the endpoint provided by ACCC for retrieving the statuses of Data Recipients.
-    - `dcr_internal_url` : Configure `<IS_HOST>` placeholder with the hostname of the Identity Server.
+    - `dcr_internal_url` : Configure the `<IS_HOST>` placeholder with the hostname of the Identity Server.
     - `apim_application_search_url` : Configure `<APIM_HOST>` placeholder with the hostname of the API Manager. This `application search admin` endpoint will
       returns the list of client applications. For more details, see
       [list of client applications](https://apim.docs.wso2.com/en/latest/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Applications/paths/~1applications/get).
