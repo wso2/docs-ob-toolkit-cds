@@ -99,7 +99,7 @@ database server, and the JDBC driver.
     holder_identifier="HolderIdentifierValue"
     ```
 
-9. Configure the encryption/decryption key for ID permanence. By default, the secret value is "wso2".
+9. Configure the encryption/decryption key for ID permanence. By default, the secret value is `wso2`.
 
     ```
     [open_banking_cds.id_permanence]
