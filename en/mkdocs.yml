@@ -57,7 +57,7 @@ nav:
       - 'Set up Toolkits': get-started/set-up-toolkits.md
       - 'Configure Users and Roles': get-started/configure-users-and-roles.md
       - 'Configure SMS OTP Authenticator': get-started/configure-sms-otp-authenticator.md
-      - 'Dynamic Client Registration': get-started/dynamic-client-registation.md
+      - 'Dynamic Client Registration': get-started/dynamic-client-registration.md
       - 'Tryout Flow': get-started/try-out-flow.md
       - 'Data Publishing': get-started/data-publishing-try-out.md
   - 'Install and Setup':
@@ -81,7 +81,9 @@ nav:
        - 'Introduction': learn/consumer-authentication.md
        - 'Configuration': learn/consumer-authentication-configuration.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
+    - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
     - 'Administration API': learn/administration-api.md
+    - 'Arrangement Management API': learn/arrangement-management-api.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
@@ -89,8 +91,9 @@ nav:
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
   - 'Try out':
-    - 'TPP Onboarding': try-out/dynamic-client-regsitration-flow.md
+    - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Administration API': try-out/admin-api.md
+    - 'Arrangement Management API': try-out/arrangement-management-api-flow.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
