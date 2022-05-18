@@ -1,19 +1,19 @@
-The pushed authorization request endpoint is an HTTP API at the authorization server that accepts HTTP "POST" requests with
-parameters in the HTTP request message body using the "application/x- www-form-urlencoded" format.
+The Pushed Authorization Request (PAR) endpoint is an HTTP API at the authorization server. This endpoint accepts **HTTP POST** requests with
+parameters in the HTTP request message body using the `application/x- www-form-urlencoded` format.
 
-Unlike in the Authorisation endpoint, in the Pushed Authorisation endpoint, Data Recipients pushes authorisation 
-details directly to the authorisation server and obtains a reference. The Data Recipients obtain `request_uri` which is a reference 
+Unlike in the Authorization endpoint, in the Pushed Authorization endpoint, Data Recipients pushes authorisation 
+details directly to the authorisation server and obtain a reference. The Data Recipients obtain `request_uri`, which is a reference 
 to the authentication and authorization details sent in the pushed authorization request. Thereby, it prevents:
  
    - Intruders from intercepting the authorisation information sent in the `request_object`.
    - Authorisation request calls becoming large with the authorisation details signed in the JWT.
 
-###PAR endpoint
+##PAR endpoint
 
 Upon successful invocation of the `/par` endpoint, Data Recipients will receive a `request_uri` value with an expiration time.
 Therefore, the reference is only valid until the expiration time for the subsequent authorization invocation.
 
-Given below is a sample request and a response:
+Given below are sample request and response:
 
 ``` tab="Request"
 curl --location --request POST 'https://localhost:8243/par' \
@@ -57,7 +57,7 @@ This same `request_uri` value is used in the subsequent authorization request as
 
 ###Request URI
 
-The `request_uri` corresponding to the authorization request posted. This URI is a single-use reference to the respective request data
+The `request_uri` corresponds to the authorization request posted. This URI is a single-use reference to the respective request data
 in the subsequent authorization request. The way the authorization process obtains the authorization request data is at
 the discretion of the authorization server. There is no need to make the authorization
 request data available to other parties via this URI.
