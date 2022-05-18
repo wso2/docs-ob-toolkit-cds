@@ -1,3 +1,5 @@
+# CDR Arrangement Management API
+
 When a customer revoke granted consents there should be a mechanism to inform relevant parties that the particular CDR
 Arrangement ID is not valid anymore. The Data Recipients use the CDR Arrangement Management API, which facilitates
 this requirement. If this communication does not take place, the Data Holder will continue to expose the customer's
@@ -56,4 +58,4 @@ This API consists of the following endpoint.
 ### Revoke a sharing arrangement
 
 This endpoint is to revoke a sharing arrangement (consent) between the Data Holder and the Data Recipient. This endpoint
-must be implemented by both Data Holders and Data Recipients and notifies each other when a CDR Arrangement ID is revoked.
+must be implemented by both Data Holders and Data Recipients and notify each other when a CDR Arrangement ID is revoked.

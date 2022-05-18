@@ -1,3 +1,5 @@
+# CDR Arrangement Management API
+
 When a customer revokes a granted consent there should be a mechanism to inform relevant parties that the particular CDR 
 Arrangement ID is not valid anymore. The Data Recipients use the CDR Arrangement Management API, which facilitates 
 this requirement. If this communication does not take place, the Data Holder will continue to expose the customer's 
@@ -47,14 +49,14 @@ in the latest updates of WSO2 Open Banking.
         consent_revocation_listener = "com.wso2.finance.open.banking.uk.consent.mgt.listener.AUConsentRevocationListener"
         ```
 
-     5. The “sub” and “iss” claims in the Bearer JWT of the request sent to the Data Recipient's CDR Arrangement 
+     5. The `sub` and `iss` claims in the Bearer JWT of the request sent to the Data Recipient's CDR Arrangement 
         Revocation endpoint should be the ID of the Data Holder, which was obtained from the CDR Register. 
         ```
         [open_banking.au.data_holder]
         client_id = "dataholderbrand"
         ```
 
-     6. To persist recipient_base_uri as service provider metadata, add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` file. 
+     6. To persist `recipient_base_uri` as service provider metadata, add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` file. 
         ```
         [[apim.devportal.application_attributes]]
         required = false

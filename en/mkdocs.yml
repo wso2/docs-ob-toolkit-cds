@@ -83,7 +83,7 @@ nav:
     - 'Metadata Cache Management': learn/metadata-cache-management.md
     - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
     - 'Administration API': learn/administration-api.md
-    - 'CDR Arrangement Management API': learn/arrangement-management-api.md
+    - 'Arrangement Management API': learn/arrangement-management-api.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
