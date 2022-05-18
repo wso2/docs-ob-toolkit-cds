@@ -1,10 +1,10 @@
-When a customer revoke granted consents there should be a mechanism to inform relevant parties that the particular CDR 
+When a customer revokes a granted consent there should be a mechanism to inform relevant parties that the particular CDR 
 Arrangement ID is not valid anymore. The Data Recipients use the CDR Arrangement Management API, which facilitates 
 this requirement. If this communication does not take place, the Data Holder will continue to expose the customer's 
 data and the Data Recipient will continue to have the customer's data within their system. Therefore, it is important 
 to communicate the revocation to both parties to protect customer data and prevent misuse.
 
-This page explains how to configure and deploy the CDR Arrangement Management API as per the latest changes introduced
+This page explains how to configure and deploy the CDR Arrangement Management API.
 in the latest updates of WSO2 Open Banking.
 
 !!! tip "Before you begin..."
@@ -111,12 +111,12 @@ the Data Recipient's CDR Arrangement Revocation endpoint with a valid CDR Arrang
       The Data Recipient's CDR Arrangement Revocation endpoint is `<recipient_base_uri>/arrangements/revoke`. 
       For example, `https://www.mockcompany.com.au/arrangements/revoke`
 
-      - This needs to be done before enabling this feature, using a DCR PUT request and if the Data Recipients modify this 
+      - This needs to be done before enabling this feature, using a DCR PUT request.  If the Data Recipients modify this 
         endpoint, they should update their client registrations with each Data Holder as well.
 
 ### Deploying the Arrangement Management API
 
-1. Sign in to the API Publisher portal at `https:// <APIM_HOST>:9443/publisher` with `creator/publisher` privileges.
+1. Sign in to the API Publisher portal at `https://<APIM_HOST>:9443/publisher` with `creator/publisher` privileges.
 
     ![sign_into](../assets/img/get-started/quick-start-guide/sign-in.png)
 
@@ -171,7 +171,7 @@ the Data Recipient's CDR Arrangement Revocation endpoint with a valid CDR Arrang
 ## Revoke a sharing arrangement
 
 This endpoint is to revoke a sharing arrangement (consent) between the Data Holder and the Data Recipient. This endpoint 
-must be implemented by both Data Holders and Data Recipients and notifies each other when a CDR Arrangement ID is revoked.
+must be implemented by both Data Holders and Data Recipients and notify each other when a CDR Arrangement ID is revoked.
 A sample request is given below:
 
 ``` 
