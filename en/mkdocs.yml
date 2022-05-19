@@ -90,6 +90,7 @@ nav:
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
+    - 'Non Functional Requirements': learn/non-functional-requirements.md
   - 'Try out':
     - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Administration API': try-out/admin-api.md
