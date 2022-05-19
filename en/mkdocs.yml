@@ -94,6 +94,7 @@ nav:
     - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
     - 'Administration API': try-out/admin-api.md
     - 'Arrangement Management API': try-out/arrangement-management-api-flow.md
+    - 'Deploy Custom Throttling Policies': try-out/custom-throttling-policies.md
     - 'Account and transaction flow': try-out/account-and-transaction-flow.md
     - 'Consent Manager': try-out/consent-manager.md
   - 'References':
