@@ -50,7 +50,7 @@ direct the sharing of data about them with third parties flexibly and simply, an
 in how that data is being accessed and used.
 
 !!! note
-     WSO2 Open Banking CDS Toolkit is compliant with the Australian Consumer Data Standards. 
+     WSO2 Open Banking CDS Toolkit is compliant with the Australian [Consumer Data Standards](https://consumerdatastandardsaustralia.github.io/standards). 
 
 ## Other regulations and standards
 

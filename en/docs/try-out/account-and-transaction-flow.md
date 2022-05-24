@@ -85,7 +85,7 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 5. Click **Subscribe**.
 
-## Invoking Accounts API
+## Invoking Consumer Data Standards API
    
 ### Authorizing a consent
 
@@ -246,7 +246,7 @@ In this section, you will be generating an access token using the authorization 
     }
     ```
    
-### Invoking Accounts and Transaction API
+### Invoking Accounts API
 
 Once the customer approves the account consent, the AISP is eligible to access the account details of the bank customer.
 

@@ -20,3 +20,6 @@ flow.
 You can implement identifier-first authentication using a custom local authenticator. For more information, see 
 [Identifier-first Flow Handler](https://is.docs.wso2.com/en/latest/learn/identifier-first-flow-handler/#configuring-identifier-first-handler-in-the-login-flow). 
 WSO2 Open Banking consists of an identifier-first authenticator by default.
+
+!!! tip 
+    For more details on the configurations, see [Configuring SMS OTP Authenticator](../install-and-setup/configuring-sms-otp-authenticator.md)

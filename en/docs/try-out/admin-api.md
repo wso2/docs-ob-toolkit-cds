@@ -62,7 +62,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
 ## Invoke Metrics API
 
-### GET Metrics Endpoint
+### GET Metrics
 
 **GET /admin/metrics**
 
@@ -259,7 +259,7 @@ curl -k -X GET "https://<APIM_HOST>:8243/cds-au/v1/admin/metrics?period=ALL" -H 
 !!!tip
      For more details on the response payload, see [Consumer Data Standards - Get Metrics](https://consumerdatastandardsaustralia.github.io/standards/#get-metrics).
 
-### Metadata Update - POST /admin/register/metadata
+### Metadata Update
 
 **POST /admin/register/metadata**
 

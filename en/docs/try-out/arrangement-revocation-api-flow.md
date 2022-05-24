@@ -1,4 +1,4 @@
-# CDR Arrangement Management API
+# CDR Arrangement Revocation API
 
 When a customer revokes a granted consent there should be a mechanism to inform relevant parties that the particular CDR 
 Arrangement ID is not valid anymore. The Data Recipients use the CDR Arrangement Management API, which facilitates 
@@ -8,6 +8,8 @@ to communicate the revocation to both parties to protect customer data and preve
 
 This page explains how to configure and deploy the CDR Arrangement Management API.
 in the latest updates of WSO2 Open Banking.
+
+## Configuring CDR Arrangement Revocation API
 
 !!! tip "Before you begin..."
 
@@ -49,8 +51,8 @@ in the latest updates of WSO2 Open Banking.
         consent_revocation_listener = "com.wso2.finance.open.banking.uk.consent.mgt.listener.AUConsentRevocationListener"
         ```
 
-     5. The `sub` and `iss` claims in the Bearer JWT of the request sent to the Data Recipient's CDR Arrangement 
-        Revocation endpoint should be the ID of the Data Holder, which was obtained from the CDR Register. 
+     5. The `sub` and `iss` claims in the Bearer JWT of the request sent to the Data Recipient's endpoint should be the 
+        ID of the Data Holder obtained from the CDR Register. 
         ```
         [open_banking.au.data_holder]
         client_id = "dataholderbrand"
@@ -71,7 +73,7 @@ in the latest updates of WSO2 Open Banking.
         description = "Recipient Base URI of the production"
         ```
 
-### Data Holder Initiated Consent Revocation via Data Recipient's Consent Revocation Endpoint
+### Data Holder Initiated Consent Revocation 
 
 If a consent is withdrawn by a customer via the Data Holder’s Consent Dashboard, the 
 Data Holders must notify the Data Recipient of this revocation of the sharing arrangement. This is done by invoking 
@@ -116,7 +118,7 @@ the Data Recipient's CDR Arrangement Revocation endpoint with a valid CDR Arrang
       - This needs to be done before enabling this feature, using a DCR PUT request.  If the Data Recipients modify this 
         endpoint, they should update their client registrations with each Data Holder as well.
 
-### Deploying the Arrangement Management API
+## Deploying the Arrangement Management API
 
 1. Sign in to the API Publisher portal at `https://<APIM_HOST>:9443/publisher` with `creator/publisher` privileges.
 
