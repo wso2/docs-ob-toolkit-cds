@@ -1,4 +1,5 @@
-This document provides step by step instructions to set up SMS OTP configurations.
+This document provides step by step instructions to set up SMS OTP configurations. For more information, 
+see [Consumer Data Standards - Authentication flows](https://consumerdatastandardsaustralia.github.io/standards/#authentication-flows).
 
 ## Configuring deployment.toml
 
@@ -111,4 +112,3 @@ This document provides step by step instructions to set up SMS OTP configuration
     !!!note 
         Test  scenarios can include attempting to log in using invalid usernames more than the allowed number of times, attempting
         invalid OTPs more than the allowed number of times, etc.
-

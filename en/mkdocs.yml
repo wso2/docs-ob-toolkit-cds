@@ -69,21 +69,18 @@ nav:
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Configuring SMS OTP Authenticator': install-and-setup/configuring-sms-otp-authenticator.md
   - 'Learn':
-    - 'Consent Management':
-       - 'Introduction': learn/consent-management.md
-       - 'Consent Manager': learn/consent-manager.md
-    - 'Consent Authorization': learn/consent-authorization-intro.md
+    - 'Consent Management': learn/consent-management.md
+    - 'Consent Authorization':
+       - 'Introduction': learn/consent-authorization-intro.md
+       - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
     - 'Token Authentication': learn/token-authentication.md
     - 'Dynamic Client Registration':
        - 'Introduction': learn/dynamic-client-registration.md
        - 'Configuration': learn/dynamic-client-registration-configuration.md
-    - 'Consumer Authentication':
-       - 'Introduction': learn/consumer-authentication.md
-       - 'Configuration': learn/consumer-authentication-configuration.md
+    - 'Consumer Authentication': learn/consumer-authentication.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
-    - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
     - 'Administration API': learn/administration-api.md
-    - 'Arrangement Management API': learn/arrangement-management-api.md
+    - 'Arrangement Revocation API': learn/arrangement-revocation-api.md
     - 'API Security':
        - 'Introduction': learn/api-security.md
        - 'Configuration': learn/api-security-configuration.md
@@ -91,12 +88,12 @@ nav:
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
   - 'Try out':
-    - 'TPP Onboarding': try-out/dynamic-client-registration-flow.md
+    - 'Dynamic Client Registration': try-out/dynamic-client-registration-flow.md
+    - 'Account and Transaction flow': try-out/account-and-transaction-flow.md
     - 'Administration API': try-out/admin-api.md
-    - 'Arrangement Management API': try-out/arrangement-management-api-flow.md
-    - 'Deploy Custom Throttling Policies': try-out/custom-throttling-policies.md
-    - 'Account and transaction flow': try-out/account-and-transaction-flow.md
+    - 'Arrangement Revocation API': try-out/arrangement-revocation-api-flow.md
     - 'Consent Manager': try-out/consent-manager.md
+    - 'Deploy Custom Throttling Policies': try-out/custom-throttling-policies.md
   - 'References':
     - 'Identity Server Configuration Catalog': references/config-catalog-is.md
     - 'API Manager Configuration Catalog': references/config-catalog-apim.md
@@ -157,4 +154,3 @@ extra:
     - Install and Setup
     - Learn
     - Try out
-    - References

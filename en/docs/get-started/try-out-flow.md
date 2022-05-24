@@ -205,7 +205,7 @@ In this section, you will be generating an access token using the authorization 
      }
     ```
    
-### Invoking Consumer Data Standards API
+### Invoking Accounts API
 
 Once the consumer approves the account consent, the Accredited Data Recipient application is eligible to access the account details of the consumer.
 
