@@ -17,7 +17,7 @@ API endpoint performance will be measured in response time of individual API req
 
 It is understood that different response times can be measured depending on which technical layer of an API implementation 
 stack is instrumented and that not all of the technical layers between the Data Recipient and the Data Holder
-will be in the control of the Data Holder. As this is implementation specific it is expected that the Data Holder will 
+will be in the control of the Data Holder. As this is implementation-specific it is expected that the Data Holder will 
 ensure that the measurement of response time occurs as close to the Data Recipient as practicable.
 
 In light of these considerations, the performance requirement for Data Holders is **95% of calls per hour responded to within a nominated threshold.**
