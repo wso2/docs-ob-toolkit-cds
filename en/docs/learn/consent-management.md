@@ -4,6 +4,8 @@ Open banking is a concept that lets third-party financial service providers acce
 services with their consent. Consent management is the process of prompting, collecting, and managing bank customer’s 
 consent before a third-party provider collects or shares the customer's financial information. 
 
+##Consent Lifecycle
+
 In an open banking ecosystem, once a bank customer requests a service via an Accredited Data Recipients application for the first 
 time to access the customer's data, the customer needs to authorize and grant consent. These consents go through a 
 phased lifecycle as follows:
@@ -36,6 +38,8 @@ following methods to revoke these consents granted to Accredited Data Recipient 
  
  - A customer can revoke a consent using the Consent Manager portal 
  - A Customer Care Representative from the bank can revoke a consent on behalf of a user
+
+##API Endpoints
  
 WSO2 Open Banking uses the following API endpoints to manage consents as previously described. 
 

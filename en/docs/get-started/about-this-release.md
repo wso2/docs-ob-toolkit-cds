@@ -15,25 +15,25 @@ For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-ba
 
 ####WSO2 Open Banking Identity Server CDS Toolkit
 
-- Pushed Authorization
-- Consumer Data Right (CDR) Arrangement Management API
+- [Pushed Authorization](../learn/pushed-authorization-endpoint.md)
+- [Consumer Data Right (CDR) Arrangement Revocation API](../learn/arrangement-revocation-api.md)
 - Joint Accounts Support
-- Metadata Caching
+- [Metadata Caching](../learn/metadata-cache-management.md)
 - Data Holder Initiated Consent Revocation Notifications
-- Consent Amendment
-- Self Care Portal for Consent Management
+- [Consent Amendment](../try-out/consent-manager.md#revoking-a-consent)
+- [Self Care Portal for Consent Management](../try-out/consent-manager.md#using-consent-manager)
 - User Interface Improvements for Consent Flow
 
 ####WSO2 Open Banking API Manager CDS Toolkit
 
-- Support for Consumer Data Standard (CDS) API v1.8.0
+- [Support for Consumer Data Standard (CDS) API v1.8.0](../try-out/account-and-transaction-flow.md)
 - Consumer Data Standard (CDS) Error Format
-- Dynamic Client Registration (DCR) v0.2
+- [Dynamic Client Registration (DCR) v0.2](../learn/dynamic-client-registration.md)
 - Consumer Data Standard Specific Header Validations
 - ID Permanence
-- Consumer Data Standard Metrics API
+- [Consumer Data Standard Administration API v1.3.0](../learn/administration-api.md)
 - Response Schema Validation
 
 ####WSO2 Open Banking Business Intelligence CDS Toolkit
 
-- Siddhi Apps for publishing data and to support Metrics data processing
+- [Siddhi Apps for publishing data and to support Metrics data processing](../learn/data-publishing.md)
