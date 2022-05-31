@@ -1,4 +1,9 @@
-This document provides step by step instructions to set up SMS OTP configurations.
+This document provides step by step instructions to set up SMS OTP configurations. 
+
+!!! Note
+    According to the Australian Consumer Data Standard, Data Holders must provide a one-time password (OTP) to the customer
+    through an existing channel or mechanism that the customer can then enter into the redirected page for authentication purposes.
+    For more information, see [Consumer Data Standards - OIDC Hybrid Flow](https://consumerdatastandardsaustralia.github.io/standards/#authentication-flows).
 
 ## Configuring deployment.toml
 
@@ -90,19 +95,23 @@ This document provides step by step instructions to set up SMS OTP configuration
 
 4. Scroll down and click **Update**.
 
-### Step 3: Making Mobile Phone a Mandatory Claim
+### Step 3: Configure mobile as a mandatory claim
 
-1. Go to the **Main menu** > **Identity** > **Claims** > **List** > **http://wso2.org/claims** > **Mobile** > **Edit**.
+1. On the **Main menu > Identity > Claims > List**.
 
-      ![select_claims_lists](../assets/img/get-started/quick-start-guide/go-to-claims-lists.png)
+    ![select_claims_lists](../assets/img/get-started/quick-start-guide/go-to-claims-lists.png)
 
-      ![edit_mobile_claim](../assets/img/get-started/quick-start-guide/edit-mobile-claim.png)
+2. Select `http://wso2.org/claims` from the list.
 
-2. Select the **Required** checkbox.
+    ![claim_list](../assets/img/get-started/quick-start-guide/update-claims.png)
 
-      ![update_claim_details](../assets/img/get-started/quick-start-guide/update-local-claim-details.png)
+3. Locate **Mobile** from the list and select **Edit**.
 
-3. Scroll down and click **Update**.
+    ![locate_mobile](../assets/img/get-started/quick-start-guide/locate-mobile.png)
+
+4. Select **Required** and click **Update**.
+
+    ![update_claim_details](../assets/img/get-started/quick-start-guide/update-local-claim-details.png)
 
     !!! tip "More on Login Information..."
          In the authentication flow, if you log in as an admin user, it will prompt for the mobile number in the first

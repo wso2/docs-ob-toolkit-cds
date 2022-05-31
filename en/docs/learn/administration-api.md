@@ -3,7 +3,7 @@ Data Right (CDR) compliant implementation. The Data Holders are required to expo
 Australian Competition and Consumer Commission (ACCC), so the ACCC may obtain operational statistics in API performance, 
 API availability, and API errors. 
 
-### GET Metrics Endpoint
+### Get Metrics 
 
 **GET /admin/metrics**
 
