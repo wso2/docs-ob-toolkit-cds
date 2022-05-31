@@ -182,6 +182,7 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
     
     - [signing certificate](../../assets/attachments/signing_certificate.pem)
     - [private keys](../../assets/attachments/u3ZWlf9Yt42dyZgIvzkvqb.key)
+    - [transport certs](../../assets/attachments/ob-transport-certs.zip)
 
 - The bank registers the application using the metadata sent in the SSA.
 
