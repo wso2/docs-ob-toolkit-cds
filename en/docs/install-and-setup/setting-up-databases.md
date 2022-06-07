@@ -24,7 +24,7 @@ Once you have successfully prepared the environment for the deployment, you can 
     
     - `openbank_ob_reporting_statsdb`
 
-3. If you are using the [Consent Amendment History](../learn/consent-amendment-history.md) feature, it is necessary to create a separate database:
+3. If you are using the [Consent Amendment History](../learn/consent-amendment-history.md) feature, create the following database and execute the given scripts:
 
     - `ob_consent_history`
 
@@ -43,7 +43,7 @@ Once you have successfully prepared the environment for the deployment, you can 
       ENGINE INNODB;
       ```
       
-      ```tab="MsSQL"
+      ```tab="MS SQL"
       CREATE TABLE OB_CONSENT_HISTORY (
         TABLE_ID VARCHAR(10) NOT NULL,
         RECORD_ID VARCHAR(255) NOT NULL,
@@ -67,7 +67,7 @@ Once you have successfully prepared the environment for the deployment, you can 
       );
       ```
 
-      ```tab="PostgresQL"
+      ```tab="PostgreSQL"
       CREATE TABLE IF NOT EXISTS OB_CONSENT_HISTORY (
         TABLE_ID VARCHAR(10) NOT NULL,
         RECORD_ID VARCHAR(255) NOT NULL,
