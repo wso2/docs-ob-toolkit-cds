@@ -174,7 +174,7 @@ the Data Recipient's CDR Arrangement Revocation endpoint with a valid CDR Arrang
 
 ## Consent Amendment History Retrieval
 
-This endpoint is to retrieve the consent amendment history when the CDR Arrangement ID and basic authentication details are provided as a query parameters. For more
+This endpoint is to retrieve the consent amendment history when the CDR Arrangement ID and basic authentication details are provided as query parameters. For more
 details, see [Consent Amendment History](../learn/consent-amendment-history.md).
 
 
