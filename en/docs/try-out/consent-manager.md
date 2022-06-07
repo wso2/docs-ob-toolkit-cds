@@ -206,7 +206,7 @@ The three tabs are as follows:
 !!! tip
     Use the **Search** button to search consents.
 
-### Viewing consent details
+### View consent details
 
 - To view consent details, click the respective `Action` button. 
 
@@ -217,7 +217,17 @@ account numbers, and permissions that you have granted.
 
     ![consent details](../assets/img/try-out/consent-manager/consent-details.png)
 
-### Revoking a consent
+### View consent amendment history
+
+- To view the history of consent amendments, click the `View Details` button under the detailed agreement page.
+
+    ![consent details](../assets/img/try-out/consent-manager/amendment-history.png)
+
+- You can view the list of amendments made to the consent.
+
+    ![consent details](../assets/img/try-out/consent-manager/amendment-details.png)
+
+### Revoke a consent
 
 - To revoke a consent, review the details and click **Stop Sharing**. 
     

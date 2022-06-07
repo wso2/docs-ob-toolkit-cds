@@ -141,8 +141,25 @@ account retrieval. By default, this is disabled and the configuration is set to 
     username="$ref{super_admin.username}@carbon.super"	
     password="$ref{super_admin.password}"	
     server_url = "{tcp://<SI_HOST>:7612}"	
-    ```  
-   
+    ```
+    
+14. To enable the [Consent Amendment History](../learn/consent-amendment-history.md) feature, add the following 
+configurations and the event executor:
+
+    ```
+    [open_banking.consent.amendment_history]
+    enabled=true
+    ```
+    
+    ```
+    [[open_banking.event.event_executors]]
+    name = "com.wso2.openbanking.cds.consent.extensions.event.executor.CDSConsentEventExecutor"
+    priority = 1
+    [[open_banking.event.event_executors]]
+    name = "com.wso2.openbanking.accelerator.consent.extensions.event.executors.ConsentAmendmentHistoryEventExecutor"
+    priority = 2
+    ```
+    
 ## Starting servers
 
 1. Go to the `<APIM_HOME>/bin` directory using a terminal.
