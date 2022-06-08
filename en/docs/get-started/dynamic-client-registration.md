@@ -150,16 +150,9 @@ Accredited Data Recipients use the DCR API to request the Data Holder to registe
 The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload. 
 This SSA contains client metadata. It is a signed JWT issued by the Open Banking directory and the Accredited Data Recipients need to obtain it before registering with a Data Holder.
 
-!!! note
-    If you change the payload, use the following certificates to sign the JWT and SSA:
+This section explains the client registration process. A sample request is as follows:
 
-    - [signing certificate](../../assets/attachments/signing_certificate.pem)
-    - [private keys](../../assets/attachments/u3ZWlf9Yt42dyZgIvzkvqb.key)
-    - [transport certs](../../assets/attachments/ob-transport-certs.zip)
-
-This section explains the client registration process.
-
--  A sample request is as follows:
+- For this sample flow, you can use the transport certificates available [here](../../assets/attachments/ob-transport-certs.zip).
 ```  
 curl -X POST https://localhost:8243/open-banking/0.2/register \
  -H 'Content-Type: application/jwt' \
@@ -202,6 +195,12 @@ curl -X POST https://localhost:8243/open-banking/0.2/register \
 }
 <signature>
 ```
+
+!!! note 
+    If you change the payload, use the following certificates to sign the JWT and SSA:
+    
+    - [signing certificate](../../assets/attachments/signing_certificate.pem)
+    - [private keys](../../assets/attachments/u3ZWlf9Yt42dyZgIvzkvqb.key)
 
 - The bank registers the application using the metadata sent in the SSA.
 
