@@ -30,7 +30,7 @@ resourceKey, userId, apiContext, apiVersion, appTenant, apiTenant, appId, client
 Availability describes the likelihood that a user will be able to access the system at a given point in time. While it can be expressed 
 as a percentage of the time, the system is accessible for operation during some time period.
 
-The availability requirement applies to both authenticated and unauthenticated end points.
+The availability requirement applies to both authenticated and unauthenticated endpoints.
 
 The availability requirement does not include planned outages. Planned outages should be:
 
