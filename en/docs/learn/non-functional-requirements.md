@@ -1,4 +1,4 @@
-Non-Functional Requirement (NFR) specifies the quality attribute of a software system. They judge the software system 
+Non-Functional Requirements (NFR) specifies the quality attribute of a software system. They judge the software system 
 based on Responsiveness, Usability, Security, Portability and other non-functional standards that are critical to the 
 success of the software system. The non-functional requirements (NFRs) for the Consumer Data Right regime cover a number of considerations as:
 
