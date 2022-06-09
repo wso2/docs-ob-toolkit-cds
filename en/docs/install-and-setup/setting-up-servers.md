@@ -197,7 +197,7 @@ on the server.
 !!! info
     Environment variables are global system variables accessible by all the processes running under the operating system.
     
-1. Open the .bashrc file (.bash_profile file on Mac) in your home directory using a file editor.
+1. Open the `.bashrc` file (`.bash_profile` file on Mac) in your home directory using a file editor.
 
 2. Add the following two lines at the bottom of the file. Replace the `<JDK_LOCATION>` placeholder with  the actual 
 directory where the JDK is installed.

@@ -1,107 +1,94 @@
 # API Security
 
-Open Banking allows Accredited Data Recipients to access financial data through open APIs, which requires greater API security. Therefore, 
-open banking standards provide guidelines for security implementations.
+Open Banking allows Accredited Data Recipients to access financial data through open APIs, which requires greater API security. 
+Therefore,  the Consumer Data Standards (CDS) recommends to ensure API security. It consists of the standards for 
+grant types, authentication, and authorisation flows. For more information, see [CDS - Security Profile](https://consumerdatastandardsaustralia.github.io/standards/#security-profile).
 
-WSO2 Open Banking provides an extra level of security to the Open Banking APIs adhering to the security guidelines 
-provided in the Financial API (FAPI) group, which is based on OAuth 2.0 and OpenID Connect (OIDC). 
+WSO2 Open Banking provides an extra level of security to the Open Banking APIs adhering to the security guidelines provided 
+in the Financial API (FAPI) group, which is based on OAuth 2.0 and OpenID Connect (OIDC).
 
-###MTLS enforcement
+## MTLS enforcement
 
-Authentication is a  crucial requirement in open banking to verify the authenticity of an Accredited Data Recipient 
-before sharing the customer’s banking information. When an Accredited Data Recipient invokes APIs, their private 
-credentials can be shared in the requests, and it leads to credential leakages and data thefts. Therefore, Mutual 
-Transport Layer Security (MTLS) is introduced as an authentication protocol where the TPPs do not need to send their private credentials.
+Authentication is a crucial requirement in open banking to verify the authenticity of an Accredited Data Recipient before 
+sharing the customer’s banking information. When an Accredited Data Recipient invokes APIs, their private credentials can 
+be shared in the requests, and it leads to credential leakages and data thefts. Therefore, Mutual Transport Layer Security (MTLS)
+is introduced as an authentication protocol where the Accredited Data Recipients do not need to send their private credentials.
 
 MTLS handshake at the transport layer ensures that the corresponding Accredited Data Recipient possesses a secret key 
 that is associated with the X509 certificate issued by a trusted Certificate Authority (CA).
 
-In WSO2 Open Banking, MTLS is enforced at the API Manager level to check if 
+In WSO2 Open Banking, MTLS is enforced at the API Manager level to check if
 
 - the message context contains the transport certificate to make sure that the MTLS handshake is successful at the gateway.
 - the transport certificate bound to the application when invoking the APIs.
 
 There are two scenarios to consider for the MTLS validation:
 
-1. If the client directly initiates an MTLS connection with the WSO2 API Manager Gateway, the issuer of the certificate needs 
-to be present in the truststore of the gateway.
+1. If the client directly initiates an MTLS connection with the WSO2 API Manager Gateway, the issuer of the certificate 
+needs to be present in the truststore of the gateway.
 
 2. If the MTLS terminates at the load balancer prior to the gateway, the WSO2 API Manager Gateway expects the load balancer 
 to send the client certificate as a header. In such scenarios, the WSO2 API Manager gateway expects the load balancer to 
 perform the issuer validation.
 
-###Certificate Revocation Validation 
+## Token endpoint security
 
-A certificate is issued by a trusted organization commonly known as a CA. It is also known as 
-a Trust Service Provider (TSP). These certificates are expected to be in use for their entire validity period. However, 
-certain circumstances may cause a certificate to become invalid prior to the expiration of the validity period. 
-For example, a compromise or suspected compromise of the corresponding private key may cause a certificate to become invalid 
-prior to the expiration.  
+The WSO2 Open Banking CDS Toolkit uses the Authorization Code grant type to ensure token endpoint security. When a Data 
+Recipient attempts to access consumer data, the CDS Toolkit requests the bank customer to authorise the Data Recipient by 
+granting consent for the Data Recipient to access that account information. Once the user grants the consent, the user is 
+redirected to the redirect URL of the Data Recipient with the authorization code. Using the generated authorization code, 
+the Data Recipient can generate the user access token.
 
-A revocation request can originate from the National Competent Authority (NCA), which has authorised or registered an API 
-consumer. The TSP revokes the certificate based on a verifiable and  authentic revocation request.
+## Refresh tokens
 
-There are circumstances where the issuing CA needs to revoke the certificate prior to the scheduled expiry date so that the 
-certificate would no longer be trusted. Therefore, it is required to check whether a given certificate is revoked by its 
-issuer. That can be done through two protocols:
+Refresh tokens are used to get a new user access token from the authentication server in order to access a specific resource. 
+Mostly, a refresh token is generated when the user access token has expired.
 
-####Certificate Revocation List (CRL)
- 
-CRL is a list of digital certificates that have been revoked by the issuing CA.
+WSO2 Open Banking CDS Toolkit provides Private Key JWT to secure the token endpoint that is used by Data Recipients to obtain the 
+application and access tokens. Private Key JWT is the default token endpoint authenticator used in CDS Toolkit.
 
-####Online Certificate Status Protocol (OCSP)
- 
-OCSP is an internet protocol used for obtaining the revocation status of a digital certificate based on the certificate 
-serial number. The OCSP validation is faster compared to the CRL validation.
+## Holder of Key validation
 
-By default, WSO2 Open Banking verifies the revocation status of a certificate using the OCSP validation. If the 
-OCSP validation is unsuccessful, the revocation status is verified using the CRL information. The certificate is rejected 
-if none of these protocols is successful or if the required revocation information is not found on the certificate.
+Holder of Key validation ensures that the user access token bounds with the Data Recepient's transport certificate, which 
+was presented during the token request. For this, the user access token needs to be bound with the MTLS certificate.
 
-###Validate external Accredited Data Recipients
+## Authorisation endpoint security
 
-This validation allows Data Holders to validate Accredited Data Recipients from the NCAs. This is done by 
-validating the transport layer certificate an Accredited Data Recipient has obtained. 
+WSO2 Open Banking CDS Toolkit enhances the security of the authorisation code grant type in authorisation endpoint security with 
+request object and response type attributes.
 
-###Role validation 
-According to the [Open Banking Standard - UK](https://www.openbanking.org.uk/about-us/glossary/), TPPs have roles 
-for the services they provide. The TPP’s role is defined in their transport certificate (QWAC certificate 
-that they obtain from an NCA), which WSO2 Open Banking checks in the API and Dynamic Client Registration flows. 
-If the role exists in the transport certificate, WSO2 Open Banking allows the TPP to invoke the API.
+???Tip "Once decoded, the request object that is used to get the Data Recipient's information looks as follows:"
+    ```
+    {
+    "kid": "<Certificate fingerprint>",
+    "typ": "JWT",
+    "alg": "<Supported algorithm>"
+    }
+    {
+    "iss": "<Application ID>",
+    "aud": "<Audience the ID Token is intended for. For example,https://<WSO2_OB_APIM_HOST>:8243/token>",
+    "response_type": "<code:Retrieves authorize code, code id_token: Retrieves authorize token and ID token>",
+    "exp": <A JSON number representing the number of seconds from 1970-01-01T00:00:00Z to the UTC expiry time>,
+    "client_id": "<Application ID>",
+    "redirect_uri": "<Redirect URL of the client application>",
+    "scope": "<Available scopes are bank:accounts.basic:read, bank:accounts.detail:read, bank:transactions:read, bank:payees:read, bank:regular_payments:read, common:customer.basic:read, and common:customer.detail:read >",
+    "state": "af0ifjsldkj",
+    "nonce": "<Prevents replay attacks>",
+    "claims": {
+    "sharing_duration": "<Requested duration for sharing, in seconds>",
+    "id_token": {
+    "acr": {
+    "values": ["urn:cds.au:cdr:3"]
+    }
+    }
+    }
+    }
+    <signature>
+    ```
 
-Following are the roles that a TPP can have:
-
- | Role | Description  |
- |---------|---------    |
- |Account Information Service Provider|Provides an online service by sharing information on payment accounts held by a payment service user with payment service providers.|
- |Payment Initiation Services Provider|Provides an online service to initiate a payment order at the request of the payment service user with respect to a payment account held at another payment service provider.|
- |Card-Based Payment Instrument Issuer|Issues card-based payment instruments that can be used to initiate a payment transaction from a payment account held with another payment service provider.|
-
-!!!tip
-    An TPP can have one or more roles. For an example, if a TPP provides an application to view account 
-    information as well as to initiate payments, the roles of the TPP are **Account Information Service Provider** 
-    and **Payment Initiation Services Provider**.
-     
-###eIDAS 
-The **electronic IDentification, Authentication and trust Services (eIDAS)** regulation provides unique identity schemas for individuals and businesses to access the publicly available online 
-services in Europe. Among electronic Identification (eID) solutions, PSD2 recommends Qualified Website Authentication 
-Certificate (QWAC) and Qualified Certificates for Electronic Seals (QSealC) to secure the transport layer and application 
-layer with the TPP.
-
-####Qualified Web Authentication Certificate (QWAC)
-QWAC validates the identity and the [role of the TPP](#role-validation). During API invocations, TPP can use their eIDAS 
-QWAC to establish a secure TLS channel and protect the transport layer communication from potential attackers on the network. 
-
-WSO2 Open Banking validates the following aspects of the QWAC if it is used for an API invocation:
-
-- The certificate is qualified, technically correct, and is not expired.
-- The PSD2 information in the certificate such as PSD2 roles, Authorization Number matches with the API being invoked.
-- The certificate is not revoked using CRL or Online OCSP validations.
-
-####Qualified e-Seal Certificate (QSealC) 
-QSealC seals application data and sensitive information to ensure that the origin of the document is trusted. WSO2 Open 
-Banking allows using QSealC as the signing certificates in application layer security to ensure protecting the 
-data or messages from potential attackers during or after the communication.
-
-
-
+    !!!Note
+        The `sharing_duration` claim in the request object defines the validity period of the refresh token. This is to limit the validity of the consent to the defined period.
+    
+!!!Note
+    The Token Introspection Endpoint and Token Revocation Endpoints are protected with Private Key JWT Client Authentication 
+    and therefore it is mandatory to have the `client-id` parameter in these request bodies.

@@ -154,7 +154,7 @@ In this section, you will be generating an access token using the authorization 
 
     !!! note
         If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox), 
-        download the certificate and keys attached [here](../../assets/attachments/Certificates.zip), and use them for signing and transports layer security testing purposes.
+        download the certificate and keys attached [here](../../assets/attachments/ob-transport-certs.zip), and use them for signing and transports layer security testing purposes.
 
     ``` tab="Format"
     Format:
@@ -205,7 +205,7 @@ In this section, you will be generating an access token using the authorization 
      }
     ```
    
-### Invoking Consumer Data Standards API
+### Invoking Accounts API
 
 Once the consumer approves the account consent, the Accredited Data Recipient application is eligible to access the account details of the consumer.
 

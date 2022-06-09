@@ -1,4 +1,5 @@
-This document provides step by step instructions to set up SMS OTP configurations.
+This document provides step by step instructions to set up SMS OTP configurations. For more information, 
+see [Consumer Data Standards - Authentication flows](https://consumerdatastandardsaustralia.github.io/standards/#authentication-flows).
 
 !!! Note
     According to the Australian Consumer Data Standard, Data Holders must provide a one-time password (OTP) to the customer 

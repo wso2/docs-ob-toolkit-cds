@@ -66,3 +66,13 @@ request data available to other parties via this URI.
 
 The `expires_in` is a JSON number that represents the lifetime of the `request_uri` in seconds as a positive integer. 
 The `request_uri` lifetime is at the discretion of the authorization server but will typically be relatively short.
+
+##Authorization web application
+
+The Accredited Data Recipients obtain an authorization URL that redirects the customer to a web interface hosted by the Data Holder.
+In this web application, the customer:
+
+- Logs in using the login credentials.
+- Views information that the Accredited Data Recipient requested to access.
+- Selects the accounts that the Accredited Data Recipient can access.
+- Provides consent to the Accredited Data Recipient to access the information.

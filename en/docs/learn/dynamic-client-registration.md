@@ -11,10 +11,11 @@ application. The application can then use the client ID in the registration info
 
 The Data Holder needs to provide the DCR API from its open banking solution and WSO2  Open Banking provides the 
 DCR capabilities with an endpoint that performs the following:
- - Validates if the Accredited Data Recipient application is authorized by a competent authority
- - Validates information such as the role of the Accredited Data Recipient, signature algorithm, authorization scopes, 
- OAuth2.0 grant types, application type, and the request issuance time
- - Allows registered Accredited Data Recipient applications to access data via open banking APIs
+
+  - Validates if the Accredited Data Recipient application is authorized by a competent authority
+  - Validates information such as the role of the Accredited Data Recipient, signature algorithm, authorization scopes, 
+    OAuth2.0 grant types, application type, and the request issuance time
+  - Allows registered Accredited Data Recipient applications to access data via open banking APIs
 
 !!! note 
     The Dynamic Client Registration functionality available in WSO2 Open Banking meets the 

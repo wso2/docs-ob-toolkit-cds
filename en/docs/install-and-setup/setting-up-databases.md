@@ -24,7 +24,62 @@ Once you have successfully prepared the environment for the deployment, you can 
     
     - `openbank_ob_reporting_statsdb`
 
-3. According to your DBMS, place the compatible JDBC drivers in the following directories:
+3. If you are using the [Consent Amendment History](../learn/consent-amendment-history.md) feature, create the following database and execute the given scripts:
+
+    - `ob_consent_history`
+
+    - Sample table creation script is given below:
+
+      ```tab="MySQL"
+      CREATE TABLE IF NOT EXISTS OB_CONSENT_HISTORY (
+         TABLE_ID VARCHAR(10) NOT NULL,
+         RECORD_ID VARCHAR(255) NOT NULL,
+         HISTORY_ID VARCHAR(255) NOT NULL,
+         CHANGED_VALUES JSON NOT NULL,
+         REASON VARCHAR(255) NOT NULL,
+         EFFECTIVE_TIMESTAMP BIGINT NOT NULL,
+         PRIMARY KEY (TABLE_ID,RECORD_ID,HISTORY_ID)
+      )
+      ENGINE INNODB;
+      ```
+      
+      ```tab="MS SQL"
+      CREATE TABLE OB_CONSENT_HISTORY (
+        TABLE_ID VARCHAR(10) NOT NULL,
+        RECORD_ID VARCHAR(255) NOT NULL,
+        HISTORY_ID VARCHAR(255) NOT NULL,
+        CHANGED_VALUES NVARCHAR(max) NOT NULL,
+        REASON VARCHAR(255) NOT NULL,
+        EFFECTIVE_TIMESTAMP BIGINT NOT NULL,
+        PRIMARY KEY (TABLE_ID,RECORD_ID,HISTORY_ID)
+      );
+      ```
+
+      ```tab="Oracle"
+      CREATE TABLE OB_CONSENT_HISTORY (
+        TABLE_ID VARCHAR(10) NOT NULL,
+        RECORD_ID VARCHAR(255) NOT NULL,
+        HISTORY_ID VARCHAR(255) NOT NULL,
+        CHANGED_VALUES CLOB NOT NULL,
+        REASON VARCHAR(255) NOT NULL,
+        EFFECTIVE_TIMESTAMP NUMBER NOT NULL,
+        PRIMARY KEY (TABLE_ID,RECORD_ID,HISTORY_ID)
+      );
+      ```
+
+      ```tab="PostgreSQL"
+      CREATE TABLE IF NOT EXISTS OB_CONSENT_HISTORY (
+        TABLE_ID VARCHAR(10) NOT NULL,
+        RECORD_ID VARCHAR(255) NOT NULL,
+        HISTORY_ID VARCHAR(255) NOT NULL,
+        CHANGED_VALUES JSON NOT NULL,
+        REASON VARCHAR(255) NOT NULL,
+        EFFECTIVE_TIMESTAMP BIGINT NOT NULL,
+        PRIMARY KEY (TABLE_ID,RECORD_ID,HISTORY_ID)
+      );
+      ```
+      
+4. According to your DBMS, place the compatible JDBC drivers in the following directories:
  
     - `<APIM_HOME>/repository/components/lib`  
     - `<IS_HOME>/repository/components/lib` 

@@ -26,7 +26,13 @@
     ```
     ./merge.sh
     ```
-    6. Exchange the public certificates between servers. 
+
+    6. Run the `configure.sh` script in `<SI_HOME>/<OB_BI_TOOLKIT_HOME>/bin`.
+    ```
+    ./configure.sh
+    ```
+
+    7. Exchange the public certificates between servers. 
         
         ??? "Click here to see how it is done..."
     
@@ -86,4 +92,4 @@ enable = true
 2. Try out the sample API flow using the instructions given in [Tryout Flow](try-out-flow.md).
 
 3. Once you try out the sample API flow, you can notice that data is published to the tables of the 
-`openbank_ob_reporting_statsdb` database. 
+`openbank_ob_reporting_statsdb` database.
