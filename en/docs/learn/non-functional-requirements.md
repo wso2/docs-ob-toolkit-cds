@@ -14,7 +14,7 @@ policy is created, it is possible to define any policy you like. This feature is
 need to be freely throttled or rejected by Data Holders without impacting their performance or availability requirements.
 For more details on setting the traffic thresholds, refer to [Consumer Data Standards - Traffic Thresholds](https://consumerdatastandardsaustralia.github.io/standards/#traffic-thresholds).
 
-In WSO2 Open Banking, the Traffic Manager component of the WSO2 Open Banking API Management module acts as the global
+In WSO2 Open Banking, the Traffic Manager component of the WSO2 API Manager acts as the global
 throttling engine. This is based on the same technology as WSO2 Complex Event Processor (CEP), which uses the Siddhi query language.
 Users are therefore able to create their own custom throttling policies by writing custom Siddhi queries.
 
