@@ -43,7 +43,7 @@ The availability requirement does not include planned outages. Planned outages s
 
 ## Performance Requirements
 
-Defines how fast an API end point responds to individual API requests, from receipt of the request to delivery of the response.
+Defines how fast an API endpoint responds to individual API requests, from receipt of the request to delivery of the response.
 
 It is recognized that various response times can be measured depending on which technical layer of an API implementation 
 stack is instrumented, and that the Data Holder will not have control over all of the technical levels between the 
