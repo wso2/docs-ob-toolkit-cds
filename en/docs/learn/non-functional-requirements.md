@@ -56,8 +56,8 @@ In light of these considerations, the performance requirement for Data Holders i
     | Tier | Response Time |Applies To...|
     |---------|---------|---------|
     |High Priority|**1000ms**|All calls to the following end points: <ul><li>All InfoSec end points including Dynamic Client Registration</li><li>CDR Arrangement Revocation</li></ul>|
-    |Low Priority|**1500ms**|Customer Present calls to the following end points: <ul><li>Get Account Detail</li><li>Get Account Balance</li><li>Get Bulk Balances</li><li>Get Balances For Specific Accounts</li><li>Get Transactions For Account</li><li>Get Transaction Detail</li><li>Get Payees</li><li>Get Payee Detail</li><li>Get Direct Debits For Account</li><li>Get Scheduled Payments For Account</li><li>Get Scheduled Payments Bulk</li><li>Get Scheduled Payments For Specific Accounts</li></ul>|
-    |Large Payload|**6000ms**|Any Unattended calls to the following end points: <ul><li>Get Bulk Direct Debits</li><li>Get Direct Debits For Specific Accounts</li></ul>|
+    |Low Priority|**1500ms**|Customer Present calls to the following endpoints: <ul><li>Get Account Detail</li><li>Get Account Balance</li><li>Get Bulk Balances</li><li>Get Balances For Specific Accounts</li><li>Get Transactions For Account</li><li>Get Transaction Detail</li><li>Get Payees</li><li>Get Payee Detail</li><li>Get Direct Debits For Account</li><li>Get Scheduled Payments For Account</li><li>Get Scheduled Payments Bulk</li><li>Get Scheduled Payments For Specific Accounts</li></ul>|
+    |Large Payload|**6000ms**|Any Unattended calls to the following endpoints: <ul><li>Get Bulk Direct Debits</li><li>Get Direct Debits For Specific Accounts</li></ul>|
 
 ## Session Requirements
 
