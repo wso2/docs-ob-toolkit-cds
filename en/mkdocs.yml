@@ -76,7 +76,7 @@ nav:
     - 'Token Authentication': learn/token-authentication.md
     - 'Dynamic Client Registration':
        - 'Introduction': learn/dynamic-client-registration.md
-       - 'Configuration': learn/custom-dcr-validator.md
+       - 'Configuration': learn/dynamic-client-registration-configuration.md
     - 'Consumer Authentication': learn/consumer-authentication.md
     - 'Metadata Cache Management': learn/metadata-cache-management.md
     - 'Administration API': learn/administration-api.md

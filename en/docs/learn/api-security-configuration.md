@@ -1,5 +1,6 @@
 ###Configuring MTLS Enforcement Executor
-You can apply the `MTLSEnforcementExecutor` executor to check if a Mutual Transport Layer Security (MTLS) certificate is 
+
+You can apply the `MTLSEnforcementExecutor` executor to check if a Mutual Transport Layer Security (MTLS) certificate is
 present in the API request:
 
 - The relevant configuration is in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows:
@@ -10,7 +11,8 @@ priority = 1
 ``` 
 
 ###Configuring certificate revocation validation
-You can apply the `CertRevocationValidationExecutor` executor to perform the Online Certificate Status Protocol (OCSP) and 
+
+You can apply the `CertRevocationValidationExecutor` executor to perform the Online Certificate Status Protocol (OCSP) and
 Certificate Revocation List (CRL) certificate revocation validation in the API request:
 
 - The relevant configuration is in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows:
@@ -31,51 +33,37 @@ priority = 2
     port = 8080
     ```
 
-###Configuring external Accredited Data Recipient validation
+###Configuring external TPP validation
 
 !!!note
-    By default, WSO2 Open Banking supports a sample API flow to get account information and to initiate a 
-    payment. Therefore, the following configuration exists in `<APIM_HOME>/repository/conf/deployment.toml` by default:
+    You need to enable either TPP validation or role validation as explained in this section. Otherwise, any kind of 
+    TPP validation or role validation will not happen.
+
+1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
+
+2. External TPP validation is enforced at the API level. Apply the `APITPPValidationExecutor` executor to compare the 
+roles in the transport certificate against the roles in the request scope. If the bank needs TPP validation 
+enabled, enable the following configurations:
+
     ```toml
     [open_banking.gateway.tpp_management.tpp_validation]
-    enabled = false
-    implementation_path = ""
-    cache_expiry = 3600
+    enabled = true 
+    ```
+   
+3. If a TPP validation is not configured, a TPP role validation will be performed. For this to happen, enable the following:
+
+    ```toml
     [open_banking.gateway.tpp_management.psd2_role_validation]
     enabled = true
-    [[open_banking.gateway.tpp_management.allowed_scopes]]
-    name = "accounts"
-    roles = "AISP, PISP"
-    [[open_banking.gateway.tpp_management.allowed_scopes]]
-    name = "payments"
-    roles = "PISP"
     ```
- 
-By default, external Accredited Data Recipient validation is enforced in two occurrences:
 
-- API-level 
-- Dynamic Client Registration (DCR)
- 
-    1. You can apply the `APITPPValidationExecutor` executor to compare the roles in the transport certificate against 
-    roles in the request scope: 
+4. For TPP role validation, the applicable role names should be configured against the scope names as follows:
+    - The sample configuration below performs role validation for AISP flow.
 
-        - An example given below to find how  `APITPPValidationExecutor`  applies to the sample Accounts API in `<APIM_HOME>/repository/conf/deployment.toml`:
-```toml
-[[open_banking.gateway.openbanking_gateway_executors.type]]
-name = "Accounts"
-[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-name = "com.wso2.openbanking.accelerator.gateway.executor.impl.tpp.validation.executor.APITPPValidationExecutor"
-priority = 3
-``` 
-
-    2. For Dynamic Client Registration, apply `DCRTPPValidationExecutor` to validate the roles in the transport certificate against 
-    the roles in the TPP's SSA.
-
-        - The relevant configuration is in the `<APIM_HOME>/repository/conf/deployment.toml` file as follows:
-```toml
-[[open_banking.gateway.openbanking_gateway_executors.type]]
-name = "DCR"
-[[open_banking.gateway.openbanking_gateway_executors.type.executors]]
-name = "com.wso2.openbanking.accelerator.gateway.executor.impl.tpp.validation.executor.DCRTPPValidationExecutor"
-priority = 3
-```
+       ```toml
+       [open_banking.gateway.tpp_management.psd2_role_validation]
+       enabled = true
+       [[open_banking.gateway.tpp_management.allowed_scopes]]
+       name = "accounts"
+       roles = "AISP"
+       ```
