@@ -84,8 +84,8 @@ nav:
     - 'Administration API': learn/administration-api.md
     - 'Arrangement Revocation API': learn/arrangement-revocation-api.md
     - 'API Security':
-       - 'Introduction': learn/api-security.md
-       - 'Configuration': learn/api-security-configuration.md
+        - 'Introduction': learn/api-security.md
+        - 'Configuration': learn/api-security-configurations.md
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
