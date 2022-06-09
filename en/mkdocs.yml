@@ -69,9 +69,7 @@ nav:
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Configuring SMS OTP Authenticator': install-and-setup/configuring-sms-otp-authenticator.md
   - 'Learn':
-    - 'Consent Management':
-      - 'Introduction': learn/consent-management.md
-      - 'Consent Amendment History': learn/consent-amendment-history.md
+    - 'Consent Management': learn/consent-management.md
     - 'Consent Authorization':
        - 'Introduction': learn/consent-authorization-intro.md
        - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
@@ -84,11 +82,12 @@ nav:
     - 'Administration API': learn/administration-api.md
     - 'Arrangement Revocation API': learn/arrangement-revocation-api.md
     - 'API Security':
-        - 'Introduction': learn/api-security.md
-        - 'Configuration': learn/api-security-configurations.md
+       - 'Introduction': learn/api-security.md
+       - 'Configuration': learn/api-security-configuration.md
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
+    - 'Non Functional Requirements': learn/non-functional-requirements.md
   - 'Try out':
     - 'Dynamic Client Registration': try-out/dynamic-client-registration-flow.md
     - 'Account and Transaction flow': try-out/account-and-transaction-flow.md

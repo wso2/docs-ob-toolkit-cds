@@ -62,7 +62,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
 ## Invoke Metrics API
 
-### GET Metrics
+### Get Metrics
 
 **GET /admin/metrics**
 

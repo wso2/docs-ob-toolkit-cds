@@ -41,6 +41,15 @@ This method is also known as **Pushed Authorization**. The reference is notated 
 - Intruders from intercepting the authorization information sent in the request_object
 - Authorization request calls becoming bulky with the authorization details signed in the JWT
 
-and protects the confidentiality and integrity of the authorization details when passing through an Accredited Data Recipients application.
+and protects the confidentiality and integrity of the authorization details when passing through an 
+Accredited Data Recipients application. For more information, see [Pushed Authorization Endpoint](../learn/pushed-authorization-endpoint.md)
 
+##Authorization web application
 
+The Accredited Data Recipients obtain an authorization URL that redirects the customer to a web interface hosted by the Data Holder.
+In this web application, the customer:
+
+- Logs in using the login credentials.
+- Views information that the Accredited Data Recipient requested to access.
+- Selects the accounts that the Accredited Data Recipient can access.
+- Provides consent to the Accredited Data Recipient to access the information.

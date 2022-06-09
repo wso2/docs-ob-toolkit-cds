@@ -121,16 +121,17 @@ database server, and the JDBC driver.
 
 10. Add and configure the following tags:
 
-    | Configuration | Description                                                                                                                                                  | 
-    |--------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-    | `enable` | To enable metadata caching, set the value to `true`.                                                                                                         |
-    | `update_period` | Configure the fetch time for periodical cache update in minutes.                                                                                             |
-    | `data_recipient_discovery_url` | Configure the endpoint provided by ACCC for retrieving the statuses of Data Recipients.                                                                      |
-    | `dcr_internal_url` | Configure the `<IS_HOST>` placeholder with the hostname of the Identity Server.                                                                              |
-    | `apim_application_search_url`  | Configure the `<APIM_HOST>` placeholder with the hostname of the API Manager. This endpoint willreturn a list of client applications. For more details, see [list of client applications](https://apim.docs.wso2.com/en/latest/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Applications/paths/~1applications/get).|
-    | `http_request_retry_count` | Configure the retry count for HTTP request failures, when polling the `data_recipient_discovery_url`.                                                                                             |
-    | `dataholder_responsibilities.bulk_execution` | To execute data holder responsibilities as an overnight bulk operation, set the value to `true`.                                                                      |
-    | `dataholder_responsibilities.bulk_execution_hour` |To define the maximum number of bulk execution hours and this is in 24-Hour(0 -23) time format.                                                                             |
+    ??? tip "Click here to see the full list of configurations..."
+        | Configuration | Description                                                                                                                                                  | 
+        |---- ----------|-------------|
+        | `enable` | To enable metadata caching, set the value to `true`.                                                                                                         |
+        | `update_period` | Configure the fetch time for periodical cache update in minutes.                                                                                             |
+        | `data_recipient_discovery_url` | Configure the endpoint provided by ACCC for retrieving the statuses of Data Recipients.                                                                      |
+        | `dcr_internal_url` | Configure the `<IS_HOST>` placeholder with the hostname of the Identity Server.                                                                              |
+        | `apim_application_search_url`  | Configure the `<APIM_HOST>` placeholder with the hostname of the API Manager. This endpoint willreturn a list of client applications. For more details, see [list of client applications](https://apim.docs.wso2.com/en/latest/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Applications/paths/~1applications/get).|
+        | `http_request_retry_count` | Configure the retry count for HTTP request failures, when polling the `data_recipient_discovery_url`.                                                                                             |
+        | `dataholder_responsibilities.bulk_execution` | To execute data holder responsibilities as an overnight bulk operation, set the value to `true`.                                                                      |
+        | `dataholder_responsibilities.bulk_execution_hour` |To define the maximum number of bulk execution hours and this is in 24-Hour(0 -23) time format.                                                                             |
 
       ```
       [open_banking_cds.metadata_cache]
