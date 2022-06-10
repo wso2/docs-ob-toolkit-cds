@@ -69,7 +69,9 @@ nav:
     - 'Configuring Users and Roles': install-and-setup/configuring-users-and-roles.md
     - 'Configuring SMS OTP Authenticator': install-and-setup/configuring-sms-otp-authenticator.md
   - 'Learn':
-    - 'Consent Management': learn/consent-management.md
+    - 'Consent Management':
+       - 'Introduction': learn/consent-management.md
+       - 'Consent Amendment History': learn/consent-amendment-history.md
     - 'Consent Authorization':
        - 'Introduction': learn/consent-authorization-intro.md
        - 'Pushed Authorization Endpoint': learn/pushed-authorization-endpoint.md
@@ -87,6 +89,7 @@ nav:
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
+    - 'CDS Data Reporting': learn/cds-data-reporting.md
     - 'Non Functional Requirements': learn/non-functional-requirements.md
   - 'Try out':
     - 'Dynamic Client Registration': try-out/dynamic-client-registration-flow.md
