@@ -1,6 +1,6 @@
 WSO2 Open Banking CDS Toolkit provides the capability for Data Holders to fulfill reporting requirement. 
 The Data Holders are expected to submit bi-annual report forms to both the Australian Competition and Consumer Commission (ACCC) 
-and the Office of the Australian Information Commissioner (OAIC). For more information, see [CDS-Reporting Forms](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0/reporting-forms-rule-94).
+and the Office of the Australian Information Commissioner (OAIC). For more information, see [CDR-Reporting Forms](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0/reporting-forms-rule-94).
 
 ##Reporting Items 
 
