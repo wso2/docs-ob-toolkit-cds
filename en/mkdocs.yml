@@ -89,7 +89,7 @@ nav:
     - 'Data Publishing':
        - 'Introduction': learn/data-publishing.md
        - 'Tryout': learn/data-publishing-tryout.md
-    - 'CDS Data Reporting': learn/cds-data-reporting.md
+    - 'CDR Data Reporting': learn/cdr-data-reporting.md
     - 'Non Functional Requirements': learn/non-functional-requirements.md
   - 'Try out':
     - 'Dynamic Client Registration': try-out/dynamic-client-registration-flow.md
