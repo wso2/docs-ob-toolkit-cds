@@ -1,4 +1,4 @@
-WSO2 Open Banking CDS Toolkit provides the capability for Data Holders to fulfil this reporting requirement. 
+WSO2 Open Banking CDS Toolkit provides the capability for Data Holders to fulfill this reporting requirement. 
 The Data Holders are expected to submit bi-annual report forms to both the Australian Competition and Consumer Commission (ACCC) 
 and the Office of the Australian Information Commissioner (OAIC). For more information, see [CDS-Reporting Forms](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0/reporting-forms-rule-94).
 
@@ -36,17 +36,17 @@ and Data Holders can manipulate this stored data when preparing reports.
 
 ##Data Reporting API
 
-WSO2 Open Banking CDS Toolkit introduces an API to obtain API invocation details such as the errors that occurred during APIs and the error types.
+WSO2 Open Banking CDS Toolkit introduces an API to obtain API invocation details such as the errors occurred during APIs and the error types.
 Using the Data Reporting API, the Data Holders can retrieve statistics on API invocation data for a requested period which are required for regulatory reporting. 
 
 1. Deploying the `GetInvocationDataApp.Siddhi`, which is required to publish data related to data reporting:
     - Copy the `<SI_HOME>/resources/finance/cds-siddhi-files/GetInvocationDataApp.siddhi` file to the `<SI_HOME>/deployment/siddhi-files directory`.
-    - Restart the Streaming Integrator, Identity Server and API Manager Servers respectively.
+    - Restart the Streaming Integrator,Identity Server and API Manager Servers respectively.
 
 2. Invoking the API:
     - Set the date range by changing the values in the `fromDate` and `toDate` parameters in the request.
        
-        ???Tip "Click here to see a sample request and response"
+        ???Tip "Given below is a sample request and response"
             
             ```tab="Request"
             curl --location --request POST \
@@ -81,7 +81,7 @@ Using the Data Reporting API, the Data Holders can retrieve statistics on API in
 As a part of CDS Data Reporting, the CDS Toolkit captures CDS Rule violations that happen during API invocations and 
 combines them into the response of the above Data Reporting API.
 
-???Tip "Click here to see a sample request to retrieve bi-annual reporting data..."
+???Tip "Given below is a sample request to retrieve bi-annual reporting data...."
 
     ```tab="Request"
     curl --location --request POST 'http://<WSO2_OB_BI_HOST>:8007/InvocationData/StatusCheckStream'
@@ -130,7 +130,7 @@ combines them into the response of the above Data Reporting API.
     ```
     
     !!!Note
-        You need to capture the data required for the following rules from the banking back end. The scenarios are as follows:
+        You need to capture the data required for the following rules from the banking backend. The scenarios are as follows:
          
           - `unavailable_banking_account`: The consent is valid for the given account but certain data sharing is restricted 
                due to other business validations in the bank backend.
