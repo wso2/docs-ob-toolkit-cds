@@ -14,49 +14,51 @@ The page explains how to deploy the Administration API and try out the flow.
 
 5. Click **Next**.
 
-6. Set the **Endpoint** as follows:
-     ```
-     https://<APIM_HOST>:9443/cds-admin-api/au100
-     ```
-7. Click **Create** to create the API
+6. Click **Create** to create the API
 
-8. After the API is successfully created, go to **Portal Configurations** using the left menu panel.
+7. After the API is successfully created, go to **Portal Configurations** using the left menu panel.
      ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. 
+8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. 
      ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-10. Click **Save**.
+9. Click **Save**.
 
-11. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**.
+10. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**.
       
      ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
 
-12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
 
-13. Now, select the **Custom Policy** option.
+12. Now, select the **Custom Policy** option.
 
-14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
 
-15. Click **Select**.
+14. Click **Select**.
 
-16. Scroll down and click **SAVE**.
+15. Scroll down and click **SAVE**.
 
-17. Go to **Deployments** using the left menu pane.
+16. Use the left menu panel and go to **API Configurations > Endpoints**.
+
+    ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
+
+17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
+
+18. Go to **Deployments** using the left menu pane.
      
       ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-18. Select the API Gateway type 
+19. Select the API Gateway type 
 
       ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
   
-19. Click **Deploy**.
+20. Click **Deploy**.
 
-20. Go to **Overview** using the left menu pane.
+21. Go to **Overview** using the left menu pane.
       
       ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-21. Click **Publish**. 
+22. Click **Publish**. 
 
       ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
