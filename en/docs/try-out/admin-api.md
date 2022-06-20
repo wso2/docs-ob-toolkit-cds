@@ -2,7 +2,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
 1. Sign in to the API Publisher portal at `https:// <APIM_HOST>:9443/publisher` with `creator/publisher` privileges.
      
-      ![sign_into](../assets/img/get-started/quick-start-guide/sign-in.png)
+     ![sign_into](../assets/img/get-started/quick-start-guide/sign-in.png)
 
 2. In the homepage, go to **REST API** and select **Import Open API**. 
      
