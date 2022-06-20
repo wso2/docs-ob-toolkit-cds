@@ -138,7 +138,7 @@ the Data Recipient's CDR Arrangement Revocation endpoint with a valid CDR Arrang
 
 6. Set the **Endpoint** as follows:
     ```
-     https://<IS_HOST>:9446/cdr-arrangement-management/arrangements
+     https://<IS_HOST>:9446/api/openbanking/cds-arrangement-revocation/arrangements
     ```
 7. Click **Create** to create the API
 
