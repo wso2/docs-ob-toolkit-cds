@@ -162,7 +162,7 @@ This endpoint is to revoke a sharing arrangement (consent) between the Data Hold
 must be implemented by both Data Holders and Data Recipients and notify each other when a CDR Arrangement ID is revoked.
 A sample request is given below:
 
-``` 
+``` tab="Request"
 POST https://data.holder.com.au/arrangements/revoke
 HTTP/1.1
 Host: data.holder.com.au
@@ -172,4 +172,8 @@ client_id=s6BhdRkqt3&
 client_assertion_type=urn%3Aietf%3Aparams%3Aoauth%3Aclient-assertion-type%3Ajwt-bearer&
 client_assertion=eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEyNDU2In0.ey ...&
 cdr_arrangement_id=5a1bf696-ee03-408b-b315-97955415d1f0
+```
+
+``` tab="Response"
+204 No Content
 ```
