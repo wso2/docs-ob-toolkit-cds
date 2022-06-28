@@ -132,7 +132,9 @@ This SSA contains client metadata. It is a signed JWT issued by the Open Banking
 
 This section explains the client registration process. A sample request is as follows:
 
-- For this sample flow, you can use the transport certificates available [here](../../assets/attachments/ob-transport-certs.zip).
+- For the Transport Layer Security purposes in this sample flow, you can use the attached
+  [private key](../../assets/attachments/transport-certs/obtransport.key) and
+  [public certificate](../../assets/attachments/transport-certs/obtransport.pem).
 ```  
 curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
  -H 'Content-Type: application/jwt' \
@@ -179,9 +181,9 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
 
 !!! note 
     If you change the payload, use the following certificates to sign the JWT and SSA:
-    
-    - [signing certificate](../../assets/attachments/signing_certificate.pem)
-    - [private keys](../../assets/attachments/u3ZWlf9Yt42dyZgIvzkvqb.key)
+
+    - [signing certificate](../../assets/attachments/signing-certs/obsigning.pem)
+    - [private keys](../../assets/attachments/signing-certs/obsigning.key)
 
 - The bank registers the application using the metadata sent in the SSA.
 
