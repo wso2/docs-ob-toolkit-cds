@@ -31,6 +31,10 @@ needs to be present in the truststore of the gateway.
 to send the client certificate as a header. In such scenarios, the WSO2 API Manager gateway expects the load balancer to 
 perform the issuer validation.
 
+Generally, open banking flows always consist of 3 different types of API requests by the client applications, 
+known as [Authorization](#-authorisation-endpoint-security), [Token](#token-endpoint-security), and [Resource](#resource-request)
+Requests. 
+
 ## Token endpoint security
 
 The WSO2 Open Banking CDS Toolkit uses the Authorization Code grant type to ensure token endpoint security. When a Data 
@@ -39,7 +43,17 @@ granting consent for the Data Recipient to access that account information. Once
 redirected to the redirect URL of the Data Recipient with the authorization code. Using the generated authorization code, 
 the Data Recipient can generate the user access token.
 
-## Refresh tokens
+The Data Recipients use the Token Endpoint to obtain access tokens, id tokens, and optionally, a refresh token. Following 
+security features are available in WSO2 Open Banking during Token flows.
+
+- The Data Recipients can authenticate the authorization server when accessing the token endpoint using any of the following methods:
+    - Private key JWT authentication (Auth code grant)
+    - MTLS authentication (Auth code grant)
+    - Client Assertion (Client Credentials Grant)
+- Bind consent Id and MTLS certificate to the token
+- Provide verification mechanisms such as PKCE, if initiated in the authorization flow
+
+## Refresh Tokens
 
 Refresh tokens are used to get a new user access token from the authentication server in order to access a specific resource. 
 Mostly, a refresh token is generated when the user access token has expired.
@@ -47,12 +61,33 @@ Mostly, a refresh token is generated when the user access token has expired.
 WSO2 Open Banking CDS Toolkit provides Private Key JWT to secure the token endpoint that is used by Data Recipients to obtain the 
 application and access tokens. Private Key JWT is the default token endpoint authenticator used in CDS Toolkit.
 
+## Resource Request
+
+After a Data Recipient obtains an access token, it is used to invoke a resource endpoint. In this request,
+the following validations will be performed:
+
+- Token validity verification
+- Token type verification 
+- Scopes/roles validation
+- Token-bound certificate validation
+- Consent validation
+
 ## Holder of Key validation
 
 Holder of Key validation ensures that the user access token bounds with the Data Recepient's transport certificate, which 
 was presented during the token request. For this, the user access token needs to be bound with the MTLS certificate.
 
 ## Authorisation endpoint security
+
+WSO2 Open Banking supports the following security features and fulfil FAPI requirements
+during Authorization flows:
+
+- OIDC Hybrid Flow
+    - Request object verification
+    - Pushed Authorization Request validation
+    - Pairwise Identifier support for ID tokens
+- Authorization Code Flow
+    - When a request object is not available, support authentication mechanisms such as PKCE
 
 WSO2 Open Banking CDS Toolkit enhances the security of the authorisation code grant type in authorisation endpoint security with 
 request object and response type attributes.
