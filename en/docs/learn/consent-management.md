@@ -33,7 +33,7 @@ After successful authentication, the customer is presented with the details of t
 deny this request from the Accredited Data Recipient application to access data. Depending on the customer’s response the API 
 consumer application may or may not have access to the data. 
 
-With the [Consent Manager](consent-manager.md) application in WSO2 Open Banking you can use one of the 
+With the [Consent Manager](../try-out/consent-manager.md) application in WSO2 Open Banking you can use one of the 
 following methods to revoke these consents granted to Accredited Data Recipient applications.
  
  - A customer can revoke a consent using the Consent Manager portal 
