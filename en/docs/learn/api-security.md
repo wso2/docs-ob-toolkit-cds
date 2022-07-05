@@ -4,8 +4,9 @@ Open Banking allows Accredited Data Recipients to access financial data through 
 Therefore,  the Consumer Data Standards (CDS) recommends to ensure API security. It consists of the standards for 
 grant types, authentication, and authorisation flows. For more information, see [CDS - Security Profile](https://consumerdatastandardsaustralia.github.io/standards/#security-profile).
 
-WSO2 Open Banking provides an extra level of security to the Open Banking APIs adhering to the security guidelines provided 
-in the Financial API (FAPI) group, which is based on OAuth 2.0 and OpenID Connect (OIDC).
+The Consumer Data Standards has mandated the Financial API (FAPI) security standards for the Data Holders. WSO2 Open
+Banking CDS Toolkit provides mkan extra level of security to the Open Banking APIs adhering to the security
+guidelines provided in FAPI, which is based on OAuth 2.0 and OpenID Connect (OIDC).
 
 ## MTLS enforcement
 
