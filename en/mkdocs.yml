@@ -74,6 +74,7 @@ nav:
        - 'Upgrading to Identity Server 5.11.0': install-and-setup/upgrading-the-solution/upgrading-wso2-identity-server.md
        - 'Upgrading to API Manager 4.0.0': install-and-setup/upgrading-the-solution/upgrading-wso2-api-manager-400.md
        - 'Open Banking Data Migration': install-and-setup/upgrading-the-solution/open-banking-data-migration.md
+       - 'Reporting Data Migration': install-and-setup/upgrading-the-solution/reporting-data-migration.md
        - 'Modifications After Migration': install-and-setup/upgrading-the-solution/modifications-after-migration.md
   - 'Learn':
     - 'Consent Management':
