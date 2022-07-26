@@ -1,9 +1,5 @@
 This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API. 
 
-!!! tip
-    When the Accredited Data Recipient provides an Account Information Service as an online service, the Accredited Data Recipient
-    is known as an Account Information Services Provider (AISP).
-
 ## Deploying Account and Transaction API
 
 1. Sign in to the API Publisher Portal at `https://<APIM_HOST>:9443/publisher` with the creator/publisher privileges.
@@ -252,7 +248,7 @@ In this section, you will be generating an access token using the authorization 
    
 ### Invoking Accounts API
 
-Once the customer approves the account consent, the AISP is eligible to access the account details of the bank customer.
+Once the customer approves the account consent, the Data Recipient application is eligible to access the account details of the bank customer.
 
 The Accredited Data Recipient can now invoke the **GET/ accounts** endpoint available in the Account and Transaction API. This retrieves a 
 full list of accounts that the bank customer has authorised the Accredited Data Recipient to access. The Account Ids returned are used to retrieve 

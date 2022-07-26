@@ -212,7 +212,7 @@ The three tabs are as follows:
 
     ![view consent](../assets/img/try-out/consent-manager/view-consent.png)
 
-- You can view the details such as the associated TPP application, consent granted date, consent expiry date, 
+- You can view the details such as the associated Data Recipient application, consent granted date, consent expiry date, 
 account numbers, and permissions that you have granted.
 
     ![consent details](../assets/img/try-out/consent-manager/consent-details.png)
