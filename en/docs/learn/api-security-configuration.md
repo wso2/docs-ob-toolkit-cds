@@ -32,38 +32,3 @@ priority = 2
     host = "PROXY_HOSTNAME"
     port = 8080
     ```
-
-###Configuring external TPP validation
-
-!!!note
-    You need to enable either TPP validation or role validation as explained in this section. Otherwise, any kind of 
-    TPP validation or role validation will not happen.
-
-1. Open the `<APIM_HOME>/repository/conf/deployment.toml` file.
-
-2. External TPP validation is enforced at the API level. Apply the `APITPPValidationExecutor` executor to compare the 
-roles in the transport certificate against the roles in the request scope. If the bank needs TPP validation 
-enabled, enable the following configurations:
-
-    ```toml
-    [open_banking.gateway.tpp_management.tpp_validation]
-    enabled = true 
-    ```
-   
-3. If a TPP validation is not configured, a TPP role validation will be performed. For this to happen, enable the following:
-
-    ```toml
-    [open_banking.gateway.tpp_management.psd2_role_validation]
-    enabled = true
-    ```
-
-4. For TPP role validation, the applicable role names should be configured against the scope names as follows:
-    - The sample configuration below performs role validation for AISP flow.
-
-       ```toml
-       [open_banking.gateway.tpp_management.psd2_role_validation]
-       enabled = true
-       [[open_banking.gateway.tpp_management.allowed_scopes]]
-       name = "accounts"
-       roles = "AISP"
-       ```
