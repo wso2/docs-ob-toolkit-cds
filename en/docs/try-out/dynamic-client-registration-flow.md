@@ -16,6 +16,12 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 5. Click **Next**.
 
+6. Set the Endpoint as follows:
+
+    ```
+    https://<IS_HOST>:9446/api/openbanking/dynamic-client-registration
+    ```
+
 6. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
 7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
