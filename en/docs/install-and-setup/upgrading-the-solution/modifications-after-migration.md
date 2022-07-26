@@ -6,11 +6,11 @@ Configure open banking internal scopes as follows:
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-2. Update the allowed scopes according the sample below: 
+2. Make sure the allowed scopes list contain the following: 
 
       ``` toml
       [oauth]
-      allowed_scopes = ["consent.*", "OB_.*"]
+      allowed_scopes = ["OB_.*", "profile"]
       ```
 
 ## Two-Factor Authentication
