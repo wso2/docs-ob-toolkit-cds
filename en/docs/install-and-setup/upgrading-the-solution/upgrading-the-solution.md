@@ -25,4 +25,5 @@ Follow the topics below in the given order:
   2. [Upgrading to WSO2 Identity Sever 5.11.0](upgrading-wso2-identity-server.md) <br/>
   3. [Upgrading API Manager 3.2.0 to 4.0.0](upgrading-wso2-api-manager-400.md) <br/>
   4. [Migrating Open Banking Data](open-banking-data-migration.md) <br/>
-  5. [Configuring After Migration](modifications-after-migration.md)
+  5. [Migrating Reporting Data](reporting-data-migration.md) <br/>
+  6. [Configuring After Migration](modifications-after-migration.md)

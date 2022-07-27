@@ -65,6 +65,17 @@ one that points to the Identity Server.
 
 4. Start the API Manager server.
 
+### Update API Endpoints Custom Mediation Policies
+
+This section explains how to update the API Endpoint of each API.
+
+1. Go to the API Publisher at `https://<APIM_HOST>:9443/publisher`.
+2. Select the respective API.
+3. Go to **API Configurations > Endpoints**.
+4. Update the endpoints according to the 
+[Summarized information for configuring APIs](../../try-out/account-and-transaction-flow.md#summarized-information-for-configuring-apis)
+section. For more information, refer to the deployment steps of each API. 
+
 ### Replace Custom Mediation Policies
 
 This section explains how to replace the Custom Mediation Policy of each API with the latest Mediation Policy.

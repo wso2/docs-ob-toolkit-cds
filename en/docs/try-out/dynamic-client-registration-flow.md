@@ -16,6 +16,12 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 5. Click **Next**.
 
+6. Set the Endpoint as follows:
+
+    ```
+    https://<IS_HOST>:9446/api/openbanking/dynamic-client-registration
+    ```
+
 6. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
 7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
@@ -188,7 +194,7 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
 - The bank registers the application using the metadata sent in the SSA.
 
 - If an application is successfully created, the bank responds with a JSON payload describing the application that was created. 
-The TPP can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is 
+The Data Recipient application can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is 
 given below:
 ```
 {
