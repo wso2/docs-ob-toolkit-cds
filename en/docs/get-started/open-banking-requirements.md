@@ -56,7 +56,7 @@ granted. The solution includes a fully-featured consent management module that:
 5. **Developer Portal** - The solution offers a customizable Developer Portal that enables application developers to 
 publish, republish, subscribe, and test APIs.
  
-6. **Banking Systems Integration** - The solution uses the integration capabilities of [WSO2 Micro Integrator](https://apim.docs.wso2.com/en/4.0.0/integrate/integration-overview/) 
+6. **Banking Systems Integration** - The solution uses the integration capabilities of [WSO2 Micro Integrator](https://apim.docs.wso2.com/en/latest/integrate/integration-overview/) 
 to help banks connect their core banking systems and overcome the challenges of legacy technology. With the help of 
 the Micro Integrator, WSO2 Open Banking can support:
      - different message protocols (HTTP/TCP), message types (REST/SOAP), and formats (ISO 8583, ISO 20022).
