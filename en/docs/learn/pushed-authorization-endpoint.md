@@ -16,7 +16,7 @@ Therefore, the reference is only valid until the expiration time for the subsequ
 Given below are sample request and response:
 
 ``` tab="Request"
-curl --location --request POST 'https://localhost:8243/par' \
+curl --location --request POST 'https://localhost:9446/api/openbanking/push-authorization/par' \
 --header 'Accept: application/json' \
 --header 'Cache-Control: no-cache' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
