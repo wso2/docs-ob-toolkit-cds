@@ -128,7 +128,7 @@ By default, Metadata Cache Management is configured in WSO2 Open Banking CDS Too
     
     - `dcr_internal_url` : The endpoint of the API Manager internal URL accessing Dynamic Client Registration. 
     - `apim_application_search_url` : WSO2 API Manager application search admin endpoint that returns the
-[list of client applications](https://apim.docs.wso2.com/en/4.0.0/reference/product-apis/admin-apis/admin-v2/admin-v2/#tag/Applications/paths/~1applications/get).
+[list of client applications](https://apim.docs.wso2.com/en/latest/reference/product-apis/admin-apis/admin-v3/admin-v3/#tag/Deny-Policies-(Collection)/paths/~1throttling~1deny-policies/get).
     - `http_request_retry_count` : Define the retry count for HTTP request failures, when polling the `data_recipient_discovery_url`.
     - `dataholder_responsibilities.bulk_execution` : To execute data holder responsibilities as an overnight bulk operation, set the value to `true`.
     - `dataholder_responsibilities.bulk_execution_hour` :  Define the bulk execution hour in 24-Hour(0 -23) time format.
