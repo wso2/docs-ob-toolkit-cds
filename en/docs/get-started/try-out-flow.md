@@ -16,7 +16,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
    ```
    https://localhost:9443/api/openbanking/cds/backend/services
    ```
-7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
+7. Click **Create** to create the API. ![create-api](../assets/img/get-started/quick-start-guide/create-api.png)
 
 8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
