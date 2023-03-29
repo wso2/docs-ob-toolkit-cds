@@ -24,41 +24,70 @@ The page explains how to deploy the Administration API and try out the flow.
 
 9. Click **Save**.
 
-10. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**.
-      
-     ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
+10. Once you get the message that the API is successfully updated, add a custom policy. Follow the instructions given below according to the API Manager version you are using:
 
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.0.0..."
 
-12. Now, select the **Custom Policy** option.
+        1. Use the left menu panel and select **API Configurations > Runtime**. <br> ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
+        
+        2. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+        
+        3. Now, select the **Custom Policy** option.
+        
+        4. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+        
+        5. Click **Select**.
+        
+        6. Scroll down and click **SAVE**.
 
-13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+    ??? note "Click here to see how to add a custom policy if you are using API Manager 4.1.0..."
 
-14. Click **Select**.
+        1. Go to **Develop -> API Configurations -> Policies** in the left menu pane.<br><br>
+        <div style="width:40%">
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
-15. Scroll down and click **SAVE**.
+        2. On the **Policy List** card, click on **Add New Policy**.
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**.
+        3. Fill in the **Create New Policy**.
+
+        4. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+
+        5. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
+        <div style="width:35%">
+        ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+        </div>
+
+        6. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+
+        7. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+
+        8. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+
+        9. Select **Apply to all resources** and click **Save**.
+
+        10. Scroll down and click **Save**.
+12. Use the left menu panel and go to **API Configurations > Endpoints**.
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-17. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
+13. Add a **Dynamic Endpoint**. ![add_dynamic_endpoint](../assets/img/get-started/quick-start-guide/add_dynamic_endpoint.png)
 
-18. Go to **Deployments** using the left menu pane.
+14. Go to **Deployments** using the left menu pane.
      
       ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-19. Select the API Gateway type 
+15. Select the API Gateway type 
 
       ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
   
-20. Click **Deploy**.
+16. Click **Deploy**.
 
-21. Go to **Overview** using the left menu pane.
+17. Go to **Overview** using the left menu pane.
       
       ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-22. Click **Publish**. 
+18. Click **Publish**. 
 
       ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
