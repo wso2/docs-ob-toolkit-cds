@@ -7,15 +7,16 @@ This section guides you on how to set up the solution in a local environment. Fo
 can quickly set up and try out a basic flow.
 
 !!! tip "Prerequisites"
-    1. Download Oracle JDK 1.8 to the local environment.
-        - In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
+    1. Download Open Java Development Kit (OpenJDK) version 17 to the local environment.
+
+    2. In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
         Mac/Linux server by adding the following to the `~/.bashrc` file:
         ```
         export JAVA_HOME="<JDK_LOCATION>"
         export PATH=$PATH:$JAVA_HOME/bin
         ```
     
-    2. Setup a database server using any of the following:
+    3. Setup a database server using any of the following:
          - MySQL 8.0
          - Oracle 19c
          - Microsoft SQL Server 2017

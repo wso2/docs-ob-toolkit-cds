@@ -94,7 +94,7 @@ Listed below are the prerequisites for a successful deployment:
          <th>JDK Version</th>
          <td>
             <ul>
-               <li>Oracle JDK 11</li>
+               <li>Open JDK 17</li>
             </ul>
          <td>  
       </tr>
@@ -129,10 +129,7 @@ WSO2 Open Banking CDS Toolkit 1.0.0 is supported on the following platforms:
          <td>
             <ul>
                <li>
-                  Oracle JDK 11
-               </li>
-               <li>
-                  OpenJDK 11
+                  OpenJDK 17
                </li>
             </ul>
          </td>
