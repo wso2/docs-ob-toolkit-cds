@@ -22,49 +22,61 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
     https://<IS_HOST>:9446/api/openbanking/dynamic-client-registration
     ```
 
-6. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
+7. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
-7. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-8. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
-9. Click **Save**.
+10. Click **Save**.
 
-10. Once you get the message that the API is successfully updated, use the left menu panel and select **API Configurations > Runtime**. 
+11. Go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.<br><br>
+        <div style="width:40%"> 
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
-    ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
-    
-11. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. On the **Policy List** card, click on **Add New Policy**. 
 
-12. Now, select the **Custom Policy** option.
+13. Fill in the **Create New Policy**.
 
-13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` file. ![dcr_insequence](../assets/img/get-started/quick-start-guide/dcr-insequence.png)
- 
-14. Click **Select**. 
+14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` insequence file.
 
-15. Scroll down and click **SAVE**.
+15. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
+    <div style="width:35%">
+    ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+    </div>
 
-16. Use the left menu panel and go to **API Configurations > Endpoints**. 
+16. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+
+17. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+
+18. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+
+19. Select **Apply to all resources** and click **Save**.
+
+20. Scroll down and click **SAVE**. 
+
+21. Use the left menu panel and go to **API Configurations > Endpoints**. 
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-17. Go to **Deployments** using the left menu pane. 
+22. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
-18. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+23. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-19. Click **Deploy**.
+24. Click **Deploy**.
 
-20. Go to **Overview** using the left menu pane. 
+25. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-21. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+26. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-22. The deployed API is now available in the Developer Portal at `https://<APIM_HOME>:9443/devportal`.
+27. The deployed API is now available in the Developer Portal at `https://<APIM_HOME>:9443/devportal`.
 
-23. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
+28. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
     to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
     `<IS_HOME>/repository/resources/security/client-truststore.jks` using the following command:
     
@@ -72,7 +84,7 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
     keytool -import -alias <alias> -file <certificate_location> -storetype JKS -keystore <truststore_location> -storepass wso2carbon
     ```
                 
-24. Restart the Identity Server and API Manager instances.
+29. Restart the Identity Server and API Manager instances.
 
 ## Step 2: Configure IS as Key Manager
 
