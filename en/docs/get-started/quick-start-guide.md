@@ -7,7 +7,7 @@ This section guides you on how to set up the solution in a local environment. Fo
 can quickly set up and try out a basic flow.
 
 !!! tip "Prerequisites"
-    1. Download Open Java Development Kit (OpenJDK) version 17 to the local environment.
+    1. Download Open Java Development Kit (OpenJDK) version 11 to the local environment.
 
     2. In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
         Mac/Linux server by adding the following to the `~/.bashrc` file:
