@@ -77,6 +77,7 @@ toolkits:
     |WSO2 Open Banking API Manager Accelerator |`<OB_APIM_ACCELERATOR_HOME>`|
     |WSO2 Open Banking Identity Server CDS Toolkit|`<OB_IS_TOOLKIT_HOME>`|
     |WSO2 Open Banking API Manager CDS Toolkit|`<OB_APIM_TOOLKIT_HOME>`|
+    |WSO2 IS Connector for API Manager |`<IS_EXTENSION>`|
 
 ## Getting WSO2 Updates
 
