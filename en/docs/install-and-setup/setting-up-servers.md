@@ -5,14 +5,11 @@ This section guides you to set up and prepare the servers to run WSO2 Open Banki
 1. WSO2 Open Banking CDS Toolkit runs on top of WSO2 Identity Server, API Manager, and Streaming Integrator, which are 
 referred to as base products. Before setting up the toolkit, download and install the base products:
 
-    - [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/#)
-    - [WSO2 API Manager 4.1.0](https://wso2.com/api-manager/) or [WSO2 API Manager 4.0.0](https://wso2.com/api-management/previous-releases/)
-    - [WSO2 Streaming Integrator 4.0.0](https://wso2.com/streaming-integrator/previous-releases/)
+    - [WSO2 Identity Server 6.0.0](https://wso2.com/identity-and-access-management/previous-releases/)
+    - [WSO2 API Manager 4.2.0](https://wso2.com/api-manager/)
+    - [WSO2 Streaming Integrator 4.2.0](https://wso2.com/streaming-integrator/)
 
-2. To configure the Identity Server with the API Manager, install the respective WSO2 IS Connector according to the API Manager version you have downloaded.
-
-    - [WSO2 IS Connector for API Manager 4.1.0](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/administer/wso2is-extensions-1.4.2.zip)
-    - [WSO2 IS Connector for API Manager 4.0.0](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip)
+2. To configure the Identity Server with the API Manager, install [WSO2 IS Connector for API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/assets/attachments/administer/wso2is-extensions-1.6.8.zip)
 
 ## Installing WSO2 Open Banking Accelerator 
     
@@ -154,15 +151,18 @@ and run the `merge.sh` script as follows:
     ./merge.sh
     ```
 
-3. Extract the `wso2is-extensions` zip file. Copy the following files to the Identity Server as follows:
+3. Extract the `wso2is-extensions` zip file.
 
-    | File to copy | Copy to |
-    | -------------| ------- |
-    | `wso2is-extensions-1.2.10/dropins/wso2is.key.manager.core-1.2.10.jar` |	`<IS_HOME>/repository/components/dropins`|
-    | `wso2is-extensions-1.2.10/dropins/wso2is.notification.event.handlers-1.2.10.jar` | `<IS_HOME>/repository/components/dropins` |
-    | `wso2is-extensions-1.2.10/webapps/keymanager-operations.war` | `<IS_HOME>/repository/deployment/server/webapps` |
+4. Follow the given instructions and copy the relevant files to the given directory paths.
+
+    1. Open the `<IS_EXTENSION>/dropins` folder.
+    2. Copy the following JAR files to the `<IS_HOME>/repository/components/dropins` folder.
+        - `wso2is.key.manager.core`
+        - `wso2is.notification.event.handlers`
+    3. Open the `<IS_EXTENSION>/webapps` folder.
+    4. Copy the `keymanager-operations.war` file to the `<IS_HOME>/repository/deployment/server/webapps` folder.
       
-4. To copy the accelerator files to the Streaming Integrator, go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin` 
+5. To copy the accelerator files to the Streaming Integrator, go to the `<SI_HOME>/<OB_BI_ACCELERATOR_HOME>/bin` 
 directory and run the `merge.sh` script as follows:
 
     ``` shell 

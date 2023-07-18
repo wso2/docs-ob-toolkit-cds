@@ -49,11 +49,11 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
 
 4. Download the `scp-swagger.yaml` file available <a href="../../assets/attachments/scp-swagger.yaml" download> here</a>.
 
-4. Click **Browse File to Upload** and use the `scp-swagger.yaml` file.
+5. Click **Browse File to Upload** and use the `scp-swagger.yaml` file.
 
-5. Click **Next**. 
+6. Click **Next**. 
 
-6. Set the value for **Endpoint** as follows:
+7. Set the value for **Endpoint** as follows:
 
     ``` 
     https://<IS_HOST>:9446/api/openbanking/consent
@@ -61,33 +61,45 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
    
     - Replace the placeholder with the hostname of Identity Server. 
     
-7. Click **Create**. 
-    
-8. Go to **Develop > API Configurations > Runtime** using the left menu pane.   
+8. Click **Create**. 
 
-    ![select_runtime](../assets/img/get-started/quick-start-guide/select-runtime.png)
-    
-9. Click the edit button under **Request > Message Mediation**.
+9. Go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.<br><br>
+    <div style="width:40%">
+    ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+    </div>
 
-    ![message_mediation](../assets/img/try-out/consent-manager/message_mediation.png)
-   
-10. Now, select the **Custom Policy** option. 
+10. On the **Policy List** card, click on **Add New Policy**.
 
-11. Download the `scp-insequence.xml` file available <a href="../../assets/attachments/scp-insequence.xml" download> here </a> and use it as the Mediation Policy. 
+11. Fill in the **Create New Policy**.
 
-11. Upload the `scp-insequence.xml` file and click **SELECT**.
+12. Download the `scp-insequence.xml` file available <a href="../../assets/attachments/scp-insequence.xml" download> here </a> and use it as the Mediation Policy.
 
-12. Scroll down and click **SAVE**. 
+13. Upload the `scp-insequence.xml` file and click **SELECT**.
 
-13. Go to **Overview** using the left menu pane.
+14. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
+    <div style="width:35%">
+    ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+    </div>
+
+15. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+
+16. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+
+17. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+
+18. Select **Apply to all resources** and click **Save**.
+
+19. Scroll down and click **Save**. 
+
+20. Go to **Overview** using the left menu pane.
  
-14. Click **Deploy**. 
+21. Click **Deploy**. 
 
-15. Set the API Gateways configurations and deploy the API.
+22. Set the API Gateways configurations and deploy the API.
 
-16. Go back to **Overview**.
+23. Go back to **Overview**.
 
-17. Click **Publish**.
+24. Click **Publish**.
 
 ## Subscribing to Self-Care Portal API
 

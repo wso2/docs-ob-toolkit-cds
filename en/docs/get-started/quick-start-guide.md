@@ -7,15 +7,16 @@ This section guides you on how to set up the solution in a local environment. Fo
 can quickly set up and try out a basic flow.
 
 !!! tip "Prerequisites"
-    1. Download Oracle JDK 1.8 to the local environment.
-        - In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
+    1. Download Open Java Development Kit (OpenJDK) version 11 to the local environment.
+
+    2. In the environment variables, update the JAVA_HOME and PATH variables. For instance, you can do this on a 
         Mac/Linux server by adding the following to the `~/.bashrc` file:
         ```
         export JAVA_HOME="<JDK_LOCATION>"
         export PATH=$PATH:$JAVA_HOME/bin
         ```
     
-    2. Setup a database server using any of the following:
+    3. Setup a database server using any of the following:
          - MySQL 8.0
          - Oracle 19c
          - Microsoft SQL Server 2017
@@ -28,14 +29,11 @@ can quickly set up and try out a basic flow.
 
 1. Download and extract the following base products:
 
-    - [WSO2 Identity Server 5.11.0](https://wso2.com/identity-server/#)
-    - [WSO2 API Manager 4.1.0](https://wso2.com/api-manager/) or [WSO2 API Manager 4.0.0](https://wso2.com/api-management/previous-releases/)
-    - [WSO2 Streaming Integrator 4.0.0](https://wso2.com/streaming-integrator/previous-releases/)
+    - [WSO2 Identity Server 6.0.0](https://wso2.com/identity-and-access-management/previous-releases/)
+    - [WSO2 API Manager 4.2.0](https://wso2.com/api-manager/) 
+    - [WSO2 Streaming Integrator 4.2.0](https://wso2.com/streaming-integrator/)
  
-2. To configure the Identity Server with the API Manager, download the respective WSO2 IS Connector according to the version of the API Manager you have downloaded.
-
-    - [WSO2 IS Connector for API Manager 4.1.0](https://apim.docs.wso2.com/en/4.1.0/assets/attachments/administer/wso2is-extensions-1.4.2.zip)
-    - [WSO2 IS Connector for API Manager 4.0.0](https://apim.docs.wso2.com/en/4.0.0/assets/attachments/administer/wso2is-extensions-1.2.10.zip)
+2. To configure the Identity Server with the API Manager, download [WSO2 IS Connector for API Manager 4.2.0](https://apim.docs.wso2.com/en/4.2.0/assets/attachments/administer/wso2is-extensions-1.6.8.zip).
     
 ## Installing WSO2 Open Banking Accelerator
 
@@ -79,6 +77,7 @@ toolkits:
     |WSO2 Open Banking API Manager Accelerator |`<OB_APIM_ACCELERATOR_HOME>`|
     |WSO2 Open Banking Identity Server CDS Toolkit|`<OB_IS_TOOLKIT_HOME>`|
     |WSO2 Open Banking API Manager CDS Toolkit|`<OB_APIM_TOOLKIT_HOME>`|
+    |WSO2 IS Connector for API Manager |`<IS_EXTENSION>`|
 
 ## Getting WSO2 Updates
 

@@ -26,29 +26,43 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
-12. Click the **Edit** button under **Request > Message Mediation**. ![edit_message_mediation](../assets/img/get-started/quick-start-guide/edit-message-mediation.png)
+12. Go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.
+        <div style="width:40%"> 
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
-13. Now, select the **Custom Policy** option.
+13. On the **Policy List** card, click on **Add New Policy**.
 
-14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` insequence file. ![accounts_insequence](../assets/img/get-started/quick-start-guide/accounts-insequence.png)
- 
-15. Click **Select**. 
+14. Fill in the **Create New Policy**.
 
-16. Scroll down and click **SAVE**.
+15. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` insequence file.
 
-19. Go to **Deployments** using the left menu pane. 
+16. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
+    <div style="width:35%">
+    ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+    </div>
+
+17. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
+
+18. Expand the HTTP method from the API endpoint you selected. For example: ![expand_http_method](../assets/img/get-started/quick-start-guide/expand-http-method.png)
+
+19. Drag and drop the previously created policy to the **Request Flow** of the API endpoint. ![request_flow](../assets/img/get-started/quick-start-guide/request-flow.png)
+
+20. Select **Apply to all resources** and click **Save**. 
+
+21. Scroll down and click **SAVE**.
+
+22. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
     
-20. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
+23. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
-21. Click **Deploy**.
+24. Click **Deploy**.
 
-22. Go to **Overview** using the left menu pane. 
+25. Go to **Overview** using the left menu pane. ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
-    ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
-
-23. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
+26. Click **Publish**. ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
 ### Summarized information for configuring APIs
 
