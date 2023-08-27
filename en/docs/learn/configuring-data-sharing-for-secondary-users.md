@@ -17,7 +17,7 @@ The secondary users should be able to include secondary accounts in a data-shari
 
 The Secondary Account Update API is defined below.
 
-The bank needs to invoke this endpoint to update the open banking solution regarding status changes happening on secondary user accounts. This endpoint persists the received secondary user-related information in the `OB_ACCOUNT_METADATA` table. When persisting the `accountId` of the secondary account and `secondaryUserId` parameters are used as a combined key and metadata will be stored as key-value pairs.
+The bank needs to invoke this endpoint to update the open banking solution regarding status changes happening on secondary user accounts. This endpoint persists the received secondary user related information in the `OB_ACCOUNT_METADATA` table. When persisting the `accountID` of the secondary account and `secondaryUserID` parameters are used as a combined key and metadata will be stored as key-value pairs.
 
 ```
 PUT - api/openbanking/account-type-mgt/account-type-management/secondary-accounts
@@ -34,14 +34,14 @@ curl --location --request PUT 'https://<IS_HOME>:9446/api/openbanking/account-ty
 --data-raw '{
    "data": [
       {
-         "accountId":"30080098763500",
-         "secondaryUserId":"admin@wso2.com",
+         "accountID":"30080098763500",
+         "secondaryUserID":"admin@wso2.com",
          "otherAccountsAvailability":true,
          "secondaryAccountInstructionStatus":"active"
       },
       {
-         "accountId":"30080098763501",
-         "secondaryUserId":"admin@wso2.com",
+         "accountID":"30080098763501",
+         "secondaryUserID":"admin@wso2.com",
          "otherAccountsAvailability":true,
          "secondaryAccountInstructionStatus":"inactive"
       }
@@ -77,7 +77,7 @@ A sample response is given below:
       "consentId": "85d14688-abe5-4cc0-98c3-7f6af1d0a5e2",
       "consentMappingResources": [....],
       "secondaryAccountInfo": [{
-         "secondaryAccountUser": ”user1 @gold.com @carbon.super”,
+         "secondaryAccountUser": ”user1@gold.com @carbon.super”,
          "secondaryAccountOwner": "owner1@gold.com@carbon.super",
          "activeAccounts": [300800987],
          "inactiveAccounts": [7005567]
