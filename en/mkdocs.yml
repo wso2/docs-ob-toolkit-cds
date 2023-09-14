@@ -99,6 +99,19 @@ nav:
        - 'Tryout': learn/data-publishing-tryout.md
     #- 'CDR Data Reporting': learn/cdr-data-reporting.md
     - 'Non Functional Requirements': learn/non-functional-requirements.md
+    - 'Account Management':
+        - 'Data Sharing for Business Nominated Representatives':
+            - 'Introduction': learn/configuring-data-sharing-for-business-nominated-representatives.md
+            - 'Configuration': learn/configuring-data-sharing-for-business-nominated-representatives-configuration.md
+        - 'Disclosure Option Management':
+            - 'Introduction': learn/disclosure-option-management.md
+            - 'Configuration': learn/disclosure-option-management-configuration.md
+        - 'Data Sharing for Secondary Users':
+            - 'Introduction': learn/configuring-data-sharing-for-secondary-users.md
+            - 'Configuration': learn/configuring-data-sharing-for-secondary-users-configuration.md
+        - 'Ceasing Data Sharing for Secondary Users':
+            - 'Introduction': learn/ceasing-data-sharing-for-secondary-users.md
+            - 'Configuration': learn/ceasing-data-sharing-for-secondary-users-configuration.md
   - 'Try out':
     - 'Dynamic Client Registration': try-out/dynamic-client-registration-flow.md
     - 'Account and Transaction flow': try-out/account-and-transaction-flow.md
