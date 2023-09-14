@@ -1,4 +1,4 @@
-This page explains how to onboard an Accredited Data Recipient application using the Dynamic Client Registration API.
+This page explains how to onboard an Accredited Data Recipient application using the Dynamic Client Registration API. 
 
 !!! tip "Before you begin..."
 
@@ -25,8 +25,8 @@ This page explains how to onboard an Accredited Data Recipient application using
 
 ### Step 1: Deploy the Dynamic Client Registration(DCR) API
 
-1. Sign in to the API Publisher Portal at [https://localhost:9443/publisher](https://localhost:9443/publisher) with `creator/publisher`
-   privileges. You can use the credentials for `mark@gold.com`. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
+1. Sign in to the API Publisher Portal at [https://localhost:9443/publisher](https://localhost:9443/publisher) with `creator/publisher` 
+privileges. You can use the credentials for `mark@gold.com`. ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
 2. In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
@@ -37,9 +37,9 @@ This page explains how to onboard an Accredited Data Recipient application using
 5. Click **Next**.
 
 6. Set the **Endpoint** as follows:
-   ```
-   https://localhost:9446/api/openbanking/dynamic-client-registration
-   ```
+    ``` 
+    https://localhost:9446/api/openbanking/dynamic-client-registration
+    ```
 7. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
 8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
@@ -49,9 +49,9 @@ This page explains how to onboard an Accredited Data Recipient application using
 10. Click **Save**.
 
 11. Once you get the message that the API is successfully updated, go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.<br><br>
-    <div style="width:40%">
-    ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
-    </div>
+        <div style="width:40%"> 
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
 12. On the **Policy List** card, click on **Add New Policy**.
 
@@ -60,9 +60,9 @@ This page explains how to onboard an Accredited Data Recipient application using
 14. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` file.
 
 15. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
-    <div style="width:35%">
-    ![successful](../assets/img/get-started/quick-start-guide/successful.png)
-    </div>
+        <div style="width:35%">
+        ![successful](../assets/img/get-started/quick-start-guide/successful.png)
+        </div>
 
 16. Expand the API endpoint you want from the list of API endpoints. For example: ![expand_api_endpoint](../assets/img/get-started/quick-start-guide/expand-api-endpoint.png)
 
@@ -72,9 +72,9 @@ This page explains how to onboard an Accredited Data Recipient application using
 
 19. Select **Apply to all resources** and click **Save**.
 
-20. Scroll down and click **Save**.
+20. Scroll down and click **Save**. 
 
-21. Go to **Deployments** using the left menu pane.
+21. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
@@ -82,7 +82,7 @@ This page explains how to onboard an Accredited Data Recipient application using
 
 23. Click **Deploy**.
 
-24. Go to **Overview** using the left menu pane.
+24. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
@@ -90,84 +90,84 @@ This page explains how to onboard an Accredited Data Recipient application using
 
 26. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
-27. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox)
-    to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and
+27. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
+    to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
     `<IS_HOME>/repository/resources/security/client-truststore.jks` using the following command:
-
+    
     ```
     keytool -import -alias <alias> -file <certificate_location> -storetype JKS -keystore <truststore_location> -storepass wso2carbon
     ```
-
+                
 28. Restart the Identity Server and API Manager instances.
 
 ## Step 2: Configure IS as Key Manager
 
-1.  Sign in to the Admin Portal of API Manager at `https://<APIM_HOST>:9443/admin`.
-2.  Go to **Key Manager** on the left main menu. ![add_Key_Manager](../assets/img/get-started/quick-start-guide/add_Key_Manager.png)
-3.  Click **Add New Key Manager** and configure Key Manager.
-
+ 1. Sign in to the Admin Portal of API Manager at `https://<APIM_HOST>:9443/admin`.
+ 2. Go to **Key Manager** on the left main menu. ![add_Key_Manager](../assets/img/get-started/quick-start-guide/add_Key_Manager.png)
+ 3. Click **Add New Key Manager** and configure Key Manager. 
+    
     ??? tip "Click here to see the full list of configurations..."
-    | Configuration | Description | Value |
-    | ------------- |------------- | ----- |
-    | Name | The name of the authorization server. | OBKM |
-    | Display Name | A name to display on the UI. | OBKM |
-    | Description | The name of the authorization server. | (Optional) |
-    | Key Manager Type | The type of the Key Manager to be selected. | Select `ObKeyManager` |
-    |Well-known-url | The well-known URL of the authorization server (Key Manager).| `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | The issuer that consumes or validates access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
-    |**Key Manager Endpoints** |
-    | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server. | `https://<IS_HOST>:9446/keymanager-operations/dcr/register`|
-    | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
-    | Token Endpoint | The endpoint that issues the access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
-    | Revoke Endpoint | The endpoint that revokes the access tokens.| `https://<IS_HOST>:9446/oauth2/revoke` |
-    | Userinfo Endpoint | The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. | `https://<IS_HOST>:9446/oauth2/userinfo?schema=openid` |
-    | Authorize Endpoint | The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection. | `https://<IS_HOST>:9446/oauth2/authorize` |
-    | Scope Management Endpoint | The endpoint used to manage the scopes. | `https://<IS_HOST>:9446/api/identity/oauth2/v1.0/scopes` |
-    | **Connector Configurations** |
-    | Username | The username of an admin user who is authorized to connect to the authorization server. | |
-    | Password | The password corresponding to the latter mentioned admin user who is authorized to connect to the authorization server. | |
-    | **Claim URIs** |  
-     | Consumer Key Claim URI | The claim URI for the consumer key. | (Optional) |
-    | Scopes Claim URI | The claim URI for the scopes | (Optional) |
-    | Grant Types | The supported grant types. According to your open banking specification, add multiple grant types by adding a grant type press Enter. For example, `refresh_token`, `client_credentials`, `authorization_code`.| (Optional) |
-    | **Certificates** |
-    | PEM | Either copy and paste the certificate in PEM format or upload the PEM file. | (Optional) |
-    | JWKS | The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format. This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. | `https://<IS_HOST>:9446/oauth2/jwks` |
-    | **Advanced Configurations** |
-    | Token Generation | This enables token generation via the authorization server. | (Mandatory) |
-    | Out Of Band Provisioning | This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients. | (Mandatory) |
-    | Oauth App Creation | This enables the creation of Auth clients. | (Mandatory) |
-    | **Token Validation Method** | The method used to validate the JWT signature. |
-    | Self Validate JWT | The kid value is used to validate the JWT token signature. If the kid value is not present, `gateway_certificate_alias` will be used. | (Mandatory) |
-    | Use introspect | The JWKS endpoint is used to validate the JWT token signature. | - |
-    | Token Handling Options | This provides a way to validate the token for this particular authorization server. This is mandatory if the Token Validation Method is introspect.| (Optional) |
-    | REFERENCE | The tokens that match a specific regular expression (regEx) are validated. e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code> | (Optional) |
-    | JWT | The tokens that match a specific JWT are validated. | Select this icon |
-    | CUSTOM | The tokens that match a custom pattern are validated. | (Optional) |
-    | **Claim Mappings** | Local and remote claim mapping. | (Optional) |
+        | Configuration       | Description                           | Value                    |
+        | -------------       |-------------                          | -----                    |
+        | Name                | The name of the authorization server. | OBKM                     |
+        | Display Name        | A name to display on the UI.          | OBKM                     |
+        | Description         | The name of the authorization server. | (Optional)               |
+        | Key Manager Type    | The type of the Key Manager to be selected. | Select `ObKeyManager` |
+        |Well-known-url      | The well-known URL of the authorization server (Key Manager).|   `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
+        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<IS_HOST>:9446/oauth2/token` |
+        |**Key Manager Endpoints**                                                                |
+        | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.  |  `https://<IS_HOST>:9446/keymanager-operations/dcr/register`| 
+        | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
+        | Token Endpoint      | The endpoint that issues the access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
+        | Revoke Endpoint     | The endpoint that revokes the access tokens.| `https://<IS_HOST>:9446/oauth2/revoke` |
+        | Userinfo Endpoint   | The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. | `https://<IS_HOST>:9446/oauth2/userinfo?schema=openid` |
+        | Authorize Endpoint  | The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection. | `https://<IS_HOST>:9446/oauth2/authorize` |
+        | Scope Management Endpoint | The endpoint used to manage the scopes. | `https://<IS_HOST>:9446/api/identity/oauth2/v1.0/scopes` |
+        | **Connector Configurations**                        |
+        | Username            | The username of an admin user who is authorized to connect to the authorization server. |  |
+        | Password            | The password corresponding to the latter mentioned admin user who is authorized to connect to the authorization server. | |
+        | **Claim URIs**      |   
+        | Consumer Key Claim URI | The claim URI for the consumer key.  | (Optional)  |
+        | Scopes Claim URI | The claim URI for the scopes | (Optional) | 
+        | Grant Types | The supported grant types. According to your open banking specification, add multiple grant types by adding a grant type press Enter. For example, `refresh_token`, `client_credentials`, `authorization_code`.| (Optional) |
+        | **Certificates** | 
+        | PEM | Either copy and paste the certificate in PEM format or upload the PEM file. | (Optional) |
+        | JWKS | The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format. This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. | `https://<IS_HOST>:9446/oauth2/jwks` |
+        | **Advanced Configurations** |
+        | Token Generation | This enables token generation via the authorization server. | (Mandatory) |
+        | Out Of Band Provisioning | This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients. | (Mandatory) |
+        | Oauth App Creation | This enables the creation of Auth clients. | (Mandatory) |
+        | **Token Validation Method** | The method used to validate the JWT signature. |
+        | Self Validate JWT | The kid value is used to validate the JWT token signature. If the kid value is not present, `gateway_certificate_alias` will be used. | (Mandatory) |
+        | Use introspect | The JWKS endpoint is used to validate the JWT token signature. | - |
+        | Token Handling Options | This provides a way to validate the token for this particular authorization server. This is mandatory if the Token Validation Method is introspect.| (Optional) |
+        | REFERENCE | The tokens that match a specific regular expression (regEx) are validated. e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code> | (Optional) |
+        | JWT | The tokens that match a specific JWT are validated. | Select this icon |
+        | CUSTOM | The tokens that match a custom pattern are validated. | (Optional) |
+        | **Claim Mappings** | Local and remote claim mapping. | (Optional) |
+    
 
-4.  Go to the list of Key Managers and select **Resident Key Manager**. ![select_resident_KM](../assets/img/get-started/quick-start-guide/select_resident_KM.png)
+3. Go to the list of Key Managers and select **Resident Key Manager**. ![select_resident_KM](../assets/img/get-started/quick-start-guide/select_resident_KM.png)
 
-5.  Locate **Connector Configurations** and provide a username and a password for a user with super admin credentials.
+4. Locate **Connector Configurations** and provide a username and a password for a user with super admin credentials.
 
-6.  Click **Update**.
+5. Click **Update**.
 
-7.  Disable the Resident Key Manager. ![disable_resident_KM](../assets/img/get-started/quick-start-guide/disable_resident_KM.png)
+6. Disable the Resident Key Manager. ![disable_resident_KM](../assets/img/get-started/quick-start-guide/disable_resident_KM.png)
 
 ## Step 3: Register an application
 
-Accredited Data Recipients use the DCR API to request the Data Holder to register a new client.
+Accredited Data Recipients use the DCR API to request the Data Holder to register a new client. 
 
-The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload.
+The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload. 
 This SSA contains client metadata. It is a signed JWT issued by the Open Banking directory and the Accredited Data Recipients need to obtain it before registering with a Data Holder.
 
 This section explains the client registration process. A sample request is as follows:
 
 - For the Transport Layer Security purposes in this sample flow, you can use the attached
   [private key](../../assets/attachments/transport-certs/obtransport.key) and
-  [public certificate](../../assets/attachments/transport-certs/obtransport.pem).
-
-```
+  [public certificate](../../assets/attachments/transport-certs/obtransport.pem). 
+```  
 curl -X POST https://localhost:8243/open-banking/0.2/register \
  -H 'Content-Type: application/jwt' \
  --cert <TRANSPORT_PUBLIC_CERT_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
@@ -175,8 +175,7 @@ curl -X POST https://localhost:8243/open-banking/0.2/register \
 ```
 
 - The payload is a signed JWT in the following format:
-
-```json
+``` json
 {
   "typ": "JWT",
   "kid": "2MI9XSKi6ddxCbWg2rhDNtUlxJc",
@@ -211,18 +210,17 @@ curl -X POST https://localhost:8243/open-banking/0.2/register \
 <signature>
 ```
 
-!!! note
-If you change the payload, use the following certificates to sign the JWT and SSA:
+!!! note 
+    If you change the payload, use the following certificates to sign the JWT and SSA:
 
     - [signing certificate](../../assets/attachments/signing-certs/obsigning.pem)
     - [private keys](../../assets/attachments/signing-certs/obsigning.key)
 
 - The bank registers the application using the metadata sent in the SSA.
 
-- If an application is successfully created, the bank responds with a JSON payload describing the application that was created.
-  The Accredited Data Recipient can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is
-  given below:
-
+- If an application is successfully created, the bank responds with a JSON payload describing the application that was created. 
+The Accredited Data Recipient can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is 
+given below:
 ```
 {
    "client_name": "Mock Software",

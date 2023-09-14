@@ -1,41 +1,41 @@
-This page explains how to onboard Accredited Data Recipient applications using the Dynamic Client Registration API.
+This page explains how to onboard Accredited Data Recipient applications using the Dynamic Client Registration API. 
 
 ### Step 1: Deploy the Dynamic Client Registration (DCR) API
 
-1.  Sign in to the API Publisher Portal at `https://<APIM_HOME>:9443/publisher` with `creator/publisher`
-    privileges.
+1. Sign in to the API Publisher Portal at `https://<APIM_HOME>:9443/publisher` with `creator/publisher` 
+privileges.
+    
+    ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
 
-        ![sign_in](../assets/img/get-started/quick-start-guide/sign-in.png)
+2. In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
 
-2.  In the homepage, go to **REST API** and select **Import Open API**. ![let's_get_started](../assets/img/get-started/quick-start-guide/lets-get-started.png)
+3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-3.  Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
-
-4.  Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/
 openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
-5.  Click **Next**.
+5. Click **Next**.
 
-6.  Set the Endpoint as follows:
+6. Set the Endpoint as follows:
 
     ```
     https://<IS_HOST>:9446/api/openbanking/dynamic-client-registration
     ```
 
-7.  Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
+7. Click **Create** to create the API. ![create-dcr-api](../assets/img/get-started/quick-start-guide/create-dcr.png)
 
-8.  After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
+8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
 
-9.  Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
+9. Select **Subscriptions** from the left menu pane and set the business plan to **Unlimited: Allows unlimited requests**. ![business-plan](../assets/img/get-started/quick-start-guide/business-plan.png)
 
 10. Click **Save**.
 
 11. Go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.<br><br>
-    <div style="width:40%">
-    ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
-    </div>
+        <div style="width:40%"> 
+        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+        </div>
 
-12. On the **Policy List** card, click on **Add New Policy**.
+12. On the **Policy List** card, click on **Add New Policy**. 
 
 13. Fill in the **Create New Policy**.
 
@@ -54,13 +54,13 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 19. Select **Apply to all resources** and click **Save**.
 
-20. Scroll down and click **SAVE**.
+20. Scroll down and click **SAVE**. 
 
-21. Use the left menu panel and go to **API Configurations > Endpoints**.
+21. Use the left menu panel and go to **API Configurations > Endpoints**. 
 
     ![select_endpoints](../assets/img/get-started/quick-start-guide/select-endpoints.png)
 
-22. Go to **Deployments** using the left menu pane.
+22. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
 
@@ -68,7 +68,7 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 24. Click **Deploy**.
 
-25. Go to **Overview** using the left menu pane.
+25. Go to **Overview** using the left menu pane. 
 
     ![select_overview](../assets/img/get-started/quick-start-guide/select-overview.png)
 
@@ -76,75 +76,76 @@ openbanking.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` file.
 
 27. The deployed API is now available in the Developer Portal at `https://<APIM_HOME>:9443/devportal`.
 
-28. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox)
-    to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and
+28. Upload the root and issuer certificates found [here](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox) 
+    to the client trust stores in `<APIM_HOME>/repository/resources/security/client-truststore.jks` and 
     `<IS_HOME>/repository/resources/security/client-truststore.jks` using the following command:
-
+    
     ```
     keytool -import -alias <alias> -file <certificate_location> -storetype JKS -keystore <truststore_location> -storepass wso2carbon
     ```
-
+                
 29. Restart the Identity Server and API Manager instances.
 
 ## Step 2: Configure IS as Key Manager
 
-1.  Sign in to the Admin Portal of API Manager at `https://<APIM_HOST>:9443/admin`.
-2.  Go to **Key Manager** on the left main menu. ![add_Key_Manager](../assets/img/get-started/quick-start-guide/add_Key_Manager.png)
-3.  Click **Add New Key Manager** and configure Key Manager.
-
+ 1. Sign in to the Admin Portal of API Manager at `https://<APIM_HOST>:9443/admin`.
+ 2. Go to **Key Manager** on the left main menu. ![add_Key_Manager](../assets/img/get-started/quick-start-guide/add_Key_Manager.png)
+ 3. Click **Add New Key Manager** and configure Key Manager. 
+    
     ??? tip "Click here to see the full list of configurations..."
-    | Configuration | Description | Value |
-    | ------------- |------------- | ----- |
-    | Name | The name of the authorization server. | OBKM |
-    | Display Name | A name to display on the UI. | OBKM |
-    | Description | The name of the authorization server. | (Optional) |
-    | Key Manager Type | The type of the Key Manager to be selected. | Select `ObKeyManager` |
-    |Well-known-url | The well-known URL of the authorization server (Key Manager).| `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
-    | Issuer | The issuer that consumes or validates access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
-    |**Key Manager Endpoints** |
-    | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server. | `https://<IS_HOST>:9446/keymanager-operations/dcr/register`|
-    | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
-    | Token Endpoint | The endpoint that issues the access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
-    | Revoke Endpoint | The endpoint that revokes the access tokens.| `https://<IS_HOST>:9446/oauth2/revoke` |
-    | Userinfo Endpoint | The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. | `https://<IS_HOST>:9446/oauth2/userinfo?schema=openid` |
-    | Authorize Endpoint | The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection. | `https://<IS_HOST>:9446/oauth2/authorize` |
-    | Scope Management Endpoint | The endpoint used to manage the scopes. | `https://<IS_HOST>:9446/api/identity/oauth2/v1.0/scopes` |
-    | **Connector Configurations** |
-    | Username | The username of an admin user who is authorized to connect to the authorization server. | |
-    | Password | The password corresponding to the latter mentioned admin user who is authorized to connect to the authorization server. | |
-    | **Claim URIs** |  
-     | Consumer Key Claim URI | The claim URI for the consumer key. | (Optional) |
-    | Scopes Claim URI | The claim URI for the scopes | (Optional) |
-    | Grant Types | The supported grant types. According to your open banking specification, add multiple grant types by adding a grant type press Enter. For example, `refresh_token`, `client_credentials`, `authorization_code`.| (Optional) |
-    | **Certificates** |
-    | PEM | Either copy and paste the certificate in PEM format or upload the PEM file. | (Optional) |
-    | JWKS | The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format. This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. | `https://<IS_HOST>:9446/oauth2/jwks` |
-    | **Advanced Configurations** |
-    | Token Generation | This enables token generation via the authorization server. | (Mandatory) |
-    | Out Of Band Provisioning | This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients. | (Mandatory) |
-    | Oauth App Creation | This enables the creation of Auth clients. | (Mandatory) |
-    | **Token Validation Method** | The method used to validate the JWT signature. |
-    | Self Validate JWT | The kid value is used to validate the JWT token signature. If the kid value is not present, `gateway_certificate_alias` will be used. | (Mandatory) |
-    | Use introspect | The JWKS endpoint is used to validate the JWT token signature. | - |
-    | Token Handling Options | This provides a way to validate the token for this particular authorization server. This is mandatory if the Token Validation Method is introspect.| (Optional) |
-    | REFERENCE | The tokens that match a specific regular expression (regEx) are validated. e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code> | (Optional) |
-    | JWT | The tokens that match a specific JWT are validated. | Select this icon |
-    | CUSTOM | The tokens that match a custom pattern are validated. | (Optional) |
-    | **Claim Mappings** | Local and remote claim mapping. | (Optional) |
+        | Configuration       | Description                           | Value                    |
+        | -------------       |-------------                          | -----                    |
+        | Name                | The name of the authorization server. | OBKM                     |
+        | Display Name        | A name to display on the UI.          | OBKM                     |
+        | Description         | The name of the authorization server. | (Optional)               |
+        | Key Manager Type    | The type of the Key Manager to be selected. | Select `ObKeyManager` |
+        |Well-known-url      | The well-known URL of the authorization server (Key Manager).|   `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
+        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<IS_HOST>:9446/oauth2/token` |
+        |**Key Manager Endpoints**                                                                |
+        | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.  |  `https://<IS_HOST>:9446/keymanager-operations/dcr/register`| 
+        | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
+        | Token Endpoint      | The endpoint that issues the access tokens. | `https://<IS_HOST>:9446/oauth2/token` |
+        | Revoke Endpoint     | The endpoint that revokes the access tokens.| `https://<IS_HOST>:9446/oauth2/revoke` |
+        | Userinfo Endpoint   | The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user. | `https://<IS_HOST>:9446/oauth2/userinfo?schema=openid` |
+        | Authorize Endpoint  | The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection. | `https://<IS_HOST>:9446/oauth2/authorize` |
+        | Scope Management Endpoint | The endpoint used to manage the scopes. | `https://<IS_HOST>:9446/api/identity/oauth2/v1.0/scopes` |
+        | **Connector Configurations**                        |
+        | Username            | The username of an admin user who is authorized to connect to the authorization server. |  |
+        | Password            | The password corresponding to the latter mentioned admin user who is authorized to connect to the authorization server. | |
+        | **Claim URIs**      |   
+        | Consumer Key Claim URI | The claim URI for the consumer key.  | (Optional)  |
+        | Scopes Claim URI | The claim URI for the scopes | (Optional) | 
+        | Grant Types | The supported grant types. According to your open banking specification, add multiple grant types by adding a grant type press Enter. For example, `refresh_token`, `client_credentials`, `authorization_code`.| (Optional) |
+        | **Certificates** | 
+        | PEM | Either copy and paste the certificate in PEM format or upload the PEM file. | (Optional) |
+        | JWKS | The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format. This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. | `https://<IS_HOST>:9446/oauth2/jwks` |
+        | **Advanced Configurations** |
+        | Token Generation | This enables token generation via the authorization server. | (Mandatory) |
+        | Out Of Band Provisioning | This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients. | (Mandatory) |
+        | Oauth App Creation | This enables the creation of Auth clients. | (Mandatory) |
+        | **Token Validation Method** | The method used to validate the JWT signature. |
+        | Self Validate JWT | The kid value is used to validate the JWT token signature. If the kid value is not present, `gateway_certificate_alias` will be used. | (Mandatory) |
+        | Use introspect | The JWKS endpoint is used to validate the JWT token signature. | - |
+        | Token Handling Options | This provides a way to validate the token for this particular authorization server. This is mandatory if the Token Validation Method is introspect.| (Optional) |
+        | REFERENCE | The tokens that match a specific regular expression (regEx) are validated. e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code> | (Optional) |
+        | JWT | The tokens that match a specific JWT are validated. | Select this icon |
+        | CUSTOM | The tokens that match a custom pattern are validated. | (Optional) |
+        | **Claim Mappings** | Local and remote claim mapping. | (Optional) |
+    
 
-4.  Go to the list of Key Managers and select **Resident Key Manager**. ![select_resident_KM](../assets/img/get-started/quick-start-guide/select_resident_KM.png)
+3. Go to the list of Key Managers and select **Resident Key Manager**. ![select_resident_KM](../assets/img/get-started/quick-start-guide/select_resident_KM.png)
 
-5.  Locate **Connector Configurations** and provide a username and a password for a user with super admin credentials.
+4. Locate **Connector Configurations** and provide a username and a password for a user with super admin credentials.
 
-6.  Click **Update**.
+5. Click **Update**.
 
-7.  Disable the Resident Key Manager. ![disable_resident_KM](../assets/img/get-started/quick-start-guide/disable_resident_KM.png)
+6. Disable the Resident Key Manager. ![disable_resident_KM](../assets/img/get-started/quick-start-guide/disable_resident_KM.png)
 
 ## Step 3: Register an application
 
-Accredited Data Recipients use the DCR API to request the Data Holder to register a new client.
+Accredited Data Recipients use the DCR API to request the Data Holder to register a new client. 
 
-The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload.
+The registration request is a POST request that includes a Software Statement Assertion (SSA) as a claim in the payload. 
 This SSA contains client metadata. It is a signed JWT issued by the Open Banking directory and the Accredited Data Recipients need to obtain it before registering with a Data Holder.
 
 This section explains the client registration process. A sample request is as follows:
@@ -152,18 +153,16 @@ This section explains the client registration process. A sample request is as fo
 - For the Transport Layer Security purposes in this sample flow, you can use the attached
   [private key](../../assets/attachments/transport-certs/obtransport.key) and
   [public certificate](../../assets/attachments/transport-certs/obtransport.pem).
-
-```
+```  
 curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
  -H 'Content-Type: application/jwt' \
  --cert <TRANSPORT_PUBLIC_CERT_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH> \
  -d 'eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJpc3MiOiJzZ3NNdWM4QUNCZ0J6aW5wcjhvSjFYIiwiaWF0IjoxNjIwMTg1OTc0LCJleHAiOjE2NTAxODk1NzQsImp0aSI6IjM3NzQ3Y2QxLWMxMDUtNDU2OS05Zjc1LTRhZGYyOGI3M2UzNCIsImF1ZCI6Imh0dHBzOi8vbG9jYWxob3N0Ojk0NDYvb2F1dGgyL3Rva2VuIiwicmVkaXJlY3RfdXJpcyI6WyJodHRwczovL3dzbzIuY29tIl0sInRva2VuX2VuZHBvaW50X2F1dGhfc2lnbmluZ19hbGciOiJQUzI1NiIsInRva2VuX2VuZHBvaW50X2F1dGhfbWV0aG9kIjoicHJpdmF0ZV9rZXlfand0IiwiZ3JhbnRfdHlwZXMiOlsiYXV0aG9yaXphdGlvbl9jb2RlIiwicmVmcmVzaF90b2tlbiIsImNsaWVudF9jcmVkZW50aWFscyJdLCJyZXNwb25zZV90eXBlcyI6WyJjb2RlIGlkX3Rva2VuIl0sImFwcGxpY2F0aW9uX3R5cGUiOiJ3ZWIiLCJpZF90b2tlbl9zaWduZWRfcmVzcG9uc2VfYWxnIjoiUFMyNTYiLCJpZF90b2tlbl9lbmNyeXB0ZWRfcmVzcG9uc2VfYWxnIjoiUlNBLU9BRVAiLCJpZF90b2tlbl9lbmNyeXB0ZWRfcmVzcG9uc2VfZW5jIjoiQTEyOENCQy1IUzI1NiIsInJlcXVlc3Rfb2JqZWN0X3NpZ25pbmdfYWxnIjoiUFMyNTYiLCJzb2Z0d2FyZV9zdGF0ZW1lbnQiOiJleUpoYkdjaU9pSlFVekkxTmlJc0ltdHBaQ0k2SWpKTlNUbFlVMHRwTm1Sa2VFTmlWMmN5Y21oRVRuUlZiSGhLWXlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKcGMzTWlPaUpqWkhJdGNtVm5hWE4wWlhJaUxDSnBZWFFpT2pFMU56RTRNRGd4Tmpjc0ltVjRjQ0k2TWpFME56UTRNelkwTml3aWFuUnBJam9pTTJKak1qQTFZVEZsWW1NNU5ETm1ZbUkyTWpSaU1UUm1ZMkl5TkRFeU1EQWlMQ0p2Y21kZmFXUWlPaUl6UWpCQ01FRTNRaTB6UlRkQ0xUUkJNa010T1RRNU55MUZNelUzUVRjeFJEQTNRemdpTENKdmNtZGZibUZ0WlNJNklrMXZZMnNnUTI5dGNHRnVlU0JKYm1NdUlpd2lZMnhwWlc1MFgyNWhiV1VpT2lKTmIyTnJJRk52Wm5SM1lYSmxJREVpTENKamJHbGxiblJmWkdWelkzSnBjSFJwYjI0aU9pSkJJRzF2WTJzZ2MyOW1kSGRoY21VZ2NISnZaSFZqZENCbWIzSWdkR1Z6ZEdsdVp5QlRVMEVpTENKamJHbGxiblJmZFhKcElqb2lhSFIwY0hNNkx5OTNkM2N1Ylc5amEyTnZiWEJoYm5rdVkyOXRMbUYxSWl3aWNtVmthWEpsWTNSZmRYSnBjeUk2V3lKb2RIUndjem92TDNkemJ6SXVZMjl0SWwwc0lteHZaMjlmZFhKcElqb2lhSFIwY0hNNkx5OTNkM2N1Ylc5amEyTnZiWEJoYm5rdVkyOXRMbUYxTDJ4dloyOXpMMnh2WjI4eExuQnVaeUlzSW5SdmMxOTFjbWtpT2lKb2RIUndjem92TDNkM2R5NXRiMk5yWTI5dGNHRnVlUzVqYjIwdVlYVXZkRzl6TG1oMGJXd2lMQ0p3YjJ4cFkzbGZkWEpwSWpvaWFIUjBjSE02THk5M2QzY3ViVzlqYTJOdmJYQmhibmt1WTI5dExtRjFMM0J2YkdsamVTNW9kRzFzSWl3aWFuZHJjMTkxY21raU9pSm9kSFJ3Y3pvdkwydGxlWE4wYjNKbExtOXdaVzVpWVc1cmFXNW5kR1Z6ZEM1dmNtY3VkV3N2TURBeE5UZ3dNREF3TVVoUlVYSmFRVUZZTDNObmMwMTFZemhCUTBKblFucHBibkJ5T0c5S09FSXVhbmRyY3lJc0luSmxkbTlqWVhScGIyNWZkWEpwSWpvaWFIUjBjSE02THk5bmFYTjBMbWRwZEdoMVluVnpaWEpqYjI1MFpXNTBMbU52YlM5cGJXVnphRGswTHpNeE56SmxNbVUwTlRjMU4yTmtZVEE0WldNeU56STNaamt3WWpjeVkyVmtMM0poZHk5bVpqQmtNMlZoWW1VMFkyUmtZMlUwTjJWbFl6QXlNamhtTlRreU1UYzFNakl6WkdRNU1tSXlMM2R6YnpJdFlYVXRaR055TFdSbGJXOHVhbmRyY3lJc0luSmxZMmx3YVdWdWRGOWlZWE5sWDNWeWFTSTZJbWgwZEhCek9pOHZkM2QzTG0xdlkydGpiMjF3WVc1NUxtTnZiUzVoZFNJc0luTnZablIzWVhKbFgybGtJam9pYzJkelRYVmpPRUZEUW1kQ2VtbHVjSEk0YjBveFdDSXNJbk52Wm5SM1lYSmxYM0p2YkdWeklqb2laR0YwWVMxeVpXTnBjR2xsYm5RdGMyOW1kSGRoY21VdGNISnZaSFZqZENJc0luTmpiM0JsSWpvaWIzQmxibWxrSUhCeWIyWnBiR1VnWW1GdWF6cGhZMk52ZFc1MGN5NWlZWE5wWXpweVpXRmtJR0poYm1zNllXTmpiM1Z1ZEhNdVpHVjBZV2xzT25KbFlXUWdZbUZ1YXpwMGNtRnVjMkZqZEdsdmJuTTZjbVZoWkNCaVlXNXJPbkJoZVdWbGN6cHlaV0ZrSUdKaGJtczZjbVZuZFd4aGNsOXdZWGx0Wlc1MGN6cHlaV0ZrSUdOdmJXMXZianBqZFhOMGIyMWxjaTVpWVhOcFl6cHlaV0ZrSUdOdmJXMXZianBqZFhOMGIyMWxjaTVrWlhSaGFXdzZjbVZoWkNCalpISTZjbVZuYVhOMGNtRjBhVzl1SWl3aWMyVmpkRzl5WDJsa1pXNTBhV1pwWlhKZmRYSnBJam9pYUhSMGNITTZMeTkzZDNjdWJXOWphMk52YlhCaGJua3VZMjl0TG1GMUwzTmxZM1J2Y2lKOS5ZMnRIWDFET3U0cmlja0FCYUVvRHFsdXZ6OEszTUV4UGJqbm5SbjVtenAxMEFkQnB0VWZJaU1zOTVPU1BqOV9xdm9ISlF3OHhOcHdhZlZSQS1XYlV1b3lpQ0NWdENPTFFvNHBHdmlteVNnVjV6eWkwVF8xeHplV3I1VmhCVXJ3ZkEtY0pHYUlFTXhQR2Joc2VmS09iQXVleHhUdnc1aVZNX0dqaFNXa0NUeEF3N3RSOEYwaFZ0dHBqVFlzMHJRSjg0WG96SzdzUFdTUS1EbURVRG9ZSlV6eXFvTkVVekZHeFFVQVlHdHZNdDFKY0dRSUZDOTA4TkxLc3hEaV9SQTNrQXl3eHl1Z0dYNm1CUDYxQnpHbE1pc3BWVV94M1JZUW5CTmVNUldxaDBEckpFRHpDVk5UTlp4TS1URE5oRlY2WlJMdTRoaTBacVp3a21kLW1JU0RxZ2cifQ.eBjvZWPBxbVweDvivOyKAMVSr6BjPpJYHyVE9FWPFHjfHstPC4EtRYp6AGs2cXdKwqWx3wvqxzYjrGtPcd-utrT9fsF2LTHXMNiOVKXksrTGHp7HVO5iKf-lUrGPMtSlYlyxNNk8qeikHUGEAsCYU2M7kEOzzYdkgFkzyKPQ5brviD3-2prOgO_TNtEZ1pePKhjLQJ5-8h-iIv1_BhvMJBkakilAzh65Sjuy0JzkxVeH2pN7jhNekZvOMAvuFq-X9EPL8LOniBRr6seLUTlGUAF5RzRWPhlXPnHXAqQKX6gN1s0uCP4X0HntqRUbrB6-BgoDl_ZHpIfDNDoujftf-A'
-
+ 
 ```
 
 - The payload is a signed JWT in the following format:
-
-```json
+``` json
 {
   "typ": "JWT",
   "kid": "2MI9XSKi6ddxCbWg2rhDNtUlxJc",
@@ -198,18 +197,17 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
 <signature>
 ```
 
-!!! note
-If you change the payload, use the following certificates to sign the JWT and SSA:
+!!! note 
+    If you change the payload, use the following certificates to sign the JWT and SSA:
 
     - [signing certificate](../../assets/attachments/signing-certs/obsigning.pem)
     - [private keys](../../assets/attachments/signing-certs/obsigning.key)
 
 - The bank registers the application using the metadata sent in the SSA.
 
-- If an application is successfully created, the bank responds with a JSON payload describing the application that was created.
-  The Data Recipient application can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is
-  given below:
-
+- If an application is successfully created, the bank responds with a JSON payload describing the application that was created. 
+The Data Recipient application can then use the identifier (`Client ID`) to access customers' financial data on the bank's resource server. A sample response is 
+given below:
 ```
 {
    "client_name": "Mock Software",
@@ -253,26 +251,26 @@ If you change the payload, use the following certificates to sign the JWT and SS
 
 ### Retrieve an application
 
-Accredited Data Recipients use the DCR API to retrieve the details of an application that has already been registered.
-The request relies on Mutual TLS authentication and application access token (Client Credentials grant type) for
+Accredited Data Recipients use the DCR API to retrieve the details of an application that has already been registered. 
+The request relies on Mutual TLS authentication and application access token (Client Credentials grant type) for 
 Accredited Data Recipient authentication.
 
-The request has one path parameter named `ClientId`. It specifies the Client Id of the application that the Accredited
+The request has one path parameter named `ClientId`. It specifies the Client Id of the application that the Accredited 
 Data Recipient wants to retrieve details.
 
 - If the request is successful and the identifier (`ClientId`) matches the client to whom the Client Credentials grant
   access token was issued, the Data Holder returns details of the requested client.
 - If `ClientId` is unknown, the Data Holder responds with an `Unauthorized` status code and immediately revokes the access token.
 
-```tab="Request"
-curl -X GET \
+``` tab="Request"
+curl -X GET \ 
   https://<APIM_HOST>:8243/open-banking/0.1/register/BXxJQxH8OtZYzf622BTP4xnEcgMa\
   -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>'  \
   --cacert certfile \
   --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH>
 ```
 
-```tab="Response"
+``` tab="Response"
 {
     "client_name": "Mock Software",
     "client_description": "A mock software product for testing SSA",
@@ -315,7 +313,7 @@ curl -X GET \
 
 ### Update an application
 
-Accredited Data Recipients use the DCR API to request the Data Holder to modify one or more attributes related to an existing application.
+Accredited Data Recipients use the DCR API to request the Data Holder to modify one or more attributes related to an existing application. 
 The request relies on Mutual TLS authentication and application access token (Client Credentials grant type) for Accredited Data Recipients authentication.
 
 The request has one path parameter named `ClientId`. It specifies the Client Id of the application that the Accredited Data Recipient wants to
@@ -326,7 +324,7 @@ all the claims, including the ones that will not be modified.
 - If the `ClientId` is unknown, the Data Holder responds with an Unauthorized status code and immediately revokes the access token.
 - If client modification is unsuccessful, the Data Holder responds with an error payload.
 
-```tab="Request"
+``` tab="Request"
 curl -X PUT \
   https://<APIM_HOST>:8243/open-banking/0.1/register/TlKmycRL8YUiikAFiS6AFqaDNmwa\
   -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -335,7 +333,7 @@ curl -X PUT \
   -d 'eyJ0eXAiOiJKV1QiLCJhbGciOiJQUzI1NiIsImtpZCI6InhJSTVtN3VLU2dTQnNEbGhBUnl3cVZjbzdJRSJ9.eyJpc3MiOiJNb2NrIENvbXBhbnkiLCJpYXQiOjE1NzIyMjUzMzYsImV4cCI6MTcwMzg0NzczMSwianRpIjoiMzc3NDdjZDEtYzEwNS00NTY5LTlmNzUtNGFkZjI4YjczZTMxIiwiYXVkIjoiaHR0cHM6Ly93d3cuaW5mb3NlYy5jZHIuZ292LmF1L3Rva2VuIiwicmVkaXJlY3RfdXJpcyI6WyJodHRwczovL3d3dy5nb29nbGUuY29tL3JlZGlyZWN0cy9yZWRpcmVjdDEiXSwidG9rZW5fZW5kcG9pbnRfYXV0aF9zaWduaW5nX2FsZyI6IlBTMjU2IiwidG9rZW5fZW5kcG9pbnRfYXV0aF9tZXRob2QiOiJwcml2YXRlX2tleV9qd3QiLCJncmFudF90eXBlcyI6WyJhdXRob3JpemF0aW9uX2NvZGUiLCJyZWZyZXNoX3Rva2VuIiwidXJuOmlldGY6cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6and0LWJlYXJlciJdLCJyZXNwb25zZV90eXBlcyI6WyJjb2RlIGlkX3Rva2VuIl0sImFwcGxpY2F0aW9uX3R5cGUiOiJ3ZWIiLCJpZF90b2tlbl9zaWduZWRfcmVzcG9uc2VfYWxnIjoiUFMyNTYiLCJyZXF1ZXN0X29iamVjdF9zaWduaW5nX2FsZyI6IlBTMjU2Iiwic29mdHdhcmVfc3RhdGVtZW50IjoiZXlKaGJHY2lPaUpRVXpJMU5pSXNJbXRwWkNJNkltSTRabUZqWmpKbVpqTTVORFEwWmpjNE1XVXdZbVUxWkdJMFlqRTBaakUySWl3aWRIbHdJam9pU2xkVUluMC5leUpwYzNNaU9pSmpaSEl0Y21WbmFYTjBaWElpTENKcFlYUWlPakUxTnpFNE1EZ3hOamNzSW1WNGNDSTZNakUwTnpRNE16WTBOaXdpYW5ScElqb2lNMkpqTWpBMVlURmxZbU01TkRObVltSTJNalJpTVRSbVkySXlOREV4T1RZaUxDSnZjbWRmYVdRaU9pSXpRakJDTUVFM1FpMHpSVGRDTFRSQk1rTXRPVFE1TnkxRk16VTNRVGN4UkRBM1F6Z2lMQ0p2Y21kZmJtRnRaU0k2SWsxdlkyc2dRMjl0Y0dGdWVTQkpibU11SWl3aVkyeHBaVzUwWDI1aGJXVWlPaUpOYjJOcklGTnZablIzWVhKbElpd2lZMnhwWlc1MFgyUmxjMk55YVhCMGFXOXVJam9pUVNCdGIyTnJJSE52Wm5SM1lYSmxJSEJ5YjJSMVkzUWdabTl5SUhSbGMzUnBibWNnVTFOQklpd2lZMnhwWlc1MFgzVnlhU0k2SW1oMGRIQnpPaTh2ZDNkM0xtMXZZMnRqYjIxd1lXNTVMbU52YlM1aGRTSXNJbkpsWkdseVpXTjBYM1Z5YVhNaU9sc2lhSFIwY0hNNkx5OTNkM2N1WjI5dloyeGxMbU52YlM5eVpXUnBjbVZqZEhNdmNtVmthWEpsWTNReElpd2lhSFIwY0hNNkx5OTNkM2N1WjI5dloyeGxMbU52YlM5eVpXUnBjbVZqZEhNdmNtVmthWEpsWTNReUlsMHNJbXh2WjI5ZmRYSnBJam9pYUhSMGNITTZMeTkzZDNjdWJXOWphMk52YlhCaGJua3VZMjl0TG1GMUwyeHZaMjl6TDJ4dloyOHhMbkJ1WnlJc0luUnZjMTkxY21raU9pSm9kSFJ3Y3pvdkwzZDNkeTV0YjJOclkyOXRjR0Z1ZVM1amIyMHVZWFV2ZEc5ekxtaDBiV3dpTENKd2IyeHBZM2xmZFhKcElqb2lhSFIwY0hNNkx5OTNkM2N1Ylc5amEyTnZiWEJoYm5rdVkyOXRMbUYxTDNCdmJHbGplUzVvZEcxc0lpd2lhbmRyYzE5MWNta2lPaUpvZEhSd2N6b3ZMMnRsZVhOMGIzSmxMbTl3Wlc1aVlXNXJhVzVuZEdWemRDNXZjbWN1ZFdzdk1EQXhOVGd3TURBd01VaFJVWEphUVVGWUwzTkdaMnRwTnpKUGFYRjNXazVHVDFwbk5rOWhhbWt1YW5kcmN5SXNJbkpsZG05allYUnBiMjVmZFhKcElqb2lhSFIwY0hNNkx5OW5hWE4wTG1kcGRHaDFZblZ6WlhKamIyNTBaVzUwTG1OdmJTOXBiV1Z6YURrMEx6TXhOekpsTW1VME5UYzFOMk5rWVRBNFpXTXlOekkzWmprd1lqY3lZMlZrTDNKaGR5OW1aakJrTTJWaFltVTBZMlJrWTJVME4yVmxZekF5TWpobU5Ua3lNVGMxTWpJelpHUTVNbUl5TDNkemJ6SXRZWFV0WkdOeUxXUmxiVzh1YW5kcmN5SXNJbk52Wm5SM1lYSmxYMmxrSWpvaU56UXdRek0yT0VZdFJVTkdPUzAwUkRJNUxVRXlSVUV0TURVeE5FRTJOa0l3UTBST0lpd2ljMjltZEhkaGNtVmZjbTlzWlhNaU9pSmtZWFJoTFhKbFkybHdhV1Z1ZEMxemIyWjBkMkZ5WlMxd2NtOWtkV04wSWl3aWMyTnZjR1VpT2lKaVlXNXJPbUZqWTI5MWJuUnpMbUpoYzJsak9uSmxZV1FnWW1GdWF6cGhZMk52ZFc1MGN5NWtaWFJoYVd3NmNtVmhaQ0JpWVc1ck9uUnlZVzV6WVdOMGFXOXVjenB5WldGa0lHSmhibXM2Y0dGNVpXVnpPbkpsWVdRZ1ltRnVhenB5WldkMWJHRnlYM0JoZVcxbGJuUnpPbkpsWVdRZ1kyOXRiVzl1T21OMWMzUnZiV1Z5TG1KaGMybGpPbkpsWVdRZ1kyOXRiVzl1T21OMWMzUnZiV1Z5TG1SbGRHRnBiRHB5WldGa0lHTmtjanB5WldkcGMzUnlZWFJwYjI0aWZRLkE1WGhCRlFQTUxTOGliMHlPcGVXQW5icnRyN2d2eVZaWjVoYm5ibUlfVDczVVBrUFhtd2QtVDBWSzFHbFFYRnlfYndOVkxYTG9mWTRwMlUyMkFHQTRnd2pyS05ZOE9Kc2Rkc3VQdTFLOHZvQTcwWmRoTVVIQ3JDdUNQTVg3TldHb2ZlY2FoTUlmV2lxYjhOYWFPSi0xclpuRjk1akNRbWY0SHlFWFlXQlhreUVxelROZkVYYkRtckQ2ZWZpb2RWczBkU0dONjJ0RExWWEwzVkNlX0cxYXZiMllFNXdRckpValBzcHpOcDlmTldDLTh4STBhd0pnSEpTcWFyWUQ3Vk1PT3ZjVExfMW1pbkpSOWxucGtwM04xZ0lTTWpDY2U4NHVaVEtQNnhZREU3c2RpMU9qbGF6VGxlV2t6d0xkakVGRUlFa2o3ZVhhUEdxcUxtVlBSQlBkdyJ9.MTsGy1vyuvdsRvsftzusruip-WbOhPcDyq2KtC-AbobwvzFEapoXvCRS2epdeiPOehXW6QDlEitATfrKSto-dwwvnCo7F3cPxd6Jv5j4RZBErxCrIiYJsTxrABILYJ8IvGj8rHzbRoRqb5lfhOxyHXTuaXhn5GyH5celsa2q8MTo0bwte0nL1J0PMnH7MLBUop7g2x8-TcwTKC3e2SPhoBwUWo5IYXRhMqSYU5y62HbIqggZahwuwUamg1Vt0H7wmmUiQZSAeN7o3usVi2XbYlNcITQPi9UiY4agA6Q1suv6k_qoBnM_OzMB9wr8W4mB3PmHO0mhUAtTLbI03Ix9hQ'
 ```
 
-```tab="Response"
+``` tab="Response"
 {
     "client_name": "Mock Software",
     "client_description": "A mock software product for testing SSA",
@@ -388,7 +386,7 @@ The request has one path parameter named `ClientId`. It specifies the Client Id 
   issued, the Data Holder must delete the client and invalidate long-lived access tokens that were issued to the client.
 - If the `ClientId` is unknown, the Data Holder responds with an `Unauthorized` status code and immediately revokes the access token.
 
-```tab="Request"
+``` tab="Request"
 curl -X DELETE \
   https://<APIM_HOME>:8243/open-banking/0.1/register/TlKmycRL8YUiikAFiS6AFqaDNmwa\
   -H 'Authorization: Bearer <APPLICATION_ACCESS_TOKEN>' \
@@ -396,6 +394,6 @@ curl -X DELETE \
   --cert <TRANSPORT_PUBLIC_KEY_FILE_PATH> --key <TRANSPORT_PRIVATE_KEY_FILE_PATH>
 ```
 
-```tab="Response"
+``` tab="Response"
 204 No Content
 ```

@@ -8,7 +8,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` directory.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/consumer-data-standards-banking-1.24.0.yaml` directory.
 
 5. Click **Next**.
 
@@ -35,7 +35,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 14. Fill in the **Create New Policy**.
 
-15. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` insequence file.
+15. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/cds-banking-api-insequence-1.24.0.xml` insequence file.
 
 16. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
     <div style="width:35%">
@@ -70,20 +70,20 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 | API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
 |-----|--------------------------------|--------------|---------------------------------- |
-| Consumer Data Standards API v1.8 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/consumer-data-standards-1.8.0.yaml` | HTTP/REST Endpoint <br/> `https://localhost:9443/api/openbanking/cds/backend/services` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/1.8.0/cds-dynamic-endpoint-insequence-1.8.0.xml` |
-| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` | HTTP/REST Endpoint <br/> ` https://localhost:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
+| Consumer Data Standards API v1.24.0  | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/consumer-data-standards-banking-1.24.0.yaml` | HTTP/REST Endpoint <br/> `https://localhost:9443/api/openbanking/cds/backend/services`         | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/cds-banking-api-insequence-1.24.0.xml` |
+| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml`             | HTTP/REST Endpoint <br/> ` https://localhost:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
 
 ## Subscribing to Consumer Data Standards API
 
 1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
 
-2. Select the **ConsumerDataStandards V1.8** API.
+2. Select the **ConsumerDataStandards V1.24.0** API.
  
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
     
-4. From the **Application** dropdown, select the application that you want to be subscribed to the Consumer Data Standards API V1.8. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
+4. From the **Application** dropdown, select the application that you want to be subscribed to the Consumer Data Standards API V1.24.0. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 

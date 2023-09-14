@@ -1,6 +1,6 @@
 WSO2 Open Banking CDS Toolkit is a purpose-built solution for regulatory compliance that supports the Australian Consumer
-Data Right and Consumer Data Standards. Instead of building an open banking solution from scratch, you can use WSO2 Open
-Banking CDS Toolkit to meet all open banking requirements with additional benefits beyond compliance. This toolkit runs
+Data Right and Consumer Data Standards. Instead of building an open banking solution from scratch, you can use WSO2 Open 
+Banking CDS Toolkit to meet all open banking requirements with additional benefits beyond compliance. This toolkit runs 
 on top of the following WSO2 products:
 
 - WSO2 Open Banking Accelerator 3.0
@@ -9,31 +9,31 @@ on top of the following WSO2 products:
 - WSO2 Streaming Integrator 4.2.0
 
 !!! note
-The WSO2 Open Banking CDS Toolkit is built by customizing the WSO2 Open Banking Accelerator and helps you
-comply with the Open Banking Standard. For more information on the accelerator, see
-the [WSO2 Open Banking Accelerator Documentation](https://ob.docs.wso2.com/).
+    The WSO2 Open Banking CDS Toolkit is built by customizing the WSO2 Open Banking Accelerator and helps you 
+    comply with the Open Banking Standard. For more information on the accelerator, see 
+    the [WSO2 Open Banking Accelerator Documentation](https://ob.docs.wso2.com/).
 
-The toolkit mainly addresses the open banking requirements such as API consumer application onboarding, consent
-management, and access authorization among numerous other features to set up an open banking solution.
+The toolkit mainly addresses the open banking requirements such as API consumer application onboarding, consent 
+management, and access authorization among numerous other features to set up an open banking solution. 
 
 !!! tip
-In a standalone setup, these products are deployed in a single server. However, in a typical production environment,
-it is recommended to deploy the components in separate servers (distributed) for better performance.
+    In a standalone setup, these products are deployed in a single server. However, in a typical production environment, 
+    it is recommended to deploy the components in separate servers (distributed) for better performance.
 
 ## Product Matrix
 
 Given below is a product matrix for different versions of WSO2 Open Banking CDS Toolkit:
 
 | Version | Mandatory Components                                           | Additional Components       |
-| ------- | -------------------------------------------------------------- | --------------------------- |
-| 1.0.0   | wso2-obam-toolkit-cds-1.0.0 <br/> wso2-obiam-toolkit-cds-1.0.0 | wso2-obbi-toolkit-cds-1.0.0 |
+| --------|----------------------------------------------------------------|-----------------------------|
+| 1.0.0 | wso2-obam-toolkit-cds-1.0.0 <br/> wso2-obiam-toolkit-cds-1.0.0 | wso2-obbi-toolkit-cds-1.0.0 |
 
 ## Compatible Base Product Versions
 
 Given below is the compatible base product matrix for WSO2 Open Banking CDS Toolkit 1.0.0:
 
 | Base Product              | Compatible Versions |
-| ------------------------- | ------------------- |
+|---------------------------|---------------------|
 | WSO2 Identity Server      | 6.1.0               |
 | WSO2 API Manager          | 4.2.0               |
 | WSO2 Streaming Integrator | 4.2.0               |
@@ -42,7 +42,7 @@ Given below is the compatible base product matrix for WSO2 Open Banking CDS Tool
 
 Listed below are the prerequisites for a successful deployment:
 
-### Hardware requirements
+### Hardware requirements 
 
 <table>
    <tbody>
@@ -119,12 +119,12 @@ Listed below are the prerequisites for a successful deployment:
    </tbody>
 </table>
 
-## Compatibility
+## Compatibility 
 
 WSO2 Open Banking CDS Toolkit 1.0.0 is supported on the following platforms:
 
 !!!note
-To use MySQL 8.0, you need to create the database with `charset latin1` as shown below:
+    To use MySQL 8.0, you need to create the database with `charset latin1` as shown below:
 
     ```
     create database regdb
