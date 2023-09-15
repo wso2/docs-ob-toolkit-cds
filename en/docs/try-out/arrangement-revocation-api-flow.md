@@ -6,33 +6,8 @@ this requirement. If this communication does not take place, the Data Holder wil
 data and the Data Recipient will continue to have the customer's data within their system. Therefore, it is important 
 to communicate the revocation to both parties to protect customer data and prevent misuse.
 
-This page explains how to configure and deploy the CDR Arrangement Management API.
+This page explains how to deploy the CDR Arrangement Management API.
 in the latest updates of WSO2 Open Banking.
-
-## Configuring CDR Arrangement Revocation API
-
-!!! tip "Before you begin..."
-
-     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file. 
-
-     2. Configure the event listener tags as follows. These endpoints are used to configure the private key JWT Client Authenticator. 
-        ```
-         [[event_listener]]
-         id = "cds_arrangement_private_key_jwt_authenticator"
-         type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
-         name = "com.wso2.openbanking.cds.identity.authenticator.CDSArrangementPrivateKeyJWTClientAuthenticator"
-         order = "-13"
-         enable = true
-          
-         [event_listener.properties]
-         TokenEndpointAlias = "https://<APIM_HOST>:8243/arrangements/1.0.0"
-        ```
-     3. Add the given filters and filter mappings to enforce MTLS security to the CDR Arrangement Revocation endpoint.
-        ```
-          [[tomcat.filter_mapping]]
-          name = "TokenRevocationFilter"
-          url_pattern = "/revoke"
-        ```
 
 ### Data Holder Initiated Consent Revocation 
 
@@ -124,7 +99,7 @@ must be implemented by both Data Holders and Data Recipients and notify each oth
 A sample request is given below:
 
 ``` tab="Request"
-POST https://data.holder.com.au/arrangements/revoke
+POST https://data.holder.com.au/arrangements/1.0.0/revoke
 HTTP/1.1
 Host: data.holder.com.au
 Content-Type: application/x-www-form-urlencoded
