@@ -6,8 +6,52 @@ this requirement. If this communication does not take place, the Data Holder wil
 data and the Data Recipient will continue to have the customer's data within their system. Therefore, it is important 
 to communicate the revocation to both parties to protect customer data and prevent misuse.
 
-This page explains how to deploy the CDR Arrangement Management API.
+This page explains how to configure and deploy the CDR Arrangement Management API.
 in the latest updates of WSO2 Open Banking.
+
+## Configuring CDR Arrangement Revocation API
+
+!!! tip "Before you begin..."
+
+     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file. 
+
+     2. Configure the event listener tags as follows. These endpoints are used to configure the private key JWT Client Authenticator. 
+        ```
+         [[event_listener]]
+         id = "cds_arrangement_private_key_jwt_authenticator"
+         type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+         name = "com.wso2.openbanking.cds.identity.authenticator.CDSArrangementPrivateKeyJWTClientAuthenticator"
+         order = "-13"
+         enable = true
+          
+         [event_listener.properties]
+         TokenEndpointAlias = "https://<APIM_HOST>:8243/arrangements/1.0.0"
+        ```
+     3. Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
+
+     4. Add the given executors under the executor type "Arrangement" to enforce MTLS security and other required validations.
+        ```
+        [[open_banking.gateway.openbanking_gateway_executors.type]]
+        name = "Arrangement"
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.MTLSEnforcementExecutor"
+        priority = 1
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.CertRevocationValidationExecutor"
+        priority = 2
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.api.resource.access.validation.APIResourceAccessValidationExecutor"
+        priority = 3
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.common.reporting.data.executor.CommonReportingDataExecutor"
+        priority = 4
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.cds.gateway.executors.reporting.CDSCommonDataReportingExecutor"
+        priority = 5
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.cds.gateway.executors.error.handler.CDSErrorHandler"
+        priority = 1000
+        ```
 
 ### Data Holder Initiated Consent Revocation 
 
