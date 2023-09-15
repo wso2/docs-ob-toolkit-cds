@@ -148,7 +148,7 @@ Follow [Configuring users and roles](../install-and-setup/configuring-users-and-
 
 13. Find the **SelfCarePortalAPI** from the list and click the **Subscribe** button corresponding to it.
 
-14. If you are using **WSO2 Identity Server 6.0.0**, follow the below instructions:
+14. If you are using **WSO2 Identity Server 6.1.0**, follow the below instructions:
 
     1. Sign in to the Management Console at `https://<IS_HOST>:9446/carbon/`.
     

@@ -185,7 +185,7 @@ curl -X POST https://<APIM_HOME>:8243/open-banking/0.2/register \
     "client_credentials"
   ],
   "response_types": [
-    "code id_token"
+    "code"
   ],
   "application_type": "web",
   "id_token_signed_response_alg": "PS256",
@@ -236,7 +236,7 @@ given below:
        "refresh_token"
    ],
    "response_types": [
-       "code id_token"
+       "code"
    ],
    "application_type": "web",
    "id_token_signed_response_alg": "PS256",
@@ -299,7 +299,7 @@ curl -X GET \
         "client_credentials"
     ],
     "response_types": [
-        "code id_token"
+        "code"
     ],
     "application_type": "web",
     "id_token_signed_response_alg": "PS256",
@@ -363,7 +363,7 @@ curl -X PUT \
         "refresh_token"
     ],
     "response_types": [
-        "code id_token"
+        "code"
     ],
     "application_type": "web",
     "id_token_signed_response_alg": "PS256",

@@ -4,7 +4,7 @@ Banking CDS Toolkit to meet all open banking requirements with additional benefi
 on top of the following WSO2 products:
 
 - WSO2 Open Banking Accelerator 3.0
-- WSO2 Identity Server 6.0.0
+- WSO2 Identity Server 6.1.0
 - WSO2 API Manager 4.2.0
 - WSO2 Streaming Integrator 4.2.0
 
@@ -34,7 +34,7 @@ Given below is the compatible base product matrix for WSO2 Open Banking CDS Tool
 
 | Base Product              | Compatible Versions |
 |---------------------------|---------------------|
-| WSO2 Identity Server      | 6.0.0               |
+| WSO2 Identity Server      | 6.1.0               |
 | WSO2 API Manager          | 4.2.0               |
 | WSO2 Streaming Integrator | 4.2.0               |
 

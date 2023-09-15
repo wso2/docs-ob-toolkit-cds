@@ -113,8 +113,8 @@ validator = "com.wso2.openbanking.cds.identity.dcr.validation.CDSRegistrationVal
 3. Configure the jwks endpoint that is used for validating the SSA signature. 
 ```toml
 [open_banking.dcr]
-jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
-jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
+jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
+jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
 ```       
 4. Configure the algorithms that are allowed during signature validation. These algorithms are used for token endpoint 
 authentication assertion signature, request object signature, and id token signature validations.

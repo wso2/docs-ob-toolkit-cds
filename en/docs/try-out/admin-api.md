@@ -10,7 +10,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
 3. Select **OpenAPI File/Archive**. ![create-an-api](../assets/img/get-started/quick-start-guide/create-an-api.png)
 
-4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-1.8.0.yaml` file.
+4. Click **Browse File to Upload** and select the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.24.0/consumer-data-standards-admin-1.24.0.yaml` file.
 
 5. Click **Next**.
 
@@ -33,7 +33,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
 12. Fill in the **Create New Policy**.
 
-13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.8.0/cds-admin-endpoint-insequence-1.8.0.xml` file.
+13. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSAdminAPIs/1.24.0/cds-admin-api-insequence-1.24.0.xml` file.
 
 14. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
     <div style="width:35%">
@@ -74,7 +74,7 @@ The page explains how to deploy the Administration API and try out the flow.
 
       ![publish_api](../assets/img/get-started/quick-start-guide/publish-api.png)
 
-## Invoke Metrics API
+## Invoke Admin API
 
 ### Get Metrics
 

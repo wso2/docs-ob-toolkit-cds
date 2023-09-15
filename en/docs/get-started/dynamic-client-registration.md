@@ -4,15 +4,15 @@ This page explains how to onboard an Accredited Data Recipient application using
 
     1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 
-    2. Configure the jwks endpoints as follows. These endpoints are used for validating the SSA signature. 
+    2. Configure the jwks endpoints as follows. These endpoints are used for validating the SSA signature and the given values are sample values.
 
         ```toml
         [open_banking.dcr]
-        jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
-        jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/u3ZWlf9Yt42dyZgIvzkvqb.jwks"
+        jwks_url_sandbox = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
+        jwks_url_production = "https://keystore.openbankingtest.org.uk/0015800001HQQrZAAX/0015800001HQQrZAAX.jwks"
         ```
 
-    3. If the SSA is a custom SSA, configure the following tags:
+    3. If the SSA is a custom SSA, configure the following tags to disable uri and hostname validations:
 
         ```toml
         [open_banking_cds.dcr]
@@ -198,7 +198,7 @@ curl -X POST https://localhost:8243/open-banking/0.2/register \
     "client_credentials"
   ],
   "response_types": [
-    "code id_token"
+    "code"
   ],
   "application_type": "web",
   "id_token_signed_response_alg": "PS256",
@@ -249,7 +249,7 @@ given below:
        "refresh_token"
    ],
    "response_types": [
-       "code id_token"
+       "code"
    ],
    "application_type": "web",
    "id_token_signed_response_alg": "PS256",

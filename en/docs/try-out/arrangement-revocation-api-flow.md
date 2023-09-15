@@ -27,50 +27,11 @@ in the latest updates of WSO2 Open Banking.
          [event_listener.properties]
          TokenEndpointAlias = "https://<APIM_HOST>:8243/arrangements/1.0.0"
         ```
-     3. Add the given filters and filter mappings to enforce private key JWT client authentication to the CDR Arrangement Revocation endpoint.
+     3. Add the given filters and filter mappings to enforce MTLS security to the CDR Arrangement Revocation endpoint.
         ```
-          [[tomcat.filter]]
-          name = "PrivateKeyJwtAuthenticationFilter"
-          class = "com.wso2.finance.open.banking.identity.extensions.filter.PrivateKeyJwtAuthenticationFilter"
-          
           [[tomcat.filter_mapping]]
-          name = "TokenFilter"
-          url_pattern = "/arrangements/*"
-          
-          [[tomcat.filter_mapping]]
-          name = "PrivateKeyJwtAuthenticationFilter"
-          url_pattern = "/arrangements/*"
-        ```
-     4. Add the following configuration changes to the Data Recipient's consent revocation endpoint.
-
-        ```
-        [open_banking.au.recipient_consent_revocation_endpoint]
-        enable = true
-        
-        [open_banking.uk]
-        consent_revocation_listener = "com.wso2.finance.open.banking.uk.consent.mgt.listener.AUConsentRevocationListener"
-        ```
-
-     5. The `sub` and `iss` claims in the Bearer JWT of the request sent to the Data Recipient's endpoint should be the 
-        ID of the Data Holder obtained from the CDR Register. 
-        ```
-        [open_banking.au.data_holder]
-        client_id = "dataholderbrand"
-        ```
-
-     6. To persist `recipient_base_uri` as service provider metadata, add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` file. 
-        ```
-        [[apim.devportal.application_attributes]]
-        required = false
-        hidden = false
-        name ="recipient_base_uri_sandbox"
-        description = "Recipient Base URI of the sandbox"
-        
-        [[apim.devportal.application_attributes]]
-        required = false
-        hidden = false
-        name ="recipient_base_uri_production"
-        description = "Recipient Base URI of the production"
+          name = "TokenRevocationFilter"
+          url_pattern = "/revoke"
         ```
 
 ### Data Holder Initiated Consent Revocation 

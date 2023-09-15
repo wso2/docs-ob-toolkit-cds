@@ -32,7 +32,7 @@ can quickly set up and try out a basic flow.
 
 1. Download and extract the following base products:
 
-    - [WSO2 Identity Server 6.0.0](https://wso2.com/identity-and-access-management/previous-releases/)
+    - [WSO2 Identity Server 6.1.0](https://wso2.com/identity-server/)
     - [WSO2 API Manager 4.2.0](https://wso2.com/api-manager/) 
     - [WSO2 Streaming Integrator 4.2.0](https://wso2.com/streaming-integrator/)
  
