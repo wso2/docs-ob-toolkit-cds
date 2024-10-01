@@ -114,7 +114,7 @@ The Accredited Data Recipient application redirects the bank customer to authent
       "typ": "JWT"
     }
     {
-      "aud": "<This is the audience that the ID token is intended for. Example, https://<IS_HOST>:9446/oauth2/token>",
+      "aud": "<This is the audience that the ID token is intended for. Example, https://<APIM_HOST>:8243/token>",
       "iss": "<CLIENT_ID>",
       "scope": "openid bank:accounts.basic:read bank:accounts.detail:read bank:transactions:read",
       "claims": {
@@ -148,7 +148,7 @@ This request is in the format of a URL as follows.
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
     
     ```
-    https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=<YOUR_SCOPE>
+    https://<APIM_HOST>:8243/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=<YOUR_SCOPE>
     &redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
    
@@ -201,7 +201,7 @@ In this section, you will be generating an access token using the authorization 
     "exp": <This is the epoch time of the token expiration date/time>,
     "iat": <This is the epoch time of the token issuance date/time>,
     "jti": "<This is an incremental unique value>",
-    "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
+    "aud": "<This is the audience that the ID token is intended for. For example, https://<APIM_HOST>:8243/token>"
     }
      
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. Otherwise, the private signature of the application certificate is used.>
@@ -215,7 +215,7 @@ In this section, you will be generating an access token using the authorization 
     
     ```
     curl -X POST \
-    https://<IS_HOST>:9446/oauth2/token \
+    https://<APIM_HOST>:8243/token \
     -H 'Cache-Control: no-cache' \
     -H 'Content-Type: application/x-www-form-urlencoded' \
     --cert <PUBLIC_KEY_FILE_PATH> --key <PRIVATE_KEY_FILE_PATH> \
