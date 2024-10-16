@@ -56,14 +56,9 @@ accelerators:
             
 ## Installing WSO2 Open Banking CDS Toolkit
 
-1. If you have an active WSO2 Open Banking subscription, contact us via 
-[WSO2 Online Support System](https://support.wso2.com/) to download Open Banking CDS Toolkit 1.0.0.
-
-    !!! note
-        If you don't have a WSO2 Open Banking subscription, [contact us](https://wso2.com/solutions/financial/open-banking/#contact) 
-        for more information.
+1. Go to [WSO2 Open Banking CDS Toolkit public repository](https://github.com/wso2/reference-implementation-consumerdatastandards-au) and follow the build instructions to build the WSO2 Open Banking CDS Toolkit packs.
               
-2. Extract the downloaded WSO2 Open Banking CDS Toolkit zip files. WSO2 Open Banking CDS Toolkit contains the following 
+2. Extract the built WSO2 Open Banking CDS Toolkit zip files. WSO2 Open Banking CDS Toolkit contains the following 
 toolkits:
    
     - wso2ob-is-toolkit-cds-1.0.0
@@ -107,22 +102,6 @@ scripts.
 2. Go to `<ACCELERATOR_HOME>/bin` and run the WSO2 Update tool:
 
     - Repeat this step for the WSO2 Open Banking Identity Server, API Manager, and Business Intelligence accelerators.
-
-        ```bash tab='On Linux'
-        ./wso2update_linux 
-        ```
-        
-        ```bash tab='On Mac'
-        ./wso2update_darwin
-        ```
-        
-        ```bash tab='On Windows'
-        ./wso2update_windows.exe
-        ```
-      
-3. Go to `<TOOLKIT_HOME>/bin` and run the WSO2 Update tool:
-
-    - Repeat this step for the WSO2 Open Banking Identity Server, API Manager, and Business Intelligence toolkits.
 
         ```bash tab='On Linux'
         ./wso2update_linux 
