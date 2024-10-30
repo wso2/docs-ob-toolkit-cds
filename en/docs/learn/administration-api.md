@@ -11,6 +11,15 @@ This endpoint allows the Australian Competition & Consumer Commission to obtain 
 Data Holder on the operation of their CDR compliant implementation. The statistics obtainable from this endpoint are
 determined by the non-functional requirements for the CDR regime.
 
+!!!note
+     When invoking any of the Identity Server endpoints, please ensure that a header named "X-External-Traffic" is included with the value "true" (both the header name and value are configurable as shown below). This header helps to distinguish external requests for accurate metric calculations. It is recommended to configure this header at the load balancer level for consistency.
+
+``` toml
+[open_banking_cds.external_traffic]
+header_name = "X-External-Traffic"
+expected_value = "true"	 
+```
+
 !!!tip
     For more information, see [Consumer Data Standards - Get Metrics](https://consumerdatastandardsaustralia.github.io/standards/#get-metrics).
 
