@@ -114,7 +114,7 @@ privileges. You can use the credentials for `mark@gold.com`. ![sign_in](../asset
         | Description         | The name of the authorization server. | (Optional)               |
         | Key Manager Type    | The type of the Key Manager to be selected. | Select `ObKeyManager` |
         |Well-known-url      | The well-known URL of the authorization server (Key Manager).|   `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
-        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<APIM_HOST>:8243/token` |
+        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<IS_HOST>:9446/oauth2/token` |
         |**Key Manager Endpoints**                                                                |
         | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.  |  `https://<IS_HOST>:9446/keymanager-operations/dcr/register`| 
         | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
@@ -186,7 +186,7 @@ curl -X POST https://localhost:8243/open-banking/0.2/register \
   "iat": 1620185974,
   "exp": 1650189574,
   "jti": "37747cd1-c105-4569-9f75-4adf28b73e34",
-  "aud": "https://localhost:8243/token",
+  "aud": "https://localhost:9446/oauth2/token",
   "redirect_uris": [
     "https://wso2.com"
   ],

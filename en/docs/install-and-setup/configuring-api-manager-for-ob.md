@@ -184,7 +184,7 @@ configurations and the event executor:
         | Description         | The name of the authorization server. | (Optional)               |
         | Key Manager Type    | The type of the Key Manager to be selected. | Select `ObKeyManager` |
         |Well-known-url      | The well-known URL of the authorization server (Key Manager).|   `https://<IS_HOST>:9446/oauth2/token/.well-known/openid-configuration` |
-        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<APIM_HOST>:8243/token` |
+        | Issuer              | The issuer that consumes or validates access tokens.         | `https://<IS_HOST>:9446/oauth2/token` |
         |**Key Manager Endpoints**                                                                |
         | Client Registration Endpoint | The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.  |  `https://<IS_HOST>:9446/keymanager-operations/dcr/register`| 
         | Introspection Endpoint | The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client. | `https://<IS_HOST>:9446/oauth2/introspect` |
