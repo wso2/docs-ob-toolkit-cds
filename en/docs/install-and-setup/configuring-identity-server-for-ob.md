@@ -191,6 +191,14 @@ account retrieval. By default, this is disabled and the configuration is set to 
     username="$ref{super_admin.username}@carbon.super"	
     password="$ref{super_admin.password}"	
     server_url = "{tcp://<SI_HOST>:7612}"	
+    ```
+
+16. When invoking any of the Identity Server endpoints, please ensure that a header named "X-External-Traffic" is included with the value "true" (both the header name and value are configurable as shown below). This header helps to distinguish external requests for accurate metric calculations. It is recommended to configure this header at the load balancer level for consistency.
+
+    ``` toml
+    [open_banking_cds.external_traffic]
+    header_name = "X-External-Traffic"
+    expected_value = "true"		
     ```   
 
 ## Starting servers
