@@ -12,7 +12,7 @@ Data Holder on the operation of their CDR compliant implementation. The statisti
 determined by the non-functional requirements for the CDR regime.
 
 !!!note
-     When invoking any of the Identity Server endpoints, please ensure that a header named "X-External-Traffic" is included with the value "true" (both the header name and value are configurable as shown below). This header helps to distinguish external requests for accurate metric calculations. It is recommended to configure this header at the load balancer level for consistency.
+     When invoking any of the Identity Server endpoints, please ensure that a header named "X-External-Traffic" is included with the value "true" (both the header name and value are configurable in the `<IS_HOME>/repository/conf/deployment.toml` file as shown below). This header helps to distinguish external requests for accurate metric calculations. It is recommended to configure this header at the load balancer level for consistency.
 
 ``` toml
 [open_banking_cds.external_traffic]
