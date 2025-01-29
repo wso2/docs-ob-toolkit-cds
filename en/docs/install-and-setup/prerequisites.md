@@ -119,6 +119,32 @@ Listed below are the prerequisites for a successful deployment:
    </tbody>
 </table>
 
+### Network requirements
+
+Following are the endpoints that are required to be publicly exposed:
+
+| Component                  | Context                 | Endpoint                                       | Is MTLS required? |
+| -------------------------- | ----------------------- | ---------------------------------------------- | ----------------- |
+| API Manager gateway (8243) | /\*                     | \*                                             | TRUE              |
+|                            | /cds-au/{version}       | /banking/products                              | FALSE             |
+|                            |                         | /banking/products/{productId}                  | FALSE             |
+|                            |                         | /discovery/status                              | FALSE             |
+|                            |                         | /discovery/outages                             | FALSE             |
+|                            | /cds-au/{version}/admin | \*                                             | TRUE              |
+| Identity Server (9446)     |                         | /authenticationendpoint/\*                     | FALSE             |
+|                            |                         | /ob/authenticationendpoint/\*                  | FALSE             |
+|                            |                         | /api/openbanking/push-authorization/par        | TRUE              |
+|                            |                         | /consentmgr                                    | FALSE             |
+|                            |                         | /consentmgr\*                                  | FALSE             |
+|                            |                         | /oauth2/token                                  | TRUE              |
+|                            |                         | /oauth2/introspect                             | TRUE              |
+|                            |                         | /oauth2/revoke                                 | TRUE              |
+|                            |                         | /oauth2/authorize                              | FALSE             |
+|                            |                         | /oauth2/userinfo                               | TRUE              |
+|                            |                         | /oauth2/jwks                                   | TRUE              |
+|                            |                         | /oauth2/token/.well-known/openid-configuration | FALSE             |
+
+
 ## Compatibility 
 
 WSO2 Open Banking CDS Toolkit 1.0.0 is supported on the following platforms:
