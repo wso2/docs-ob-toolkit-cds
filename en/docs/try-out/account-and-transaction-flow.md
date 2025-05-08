@@ -16,7 +16,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 6. Set the **Endpoint** as follows:
    ```
-   https://<IS_HOST>:9443/api/openbanking/cds/backend/services
+   https://<APIM_HOST>:9443/api/openbanking/cds/backend/services
    ```
 7. Click **Create** to create the API. ![create-accounts](../assets/img/get-started/quick-start-guide/create-accounts.png)
 
