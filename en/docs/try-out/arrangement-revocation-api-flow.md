@@ -27,11 +27,30 @@ in the latest updates of WSO2 Open Banking.
          [event_listener.properties]
          TokenEndpointAlias = "https://<APIM_HOST>:8243/arrangements/1.0.0"
         ```
-     3. Add the given filters and filter mappings to enforce MTLS security to the CDR Arrangement Revocation endpoint.
+     3. Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
+
+     4. Add the given executors under the executor type "Arrangement" to enforce MTLS security and other required validations.
         ```
-          [[tomcat.filter_mapping]]
-          name = "TokenRevocationFilter"
-          url_pattern = "/revoke"
+        [[open_banking.gateway.openbanking_gateway_executors.type]]
+        name = "Arrangement"
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.MTLSEnforcementExecutor"
+        priority = 1
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.mtls.cert.validation.executor.CertRevocationValidationExecutor"
+        priority = 2
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.api.resource.access.validation.APIResourceAccessValidationExecutor"
+        priority = 3
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.accelerator.gateway.executor.impl.common.reporting.data.executor.CommonReportingDataExecutor"
+        priority = 4
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.cds.gateway.executors.reporting.CDSCommonDataReportingExecutor"
+        priority = 5
+        [[open_banking.gateway.openbanking_gateway_executors.type.executors]]
+        name = "com.wso2.openbanking.cds.gateway.executors.error.handler.CDSErrorHandler"
+        priority = 1000
         ```
 
 ### Data Holder Initiated Consent Revocation 
@@ -124,7 +143,7 @@ must be implemented by both Data Holders and Data Recipients and notify each oth
 A sample request is given below:
 
 ``` tab="Request"
-POST https://data.holder.com.au/arrangements/revoke
+POST https://data.holder.com.au/arrangements/1.0.0/revoke
 HTTP/1.1
 Host: data.holder.com.au
 Content-Type: application/x-www-form-urlencoded
