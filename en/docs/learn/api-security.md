@@ -5,7 +5,7 @@ Therefore,  the Consumer Data Standards (CDS) recommends to ensure API security.
 grant types, authentication, and authorisation flows. For more information, see [CDS - Security Profile](https://consumerdatastandardsaustralia.github.io/standards/#security-profile).
 
 The Consumer Data Standards has mandated the Financial API (FAPI) security standards for the Data Holders. WSO2 Open
-Banking CDS Toolkit provides mkan extra level of security to the Open Banking APIs adhering to the security
+Banking CDS Toolkit provides an extra level of security to the Open Banking APIs adhering to the security
 guidelines provided in FAPI, which is based on OAuth 2.0 and OpenID Connect (OIDC).
 
 ## MTLS enforcement
@@ -18,19 +18,31 @@ is introduced as an authentication protocol where the Accredited Data Recipients
 MTLS handshake at the transport layer ensures that the corresponding Accredited Data Recipient possesses a secret key 
 that is associated with the X509 certificate issued by a trusted Certificate Authority (CA).
 
-In WSO2 Open Banking, MTLS is enforced at the API Manager level to check if
+In WSO2 Open Banking Accelerator, MTLS is enforced at both the API Manager gateway level and the Identity Server token
+endpoint level.
 
-- the message context contains the transport certificate to make sure that the MTLS handshake is successful at the gateway.
-- the transport certificate bound to the application when invoking the APIs.
+**API Manager Gateway** checks:
 
-There are two scenarios to consider for the MTLS validation:
+- the message context contains the transport certificate to make sure that the MTLS handshake is successful at the gateway
+- the transport certificate bound to the application when invoking the APIs
 
-1. If the client directly initiates an MTLS connection with the WSO2 API Manager Gateway, the issuer of the certificate 
-needs to be present in the truststore of the gateway.
+**WSO2 Identity Server** checks:
 
-2. If the MTLS terminates at the load balancer prior to the gateway, the WSO2 API Manager Gateway expects the load balancer 
-to send the client certificate as a header. In such scenarios, the WSO2 API Manager gateway expects the load balancer to 
-perform the issuer validation.
+- the transport certificate is present and valid at the token endpoint during client authentication
+- the certificate matches the one bound to the OAuth application (certificate-bound access tokens)
+
+There are two scenarios to consider for the MTLS validation at each component:
+
+1. If the client directly initiates an MTLS connection, the transport certificate is read from the TLS handshake. The issuer
+   of the certificate needs to be present in the truststore of the respective component.
+
+2. If the MTLS terminates at the load balancer prior to the gateway or Identity Server, the client certificate must be
+   forwarded as an HTTP header. Both WSO2 API Manager and WSO2 Identity Server are configured to read the transport certificate
+   from the header named **`x-wso2-mutual-auth-cert`** by default. The load balancer is expected to perform issuer validation
+   and inject the PEM-encoded client certificate into this header.
+
+The certificate header name and encoding behaviour can be customised. For configuration details, see
+[API Security Configuration](api-security-configuration.md).
 
 Generally, open banking flows always consist of 3 different types of API requests by the client applications, 
 known as [Authorization](#-authorisation-endpoint-security), [Token](#token-endpoint-security), and [Resource](#resource-request)
