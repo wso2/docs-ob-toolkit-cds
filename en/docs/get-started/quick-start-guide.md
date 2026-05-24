@@ -58,7 +58,7 @@ accelerators:
 
 1. Go to [WSO2 Open Banking CDS Toolkit public repository](https://github.com/wso2/reference-implementation-consumerdatastandards-au) and follow the build instructions to build the WSO2 Open Banking CDS Toolkit packs.
               
-2. Extract the built WSO2 Open Banking CDS Toolkit zip files. WSO2 Open Banking CDS Toolkit contains the following 
+2. Extract the WSO2 Open Banking CDS Toolkit zip files. WSO2 Open Banking CDS Toolkit contains the following 
 toolkits:
    
     - wso2ob-is-toolkit-cds-1.0.0
