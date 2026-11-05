@@ -1,3 +1,6 @@
+---
+title: "Consent Amendment History"
+---
 Any change that is performed on an active consent is considered as an amendment. WSO2 Open Banking CDS Toolkit provides
 the Consent Amendment History feature to utilize and retrieve details related to the consent amendment history.
 

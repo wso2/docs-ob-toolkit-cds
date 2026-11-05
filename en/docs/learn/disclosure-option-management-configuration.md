@@ -1,3 +1,6 @@
+---
+title: "Configuration"
+---
 # Configurations
 
 ## Enabling the Disclosure Option Management Feature

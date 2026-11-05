@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 # Configuring Data Sharing for Business Nominated Representatives
 
 This requirement is introduced to the Consumer Data Specification on 22 December 2020 via Competition and Consumer (Consumer Data Right) Amendment Rules (No. 3) 2020. 
@@ -10,8 +13,9 @@ A non-individual consumer needs to nominate at least one individual as a nominat
 
 The nominated representative is responsible for interacting with the data holder and the ADR on behalf of the business. They can give consent for the data holder to share data with the ADR, amend or revoke consent, and manage the data sharing relationship.
 
-!!! info
-    This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::info
+This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::
 
 ## Integrating with the Bank Backend
 

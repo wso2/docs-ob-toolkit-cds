@@ -1,3 +1,9 @@
+---
+title: "Tryout Flow"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 This document provides step by step instructions to deploy, subscribe, and invoke the Consumer Data Standards API. 
 
 ## Deploying Consumer Data Standards API
@@ -13,9 +19,9 @@ This document provides step by step instructions to deploy, subscribe, and invok
 5. Click **Next**.
 
 6. Set the **Endpoint** as follows:
-   ```
-   https://localhost:9443/api/openbanking/cds/backend/services
-   ```
+    ```
+    https://localhost:9443/api/openbanking/cds/backend/services
+    ```
 7. Click **Create** to create the API. ![create-api](../assets/img/get-started/quick-start-guide/create-api.png)
 
 8. After the API is successfully created, go to **Portal Configurations** using the left menu panel. ![portal-configurations](../assets/img/get-started/quick-start-guide/portal-configurations.png)
@@ -27,9 +33,9 @@ This document provides step by step instructions to deploy, subscribe, and invok
 11. Toggle the **Schema Validation** button to enable Schema Validation for all APIs except for the Dynamic Client Registration API. ![schema-validation](../assets/img/get-started/quick-start-guide/schema-validation.png)
 
 12. Go to **Develop -> API Configurations -> Policies** in the left menu pane to add a custom policy.
-        <div style="width:40%"> 
-        ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
-        </div>
+    <div style={{width: "40%"}}> 
+    ![select_policies](../assets/img/get-started/quick-start-guide/select-policies.png)
+    </div>
 
 13. On the **Policy List** card, click on **Add New Policy**.
 
@@ -37,8 +43,8 @@ This document provides step by step instructions to deploy, subscribe, and invok
 
 15. Upload the `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/cds-banking-api-insequence-1.24.0.xml` insequence file.
 
-16. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br><br>
-    <div style="width:35%">
+16. Scroll down and click **Save**. Upon successful creation of the policy, you receive an alert as shown below: <br /><br />
+    <div style={{width: "35%"}}>
     ![successful](../assets/img/get-started/quick-start-guide/successful.png)
     </div>
 
@@ -55,7 +61,7 @@ This document provides step by step instructions to deploy, subscribe, and invok
 22. Go to **Deployments** using the left menu pane. 
 
     ![select_deployments](../assets/img/get-started/quick-start-guide/select-deployments.png)
-    
+
 23. Select the API Gateway type, in this scenario, it is **Default**. ![api_gateway](../assets/img/get-started/quick-start-guide/dcr-api-gateway.png)
 
 24. Click **Deploy**.
@@ -70,32 +76,35 @@ Given below is a summary of configurations to follow when deploying the APIs in 
 
 | API | Swagger definition (yaml file) | Endpoint type| Message mediation (sequence file) |
 |-----|--------------------------------|--------------|---------------------------------- |
-| Consumer Data Standards API v1.24.0  | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/consumer-data-standards-banking-1.24.0.yaml` | HTTP/REST Endpoint <br/> `https://localhost:9443/api/openbanking/cds/backend/services` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/cds-banking-api-insequence-1.24.0.xml` |
-| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` | HTTP/REST Endpoint <br/> ` https://localhost:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
+| Consumer Data Standards API v1.24.0  | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/consumer-data-standards-banking-1.24.0.yaml` | HTTP/REST Endpoint <br /> `https://localhost:9443/api/openbanking/cds/backend/services` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/CDSBanking/1.24.0/cds-banking-api-insequence-1.24.0.xml` |
+| Dynamic Client Registration API v0.2 | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-swagger.yaml` | HTTP/REST Endpoint <br /> `https://localhost:9446/api/openbanking/dynamic-client-registration` | `<APIM_HOME>/<OB_APIM_TOOLKIT_HOME>/repository/resources/apis/consumerdatastandards.org.au/DynamicClientRegistration/0.2/au-dcr-insequence-0.2.xml` |
 
 ## Subscribing to Consumer Data Standards API
 
-1. The deployed API is now available in the Developer Portal at <https://localhost:9443/devportal>.
+1. The deployed API is now available in the Developer Portal at [https://localhost:9443/devportal](https://localhost:9443/devportal).
 
 2. Select the **ConsumerDataStandards V1.24.0** API.
- 
+
 3. Locate **Subscriptions** from the left menu pane. 
 
     ![select_subscriptions](../assets/img/get-started/quick-start-guide/select-subscriptions.png)
-    
+
 4. From the **Application** dropdown, select the application that you want to be subscribed to the Consumer Data Standards API V1.24.0. ![select_application](../assets/img/get-started/quick-start-guide/select-application.png)
 
 5. Click **Subscribe**.
 
 ## Invoking Consumer Data Standards API
-   
+
 ### Authorizing a consent
 
 The Accredited Data Recipient application redirects the bank customer to authenticate and approve/deny application-provided consents.
 
 1. Generate the request object by signing the following JSON payload using supported algorithms.
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     {
       "kid": "<CERTIFICATE_FINGERPRINT>",
       "alg": "<SUPPORTED_ALGORITHM>",
@@ -125,26 +134,33 @@ The Accredited Data Recipient application redirects the bank customer to authent
        "client_id": "<CLIENT_ID>"
       }
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo5NDQ2L29hdXRoMi90b2tlbiIsImlzcyI6IjNuendiMVZ1YVVJU3p1ak5lNlFqRHhsZ25Da2EiLCJzY29wZSI6Im9wZW5pZCBiYW5rOmFjY291bnRzLmJhc2ljOnJlYWQgYmFuazphY2NvdW50cy5kZXRhaWw6cmVhZCBiYW5rOnRyYW5zYWN0aW9uczpyZWFkIiwiY2xhaW1zIjp7InNoYXJpbmdfZHVyYXRpb24iOjYwMDAwLCJpZF90b2tlbiI6eyJhY3IiOnsidmFsdWVzIjpbInVybjpjZHMuYXU6Y2RyOjMiXSwiZXNzZW50aWFsIjp0cnVlfX0sInVzZXJpbmZvIjp7fX0sInJlc3BvbnNlX3R5cGUiOiJjb2RlIGlkX3Rva2VuIiwicmVkaXJlY3RfdXJpIjoiaHR0cHM6Ly93c28yLmNvbSIsInN0YXRlIjoic3VpdGUiLCJleHAiOjE3Mzk2NDA1MzIsIm5vbmNlIjoiOGZjNGNiYjQtMjg3Yi00MmFhLWExZDAtNjdkY2U2ZmM3NDc5IiwiY2xpZW50X2lkIjoiM256d2IxVnVhVUlTenVqTmU2UWpEeGxnbkNrYSJ9.nrLPRvsFq_D0hEEvKKqN6m1uiQUV4cJK3Oy0YeY9BK5aaOgVJ43ni5ObGCuUnarBnRoxQQC4_wgqa54qI5KDjz_PV0ntMsUDlwhSIrGiy31zI4RqUogiF70ITClnPN6g1fQFQchjb7EQcwmrV5OXkJgNI-Ly3R7MKgyECcWINRvPsS15dwd9XBy_2HSkEyDRipAb5oPFLT-GLyvE2YlHiHXatf1Dj6vFpeKWoCQ0sN6djZBVoH7NExkQ7TSY5RIc9eHCyWZDD4puj9FtRXBYJw0My8L5CgfpPUngbcAut1oYz9tsvYiRb_adjbZ87-r_RlQqhGtH15ccf7cxx_CDvg
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. The Data Holder sends the request to the consumer stating the accounts and information that the application wishes to access. 
-This request is in the format of a URL as follows. 
+    This request is in the format of a URL as follows. 
 
     Update the placeholders with relevant values and run the following in a browser to prompt the invocation of the authorize API. 
-    
+
     ```
      https://<IS_HOST>:9446/oauth2/authorize?response_type=code%20id_token&client_id=<CLIENT_ID>&scope=<YOUR_SCOPE>
      &redirect_uri=<APPLICATION_REDIRECT_URI>&state=YWlzcDozMTQ2&request=<REQUEST_OBJECT>&prompt=login&nonce=<REQUEST_OBJECT_NONCE>
     ```
-    
-    !!!note
-        For more details on authorization scope, see [Consumer Data Standards - Authorization Scope](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).
+
+    :::note
+    For more details on authorization scope, see [Consumer Data Standards - Authorization Scope](https://consumerdatastandardsaustralia.github.io/standards/#authorisation-scopes).
+    :::
 
 3. Upon successful authentication, the user is redirected to the consent authorize page. Use the login credentials of a 
-user that has a `subscriber` role. 
+    user that has a `subscriber` role. 
 
 4. The page displays the data requested by the consent such as permissions, transaction period, and expiration date. ![select accounts](../assets/img/get-started/quick-start-guide/consent-page-select-accounts.png)  
 
@@ -158,30 +174,34 @@ user that has a `subscriber` role.
     https://wso2.com/#code=5591c5a0-14d0-3ca9-bec2-c1efe86e32ce&id_token=eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJhdF9oYXNoIjoiWC14OFhwV2I3cGIyYnU2NHVLYktTUSIsInN1YiI6ImFkbWluQHdzbzIuY29tQGNhcmJvbi5zdXBlciIsImFtciI6WyJCYXNpY0F1dGhlbnRpY2F0b3IiXSwiaXNzIjoiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQ2XC9vYXV0aDJcL3Rva2VuIiwibm9uY2UiOiJuLTBTNl9XekEyTSIsInNpZCI6ImM5MDViNmFhLTBiNWEtNGM4Ni04NWYzLTk0MTI5YWRlMTVjNiIsImF1ZCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJjX2hhc2giOiJ5Y3lhNHBBN2ZfSW9uQzlpaWl1TnZ3Iiwib3BlbmJhbmtpbmdfaW50ZW50X2lkIjoiNjFmOWEzNTctNDE2MC00OGE2LTg0NWMtYzM3ZjEwN2ZlNjQ4Iiwic19oYXNoIjoiMWNIaVdBMVN2NmpKc0t6SDRFbnk1QT09XHJcbiIsImF6cCI6IllEY0c0ZjQ5RzEza1dmVnNucWRoejhnYmEyd2EiLCJleHAiOjE2Mjg3NTMxODIsImlhdCI6MTYyODc0OTU4Mn0.mGgNWc12T8a5pW6QQRF6RXoVci0ToHLCttLiCGY6KraHMzGmRFUm6jz6Clbxk_447DdoKONAqY_2uCQCRkudjMk_7sTCV-DxOIbFYctrTiU01CvjKLbNcr8tjHaaIp8rhft1K0q3h0kVxyRoo3A1WQDBJFpp2jWqqJMyjShzEf6bbojtpBw2kyAazInhnm4XFSYchGPDF7XP-vRwCHNG532dg0kXvUrdA9B7RQGnQlay296rN1pRN-GTnC6_io_anf6a5Q3ovuaxcODnbb540hnjty3scPISj38La21iQTWEBTGlBUPnXs10pXjzCmib5wng37rXV8PDslbMfRqMhg&state=YWlzcDozMTQ2&session_state=507a0e617fe39feae18795b746c09fc44dd7e8658348a6c1ce2e91778224a5a4.IFBUQh0silRELhJocuhouw
     ```
 
-   The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
-   
-### Generating user access token   
+The authorization code from the below URL is in the code parameter (code=`5591c5a0-14d0-3ca9-bec2-c1efe86e32ce`).
+
+### Generating user access token
 
 In this section, you will be generating an access token using the authorization code generated in the section [above](#authorizing-a-consent).
 
 1. Generate the client assertion by signing the following JSON payload using supported algorithms. 
 
-    !!! note
-        If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
+    :::note
+    If you have configured the [OB certificates](https://openbanking.atlassian.net/wiki/spaces/DZ/pages/252018873/OB+Root+and+Issuing+Certificates+for+Sandbox),
 
-        - Use the [transport private key](../../assets/attachments/transport-certs/obtransport.key) and
-          [transport public certificate](../../assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
-        - Use the [signing certificate](../../assets/attachments/signing-certs/obsigning.pem) and
-          [signing private keys](../../assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    - Use the [transport private key](pathname:///assets/attachments/transport-certs/obtransport.key) and
+        [transport public certificate](pathname:///assets/attachments/transport-certs/obtransport.pem) for Transport layer security testing purposes.
+    - Use the [signing certificate](pathname:///assets/attachments/signing-certs/obsigning.pem) and
+        [signing private keys](pathname:///assets/attachments/signing-certs/obsigning.key) for signing purposes.
+    :::
 
-    ``` tab="Format"
+    <Tabs>
+    <TabItem value="format" label="Format">
+
+    ```
     Format:
     {
     "alg": "<The algorithm used for signing.>",
     "kid": "<The thumbprint of the certificate.>",
     "typ": "JWT"
     }
-     
+
     {
     "iss": "<This is the issuer of the token. For example, client ID of your application>",
     "sub": "<This is the subject identifier of the issuer. For example, client ID of your application>",
@@ -190,16 +210,22 @@ In this section, you will be generating an access token using the authorization 
     "jti": "<This is an incremental unique value>",
     "aud": "<This is the audience that the ID token is intended for. For example, https://<IS_HOST>:9446/oauth2/token>"
     }
-     
+
     <signature: For DCR, the client assertion is signed by the private key of the signing certificate. Otherwise, the private signature of the application certificate is used.>
     ```
-    
-    ``` tab="Sample"
+
+    </TabItem>
+    <TabItem value="sample" label="Sample">
+
+    ```
     eyJraWQiOiIyTUk5WFNLaTZkZHhDYldnMnJoRE50VWx4SmMiLCJhbGciOiJQUzI1NiJ9.eyJzdWIiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiYXVkIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6OTQ0Ni9vYXV0aDIvdG9rZW4iLCJpc3MiOiJZRGNHNGY0OUcxM2tXZlZzbnFkaHo4Z2JhMndhIiwiZXhwIjoxNjI4Nzc0ODU1LCJpYXQiOjE2Mjg3NDQ4NTUsImp0aSI6IjE2Mjg3NDQ4NTUxOTQifQ.PkKRSDtkCyXabzLgGwAoy5C3jSORVU8X8sGDVrKpetPnjbCNx2wPlH-PzWUU1n05gdC7lDmoU21nsKLF_nE3iC-9hKEy4YsvJ7PFjNBPMOMUYDhRh9PCkPnec6f042zonb_ZifBq8r1aScUDoZ1L0hq7yjfZubwReFCWbESQ8PauuBuHRl7__kWvglthfgruQ7TTiIWiM60LWYct5TQWSF1IDcYGy03l-9OV5l260JBHPT4heLXzUQTarsh0PoWpv09xYLu8uGCexEt-HtRH8qwJGiFi5PiCA09_KyWVqbrcdjBloCmD5Kiqa1X0AnEbf9kKs0fqvcl7NN5-yVQUjg
     ```
 
+    </TabItem>
+    </Tabs>
+
 2. Run the following cURL command in a command prompt to generate the access token. Update the placeholders with relevant values.
-    
+
     ```
     curl -X POST \
     https://localhost:9446/oauth2/token \
@@ -211,7 +237,7 @@ In this section, you will be generating an access token using the authorization 
 
 3. Upon successful token generation, you can obtain a token as follows:
 
-    ``` json
+    ```json
      {
         "access_token": "eyJ4NXQiOiJOVGRtWmpNNFpEazNOalkwWXpjNU1tWm1PRGd3TVRFM01XWXdOREU1TVdSbFpEZzROemM0WkEiLCJraWQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZ19SUzI1NiIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiJpbWVzaHVAd3NvMi5jb21AY2FyYm9uLnN1cGVyIiwiYXV0IjoiQVBQTElDQVRJT05fVVNFUiIsImF1ZCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJuYmYiOjE2NTA1MTM5MzcsImF6cCI6Ik1RMVZTelhEX2kzYV9iM24weE10YzdQVXVmd2EiLCJzY29wZSI6ImJhbms6YWNjb3VudHMuYmFzaWM6cmVhZCBiYW5rOmFjY291bnRzLmRldGFpbDpyZWFkIGNvbW1vbjpjdXN0b21lci5iYXNpYzpyZWFkIGNvbW1vbjpjdXN0b21lci5kZXRhaWw6cmVhZCBvcGVuaWQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDZcL29hdXRoMlwvdG9rZW4iLCJjbmYiOnsieDV0I1MyNTYiOiIyaHlmMEF0a2Q2Rmo0cnpuLXZzRDdHT244aUtnY2JiSEpVSlhMbG1yMUlzIn0sImV4cCI6MTY1MDUxNzUzNywiaWF0IjoxNjUwNTEzOTM3LCJqdGkiOiIzNDQwYzdjZS1lODJkLTQ1NTgtYmQ0NC0xM2YxOGM1MDIxZmYiLCJjb25zZW50X2lkIjoiY2MwMjUwYzQtNWQyNS00ZDhhLWFmNGItZGFmNDdhNWE1YjM3In0.oiWyWGzv-tnLqoeuhEICOnYFyYo1f_Ix178whrWQhs-dcr4HsKjZpEiDpi1Snfz0nFV9fBC2lyn9aoSIgSkcs859GlnKP33pKQ948OC8okJi5JJ6hLs626o9nWxMftxMYBDIy-OTxa6RDmPvnUFqDbkxVDrF0q_M14M250yRtVXzCHaI5t2l6wxZTgnqF8XdAGoEVVoo_j3_9CbmYBAmsDnrZKY0X4_KZ8LGaIQp6h-7uU3RvK_zHIIMDPfQ3TR4B8WCSXdOJV0S3s9mXRBNU5C5TEMIhQEZz6quXzmuAaE1gTroJKYstryjykyHJkILLmVlIEn4Isk3CRVOtKXkhg",
         "refresh_token": "1c8ab391-deaf-38e9-8b10-9739c3e47214",
@@ -222,7 +248,7 @@ In this section, you will be generating an access token using the authorization 
         "expires_in": 3600
      }
     ```
-   
+
 ### Invoking Accounts API
 
 Once the consumer approves the account consent, the Accredited Data Recipient application is eligible to access the account details of the consumer.
@@ -232,7 +258,7 @@ full list of accounts that the consumer has authorised the application to access
 other resources for a specific AccountId.
 
 1. A sample request looks as follows:
-    
+
     ```
     curl -X GET \
     https://localhost:8243/cds-au/v1/banking/accounts' \
@@ -250,7 +276,7 @@ other resources for a specific AccountId.
     ```
 
 2. The request retrieves the account information for all the accounts related to the bank customer. Given below is a sample response:
-    
+
     ```
      {
         "data": {

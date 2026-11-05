@@ -1,4 +1,7 @@
-#Data Publishing
+---
+title: "Introduction"
+---
+# Data Publishing
 
 The Data Publishing feature gathers and monitors data in regard to the APIs invoked through WSO2 Open Banking. 
 WSO2 Open Banking Business Intelligence Toolkit captures the data through Identity Server and API Manager servers and
@@ -40,7 +43,7 @@ Following are the data elements that WSO2 API Manager publishes to WSO2 Open Ban
 |`apiSpecVersion : string`|Version of the API.| `v1`                                   |
 |`clientId : string`|Client identifier of the application| `3nzwb1VuaUISzujNe6QjDxlgnCka`          |
 |`consentId : string`|Identifier for a consent initiation request.| `ffd2e946-acd0-49c9-9d45-d5983781f4b5` |
-|`consumerId: string`|The email of the TPP| `admin@wso2.com`                       
+|`consumerId: string`|The email of the TPP| `admin@wso2.com`
 |`timestamp :  long`|The timestamp parameter of the publishing function.| `1560832453`                           |
 |`statusCode : int`|Status code of the consent.| `200`                                  |
 |`messageId : string`|The status message responded to the status code.| `Ok`                                   |
@@ -49,8 +52,8 @@ Following are the data elements that WSO2 API Manager publishes to WSO2 Open Ban
 |`backendLatency: long`|Latency of the backend.| `923`                                  |
 |`requestMediationLatency: long`|The time taken for the request mediation. `(backendStartTime - requestInTime`| `2594`                                 |
 |`responseLatency: long`|The time duration between the request is sent and the response is received.| `3659`                                 |
-|`responseMediationLatency: long`|The time taken for the response mediation. `(responseMediationTime - backendTime)`| `142`                                  |    
+|`responseMediationLatency: long`|The time taken for the response mediation. `(responseMediationTime - backendTime)`| `142`                                  |
 
-###Data Summarization
+### Data Summarization
 You can write a summarization script for the data stored using Siddhi Applications. For more information, see the WSO2 Streaming
 Integrator documentation on [Summarizing Data](https://ei.docs.wso2.com/en/latest/streaming-integrator/guides/summarizing-data/). 
