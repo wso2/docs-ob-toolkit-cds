@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 # Configuring Data Sharing for Secondary Users
 
 WSO2 Open Banking supports secondary user data-sharing obligations. This requirement is introduced to the Consumer Data Specification via Decision Proposal 160: Secondary Users. 
@@ -8,8 +11,9 @@ An account holder can nominate secondary users for a certain account to share da
 
 The secondary users should be able to include secondary accounts in a data-sharing arrangement and account holders should have a means to withdraw data sharing of secondary accounts from such data-sharing arrangements and to be notified about the authorization, withdrawal and expiration of such data-sharing arrangements.
 
-!!! info
-    This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::info
+This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::
 
 ## Integrating with the bank back-end
 
@@ -85,7 +89,7 @@ A sample response is given below:
       { ......
       },
       ]
-   
+
    }
 }
 ```
@@ -94,4 +98,6 @@ A sample response is given below:
 
 With this feature enabled, the consent account selection page shows the eligible and ineligible secondary accounts based on the data filtered by `OBCDSAuthServletImpl`. Eligible accounts will be selectable to bind to consent and ineligible accounts will be disabled for selection and a descriptive message will be shown for them on why they are disabled and instructing how to request sharing rights from the account holder.
 
-    ![unavailable accounts](../assets/img/learn/account-management/unavailable-accounts.png)
+```
+![unavailable accounts](../assets/img/learn/account-management/unavailable-accounts.png)
+```

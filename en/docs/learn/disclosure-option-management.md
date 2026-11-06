@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 # Disclosure Option Management
 
 Data Holders must provide joint account holders with [Disclosure Option Management (DOMS)](https://d61cds.notion.site/Joint-account-disclosure-option-management-service-365dcb00593b4cd89864da6d59732ff4).
@@ -8,8 +11,9 @@ This feature provides the ability for joint account holders to block the sharing
 
 The bank is expected to invoke this endpoint when there is a change in the DOMS status in the DOMS dashboard of the bank.
 
-!!! info
-    This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::info
+This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::
 
 # Endpoints
 

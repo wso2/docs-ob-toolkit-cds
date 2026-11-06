@@ -1,3 +1,6 @@
+---
+title: "Configuration"
+---
 # Configurations
 
 ## Enabling the ceasing data sharing feature for secondary users

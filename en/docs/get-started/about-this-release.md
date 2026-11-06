@@ -1,3 +1,6 @@
+---
+title: "About this Release"
+---
 WSO2 Open Banking CDS Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become 
 regulatory-compliant with Consumer Data Right (CDR) and Consumer Data Standard (CDS) v1.8.0 specification.
 
@@ -13,7 +16,7 @@ For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-ba
 
 ## What is new in this release
 
-####WSO2 Open Banking Identity Server CDS Toolkit
+#### WSO2 Open Banking Identity Server CDS Toolkit
 
 - [Pushed Authorization](../learn/pushed-authorization-endpoint.md)
 - [Consumer Data Right (CDR) Arrangement Revocation API](../learn/arrangement-revocation-api.md)
@@ -24,7 +27,7 @@ For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-ba
 - [Self Care Portal for Consent Management](../try-out/consent-manager.md#using-consent-manager)
 - User Interface Improvements for Consent Flow
 
-####WSO2 Open Banking API Manager CDS Toolkit
+#### WSO2 Open Banking API Manager CDS Toolkit
 
 - [Support for Consumer Data Standard (CDS) API v1.8.0](../try-out/account-and-transaction-flow.md)
 - Consumer Data Standard (CDS) Error Format
@@ -34,6 +37,6 @@ For more information on WSO2 Open Banking Toolkit, see the [Get Started](open-ba
 - [Consumer Data Standard Administration API v1.3.0](../learn/administration-api.md)
 - Response Schema Validation
 
-####WSO2 Open Banking Business Intelligence CDS Toolkit
+#### WSO2 Open Banking Business Intelligence CDS Toolkit
 
 - [Siddhi Apps for publishing data and to support Metrics data processing](../learn/data-publishing.md)

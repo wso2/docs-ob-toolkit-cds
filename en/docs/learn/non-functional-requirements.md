@@ -1,3 +1,6 @@
+---
+title: "Non Functional Requirements"
+---
 Non-Functional Requirements (NFR) specifies the quality attribute of a software system. They judge the software system 
 based on Responsiveness, Usability, Security, Portability and other non-functional standards that are critical to the 
 success of the software system. The non-functional requirements (NFRs) for the Consumer Data Right regime cover a number of considerations.
@@ -33,8 +36,9 @@ The availability requirement does not include planned outages. Planned outages s
 - Notified to data recipients with a wait time of at least a week for normal crashes.
 - If the modification is necessary to fix a critical service or security issue, it may occur without notice.
 
-!!! note
-      Service availability for data holders and secondary data holders must be 99.5% per month.
+:::note
+Service availability for data holders and secondary data holders must be 99.5% per month.
+:::
 
 ## Performance Requirements
 
@@ -45,14 +49,17 @@ stack is instrumented, and that the Data Holder will not have control over all o
 Data Recipient Software Product and the Data Holder.
 
 In light of these considerations, the performance requirement for Data Holders is **95% of calls per hour responded to within a nominated threshold.**
- 
-??? tip "The nominated threshold for each end point will be according to the following table:"
 
-    | Tier | Response Time |Applies To...|
-    |---------|---------|---------|
-    |High Priority|**1000ms**|All calls to the following endpoints: <ul><li>All InfoSec endpoints including Dynamic Client Registration</li><li>CDR Arrangement Revocation</li></ul>|
-    |Low Priority|**1500ms**|Customer Present calls to the following endpoints: <ul><li>Get Account Detail</li><li>Get Account Balance</li><li>Get Bulk Balances</li><li>Get Balances For Specific Accounts</li><li>Get Transactions For Account</li><li>Get Transaction Detail</li><li>Get Payees</li><li>Get Payee Detail</li><li>Get Direct Debits For Account</li><li>Get Scheduled Payments For Account</li><li>Get Scheduled Payments Bulk</li><li>Get Scheduled Payments For Specific Accounts</li></ul>|
-    |Large Payload|**6000ms**|Any Unattended calls to the following endpoints: <ul><li>Get Bulk Direct Debits</li><li>Get Direct Debits For Specific Accounts</li></ul>|
+<details className="ob-details ob-details--tip">
+<summary>The nominated threshold for each end point will be according to the following table:</summary>
+
+| Tier | Response Time |Applies To...|
+|---------|---------|---------|
+|High Priority|**1000ms**|All calls to the following endpoints: <ul><li>All InfoSec endpoints including Dynamic Client Registration</li><li>CDR Arrangement Revocation</li></ul>|
+|Low Priority|**1500ms**|Customer Present calls to the following endpoints: <ul><li>Get Account Detail</li><li>Get Account Balance</li><li>Get Bulk Balances</li><li>Get Balances For Specific Accounts</li><li>Get Transactions For Account</li><li>Get Transaction Detail</li><li>Get Payees</li><li>Get Payee Detail</li><li>Get Direct Debits For Account</li><li>Get Scheduled Payments For Account</li><li>Get Scheduled Payments Bulk</li><li>Get Scheduled Payments For Specific Accounts</li></ul>|
+|Large Payload|**6000ms**|Any Unattended calls to the following endpoints: <ul><li>Get Bulk Direct Debits</li><li>Get Direct Debits For Specific Accounts</li></ul>|
+
+</details>
 
 ## Session Requirements
 

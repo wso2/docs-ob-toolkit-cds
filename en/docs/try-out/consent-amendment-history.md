@@ -1,4 +1,10 @@
-#Consent Amendment History Retrieval
+---
+title: "Consent Amendment History Retrieval"
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Consent Amendment History Retrieval
 
 This endpoint is to retrieve the consent amendment history when the CDR Arrangement ID and basic authentication details are provided as query parameters. For more
 details, see [Consent Amendment History](../learn/consent-amendment-history.md).
@@ -9,11 +15,17 @@ This request is in the format of a URL as follows:
 
 Update the placeholders with relevant values and run the following in a browser to prompt the consent amendment history data.
 
-``` tab="Request"
+<Tabs>
+<TabItem value="request" label="Request">
+
+```
 https://<IS_HOST>:9446/api/openbanking/consent/admin/consent-amendment-history?cdrArrangementID=<CDR_ARRANGEMENT_ID>&UserID=<USER_ID>
 ```
 
-``` tab="Response"
+</TabItem>
+<TabItem value="response" label="Response">
+
+```
 {
    "consentAmendmentHistory":[
       {
@@ -114,3 +126,6 @@ https://<IS_HOST>:9446/api/openbanking/consent/admin/consent-amendment-history?c
             }
          }
 ```
+
+</TabItem>
+</Tabs>

@@ -1,3 +1,6 @@
+---
+title: "Open Banking"
+---
 ## What is Open Banking?
 
 Open banking is a concept that enables banks, customers, and third parties to use and benefit more from the vast silos 
@@ -42,34 +45,34 @@ of them.
 ![before and after open banking](../assets/img/get-started/open-banking/before-after-ob.png)
 
 ## Stakeholders in Open Banking
-   
+
 As described in the [Consumer Data Standards](https://consumerdatastandardsaustralia.github.io/standards/#introduction), 
 the open banking ecosystem comprises the following main stakeholders:
-   
-   * **Consumer** - The end-user who has benefited from CDR, the consumer can give permission to the relevant data holder 
-   to share their financial data or authorize transactions with the accredited data recipients.
 
-   * **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR consumers' data from a 
-   Data Holder with the consent of the consumer. Data Recipients use standard APIs to access consumer data to provide 
-   services. A Data Recipient needs to be authorized by the ACCC, after successful authorization, an Accredited Data 
-   Recipient can request banking data from a Data Holder with the consent of the consumer.
+* **Consumer** - The end-user who has benefited from CDR, the consumer can give permission to the relevant data holder 
+    to share their financial data or authorize transactions with the accredited data recipients.
 
-   * **Data Holder** -  The Data Holder is an entity such as a bank that provides and maintains a payment account for 
-   consumers. With the consumer's consent, the Data Holders share account and transaction data via secure API endpoints.
+* **Data Recipient** - A Data Recipient (DR) is an accredited party that can request CDR consumers' data from a 
+    Data Holder with the consent of the consumer. Data Recipients use standard APIs to access consumer data to provide 
+    services. A Data Recipient needs to be authorized by the ACCC, after successful authorization, an Accredited Data 
+    Recipient can request banking data from a Data Holder with the consent of the consumer.
 
-   * **Treasury** -  The lead regulatory body for the CDR regime and this organization serves the CDR consumers by 
-   creating and imposing rules.
-   
-   * **ACCC** - The Australian Competition and Consumer Commission (ACCC) is a co-regulator for the CDR regime. The ACCC works 
-   with the Treasury, the Data Standards Body and the OAIC to implement the CDR. <br/> The ACCC is responsible for the accreditation 
-   of Data Recipients and maintaining a registry of accredited data holders and persons. It also guides stakeholders about
-   their rights and obligations under the CDR. For more information, see [ACCC’s roles](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0).
-   
-   * **Merchant** - A vendor who accepts online payments in exchange for their products or services. A merchant can 
-   use a single Data Recipient application to accept payments easily from multiple banks. 
-   
- There are other stakeholders such as the government, technology providers, and consultancy service providers that 
- are involved in open banking. 
+* **Data Holder** -  The Data Holder is an entity such as a bank that provides and maintains a payment account for 
+    consumers. With the consumer's consent, the Data Holders share account and transaction data via secure API endpoints.
+
+* **Treasury** -  The lead regulatory body for the CDR regime and this organization serves the CDR consumers by 
+    creating and imposing rules.
+
+* **ACCC** - The Australian Competition and Consumer Commission (ACCC) is a co-regulator for the CDR regime. The ACCC works 
+    with the Treasury, the Data Standards Body and the OAIC to implement the CDR. <br /> The ACCC is responsible for the accreditation 
+    of Data Recipients and maintaining a registry of accredited data holders and persons. It also guides stakeholders about
+    their rights and obligations under the CDR. For more information, see [ACCC’s roles](https://www.accc.gov.au/focus-areas/consumer-data-right-cdr-0).
+
+* **Merchant** - A vendor who accepts online payments in exchange for their products or services. A merchant can 
+    use a single Data Recipient application to accept payments easily from multiple banks. 
+
+There are other stakeholders such as the government, technology providers, and consultancy service providers that 
+are involved in open banking. 
 
 ## Customer Stories and Use Cases
 WSO2 Open Banking delivers comprehensive technology and strategic consultancy to help you execute 

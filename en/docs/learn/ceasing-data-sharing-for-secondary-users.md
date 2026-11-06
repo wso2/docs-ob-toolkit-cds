@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 # Ceasing Data Sharing for Secondary Users
 
 This allows an account holder to indicate that they no longer approve disclosure initiated by a secondary user to a particular accredited party. For more information, see [Ceasing Secondary User Sharing – Consumer Data Standards Australia](https://cdr-support.zendesk.com/hc/en-us/articles/5465006047375).
@@ -10,8 +13,9 @@ This feature allows an account holder to perform the following two activities.
 
 2. The account holder can block a legal entity to cease the disclosure initiated by a secondary user for a particular account to that legal entity so that during the consent creation and amendment flows, the relevant secondary account will be unavailable for consents arising through the aforementioned legal entity and all the ADRs under that legal entity.
 
-!!! info
-    This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::info
+This is only available as a WSO2 Update from **WSO2 Open Banking Identity Server CDS Toolkit Level 1.0.0.8** onwards. For more information on updating, see [Getting WSO2 Updates](../install-and-setup/setting-up-servers.md#getting-wso2-updates).
+:::
 
 ## Updating the sharing status for a legal entity
 

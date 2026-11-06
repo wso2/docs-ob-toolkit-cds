@@ -1,3 +1,6 @@
+---
+title: "WSO2 Open Banking CDS Toolkit"
+---
 WSO2 Open Banking CDS Toolkit is based on the WSO2 Open Banking Accelerator. The toolkit is a purpose-built solution for
 regulatory compliance and supports the Australia Consumer Data Right and Consumer Data Standards. It helps align banking 
 and regulatory needs with technology infrastructures and regulatory expertise to quickly satisfy compliance. To learn 
@@ -13,4 +16,4 @@ WSO2 Open Banking Accelerator is a collection of technologies that increases the
 adopting open banking compliance. Instead of building a solution from scratch, you can use WSO2 Open Banking
 Accelerator to meet all legislative requirements with additional benefits beyond compliance. The accelerator run on top
 of WSO2 Identity Server and WSO2 API Manager. For more information,
-see [WSO2 Open Banking Accelerator](https://ob.docs.wso2.com/en/latest/get-started/wso2-open-banking-accelerator/) documentation.
+see [WSO2 Open Banking Accelerator](https://ob.docs.wso2.com/en/latest/) documentation.

@@ -1,8 +1,11 @@
+---
+title: "Configuration"
+---
 # Configuration
 
 ## Enabling Secondary User Accounts
 
-Follow the below instructions to enable the secondary user account feature:		
+Follow the below instructions to enable the secondary user account feature:     
 
 1. Open the `<IS_HOME>/repository/conf/deployment.toml` file.
 

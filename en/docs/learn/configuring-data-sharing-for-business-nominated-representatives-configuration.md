@@ -1,3 +1,6 @@
+---
+title: "Configuration"
+---
 # Enabling the Business User Profile
 
 There are 2 profile types as `individual` and `organization`. Following are the 2 ways to get the profile type and you can configure.
@@ -25,8 +28,8 @@ To enable the profile selection page, follow the steps below:
     ```toml
     [open_banking_cds.bnr]
     customer_type_selection_method="profile_selection"
-    ```      
-   
+    ```
+
 Once the customers select the relevant profile from the profile page, they are redirected to the account selection page which displays the accounts available for the user under the selected organisation.
 
 The interface of the account selection page is shown below.
@@ -74,4 +77,4 @@ Follow the steps below to configure the `deployment.toml` file based on your req
     [open_banking_cds.bnr]
     validate_accounts_on_retrieval=true
     ```
-   
+    

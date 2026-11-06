@@ -1,3 +1,6 @@
+---
+title: "Introduction"
+---
 # API Security
 
 Open Banking allows Accredited Data Recipients to access financial data through open APIs, which requires greater API security. 
@@ -34,12 +37,12 @@ endpoint level.
 There are two scenarios to consider for the MTLS validation at each component:
 
 1. If the client directly initiates an MTLS connection, the transport certificate is read from the TLS handshake. The issuer
-   of the certificate needs to be present in the truststore of the respective component.
+    of the certificate needs to be present in the truststore of the respective component.
 
 2. If the MTLS terminates at the load balancer prior to the gateway or Identity Server, the client certificate must be
-   forwarded as an HTTP header. Both WSO2 API Manager and WSO2 Identity Server are configured to read the transport certificate
-   from the header named **`x-wso2-mutual-auth-cert`** by default. The load balancer is expected to perform issuer validation
-   and inject the PEM-encoded client certificate into this header.
+    forwarded as an HTTP header. Both WSO2 API Manager and WSO2 Identity Server are configured to read the transport certificate
+    from the header named **`x-wso2-mutual-auth-cert`** by default. The load balancer is expected to perform issuer validation
+    and inject the PEM-encoded client certificate into this header.
 
 The certificate header name and encoding behaviour can be customised. For configuration details, see
 [API Security Configuration](api-security-configuration.md).
@@ -105,38 +108,44 @@ during Authorization flows:
 WSO2 Open Banking CDS Toolkit enhances the security of the authorisation code grant type in authorisation endpoint security with 
 request object and response type attributes.
 
-???Tip "Once decoded, the request object that is used to get the Data Recipient's information looks as follows:"
-    ```
-    {
-    "kid": "<Certificate fingerprint>",
-    "typ": "JWT",
-    "alg": "<Supported algorithm>"
-    }
-    {
-    "iss": "<Application ID>",
-    "aud": "<Audience the ID Token is intended for. For example,https://<WSO2_OB_APIM_HOST>:8243/token>",
-    "response_type": "<code:Retrieves authorize code, code id_token: Retrieves authorize token and ID token>",
-    "exp": <A JSON number representing the number of seconds from 1970-01-01T00:00:00Z to the UTC expiry time>,
-    "client_id": "<Application ID>",
-    "redirect_uri": "<Redirect URL of the client application>",
-    "scope": "<Available scopes are bank:accounts.basic:read, bank:accounts.detail:read, bank:transactions:read, bank:payees:read, bank:regular_payments:read, common:customer.basic:read, and common:customer.detail:read >",
-    "state": "af0ifjsldkj",
-    "nonce": "<Prevents replay attacks>",
-    "claims": {
-    "sharing_duration": "<Requested duration for sharing, in seconds>",
-    "id_token": {
-    "acr": {
-    "values": ["urn:cds.au:cdr:3"]
-    }
-    }
-    }
-    }
-    <signature>
-    ```
+<details className="ob-details ob-details--tip">
+<summary>Once decoded, the request object that is used to get the Data Recipient's information looks as follows:</summary>
 
-    !!!Note
-        The `sharing_duration` claim in the request object defines the validity period of the refresh token. This is to limit the validity of the consent to the defined period.
-    
-!!!Note
-    The Token Introspection Endpoint and Token Revocation Endpoints are protected with Private Key JWT Client Authentication 
-    and therefore it is mandatory to have the `client-id` parameter in these request bodies.
+```
+{
+"kid": "<Certificate fingerprint>",
+"typ": "JWT",
+"alg": "<Supported algorithm>"
+}
+{
+"iss": "<Application ID>",
+"aud": "<Audience the ID Token is intended for. For example,https://<WSO2_OB_APIM_HOST>:8243/token>",
+"response_type": "<code:Retrieves authorize code, code id_token: Retrieves authorize token and ID token>",
+"exp": <A JSON number representing the number of seconds from 1970-01-01T00:00:00Z to the UTC expiry time>,
+"client_id": "<Application ID>",
+"redirect_uri": "<Redirect URL of the client application>",
+"scope": "<Available scopes are bank:accounts.basic:read, bank:accounts.detail:read, bank:transactions:read, bank:payees:read, bank:regular_payments:read, common:customer.basic:read, and common:customer.detail:read >",
+"state": "af0ifjsldkj",
+"nonce": "<Prevents replay attacks>",
+"claims": {
+"sharing_duration": "<Requested duration for sharing, in seconds>",
+"id_token": {
+"acr": {
+"values": ["urn:cds.au:cdr:3"]
+}
+}
+}
+}
+<signature>
+```
+
+:::note
+The `sharing_duration` claim in the request object defines the validity period of the refresh token. This is to limit the validity of the consent to the defined period.
+:::
+
+</details>
+
+:::note
+The Token Introspection Endpoint and Token Revocation Endpoints are protected with Private Key JWT Client Authentication 
+and therefore it is mandatory to have the `client-id` parameter in these request bodies.
+:::
