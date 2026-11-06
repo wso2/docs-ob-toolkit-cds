@@ -1,0 +1,60 @@
+# WSO2 Open Banking CDS Toolkit Documentation
+
+
+## en
+
+- [Search the documentation](/search.md): Documentation for WSO2 Open Banking CDS Toolkit
+- [About this Release](/get-started/about-this-release.md): WSO2 Open Banking CDS Toolkit 1.0 provides the technology requirements that banks need to digitally transform and become
+- [Configure SMS OTP Authenticator](/get-started/configure-sms-otp-authenticator.md): This document provides step by step instructions to set up SMS OTP configurations. For more information,
+- [Configure Users and Roles](/get-started/configure-users-and-roles.md): Now you have started the servers, let’s create the users and define their permissions and  roles.
+- [Data Publishing](/get-started/data-publishing-try-out.md): Set up WSO2 Open Banking Business Intelligence Accelerator and WSO2 Open Banking Business Intelligence CDS Toolkit
+- [Dynamic Client Registration](/get-started/dynamic-client-registration.md): This page explains how to onboard an Accredited Data Recipient application using the Dynamic Client Registration API.
+- [Open Banking Requirements](/get-started/open-banking-requirements.md): When you implement an open banking architecture, it is not entirely about securely exposing banking APIs to
+- [Open Banking](/get-started/open-banking.md): What is Open Banking?
+- [Get Started](/get-started/quick-start-guide.md): WSO2 Open Banking CDS Toolkit contains the customizations done on top of WSO2 Open Banking Accelerator to comply with
+- [Regulations and Standards](/get-started/regulations-and-standards.md): Regulations and specifications are enforced by the authorities to standardise the open banking requirements and
+- [Set up Toolkits](/get-started/set-up-toolkits.md): This section guides you to set up and prepare your servers to run WSO2 Open Banking CDS Toolkit.
+- [Tryout Flow](/get-started/try-out-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Consumer Data Standards API.
+- [WSO2 Open Banking CDS Toolkit](/get-started/wso2-open-banking-cds-toolkit.md): WSO2 Open Banking CDS Toolkit is based on the WSO2 Open Banking Accelerator. The toolkit is a purpose-built solution for
+- [Configuring API Manager](/install-and-setup/configuring-api-manager-for-ob.md): WSO2 Open Banking CDS Toolkit contains TOML-based configurations. All the server-level configurations of the
+- [Configuring Identity Server](/install-and-setup/configuring-identity-server-for-ob.md): WSO2 Open Banking CDS Toolkit contains TOML-based configurations. All the server-level configurations of the Identity
+- [Configuring SMS OTP Authenticator](/install-and-setup/configuring-sms-otp-authenticator.md): This document provides step by step instructions to set up SMS OTP configurations.
+- [Configuring Users and Roles](/install-and-setup/configuring-users-and-roles.md): Now you have started the servers, let’s create the users and define their permissions and  roles.
+- [Prerequisites](/install-and-setup/prerequisites.md): WSO2 Open Banking CDS Toolkit is a purpose-built solution for regulatory compliance that supports the Australian Consumer
+- [Setting up databases](/install-and-setup/setting-up-databases.md): Once you have successfully prepared the environment for the deployment, you can configure the databases.
+- [Setting up servers](/install-and-setup/setting-up-servers.md): This section guides you to set up and prepare the servers to run WSO2 Open Banking CDS Toolkit.
+- [Upgrading the solution](/install-and-setup/upgrading-the-solution.md): This document walks you through the process of upgrading your WSO2 Open Banking 2.0 setup to WSO2 Open Banking 3.0 (Accelerator Model).
+- [Administration API](/learn/administration-api.md): WSO2 Open Banking supports collecting operational statistics from the Data Holder on the operation of their Consumer
+- [Configuration](/learn/api-security-configuration.md): Configuring MTLS Enforcement Executor
+- [API Security](/learn/api-security.md): Open Banking allows Accredited Data Recipients to access financial data through open APIs, which requires greater API security.
+- [CDR Arrangement Revocation API](/learn/arrangement-revocation-api.md): When a customer revoke granted consents there should be a mechanism to inform relevant parties that the particular CDR
+- [Cdr data reporting](/learn/cdr-data-reporting.md): WSO2 Open Banking CDS Toolkit provides the capability for Data Holders to fulfill reporting requirement.
+- [Configurations](/learn/ceasing-data-sharing-for-secondary-users-configuration.md): Enabling the ceasing data sharing feature for secondary users
+- [Ceasing Data Sharing for Secondary Users](/learn/ceasing-data-sharing-for-secondary-users.md): This allows an account holder to indicate that they no longer approve disclosure initiated by a secondary user to a particular accredited party. For more information, see Ceasing Secondary User Sharing – Consumer Data Standards Australia.
+- [Enabling the Business User Profile](/learn/configuring-data-sharing-for-business-nominated-representatives-configuration.md): There are 2 profile types as individual and organization. Following are the 2 ways to get the profile type and you can configure.
+- [Configuring Data Sharing for Business Nominated Representatives](/learn/configuring-data-sharing-for-business-nominated-representatives.md): This requirement is introduced to the Consumer Data Specification on 22 December 2020 via Competition and Consumer (Consumer Data Right) Amendment Rules (No. 3) 2020.
+- [Configuration](/learn/configuring-data-sharing-for-secondary-users-configuration.md): Enabling Secondary User Accounts
+- [Configuring Data Sharing for Secondary Users](/learn/configuring-data-sharing-for-secondary-users.md): WSO2 Open Banking supports secondary user data-sharing obligations. This requirement is introduced to the Consumer Data Specification via Decision Proposal 160: Secondary Users.
+- [Consent Amendment History](/learn/consent-amendment-history.md): Any change that is performed on an active consent is considered as an amendment. WSO2 Open Banking CDS Toolkit provides
+- [Consent Authorization](/learn/consent-authorization-intro.md): During the consent authorization process, the Data Holder redirect customers to provide consent for Accredited Data Recipients
+- [Consent Management](/learn/consent-management.md): Open banking is a concept that lets third-party financial service providers access customer’s financial data and
+- [Consumer Authentication](/learn/consumer-authentication.md): Consumer Authentication is a mechanism used to authenticate a user that accesses banking information via an
+- [Tryout](/learn/data-publishing-tryout.md): Set up WSO2 Open Banking Business Intelligence Accelerator and WSO2 Open Banking Business Intelligence CDS Toolkit
+- [Data Publishing](/learn/data-publishing.md): The Data Publishing feature gathers and monitors data in regard to the APIs invoked through WSO2 Open Banking.
+- [Configurations](/learn/disclosure-option-management-configuration.md): Enabling the Disclosure Option Management Feature
+- [Disclosure Option Management](/learn/disclosure-option-management.md): Data Holders must provide joint account holders with Disclosure Option Management (DOMS).
+- [Configuration](/learn/dynamic-client-registration-configuration.md): Configuring DCR in WSO2 Identity Server
+- [Dynamic Client Registration](/learn/dynamic-client-registration.md): The Dynamic Client Registration (DCR) API provides a mechanism to dynamically register OAuth 2.0 clients with
+- [Metadata Cache Management](/learn/metadata-cache-management.md): Data Holders must be able to respond to changes in the status of Data Recipients and associated software products on the
+- [Non Functional Requirements](/learn/non-functional-requirements.md): Non-Functional Requirements (NFR) specifies the quality attribute of a software system. They judge the software system
+- [Pushed Authorization Endpoint](/learn/pushed-authorization-endpoint.md): The Pushed Authorization Request (PAR) endpoint is an HTTP API at the authorization server. This endpoint accepts HTTP POST requests with
+- [Token Authentication](/learn/token-authentication.md): When an Accredited Data Recipient registers an application, a consumer-key and a consumer-secret is given for that application.
+- [WSO2 Open Banking CDS Toolkit Documentation](/page-not-found.md): {/*
+- [Account and Transaction flow](/try-out/account-and-transaction-flow.md): This document provides step by step instructions to deploy, subscribe, and invoke the Account and Transaction API.
+- [Administration API](/try-out/admin-api.md): The page explains how to deploy the Administration API and try out the flow.
+- [CDR Arrangement Revocation API](/try-out/arrangement-revocation-api-flow.md): When a customer revokes a granted consent there should be a mechanism to inform relevant parties that the particular CDR
+- [Consent Amendment History Retrieval](/try-out/consent-amendment-history.md): This endpoint is to retrieve the consent amendment history when the CDR Arrangement ID and basic authentication details are provided as query parameters. For more
+- [Consent Manager](/try-out/consent-manager.md): After a certain period, bank customers may need to view, update, or revoke consents they have granted to Accredited Data Recipient
+- [Deploy Custom Throttling Policies](/try-out/custom-throttling-policies.md): Custom throttling allows system administrators to define dynamic rules for specific use cases. When a custom throttling
+- [Dynamic Client Registration](/try-out/dynamic-client-registration-flow.md): This page explains how to onboard Accredited Data Recipient applications using the Dynamic Client Registration API.
+- [Welcome to the WSO2 Open Banking CDS Toolkit Documentation!](/index.md): Welcome to the WSO2 Open Banking CDS Toolkit Documentation!
